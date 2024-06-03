@@ -5,7 +5,7 @@ public class FileReader implements IReader {
 
   // returns readable to file
   @Override
-  public Readable getReadable() {
+  public StringBuilder getReadable() {
     return null;
   }
 }

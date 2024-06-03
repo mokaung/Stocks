@@ -11,7 +11,7 @@ public class CSVReader implements IReader {
   }
 
   @Override
-  public Readable getReadable() {
+  public StringBuilder getReadable() {
     try {
       FileReader fileReader = new FileReader(filename);
       Scanner scanner = new Scanner(fileReader);
@@ -25,5 +25,6 @@ public class CSVReader implements IReader {
     } catch (FileNotFoundException e) {
       throw new RuntimeException(e);
     }
+    return null;
   }
 }

@@ -14,7 +14,7 @@ public class Main {
 
     IReader streamReader = new AlphaVantageStreamReader();
     IReader fileReader = new FileReader();
-    model.populate(fileReader.getReadable());
+//    model.populate(fileReader.getReadable());
 
     IController controller = new ControllerImpl();
     controller.go();
