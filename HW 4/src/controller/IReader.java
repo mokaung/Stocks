@@ -1,5 +1,5 @@
 package controller;
 
 public interface IReader {
-  StringBuilder getReadable();
+  Readable getReadable();
 }

@@ -1,30 +1,32 @@
 package controller;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Scanner;
 
 public class CSVReader implements IReader {
   private final String filename;
 
-  public CSVReader(String fileName) {
+  public CSVReader(String fileName, String filename) {
+    this.filename = filename;
   }
 
   @Override
-  public StringBuilder getReadable() {
+  public Readable getReadable() {
     try {
-      FileReader fileReader = new FileReader(filename);
-      Scanner scanner = new Scanner(fileReader);
-      while (scanner.hasNextLine()) {
-        int first = scanner.nextInt();
-        scanner.next();
-        int sec = scanner.nextInt();
-        StringBuilder builder = new StringBuilder();
-        builder.append(first).append(sec);
-      }
-    } catch (FileNotFoundException e) {
-      throw new RuntimeException(e);
+      return new FileReader(filename);
+    } catch (Exception e) {
+      throw new IllegalArgumentException("d");
     }
-    return null;
+  }
+
+  public static interface IReader {
+    Readable getReadable();
   }
 }
+
+//      Scanner scanner = new Scanner(fileReader);
+//      while (scanner.hasNextLine()) {
+//        int first = scanner.nextInt();
+//        scanner.next();
+//        int sec = scanner.nextInt();
+//        StringBuilder builder = new StringBuilder();
+//        builder.append(first).append(sec);
