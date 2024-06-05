@@ -1,26 +1,21 @@
 package controller.command;
 
+import java.util.Calendar;
+
 import model.IModel;
 
 public class MovingAverage implements ICommand {
-  private final int averageWindow;
-  private final int date;
+  private final int window;
+  private final Calendar date;
+  private final String ticker;
 
-  public MovingAverage(int averageWindow, int date) {
-    this.averageWindow = averageWindow;
+  public MovingAverage(int window, Calendar date, String ticker) {
+    this.window = window;
     this.date = date;
+    this.ticker = ticker;
   }
   @Override
   public Double run(IModel model) {
-    double movingSum = 0;
-    double movingAverage;
-    for (int i=averageWindow;i>0;i--) {
-      //apparently you can calculate moving averages on closing, opening, high, low
-      //currently average is based on closing prices
-      //currently uses date-i, assumes that date will be an int
-      movingSum = movingSum + model.tempGetClose(date-i);
-    }
-    movingAverage = movingSum / averageWindow;
-    return movingAverage;
+    return model.movingAverage(window, date, ticker);
   }
 }

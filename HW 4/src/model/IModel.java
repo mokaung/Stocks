@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public interface IModel {
   /**
    * Splits the output of AlphaVantage and adds the information of the stock into the specific fields.
@@ -8,15 +11,15 @@ public interface IModel {
    */
   public void populate(Readable readable, String ticker);
 
-  void crossover();
+  ArrayList<Calendar> crossover(int window, Calendar date1, Calendar date2, String ticker);
 
-  void gainOrLoss();
+  Double gainOrLoss(Calendar date1, Calendar date2, String ticker);
 
-  void movingAverage();
+  Double movingAverage(int window, Calendar date, String ticker);
 
-  IStock getStock();
+//  IStock getStock(String ticker);
 
-  IPortfolio createPortfolio(String ticker, int share);
+//  IPortfolio createPortfolio(String ticker, int share);
 
   // has all teh commands here, but implemented under controller
   // think model as storage

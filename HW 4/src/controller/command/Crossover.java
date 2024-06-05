@@ -1,6 +1,7 @@
 package controller.command;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import model.IModel;
 
@@ -8,26 +9,19 @@ import model.IModel;
  * returns a list of dates that can be shown to the user through controller.
  */
 public class Crossover implements ICommand {
-  private final int date1;
-  private final int date2;
-  private final int averageWindow;
+  private final Calendar date1;
+  private final Calendar date2;
+  private final int window;
+  private final String ticker;
 
-  public Crossover(int averageWindow, int date1, int date2) {
+  public Crossover(int window, Calendar date1, Calendar date2, String ticker) {
     this.date1 = date1;
     this.date2 = date2;
-    this.averageWindow = averageWindow;
+    this.window = window;
+    this.ticker = ticker;
   }
   @Override
-  public ArrayList<Integer> run(IModel model) {
-    ArrayList<Integer> results = new ArrayList<Integer>();
-    //assuming we can subtract dates
-    for (int i=date1;i<(date2);i++) {
-      MovingAverage response = new MovingAverage(averageWindow, i);
-      //assuming MovingAverage's run will return a double
-      double movingAverageResult = response.run(model);
-      if (movingAverageResult >= model.tempGetClose(i));
-      results.add(i);
-    }
-    return results;
+  public ArrayList<Calendar> run(IModel model) {
+    return model.crossover(window, date1, date2, ticker);
   }
 }
