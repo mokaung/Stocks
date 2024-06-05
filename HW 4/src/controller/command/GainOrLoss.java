@@ -2,24 +2,20 @@ package controller.command;
 
 import model.IModel;
 
-// command should take view instead of Appendable in
-// view class has write message
-// stra pattern:
-/*
-    iStock stock = this.stocks.get(ticker)
-    for (itn i=0; i < stock.getOpen().size() ; i++) {
-    double sum = 0;
-
-    opens sotck.getOpens()
-    sum += opens.getOpens()
-    r
- */
-
 public class GainOrLoss implements ICommand {
-
-
+  private final int date1;
+  private final int date2;
+  public GainOrLoss(int date1, int date2) {
+    this.date1 = date1;
+    this.date2 = date2;
+  }
   @Override
-  public void run(IModel model) {
-
+  public Double run(IModel model) {
+//    double startingClosePrice = model.tempGetClose(date1);
+//    double endingClosePrice = model.tempGetClose(date2);
+//    double diff = endingClosePrice - startingClosePrice;
+//    return diff;
+    Double result = model.gainOrLoss();
+    return result;
   }
 }
