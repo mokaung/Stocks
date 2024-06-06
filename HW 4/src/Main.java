@@ -17,11 +17,5 @@ public class Main {
     model.populate(streamReader.getReadable(), ticker);
     IController controller = new ControllerImpl(System.out, new InputStreamReader(System.in));
     controller.go(model);
-
-//  IReader fileReader = new FileReader();
-//    model.populate(fileReader.getReadable());
-
-    // add stock w/ ticker ** stock creator needs readble
-    // create stockcreator  -> getReadable -> create stock
   }
 }

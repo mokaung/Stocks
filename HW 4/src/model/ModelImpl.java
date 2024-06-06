@@ -31,29 +31,31 @@ public class ModelImpl implements IModel {
       s.next();
     }
 
-    String stockLine = s.next();
-    String[] parts = stockLine.split(",");
-    String[] dateParts = parts[0].split("-");
-    //String[] stocks = s.toString().split(System.lineSeparator());
-    Map<Calendar, IStock> d = new HashMap<>();
-//
-//    for (String string : stocks) {
-//      String[] info = string.split(",");
-//
-//      String[] date = info[0].split("-");
-//      Calendar cal = Calendar.getInstance();
-//      cal.set(Integer.parseInt(date[2]), Integer.parseInt(date[0]), Integer.parseInt(date[1]));
-//
-//      double open = Double.parseDouble(info[1]);
-//      double high = Double.parseDouble(info[2]);
-//      double low = Double.parseDouble(info[3]);
-//      double close = Double.parseDouble(info[4]);
-//      int volume = Integer.parseInt(info[5]);
-//      IStock stock = new Stock(cal, open, high, low, close, volume, ticker);
-//
-//      d.put(cal, stock);
-//    }
-    this.stocks.put(ticker, d);
+    Map<Calendar, IStock> dateStock = new HashMap<>();
+
+    while (s.hasNext()) {
+
+      String stockLine = s.next();
+      String[] parts = stockLine.split(",");
+
+      String[] dateParts = parts[0].split("-");
+
+      Calendar cal = Calendar.getInstance();
+      cal.set(Integer.parseInt(dateParts[0]),
+              Integer.parseInt(dateParts[1]),
+              Integer.parseInt(dateParts[2]));
+
+      double open = Double.parseDouble(parts[1]);
+      double high = Double.parseDouble(parts[2]);
+      double low = Double.parseDouble(parts[3]);
+      double close = Double.parseDouble(parts[4]);
+      int volume = Integer.parseInt(parts[5]);
+      IStock stock = new Stock(cal, open, high, low, close, volume, ticker);
+
+      dateStock.put(cal, stock);
+    }
+
+    this.stocks.put(ticker, dateStock);
   }
 
   @Override
