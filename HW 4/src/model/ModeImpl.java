@@ -8,7 +8,7 @@ import java.util.Scanner;
 // model is essentially the portfolio
 // that stores it
 public class ModeImpl implements IModel {
-  private final Map<String, IStock> stocks;
+  private final Map<String, Map<Calendar, IStock>> stocks;
 
   public ModeImpl() {
     stocks = new HashMap<>();
@@ -20,6 +20,8 @@ public class ModeImpl implements IModel {
 
   // either keep this or create a stock creator class
   // delegation of responsibility
+
+  // make into controller commnad like the others
   @Override
   public void populate(Readable readable, String ticker) {
     Scanner s = new Scanner(readable);
@@ -29,6 +31,7 @@ public class ModeImpl implements IModel {
     }
 
     String[] stocks = s.toString().split(System.lineSeparator());
+    Map<Calendar, IStock> d = new HashMap<>();
 
     for (String string : stocks) {
       String[] info = string.split(",");
@@ -44,9 +47,9 @@ public class ModeImpl implements IModel {
       int volume = Integer.parseInt(info[5]);
       IStock stock = new Stock(cal, open, high, low, close, volume, ticker);
 
-      //change to list or whatever is most convenient
-      this.stocks.put(ticker, stock);
+      d.put(cal, stock);
     }
+    this.stocks.put(ticker, d);
   }
 
   @Override
@@ -73,11 +76,9 @@ public class ModeImpl implements IModel {
   @Override
   public IPortfolio createPortfolio(String ticker, int share) {
     Portfolio p = new Portfolio();
-    for (IStock stock : stocks.values()) {
-      if (stock.getTicker().equals(ticker)) {
-        p.setValue(stock, share);
-      }
-    }
+    Map<Calendar, IStock> info = stocks.get(ticker);
+    p.setValue(info, share, ticker);
+
     return p;
   }
 }

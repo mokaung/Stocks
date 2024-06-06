@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Portfolio implements IPortfolio {
-  private final Map<String, IStock> stocks;
+  private final Map<String, Map<Calendar, IStock>> stocks;
   private final Map<String, Integer> share;
 
   public Portfolio() {
@@ -17,9 +17,9 @@ public class Portfolio implements IPortfolio {
   @Override
   public double getValue(Calendar date) {
     double answer = 0;
-
-    for (IStock stock : stocks.values()) {
-      if (date.equals(stock.getDate())) {
+    for (Map.Entry<String, Map<Calendar, IStock>> entry : stocks.entrySet()) {
+      IStock stock = entry.getValue().get(date);
+      if (stock.getDate().equals(date)) {
         double stockShare = share.get(stock.getTicker());
         answer += stock.getClose() * stockShare;
       }
@@ -28,9 +28,8 @@ public class Portfolio implements IPortfolio {
   }
 
   @Override
-  public void setValue(IStock stock, int share) {
-    stocks.put(stock.getTicker(), stock);
-    this.share.put(stock.getTicker(), share);
+  public void setValue(Map<Calendar, IStock> stock, int share, String ticker) {
+    stocks.put(ticker, stock);
+    this.share.put(ticker, share);
   }
-
 }

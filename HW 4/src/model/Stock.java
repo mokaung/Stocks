@@ -6,6 +6,7 @@ import java.util.Calendar;
  * Information of a stock that a person owns.
  */
 public class Stock implements IStock {
+  // decide if we keep time
   private final Calendar time;
   private final double open;
   private final double high;

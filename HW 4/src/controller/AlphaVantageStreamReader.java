@@ -15,8 +15,6 @@ public class AlphaVantageStreamReader implements IReader {
   public AlphaVantageStreamReader(String ticker) {
     this.ticker = ticker;
   }
-  // given to model. model can use differnt reader classes so you can read from the web or csv
-  // this class does the reading
 
   /**
    * Reads from the AlphaVantage website and records the stock information with the given ticker.
