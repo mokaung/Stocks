@@ -1,12 +1,8 @@
 package controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 import controller.command.Crossover;
@@ -16,6 +12,9 @@ import controller.command.MovingAverage;
 import model.IModel;
 import controller.command.ControllerUtil;
 
+/**
+ * Controller of the program. Oversees the running of the program and command organization.
+ */
 public class ControllerImpl implements IController {
   protected Appendable out;
   protected Readable in;
@@ -31,8 +30,8 @@ public class ControllerImpl implements IController {
 
     this.commands = new HashMap<>();
     commands.put("1", () -> new GainOrLoss(this.out));
-    commands.put("2", () -> new GainOrLoss(this.out));
-    commands.put("3", () -> new GainOrLoss(this.out));
+    commands.put("2", () -> new MovingAverage(this.out));
+    commands.put("3", () -> new Crossover(this.out));
   }
 
   @Override
@@ -50,7 +49,7 @@ public class ControllerImpl implements IController {
       }
       if (in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m")) {
         ControllerUtil.printMenu(this.out);
-        return;
+        return ;
       }
       Supplier<ICommand> cmd = commands.getOrDefault(in, null);
       if (cmd != null) {
