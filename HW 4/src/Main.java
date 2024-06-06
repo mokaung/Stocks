@@ -2,7 +2,6 @@
 import java.io.InputStreamReader;
 
 import controller.AlphaVantageStreamReader;
-import controller.ControllerImpl;
 import controller.IController;
 import controller.IReader;
 import model.IModel;

@@ -8,11 +8,11 @@ public interface IModel {
    */
   public void populate(Readable readable, String ticker);
 
-  void Crossover();
+  void crossover();
 
-  void GainOrLoss();
+  void gainOrLoss();
 
-  void MovingAverage();
+  void movingAverage();
 
   IStock getStock();
 

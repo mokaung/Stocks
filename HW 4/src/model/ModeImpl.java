@@ -53,17 +53,20 @@ public class ModeImpl implements IModel {
   }
 
   @Override
-  public void Crossover() {
+  public  crossover() {
 
   }
 
   @Override
-  public void GainOrLoss() {
-
+  public Double gainOrLoss() {
+    double startingClosePrice = model.tempGetClose(date1);
+    double endingClosePrice = model.tempGetClose(date2);
+    double diff = endingClosePrice - startingClosePrice;
+    return diff;
   }
 
   @Override
-  public void MovingAverage() {
+  public void movingAverage() {
 
   }
 
