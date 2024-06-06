@@ -12,6 +12,11 @@ import controller.command.MovingAverage;
 import model.IModel;
 import controller.command.ControllerUtil;
 
+import static controller.command.ControllerUtil.writeMessage;
+
+/**
+ * Controller of the program. Oversees the running of the program and command organization.
+ */
 public class ControllerImpl implements IController {
   protected Appendable out;
   protected Readable in;
@@ -26,8 +31,11 @@ public class ControllerImpl implements IController {
 
     this.commands = new HashMap<>();
     commands.put("1", () -> new GainOrLoss(this.out));
-    commands.put("3", () -> new Crossover(this.out));
     commands.put("2", () -> new MovingAverage(this.out));
+    commands.put("3", () -> new Crossover(this.out));
+    commands.put("GainOrLoss", () -> new GainOrLoss(this.out));
+    commands.put("Crossover", () -> new Crossover(this.out));
+    commands.put("MovingAverage", () -> new MovingAverage(this.out));
   }
 
   @Override
@@ -45,15 +53,25 @@ public class ControllerImpl implements IController {
       }
       if (in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m")) {
         ControllerUtil.printMenu(this.out);
-        return;
       }
       Supplier<ICommand> cmd = commands.getOrDefault(in, null);
       if (cmd != null) {
         ICommand runner = cmd.get();
-        runner.run(sc, model);
+        try {
+          runner.run(sc, model);
+        }
+        catch (IllegalArgumentException e) {
+          writeMessage("Error: " + e.getMessage() + System.lineSeparator(), out);
+        }
       } else {
-        throw new IllegalArgumentException("Invalid command");
-
+        try {
+          if (!(in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m"))) {
+            throw new IllegalArgumentException("Invalid command.");
+          }
+        }
+        catch (IllegalArgumentException e) {
+          writeMessage(e.getMessage() + System.lineSeparator(), out);
+        }
       }
     }
   }

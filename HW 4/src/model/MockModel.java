@@ -36,6 +36,16 @@ public class MockModel implements IModel {
   }
 
   @Override
+  public boolean isValidTicker(String ticker) {
+    return false;
+  }
+
+  @Override
+  public boolean isValidCalendar(Calendar cal, String ticker) {
+    return false;
+  }
+
+  @Override
   public IPortfolio createPortfolio(String ticker, int share) {
     return null;
   }
