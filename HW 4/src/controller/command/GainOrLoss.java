@@ -8,7 +8,7 @@ public class GainOrLoss implements ICommand {
   private final Calendar date1;
   private final Calendar date2;
   private final String ticker;
-  public GainOrLoss(Calendar date1, Calendar date2, String ticker) {
+  public GainOrLoss(String ticker, Calendar date1, Calendar date2) {
     this.date1 = date1;
     this.date2 = date2;
     this.ticker = ticker;

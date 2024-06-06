@@ -9,7 +9,7 @@ public class MovingAverage implements ICommand {
   private final Calendar date;
   private final String ticker;
 
-  public MovingAverage(int window, Calendar date, String ticker) {
+  public MovingAverage(String ticker, int window, Calendar date) {
     this.window = window;
     this.date = date;
     this.ticker = ticker;

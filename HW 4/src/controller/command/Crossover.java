@@ -14,7 +14,7 @@ public class Crossover implements ICommand {
   private final int window;
   private final String ticker;
 
-  public Crossover(int window, Calendar date1, Calendar date2, String ticker) {
+  public Crossover(String ticker, int window, Calendar date1, Calendar date2) {
     this.date1 = date1;
     this.date2 = date2;
     this.window = window;

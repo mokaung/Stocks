@@ -3,31 +3,70 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Function;
 
 import controller.command.Crossover;
 import controller.command.GainOrLoss;
+import controller.command.ICommand;
 import controller.command.MovingAverage;
 import model.IModel;
-import model.IStock;
-import model.Stock;
 
 public class ControllerImpl implements IController {
   private Appendable out;
   private Readable in;
-  private IModel model;
+
+  private final Map<String, Function<Scanner, ICommand> commands;
 
   public ControllerImpl(IModel model, Appendable out, Readable in)throws IllegalArgumentException {
     if ((model == null) || (in == null) || (out == null)) {
       throw new IllegalArgumentException("Sheet, readable or appendable is null");
     }
-    this.model = model;
     this.out = out;
     this.in = in;
+
+    this.commands = new HashMap<>();
+    commands.put("gainorloss", sc -> {
+      writeMessage("Which stock do you want to analyze? " + System.lineSeparator());
+      String ticker= sc.next();
+      writeMessage("Please enter a starting date: " + System.lineSeparator());
+      Calendar date1 = getCalendar(sc.next());
+      writeMessage("Please enter a ending date: " + System.lineSeparator());
+      Calendar date2 = getCalendar(sc.next());
+      if (date2.before(date1)) {
+        throw new IllegalArgumentException("Ending date should not be before starting date.");
+      }
+      return new GainOrLoss(ticker, date1, date2);
+    });
+    commands.put("movingaverage", sc -> {
+      writeMessage("Which stock do you want to analyze? " + System.lineSeparator());
+      String ticker = sc.next();
+      writeMessage("Please enter how many days to base the average "
+              + "on (x in x-day moving average): " + System.lineSeparator());
+      int window = sc.nextInt();
+      writeMessage("Please enter the day you want to see the moving average for: " + System.lineSeparator());
+      //date as int
+      Calendar date1 = getCalendar(sc.next());
+      return new MovingAverage(ticker, window, date1);
+    });
+    commands.put("crossover", sc -> {
+      writeMessage("Which stock do you want to analyze? " + System.lineSeparator());
+      String ticker = sc.next();
+      writeMessage("Please enter how many days to base the averages "
+              + "on (x in x-day moving average): " + System.lineSeparator());
+      int window = sc.nextInt();
+      writeMessage("Please enter the starting date: " + System.lineSeparator());
+      Calendar date1 = getCalendar(sc.next());
+      writeMessage("Please enter the ending date: " + System.lineSeparator());
+      Calendar date2 = getCalendar(sc.next());
+      return new Crossover(ticker, window, date1, date2);
+    }
   }
 
   @Override
-  public void go() {
+  public void go(IModel model) {
     Scanner sc = new Scanner(in);
     boolean quit = false;
 
@@ -48,23 +87,24 @@ public class ControllerImpl implements IController {
    }
 
    protected void processCommand(String userInstruction, Scanner sc, IModel model)throws IllegalStateException {
-    Calendar date1;
-    Calendar date2;
-    int window;
-    String ticker;
-     switch (userInstruction) {
-       case "1":
+     while (sc.hasNext()) {
+       ICommand c;
+       String in = sc.next();
+       if (in.equalsIgnoreCase("q") || in.equalsIgnoreCase("quit")) {
+         return;
+       }
+       Function<Scanner, ICommand> cmd = commands.getOrDefault(in, null);
+       if (cmd == null) {
+         throw new IllegalArgumentException("Invalid command");
+       }
+       else {
+         c = cmd.apply(sc);
+         c.run(model);
+
+       }
+
          try {
-           writeMessage("Which stock do you want to analyze? " + System.lineSeparator());
-           ticker= sc.next();
-           writeMessage("Please enter a starting date: " + System.lineSeparator());
-           date1 = getCalendar(sc.next());
-           writeMessage("Please enter a ending date: " + System.lineSeparator());
-           date2 = getCalendar(sc.next());
-           //checker if date2 is after date1
-           if (date2.before(date1)) {
-             throw new IllegalArgumentException("Ending date should not be before starting date.");
-           }
+
            GainOrLoss gainOrLoss = new GainOrLoss(date1, date2, ticker);
            writeMessage("The gain/loss of "+ ticker + " is: "
                    + gainOrLoss.run(model) + System.lineSeparator());
