@@ -19,6 +19,7 @@ public class Crossover implements ICommand {
   public Crossover(Appendable out) {
     this.out = out;
   }
+
   @Override
   public void run(Scanner sc, IModel model) {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
@@ -40,11 +41,10 @@ public class Crossover implements ICommand {
             + ticker
             + " were on the following dates: ", out);
     ArrayList<Calendar> result = model.crossover(window, date1, date2, ticker);
-    for (int i=0; i<result.size();i++) {
-      if (i == result.size()-1) {
+    for (int i = 0; i < result.size(); i++) {
+      if (i == result.size() - 1) {
         writeMessage(result.get(i).getTime() + System.lineSeparator(), out);
-      }
-      else {
+      } else {
         writeMessage(result.get(i).getTime() + ", ", out);
       }
     }

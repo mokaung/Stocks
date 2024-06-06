@@ -31,25 +31,28 @@ public class ModelImpl implements IModel {
       s.next();
     }
 
-    String[] stocks = s.toString().split(System.lineSeparator());
+    String stockLine = s.next();
+    String [] parts = stockLine.split(",");
+    String [] dateParts = parts[0].split("-");
+    //String[] stocks = s.toString().split(System.lineSeparator());
     Map<Calendar, IStock> d = new HashMap<>();
 
-    for (String string : stocks) {
-      String[] info = string.split(",");
-
-      String[] date = info[0].split("-");
-      Calendar cal = Calendar.getInstance();
-      cal.set(Integer.parseInt(date[2]), Integer.parseInt(date[0]), Integer.parseInt(date[1]));
-
-      double open = Double.parseDouble(info[1]);
-      double high = Double.parseDouble(info[2]);
-      double low = Double.parseDouble(info[3]);
-      double close = Double.parseDouble(info[4]);
-      int volume = Integer.parseInt(info[5]);
-      IStock stock = new Stock(cal, open, high, low, close, volume, ticker);
-
-      d.put(cal, stock);
-    }
+//    for (String string : stocks) {
+//      String[] info = string.split(",");
+//
+//      String[] date = info[0].split("-");
+//      Calendar cal = Calendar.getInstance();
+//      cal.set(Integer.parseInt(date[2]), Integer.parseInt(date[0]), Integer.parseInt(date[1]));
+//
+//      double open = Double.parseDouble(info[1]);
+//      double high = Double.parseDouble(info[2]);
+//      double low = Double.parseDouble(info[3]);
+//      double close = Double.parseDouble(info[4]);
+//      int volume = Integer.parseInt(info[5]);
+//      IStock stock = new Stock(cal, open, high, low, close, volume, ticker);
+//
+//      d.put(cal, stock);
+//    }
     this.stocks.put(ticker, d);
   }
 
@@ -82,7 +85,10 @@ public class ModelImpl implements IModel {
       //apparently you can calculate moving averages on closing, opening, high, low
       //currently average is based on closing prices
       //currently uses date-i, assumes that date will be an int
-      movingSum = movingSum + stocks.get(ticker).get(date - 1).getClose();
+      Calendar newDate = Calendar.getInstance();
+      // TODO
+      // newDate.add(date., -1);
+      movingSum = movingSum + stocks.get(ticker).get(newDate).getClose();
     }
     answer = movingSum / movingAverage;
     return answer;
@@ -99,7 +105,6 @@ public class ModelImpl implements IModel {
     Portfolio p = new Portfolio();
     Map<Calendar, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
-
     return p;
   }
 }
