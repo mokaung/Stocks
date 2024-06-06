@@ -24,10 +24,16 @@ public interface IModel {
 
   double movingAverage(int movingWindow, Calendar date, String ticker);
 
-  IPortfolio createPortfolio(String ticker, int share);
+  IPortfolio createPortfolio(String ticker, int share, String name);
 
   boolean isValidCalendar(Calendar cal, String ticker);
 
+  boolean isValidPortfolio(String name);
+
   boolean isValidTicker(String ticker);
+
+  void addToPortfolio(String s, String ticker, int share);
+
+  Double getPortfolioValue(String s, Calendar cal);
 
 }

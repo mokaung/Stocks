@@ -34,7 +34,7 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public IPortfolio createPortfolio(String ticker, int share) {
+  public IPortfolio createPortfolio(String ticker, int share, String name) {
     log.append("createPortfolio");
     return null;
   }
@@ -49,4 +49,7 @@ public class MockModel implements IModel {
     return false;
   }
 
+  public void addToPortfolio(String s, String ticker, int share){};
+
+  public Double getPortfolioValue(String s, Calendar cal){return 0.0;};
 }

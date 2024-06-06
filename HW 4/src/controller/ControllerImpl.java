@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
+import controller.command.CreatePortfolio;
 import controller.command.Crossover;
 import controller.command.GainOrLoss;
 import controller.command.ICommand;
@@ -46,6 +47,9 @@ public class ControllerImpl implements IController {
     commands.put("1", () -> new GainOrLoss(this.out));
     commands.put("2", () -> new MovingAverage(this.out));
     commands.put("3", () -> new Crossover(this.out));
+    commands.put("4", () -> new CreatePortfolio(this.out));
+    commands.put("5", () -> new CreatePortfolio(this.out));
+    commands.put("6", () -> new CreatePortfolio(this.out));
   }
 
   /**
