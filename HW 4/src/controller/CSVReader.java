@@ -1,32 +1,33 @@
 package controller;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Scanner;
 
 public class CSVReader implements IReader {
   private final String filename;
 
-  public CSVReader(String fileName, String filename) {
+  public CSVReader(String filename) {
     this.filename = filename;
   }
 
   @Override
   public Readable getReadable() {
+    StringBuilder builder = new StringBuilder();
     try {
-      return new FileReader(filename);
-    } catch (Exception e) {
-      throw new IllegalArgumentException("d");
+      String filePath = new File("").getAbsolutePath() + "\\HW 4\\src\\";
+      BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
+      while (buffer.readLine() != null) {
+        String first = buffer.readLine();
+        builder.append(first);
+      }
+    } catch (IOException e) {
+      throw new IllegalStateException("Could not return reader");
     }
+    return new StringReader(builder.toString());
   }
 
-  public static interface IReader {
-    Readable getReadable();
-  }
 }
-
-//      Scanner scanner = new Scanner(fileReader);
-//      while (scanner.hasNextLine()) {
-//        int first = scanner.nextInt();
-//        scanner.next();
-//        int sec = scanner.nextInt();
-//        StringBuilder builder = new StringBuilder();
-//        builder.append(first).append(sec);
