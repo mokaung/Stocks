@@ -17,6 +17,7 @@ public class CSVReader implements IReader {
   @Override
   public Readable getReadable() {
     StringBuilder builder = new StringBuilder();
+    // for windows
     try {
       String filePath = new File("").getAbsolutePath() + "\\HW 4\\src\\";
       BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
@@ -26,6 +27,7 @@ public class CSVReader implements IReader {
       }
     }
     catch (IOException e) {
+      // for MacOS
       try {
         String filePath = new File("").getAbsolutePath() + "/HW 4/src/";
         BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
