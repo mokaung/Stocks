@@ -64,25 +64,6 @@ public class ModeImpl implements IModel {
    */
   @Override
   public ArrayList<Calendar> crossover(int window, Calendar date1, Calendar date2, String ticker) {
-//    ArrayList<Calendar> results = new ArrayList<Calendar>();
-//    Iterator<Map.Entry<Calendar, IStock>> iterator = stocks.get(ticker).entrySet().iterator();
-//
-//    int iterateCount = 0;
-//    while (iterator.hasNext()) {
-//      Map.Entry<Calendar, IStock> entry = iterator.next();
-//      Calendar key = entry.getKey();
-//      if (key.before(date1)) {
-//        continue;
-//      }
-//      if (key.after(date2)) {
-//        break;
-//      }
-//      double currentMovingAverage = movingAverage(window, key, ticker);
-//      if (currentMovingAverage >= stocks.get(ticker).get(key).getClose()) {
-//        results.add(key);
-//      }
-//      iterateCount++;
-//    }
     if (isValidCalendar(date1)) {
       throw new IllegalArgumentException("Sorry, stock information for " + date1 + " doesn't exist.");
     }
@@ -102,7 +83,7 @@ public class ModeImpl implements IModel {
   }
 
   @Override
-  public Double gainOrLoss(Calendar date1, Calendar date2, String ticker)throws IllegalArgumentException {
+  public Double gainOrLoss(Calendar date1, Calendar date2, String ticker) throws IllegalArgumentException {
     if (isValidCalendar(date1)) {
       throw new IllegalArgumentException("Sorry, stock information for " + date1 + " doesn't exist.");
     }
@@ -117,24 +98,6 @@ public class ModeImpl implements IModel {
 
   @Override
   public Double movingAverage(int window, Calendar date, String ticker) {
-//    double movingSum = 0;
-//    Iterator<Map.Entry<Calendar, IStock>> iterator = stocks.get(ticker).entrySet().iterator();
-//
-//    int iterateCount = 0;
-//    Calendar key = Calendar.getInstance();
-//    key.set(0, Calendar.JANUARY, 1);
-//    while (iterator.hasNext() && iterateCount < window && key.before(date)) {
-//      Map.Entry<Calendar, IStock> entry = iterator.next();
-//      key = entry.getKey();
-//      if (key.before(date)) {
-//        continue;
-//      }
-//      //is there a limit to how far back it can go?
-//      movingSum = movingSum + stocks.get(ticker).get(key).getClose();
-//      iterateCount++;
-//    }
-//    return movingSum/window;
-
     //new implementation uses Calendar.add to iterate through our Map<Calendar, IStock>
     if (isValidCalendar(date)) {
       throw new IllegalArgumentException("Sorry, stock information for " + date + " doesn't exist.");
