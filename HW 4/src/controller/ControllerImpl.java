@@ -18,11 +18,10 @@ import controller.command.ControllerUtil;
 public class ControllerImpl implements IController {
   protected Appendable out;
   protected Readable in;
-
   protected final Map<String, Supplier<ICommand>> commands;
 
-  public ControllerImpl(IModel model, Appendable out, Readable in) throws IllegalArgumentException {
-    if ((model == null) || (in == null) || (out == null)) {
+  public ControllerImpl(Appendable out, Readable in) throws IllegalArgumentException {
+    if ((in == null) || (out == null)) {
       throw new IllegalArgumentException("Sheet, readable or appendable is null");
     }
     this.out = out;
@@ -32,6 +31,9 @@ public class ControllerImpl implements IController {
     commands.put("1", () -> new GainOrLoss(this.out));
     commands.put("2", () -> new MovingAverage(this.out));
     commands.put("3", () -> new Crossover(this.out));
+    commands.put("GainOrLoss", () -> new GainOrLoss(this.out));
+    commands.put("Crossover", () -> new Crossover(this.out));
+    commands.put("MovingAverage", () -> new MovingAverage(this.out));
   }
 
   @Override
