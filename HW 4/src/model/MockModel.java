@@ -41,11 +41,13 @@ public class MockModel implements IModel {
 
   @Override
   public boolean isValidCalendar(Calendar cal, String ticker) {
+    log.append("isValidCalendar");
     return false;
   }
 
   @Override
   public boolean isValidTicker(String ticker) {
+    log.append("isValidTicker");
     return false;
   }
 
