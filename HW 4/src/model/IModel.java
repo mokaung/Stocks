@@ -21,6 +21,9 @@ public interface IModel {
 
   IPortfolio createPortfolio(String ticker, int share);
 
+  boolean isValidTicker(String ticker);
+  boolean isValidCalendar(Calendar cal, String ticker);
+
   // has all teh commands here, but implemented under controller
   // think model as storage
   // user -> controller -> model -> controller -> user

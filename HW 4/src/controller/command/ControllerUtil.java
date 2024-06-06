@@ -1,6 +1,7 @@
 package controller.command;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -71,11 +72,17 @@ public class ControllerUtil {
     /*
     Calendar has lenient parsing, so is exception for valid date necessary?
      */
-    if (result.length > 3) {
-      throw new IllegalArgumentException("Error: Date input has too many arguments.");
+    if (result.length != 3) {
+      throw new IllegalArgumentException("Error: Date should be written as: YYYY-MM-DD");
     }
     Calendar cal = Calendar.getInstance();
-    cal.set(Integer.parseInt(result[2]), Integer.parseInt(result[0]), Integer.parseInt(result[1]));
+    System.out.println(result[0] + "-" + result[1] + "-" + result[2]);
+    cal.set(Integer.parseInt(result[0]), Integer.parseInt(result[1])-1, Integer.parseInt(result[2]));
     return cal;
+  }
+
+  public static String calToString(Calendar cal) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    return formatter.format(cal.getTime());
   }
 }

@@ -36,7 +36,7 @@ public class ModelImpl implements IModel {
     String[] dateParts = parts[0].split("-");
     //String[] stocks = s.toString().split(System.lineSeparator());
     Map<Calendar, IStock> d = new HashMap<>();
-
+//
 //    for (String string : stocks) {
 //      String[] info = string.split(",");
 //
@@ -58,12 +58,6 @@ public class ModelImpl implements IModel {
 
   @Override
   public ArrayList<Calendar> crossover(int window, Calendar date1, Calendar date2, String ticker) {
-    if (isValidCalendar(date1)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + date1 + " doesn't exist.");
-    }
-    if (isValidCalendar(date2)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + date2 + " doesn't exist.");
-    }
     ArrayList<Calendar> results = new ArrayList<Calendar>();
     Calendar currentDate = (Calendar) date1.clone();
     while (currentDate.before(date2)) {
@@ -77,13 +71,7 @@ public class ModelImpl implements IModel {
   }
 
   @Override
-  public double gainOrLoss(Calendar date1, Calendar date2, String ticker) throws IllegalArgumentException {
-    if (isValidCalendar(date1)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + date1 + " doesn't exist.");
-    }
-    if (isValidCalendar(date2)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + date2 + " doesn't exist.");
-    }
+  public double gainOrLoss(Calendar date1, Calendar date2, String ticker) {
     double startingClosePrice = stocks.get(ticker).get(date1).getClose();
     double endingClosePrice = stocks.get(ticker).get(date2).getClose();
     double diff = endingClosePrice - startingClosePrice;
@@ -92,13 +80,10 @@ public class ModelImpl implements IModel {
 
   @Override
   public double movingAverage(int window, Calendar date, String ticker) {
-    if (isValidCalendar(date)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + date + " doesn't exist.");
-    }
     double movingSum = 0;
     Calendar currentDate = (Calendar) date.clone();
     currentDate.add(Calendar.DAY_OF_YEAR, -window);
-    if (isValidCalendar(currentDate)) {
+    if (!isValidCalendar(currentDate, ticker)) {
       throw new IllegalArgumentException("The window you asked for exceeds the range of data for " + ticker + ".");
     }
     while (currentDate.before(date)) {
@@ -107,9 +92,13 @@ public class ModelImpl implements IModel {
     }
     return movingSum / window;
   }
-
-  private boolean isValidCalendar(Calendar cal) {
-    return stocks.containsKey(cal);
+@Override
+  public boolean isValidCalendar(Calendar cal, String ticker) {
+    return stocks.get(ticker).containsKey(cal);
+  }
+@Override
+  public boolean isValidTicker(String ticker) {
+    return stocks.containsKey(ticker);
   }
 
   @Override
