@@ -25,7 +25,7 @@ public class GetPortfolioValue implements ICommand{
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Enter a date to calculate the value of " + name + " at that date." +  System.lineSeparator(), out);
-    model.getPortfolioValue(name, )
+//    model.getPortfolioValue(name, )
   }
 
 }

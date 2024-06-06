@@ -51,6 +51,11 @@ public class MockModel implements IModel {
     return false;
   }
 
+  @Override
+  public boolean isValidPortfolio(String name) {
+    return false;
+  }
+
   public void addToPortfolio(String s, String ticker, int share){};
 
   public Double getPortfolioValue(String s, Calendar cal){return 0.0;};
