@@ -1,12 +1,8 @@
 package controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 import controller.command.Crossover;
@@ -19,20 +15,19 @@ import controller.command.ControllerUtil;
 public class ControllerImpl implements IController {
   protected Appendable out;
   protected Readable in;
-
   protected final Map<String, Supplier<ICommand>> commands;
 
-  public ControllerImpl(IModel model, Appendable out, Readable in) throws IllegalArgumentException {
-    if ((model == null) || (in == null) || (out == null)) {
+  public ControllerImpl(Appendable out, Readable in) throws IllegalArgumentException {
+    if ((in == null) || (out == null)) {
       throw new IllegalArgumentException("Sheet, readable or appendable is null");
     }
     this.out = out;
     this.in = in;
 
     this.commands = new HashMap<>();
-    commands.put("1", () -> new GainOrLoss(this.out));
-    commands.put("2", () -> new GainOrLoss(this.out));
-    commands.put("3", () -> new GainOrLoss(this.out));
+    commands.put("GainOrLoss", () -> new GainOrLoss(this.out));
+    commands.put("Crossover", () -> new Crossover(this.out));
+    commands.put("MovingAverage", () -> new MovingAverage(this.out));
   }
 
   @Override
