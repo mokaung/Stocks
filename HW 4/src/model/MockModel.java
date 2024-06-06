@@ -17,27 +17,26 @@ public class MockModel implements IModel {
 
   @Override
   public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2, String ticker) {
+    log.append("crossover");
     return null;
   }
 
   @Override
   public double gainOrLoss(Calendar start, Calendar close, String ticker) {
+    log.append("gainOrLoss");
     return 0;
   }
 
   @Override
   public double movingAverage(int movingWindow, Calendar date, String ticker) {
+    log.append("movingAverage");
     return 0;
   }
 
   @Override
-  public IStock getStock() {
+  public IPortfolio createPortfolio(String ticker, int share) {
+    log.append("createPortfolio");
     return null;
-  }
-
-  @Override
-  public boolean isValidTicker(String ticker) {
-    return false;
   }
 
   @Override
@@ -46,8 +45,8 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public IPortfolio createPortfolio(String ticker, int share) {
-    return null;
+  public boolean isValidTicker(String ticker) {
+    return false;
   }
 
 }

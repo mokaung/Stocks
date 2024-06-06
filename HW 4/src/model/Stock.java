@@ -6,7 +6,6 @@ import java.util.Calendar;
  * Information of a stock that a person owns.
  */
 public class Stock implements IStock {
-  // decide if we keep time
   private final Calendar time;
   private final double open;
   private final double high;
@@ -15,6 +14,16 @@ public class Stock implements IStock {
   private final int volume;
   private final String ticker;
 
+  /**
+   * Create a stock with the specific fields on a specific date.
+   * @param time
+   * @param open
+   * @param high
+   * @param low
+   * @param close
+   * @param volume
+   * @param ticker
+   */
   public Stock(Calendar time, double open, double high, double low, double close, int volume, String ticker) {
     this.time = time;
     this.open = open;
@@ -31,28 +40,8 @@ public class Stock implements IStock {
   }
 
   @Override
-  public double getOpen() {
-    return open;
-  }
-
-  @Override
-  public double getHigh() {
-    return high;
-  }
-
-  @Override
-  public double getLow() {
-    return low;
-  }
-
-  @Override
   public double getClose() {
     return close;
-  }
-
-  @Override
-  public int getVolume() {
-    return volume;
   }
 
   @Override
