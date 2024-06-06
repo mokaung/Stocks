@@ -9,11 +9,11 @@ public interface IModel {
    *
    * @param readable Every transaction of a given stock for one month.
    */
-  public void populate(Readable readable, String ticker);
+  void populate(Readable readable, String ticker);
 
-  ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2);
+  ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2, String ticker);
 
-  double gainOrLoss(String ticker, Calendar start, Calendar close);
+  double gainOrLoss(Calendar start, Calendar close, String ticker);
 
   double movingAverage(int movingWindow, Calendar date, String ticker);
 

@@ -16,5 +16,4 @@ public interface IStock {
   int getVolume();
 
   String getTicker();
-
 }

@@ -16,12 +16,12 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2) {
+  public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2, String ticker) {
     return null;
   }
 
   @Override
-  public double gainOrLoss(String ticker, Calendar start, Calendar close) {
+  public double gainOrLoss(Calendar start, Calendar close, String ticker) {
     return 0;
   }
 

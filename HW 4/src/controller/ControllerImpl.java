@@ -25,9 +25,9 @@ public class ControllerImpl implements IController {
     this.in = in;
 
     this.commands = new HashMap<>();
-    commands.put("GainOrLoss", () -> new GainOrLoss(this.out));
-    commands.put("Crossover", () -> new Crossover(this.out));
-    commands.put("MovingAverage", () -> new MovingAverage(this.out));
+    commands.put("1", () -> new GainOrLoss(this.out));
+    commands.put("3", () -> new Crossover(this.out));
+    commands.put("2", () -> new MovingAverage(this.out));
   }
 
   @Override
