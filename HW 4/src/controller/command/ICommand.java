@@ -1,7 +1,9 @@
 package controller.command;
 
+import java.util.Scanner;
+
 import model.IModel;
 
-public interface ICommand<T> {
-  T run(IModel model);
+public interface ICommand {
+  void run(Scanner sc, IModel model);
 }
