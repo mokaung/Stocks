@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public interface IModel {
   /**
    * Splits the output of AlphaVantage and adds the information of the stock into the specific fields.
@@ -8,11 +11,11 @@ public interface IModel {
    */
   public void populate(Readable readable, String ticker);
 
-  void crossover();
+  ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2);
 
-  void gainOrLoss();
+  double gainOrLoss(String ticker, Calendar start, Calendar close);
 
-  void movingAverage();
+  double movingAverage(int movingWindow, Calendar date, String ticker);
 
   IStock getStock();
 

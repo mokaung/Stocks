@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public class MockModel implements IModel {
   private final StringBuilder log;
 
@@ -13,29 +16,28 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public void Crossover() {
-    log.append("Crossover");
+  public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2) {
+    return null;
   }
 
   @Override
-  public void GainOrLoss() {
-    log.append("Gain or Loss");
+  public double gainOrLoss(String ticker, Calendar start, Calendar close) {
+    return 0;
   }
 
   @Override
-  public void MovingAverage() {
-    log.append("Moving Average");
+  public double movingAverage(int movingWindow, Calendar date, String ticker) {
+    return 0;
   }
 
   @Override
   public IStock getStock() {
-    log.append("getStock");
     return null;
   }
 
   @Override
   public IPortfolio createPortfolio(String ticker, int share) {
-    log.append("createPortfolio");
     return null;
   }
+
 }

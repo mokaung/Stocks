@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,10 +8,10 @@ import java.util.Scanner;
 
 // model is essentially the portfolio
 // that stores it
-public class ModeImpl implements IModel {
+public class ModelImpl implements IModel {
   private final Map<String, Map<Calendar, IStock>> stocks;
 
-  public ModeImpl() {
+  public ModelImpl() {
     stocks = new HashMap<>();
   }
 
@@ -53,21 +54,38 @@ public class ModeImpl implements IModel {
   }
 
   @Override
-  public  crossover() {
-
+  public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2) {
+    ArrayList<Calendar> results = new ArrayList<Calendar>();
+//    //assuming we can subtract dates
+//    for (int i = date1; i < (date2); i++) {
+//      MovingAverage response = new MovingAverage(avg, i);
+//      //assuming MovingAverage's run will return a double
+//      double movingAverageResult = response.run(model);
+//      if (movingAverageResult >= model.tempGetClose(i)) ;
+//      results.add(i);
+//    }
+    return results;
   }
 
   @Override
-  public Double gainOrLoss() {
-    double startingClosePrice = model.tempGetClose(date1);
-    double endingClosePrice = model.tempGetClose(date2);
-    double diff = endingClosePrice - startingClosePrice;
-    return diff;
+  public double gainOrLoss(String ticker, Calendar start, Calendar close) {
+    double startingClosePrice = stocks.get(ticker).get(start).getClose();
+    double endingClosePrice = stocks.get(ticker).get(close).getClose();
+    return endingClosePrice - startingClosePrice;
   }
 
   @Override
-  public void movingAverage() {
-
+  public double movingAverage(int movingAverage, Calendar date, String ticker) {
+    double movingSum = 0;
+    double answer;
+    for (int i = movingAverage; i > 0; i--) {
+      //apparently you can calculate moving averages on closing, opening, high, low
+      //currently average is based on closing prices
+      //currently uses date-i, assumes that date will be an int
+      movingSum = movingSum + stocks.get(ticker).get(date - 1).getClose();
+    }
+    answer = movingSum / movingAverage;
+    return answer;
   }
 
   // change to fix above commands the best

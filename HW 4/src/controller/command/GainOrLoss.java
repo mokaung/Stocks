@@ -1,21 +1,22 @@
 package controller.command;
 
+import java.util.Calendar;
+
 import model.IModel;
 
 public class GainOrLoss implements ICommand {
-  private final int date1;
-  private final int date2;
-  public GainOrLoss(int date1, int date2) {
-    this.date1 = date1;
-    this.date2 = date2;
+  private final Calendar start;
+  private final Calendar close;
+  private final String ticker;
+
+  public GainOrLoss(String ticker, Calendar start, Calendar close) {
+    this.ticker = ticker;
+    this.start = start;
+    this.close = close;
   }
+
   @Override
-  public Double run(IModel model) {
-//    double startingClosePrice = model.tempGetClose(date1);
-//    double endingClosePrice = model.tempGetClose(date2);
-//    double diff = endingClosePrice - startingClosePrice;
-//    return diff;
-    Double result = model.gainOrLoss();
-    return result;
+  public void run(IModel model) {
+    model.gainOrLoss(ticker, start, close);
   }
 }
