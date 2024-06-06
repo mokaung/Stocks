@@ -10,16 +10,28 @@ import static controller.command.ControllerUtil.getCalendar;
 import static controller.command.ControllerUtil.writeMessage;
 
 /**
- * returns a list of dates that can be shown to the user through controller.
+ * Shows x-crossover days in a specified time period. Utilizes MovingAverage to get the moving
+ * average of each day in the specified time period. X-crossover days are days when the
+ * closing price is higher than the x-day moving average.
  */
 public class Crossover implements ICommand {
 
   private final Appendable out;
 
+  /**
+   * Constructor takes in the Appendable used for output.
+   * @param out The appendable used for outputs in the program.
+   */
   public Crossover(Appendable out) {
     this.out = out;
   }
 
+  /**
+   * Macro to find crossover days. Asks the user for required fields, and outputs an easy-to-read
+   * message that shows the of crossover days.
+   * @param sc Scanner used for user input.
+   * @param model Model that houses the calculating for this command.
+   */
   @Override
   public void run(Scanner sc, IModel model) {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);

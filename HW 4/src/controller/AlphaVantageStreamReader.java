@@ -7,7 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Class that reads from the AlphaVantage website.
+ * Class that reads from the AlphaVantage website. AlphaVantage provides an API that can relay
+ * various information about stocks throughout a long span of time.
  */
 public class AlphaVantageStreamReader implements IReader {
   private final String ticker;
@@ -15,6 +16,8 @@ public class AlphaVantageStreamReader implements IReader {
   public AlphaVantageStreamReader(String ticker) {
     this.ticker = ticker;
   }
+  // Given to model. model can use different reader classes, so you can read from the web or csv
+  // this class does the reading
 
   /**
    * Reads from the AlphaVantage website and records the stock information with the given ticker.

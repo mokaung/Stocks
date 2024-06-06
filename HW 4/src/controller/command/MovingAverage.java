@@ -8,12 +8,27 @@ import model.IModel;
 import static controller.command.ControllerUtil.getCalendar;
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Shows the x-day moving average for a specified stock at a specified date. The moving average is
+ * the average closing prices of the past x days.
+ */
 public class MovingAverage implements ICommand {
   private final Appendable out;
 
+  /**
+   * Constructor takes in the Appendable used for output.
+   * @param out The appendable used for outputs in the program.
+   */
   public MovingAverage(Appendable out) {
     this.out = out;
   }
+
+  /**
+   * Macro to run MovingAverage. Uses the model's movingAverage method to calculate the x-day
+   * moving average. Asks user for input and outputs a readable message.
+   * @param sc Scanner used to store user input.
+   * @param model Model includes movingAverage().
+   */
   @Override
   public void run(Scanner sc, IModel model) {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);

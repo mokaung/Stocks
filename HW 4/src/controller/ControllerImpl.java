@@ -12,6 +12,9 @@ import controller.command.MovingAverage;
 import model.IModel;
 import controller.command.ControllerUtil;
 
+/**
+ * Controller of the program. Oversees the running of the program and command organization.
+ */
 public class ControllerImpl implements IController {
   protected Appendable out;
   protected Readable in;
@@ -28,6 +31,11 @@ public class ControllerImpl implements IController {
     commands.put("1", () -> new GainOrLoss(this.out));
     commands.put("3", () -> new Crossover(this.out));
     commands.put("2", () -> new MovingAverage(this.out));
+    commands.put("2", () -> new MovingAverage(this.out));
+    commands.put("3", () -> new Crossover(this.out));
+    commands.put("GainOrLoss", () -> new GainOrLoss(this.out));
+    commands.put("Crossover", () -> new Crossover(this.out));
+    commands.put("MovingAverage", () -> new MovingAverage(this.out));
   }
 
   @Override
@@ -45,7 +53,7 @@ public class ControllerImpl implements IController {
       }
       if (in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m")) {
         ControllerUtil.printMenu(this.out);
-        return;
+        return ;
       }
       Supplier<ICommand> cmd = commands.getOrDefault(in, null);
       if (cmd != null) {
