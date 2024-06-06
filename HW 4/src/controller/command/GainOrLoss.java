@@ -34,7 +34,7 @@ public class GainOrLoss implements ICommand {
   public void run(Scanner sc, IModel model)throws IllegalArgumentException {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
-    if (!model.isValidTicker(ticker)) {
+    if (model.isValidTicker(ticker)) {
       throw new IllegalArgumentException("Invalid ticker.");
     }
     writeMessage("Please enter a starting date: " + System.lineSeparator(), out);
