@@ -24,8 +24,18 @@ public class CSVReader implements IReader {
         String first = buffer.readLine();
         builder.append(first);
       }
-    } catch (IOException e) {
-      throw new IllegalStateException("Could not return reader");
+    }
+    catch (IOException e) {
+      try {
+        String filePath = new File("").getAbsolutePath() + "/HW 4/src/";
+        BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
+        while (buffer.readLine() != null) {
+          String first = buffer.readLine();
+          builder.append(first);
+        }
+      } catch (IOException g) {
+        throw new IllegalStateException("Could not return reader");
+      }
     }
     return new StringReader(builder.toString());
   }
