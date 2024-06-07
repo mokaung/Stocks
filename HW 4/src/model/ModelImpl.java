@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.sound.sampled.Port;
+
 public class ModelImpl implements IModel {
   private final Map<String, Map<LocalDate, IStock>> stocks;
   private Map<String, IPortfolio> portfolios;
@@ -32,11 +34,7 @@ public class ModelImpl implements IModel {
 
       String[] dateParts = parts[0].split("-");
 
-      Calendar cal = Calendar.getInstance();
 //      System.out.println(dateParts[0] + " " + dateParts[1] + " " + dateParts[2]);
-      cal.set(Integer.parseInt(dateParts[0]),
-              Integer.parseInt(dateParts[1]),
-              Integer.parseInt(dateParts[2]));
       int year = Integer.parseInt(dateParts[0]);
       int month = Integer.parseInt(dateParts[1]);
       int day = Integer.parseInt(dateParts[2]);
@@ -127,10 +125,9 @@ public class ModelImpl implements IModel {
   }
 
   @Override
-  public Double getPortfolioValue(String s, LocalDate cal) {
-    return portfolios.get(s).getValue(cal);
+  public Double getPortfolioValue(String name, LocalDate cal)throws IllegalArgumentException {
+        return portfolios.get(name).getValue(cal);
   }
-
   @Override
   public Map<String, Map<LocalDate, IStock>> getStock() {
     return stocks;

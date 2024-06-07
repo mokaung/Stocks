@@ -1,9 +1,12 @@
 package controller.command;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import model.IModel;
 
+import static controller.command.ControllerUtil.calToString;
+import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
 public class GetPortfolioValue implements ICommand{
@@ -25,7 +28,15 @@ public class GetPortfolioValue implements ICommand{
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Enter a date to calculate the value of " + name + " at that date." +  System.lineSeparator(), out);
-//    model.getPortfolioValue(name, )
+    LocalDate date1 = getLocalDate(sc.next());
+    try {
+      writeMessage("The value of " + name + " on " + calToString(date1) + "is: "
+              + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
+    }
+    catch (IllegalArgumentException e) {
+      throw e;
+    }
   }
+
 
 }

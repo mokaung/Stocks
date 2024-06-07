@@ -38,4 +38,5 @@ public interface IModel {
   Double getPortfolioValue(String s, LocalDate cal);
 
   Map<String, Map<LocalDate, IStock>> getStock();
+
 }

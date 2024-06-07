@@ -24,6 +24,9 @@ public class Portfolio implements IPortfolio {
         double stockShare = share.get(stock.getTicker());
         answer += stock.getClose() * stockShare;
       }
+      else {
+        throw new IllegalArgumentException("Sorry, information for the stock" + stock.getTicker() + " at " + date + " is unavailable.");
+      }
     }
     return answer;
   }
@@ -32,6 +35,10 @@ public class Portfolio implements IPortfolio {
   public void setValue(Map<LocalDate, IStock> stock, int share, String ticker) {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
+  }
+
+  public Map<String, Map<LocalDate, IStock>> getStocks()throws IllegalArgumentException {
+    return stocks;
   }
 
   // to be implemented

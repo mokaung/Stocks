@@ -71,5 +71,4 @@ public class MockModel implements IModel {
     return Map.of();
   }
 
-  ;
 }

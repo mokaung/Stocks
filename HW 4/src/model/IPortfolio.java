@@ -9,4 +9,6 @@ public interface IPortfolio {
 
   void setValue(Map<LocalDate, IStock> stock, int share, String ticker);
 
+  Map<String, Map<LocalDate, IStock>> getStocks();
+
 }

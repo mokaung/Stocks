@@ -86,9 +86,6 @@ public class ControllerUtil {
     if (result.length != 3) {
       throw new IllegalArgumentException("Error: Date should be written as: YYYY-MM-DD");
     }
-    Calendar cal = Calendar.getInstance();
-    cal.set(Integer.parseInt(result[0]), Integer.parseInt(result[1])-1, Integer.parseInt(result[2]));
-    return cal;
     int year = Integer.parseInt(result[0]);
     int month = Integer.parseInt(result[1]);
     int day = Integer.parseInt(result[2]);
