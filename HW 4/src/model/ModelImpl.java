@@ -36,6 +36,10 @@ public class ModelImpl implements IModel {
               Integer.parseInt(dateParts[1]),
               Integer.parseInt(dateParts[2]));
 
+      System.out.println(dateParts[0]);
+      System.out.println(dateParts[1]);
+      System.out.println(dateParts[2]);
+
       double open = Double.parseDouble(parts[1]);
       double high = Double.parseDouble(parts[2]);
       double low = Double.parseDouble(parts[3]);
@@ -45,7 +49,6 @@ public class ModelImpl implements IModel {
 
       dateStock.put(cal, stock);
     }
-    System.out.println("dog");
     this.stocks.put(ticker, dateStock);
   }
 
