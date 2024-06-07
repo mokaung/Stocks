@@ -43,20 +43,14 @@ public class ControllerUtil {
    * @param out The appendable used for outputs in the program.
    */
   public static void printMenu(Appendable out) {
-    writeMessage("Please enter the character in the parentheses."
-            + " Supported user instructions are: " + System.lineSeparator(), out);
-    writeMessage("(1) Find out stock gain or lose in a time period."
-            + System.lineSeparator(), out);
-    writeMessage("(2) Find out x-day moving average on a given day."
-            + System.lineSeparator(), out);
-    writeMessage("(3) Find out which days are x-day crossovers in a time period."
-            + System.lineSeparator(), out);
-    writeMessage("(4) Create a new portfolio."
-            + System.lineSeparator(), out);
-    writeMessage("(5) Add new stocks to an existing portfolio."
-            + System.lineSeparator(), out);
-    writeMessage("(6) Find out the value of an existing portfolio."
-            + System.lineSeparator(), out);
+    writeMessage("Please enter the character in the parentheses." + " Supported user instructions are: " + System.lineSeparator(), out);
+    writeMessage("(1) Populate the system with your desired stock." + System.lineSeparator(), out);
+    writeMessage("(2) Find out stock gain or lose in a time period." + System.lineSeparator(), out);
+    writeMessage("(3) Find out x-day moving average on a given day." + System.lineSeparator(), out);
+    writeMessage("(4) Find out which days are x-day crossovers in a time period." + System.lineSeparator(), out);
+    writeMessage("(5) Create a new portfolio." + System.lineSeparator(), out);
+    writeMessage("(6) Add new stocks to an existing portfolio." + System.lineSeparator(), out);
+    writeMessage("(7) Find out the value of an existing portfolio." + System.lineSeparator(), out);
     writeMessage("(M)enu (show the menu again)" + System.lineSeparator(), out);
     writeMessage("(Q)uit (closes the program)" + System.lineSeparator(), out);
   }
@@ -95,6 +89,7 @@ public class ControllerUtil {
 
   /**
    * Formats the LocalDate in the year - month - date format
+   *
    * @param cal
    * @return
    */
