@@ -1,13 +1,14 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class ModelImpl implements IModel {
-  private final Map<String, Map<Calendar, IStock>> stocks;
+  private final Map<String, Map<LocalDate, IStock>> stocks;
   private Map<String, IPortfolio> portfolios;
 
   public ModelImpl() {
@@ -22,9 +23,10 @@ public class ModelImpl implements IModel {
 //      System.out.println(s.next());
     }
 
-    Map<Calendar, IStock> dateStock = new HashMap<>();
+    Map<LocalDate, IStock> dateStock = new HashMap<>();
 
     while (s.hasNext()) {
+
       String stockLine = s.next();
       String[] parts = stockLine.split(",");
 
@@ -35,10 +37,11 @@ public class ModelImpl implements IModel {
       cal.set(Integer.parseInt(dateParts[0]),
               Integer.parseInt(dateParts[1]),
               Integer.parseInt(dateParts[2]));
+      int year = Integer.parseInt(dateParts[0]);
+      int month = Integer.parseInt(dateParts[1]);
+      int day = Integer.parseInt(dateParts[2]);
 
-      System.out.println(dateParts[0]);
-      System.out.println(dateParts[1]);
-      System.out.println(dateParts[2]);
+      LocalDate cal = LocalDate.of(year, month, day);
 
       double open = Double.parseDouble(parts[1]);
       double high = Double.parseDouble(parts[2]);
@@ -53,40 +56,49 @@ public class ModelImpl implements IModel {
   }
 
   @Override
-  public ArrayList<Calendar> crossover(int window, Calendar date1, Calendar date2, String ticker) {
-    ArrayList<Calendar> results = new ArrayList<Calendar>();
-    Calendar currentDate = (Calendar) date1.clone();
-    while (currentDate.before(date2)) {
+  public ArrayList<LocalDate> crossover(int window, LocalDate date1, LocalDate date2, String ticker) {
+    ArrayList<LocalDate> results = new ArrayList<>();
+    LocalDate currentDate = date1;
+
+    while (currentDate.isBefore(date2)) {
       double currentMovingAverage = movingAverage(window, currentDate, ticker);
       if (currentMovingAverage < stocks.get(ticker).get(currentDate).getClose()) {
-        results.add((Calendar) currentDate.clone());
+        results.add(currentDate);
       }
-      currentDate.add(Calendar.DAY_OF_YEAR, 1);
+      currentDate = currentDate.plusDays(1);
     }
     return results;
   }
 
   @Override
-  public double gainOrLoss(Calendar date1, Calendar date2, String ticker) throws IllegalArgumentException {
+  public double gainOrLoss(LocalDate date1, LocalDate date2, String ticker) throws IllegalArgumentException {
     double startingClosePrice = stocks.get(ticker).get(date1).getClose();
     double endingClosePrice = stocks.get(ticker).get(date2).getClose();
     return endingClosePrice - startingClosePrice;
   }
 
   @Override
-  public double movingAverage(int window, Calendar date, String ticker) {
+  public double movingAverage(int window, LocalDate date, String ticker) {
     double movingSum = 0;
-    Calendar currentDate = (Calendar) date.clone();
-    currentDate.add(Calendar.DAY_OF_YEAR, -window);
-    while (currentDate.before(date)) {
-      movingSum += stocks.get(ticker).get(currentDate).getClose();
-      currentDate.add(Calendar.DAY_OF_YEAR, 1);
+    if (window == 0) {
+      return movingSum;
     }
-    return movingSum / window;
+
+    LocalDate currentDate = date.minusDays(window);
+    int count = 0;
+
+    while (currentDate.isBefore(date)) {
+      if (stocks.containsKey(ticker) && stocks.get(ticker).containsKey(currentDate)) {
+        movingSum += stocks.get(ticker).get(currentDate).getClose();
+        count++;
+      }
+      currentDate = currentDate.plusDays(1);
+    }
+    return movingSum / count;
   }
 
   @Override
-  public boolean isValidCalendar(Calendar cal, String ticker) {
+  public boolean isValidLocalDate(LocalDate cal, String ticker) {
     return stocks.get(ticker).containsKey(cal);
   }
 
@@ -103,7 +115,7 @@ public class ModelImpl implements IModel {
   @Override
   public IPortfolio createPortfolio(String ticker, int share, String name) {
     Portfolio p = new Portfolio();
-    Map<Calendar, IStock> info = stocks.get(ticker);
+    Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
     portfolios.put(name, p);
     return p;
@@ -115,7 +127,12 @@ public class ModelImpl implements IModel {
   }
 
   @Override
-  public Double getPortfolioValue(String s, Calendar cal) {
+  public Double getPortfolioValue(String s, LocalDate cal) {
     return portfolios.get(s).getValue(cal);
+  }
+
+  @Override
+  public Map<String, Map<LocalDate, IStock>> getStock() {
+    return stocks;
   }
 }

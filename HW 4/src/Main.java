@@ -13,13 +13,17 @@ import model.ModelImpl;
 public class Main {
 
   public static void main(String[] args) throws FileNotFoundException {
-    String ticker = "AMZN";
-//    IReader streamReader = new AlphaVantageStreamReader(ticker);
-    IReader CSVReader = new CSVReader("googleStock");
+    String ticker = "NFLX";
+//    IReader reader = new AlphaVantageStreamReader(ticker);
+    IReader reader = new CSVReader("googleStock");
 
     IModel model = new ModelImpl();
-    model.populate(CSVReader.getReadable(), ticker);
+    model.populate(reader.getReadable(), ticker);
+
     IController controller = new ControllerImpl(System.out, new InputStreamReader(System.in));
     controller.go(model);
   }
 }
+
+/// create the csv reader in try catch
+// populate into command

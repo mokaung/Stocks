@@ -1,9 +1,9 @@
 package model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public interface IStock {
-  Calendar getDate();
+  LocalDate getDate();
 
   double getClose();
 

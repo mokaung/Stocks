@@ -71,8 +71,8 @@ public class AlphaVantageStreamReader implements IReader {
       }
     } catch (IOException e) {
       throw new IllegalArgumentException("No price data found for " + stockSymbol);
-
     }
+    System.out.printf(output.toString());
     return new StringReader(output.toString());
   }
 }

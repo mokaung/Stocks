@@ -1,7 +1,8 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Map;
 
 public class MockModel implements IModel {
   private final StringBuilder log;
@@ -16,19 +17,19 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2, String ticker) {
+  public ArrayList<LocalDate> crossover(int avg, LocalDate date1, LocalDate date2, String ticker) {
     log.append("crossover");
     return null;
   }
 
   @Override
-  public double gainOrLoss(Calendar start, Calendar close, String ticker) {
+  public double gainOrLoss(LocalDate start, LocalDate close, String ticker) {
     log.append("gainOrLoss");
     return 0;
   }
 
   @Override
-  public double movingAverage(int movingWindow, Calendar date, String ticker) {
+  public double movingAverage(int movingWindow, LocalDate date, String ticker) {
     log.append("movingAverage");
     return 0;
   }
@@ -40,8 +41,8 @@ public class MockModel implements IModel {
   }
 
   @Override
-  public boolean isValidCalendar(Calendar cal, String ticker) {
-    log.append("isValidCalendar");
+  public boolean isValidLocalDate(LocalDate cal, String ticker) {
+    log.append("isValidLocalDate");
     return false;
   }
 
@@ -56,7 +57,19 @@ public class MockModel implements IModel {
     return false;
   }
 
-  public void addToPortfolio(String s, String ticker, int share){};
+  public void addToPortfolio(String s, String ticker, int share) {
+  }
 
-  public Double getPortfolioValue(String s, Calendar cal){return 0.0;};
+  ;
+
+  public Double getPortfolioValue(String s, LocalDate cal) {
+    return 0.0;
+  }
+
+  @Override
+  public Map<String, Map<LocalDate, IStock>> getStock() {
+    return Map.of();
+  }
+
+  ;
 }

@@ -1,12 +1,12 @@
 package model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Map;
 
 public interface IPortfolio {
 
-  double getValue(Calendar date);
+  double getValue(LocalDate date);
 
-  void setValue(Map<Calendar, IStock> stock, int share, String ticker);
+  void setValue(Map<LocalDate, IStock> stock, int share, String ticker);
 
 }

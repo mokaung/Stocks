@@ -1,7 +1,8 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Map;
 
 public interface IModel {
   /**
@@ -18,15 +19,15 @@ public interface IModel {
    * @param ticker
    * @return
    */
-  ArrayList<Calendar> crossover(int avg, Calendar date1, Calendar date2, String ticker);
+  ArrayList<LocalDate> crossover(int avg, LocalDate date1, LocalDate date2, String ticker);
 
-  double gainOrLoss(Calendar start, Calendar close, String ticker);
+  double gainOrLoss(LocalDate start, LocalDate close, String ticker);
 
-  double movingAverage(int movingWindow, Calendar date, String ticker);
+  double movingAverage(int movingWindow, LocalDate date, String ticker);
 
   IPortfolio createPortfolio(String ticker, int share, String name);
 
-  boolean isValidCalendar(Calendar cal, String ticker);
+  boolean isValidLocalDate(LocalDate cal, String ticker);
 
   boolean isValidPortfolio(String name);
 
@@ -34,6 +35,7 @@ public interface IModel {
 
   void addToPortfolio(String s, String ticker, int share);
 
-  Double getPortfolioValue(String s, Calendar cal);
+  Double getPortfolioValue(String s, LocalDate cal);
 
+  Map<String, Map<LocalDate, IStock>> getStock();
 }
