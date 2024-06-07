@@ -32,19 +32,19 @@ public class Populate implements ICommand {
     try {
       model.populate(alpha.getReadable(), ticker);
     } catch (Exception e) {
-      writeMessage("Your stock could not be loaded. Would you like to use a preloaded stock? "
+      writeMessage("Your stock could not be loaded. Would you like to use a preloaded stock? Please type 'yes' if so. "
               + System.lineSeparator(), out);
       String answer = sc.next();
       if (answer.equalsIgnoreCase("yes")) {
-        csvGo(sc, model, ticker);
+        csvGo(sc, model);
       } else {
-        ControllerUtil.endMessage(this.out);
+        throw new IllegalArgumentException("Sorry, your stock could not be loaded and you chose to not use a preloaded stock.");
       }
     }
     writeMessage("Your stock has been populated. " + System.lineSeparator(), out);
   }
 
-  private void csvGo(Scanner sc, IModel model, String ticker) {
+  private void csvGo(Scanner sc, IModel model) {
     writeMessage("Which stock would you like to use? "
             + System.lineSeparator(), out);
     writeMessage("(1) FaceBook" + System.lineSeparator(), out);
@@ -52,12 +52,38 @@ public class Populate implements ICommand {
     writeMessage("(3) Amazon" + System.lineSeparator(), out);
     writeMessage("(4) Google" + System.lineSeparator(), out);
     writeMessage("(5) Netflix" + System.lineSeparator(), out);
-
+    String input = sc.next();
+    String ticker = "";
+    switch (input) {
+      case "1":
+        ticker = "facebookStock";
+        break;
+      case "2":
+        ticker = "appleStock";
+        break;
+      case "3":
+        ticker = "amazonStock";
+        break;
+      case "4":
+        ticker = "googleStock";
+        break;
+      case "5":
+        ticker = "netflixStock";
+        break;
+      default:
+        throw new IllegalArgumentException("Please type a valid input(1-5).");
+    }
     try {
       IReader reader = new CSVReader(ticker);
-      model.populate(reader.getReadable(), ticker);
-    } catch (FileNotFoundException e) {
-      writeMessage("Your stock cannot be loaded." + System.lineSeparator(), out);
+//      try {
+        model.populate(reader.getReadable(), ticker);
+//      }
+//      catch (IllegalStateException e){
+//        throw new IllegalStateException("Please make sure you have the csv files for our preloaded stocks in your directory." +  System.lineSeparator());
+//      }
+    } catch (Exception e) {
+      System.out.println(e);
+      throw new IllegalArgumentException("Your stock cannot be loaded.");
     }
     writeMessage("Your stock has been populated. " + System.lineSeparator(), out);
   }

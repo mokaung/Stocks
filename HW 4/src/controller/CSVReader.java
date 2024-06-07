@@ -22,20 +22,20 @@ public class CSVReader implements IReader {
     StringBuilder builder = new StringBuilder();
     try {
       String filePath = new File("").getAbsolutePath() + "\\HW 4\\src\\backupCSV\\";
+      System.out.println(filePath + filename + ".csv");
       Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
-
       while (scanner.hasNext()) {
         String first = scanner.next();
         builder.append(first + System.lineSeparator());
       }
     } catch (IOException e) {
       try {
-        String filePath = new File("").getAbsolutePath() + "/HW 4/src/backupCSV/";
+        String filePath = new File("").getAbsolutePath() + "/src/backupCSV/";
+
         BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
         while (buffer.readLine() != null) {
           String first = buffer.readLine();
           System.out.println(first);
-
           builder.append(first + System.lineSeparator());
         }
       } catch (IOException g) {
