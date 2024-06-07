@@ -9,11 +9,12 @@ import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
-public class GetPortfolioValue implements ICommand{
+public class GetPortfolioValue implements ICommand {
   private final Appendable out;
 
   /**
    * Constructor takes in the Appendable used for output.
+   *
    * @param out The appendable used for outputs in the program.
    */
   public GetPortfolioValue(Appendable out) {
@@ -21,7 +22,7 @@ public class GetPortfolioValue implements ICommand{
   }
 
   @Override
-  public void run(Scanner sc, IModel model)throws IllegalArgumentException {
+  public void run(Scanner sc, IModel model) throws IllegalArgumentException {
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
     if (model.isValidPortfolio(name)) {
@@ -36,6 +37,7 @@ public class GetPortfolioValue implements ICommand{
     catch (IllegalArgumentException e) {
       throw e;
     }
+    writeMessage("Enter a date to calculate the value of " + name + " at that date." + System.lineSeparator(), out);
   }
 
 

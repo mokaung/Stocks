@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.Scanner;
 
+/**
+ * Class that reads from the stored CSV files.
+ */
 public class CSVReader implements IReader {
   private final String filename;
 

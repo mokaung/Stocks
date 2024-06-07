@@ -9,5 +9,10 @@ import model.IModel;
  * implementations of command.
  */
 public interface ICommand {
+  /**
+   * Runs the given command in model form the controller input.
+   * @param sc
+   * @param model
+   */
   void run(Scanner sc, IModel model);
 }

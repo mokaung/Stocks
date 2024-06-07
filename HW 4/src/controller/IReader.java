@@ -8,5 +8,10 @@ import java.io.FileNotFoundException;
  * stock data,
  */
 public interface IReader {
+  /**
+   * Parse through and generate a readable.
+   * @return a readable that contains all the stock information from the desired spot.
+   * @throws FileNotFoundException
+   */
   Readable getReadable() throws FileNotFoundException;
 }

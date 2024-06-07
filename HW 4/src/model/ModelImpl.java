@@ -9,10 +9,16 @@ import java.util.Scanner;
 
 import javax.sound.sampled.Port;
 
+/**
+ * Model for the program. Stores all the information.
+ */
 public class ModelImpl implements IModel {
   private final Map<String, Map<LocalDate, IStock>> stocks;
   private Map<String, IPortfolio> portfolios;
 
+  /**
+   * Constructor for creating a blank model.
+   */
   public ModelImpl() {
     stocks = new HashMap<>();
   }
