@@ -126,7 +126,7 @@ public class ModelImpl implements IModel {
 
   @Override
   public void addToPortfolio(String portFolioName, String ticker, int share) {
-    portfolios.get(portFolioName);
+    portfolios.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
   }
 
   @Override

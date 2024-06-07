@@ -57,6 +57,7 @@ public class CreatePortfolio implements ICommand {
     }
     writeMessage("How many shares of " + ticker + " would you like? " + System.lineSeparator(), out);
     int shares = sc.nextInt();
+    model.
     writeMessage("Adding " + shares + " shares of " + ticker + " to this portfolio..." + System.lineSeparator(), out);
     writeMessage("Enter a name for this portfolio: " + System.lineSeparator(), out);
     String name = sc.next();

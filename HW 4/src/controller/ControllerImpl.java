@@ -47,19 +47,13 @@ public class ControllerImpl implements IController {
     this.in = in;
 
     this.commands = new HashMap<>();
-    commands.put("1", () -> new GainOrLoss(this.out));
-    commands.put("2", () -> new MovingAverage(this.out));
-    commands.put("3", () -> new Crossover(this.out));
-    commands.put("4", () -> new CreatePortfolio(this.out));
-    commands.put("5", () -> new GetPortfolioValue(this.out));
-    commands.put("6", () -> new GetPortfolioValue(this.out));
     commands.put("1", () -> new Populate(this.out));
     commands.put("2", () -> new GainOrLoss(this.out));
     commands.put("3", () -> new MovingAverage(this.out));
     commands.put("4", () -> new Crossover(this.out));
     commands.put("5", () -> new CreatePortfolio(this.out));
     commands.put("6", () -> new CreatePortfolio(this.out));
-    commands.put("7", () -> new CreatePortfolio(this.out));
+    commands.put("7", () -> new GetPortfolioValue(this.out));
   }
 
   /**
