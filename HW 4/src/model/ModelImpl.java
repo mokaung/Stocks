@@ -19,19 +19,19 @@ public class ModelImpl implements IModel {
     Scanner s = new Scanner(readable);
     if (s.hasNext()) {
       // removes the header
-      s.next();
+//      System.out.println(s.next());
     }
 
     Map<Calendar, IStock> dateStock = new HashMap<>();
 
     while (s.hasNext()) {
-
       String stockLine = s.next();
       String[] parts = stockLine.split(",");
 
       String[] dateParts = parts[0].split("-");
 
       Calendar cal = Calendar.getInstance();
+//      System.out.println(dateParts[0] + " " + dateParts[1] + " " + dateParts[2]);
       cal.set(Integer.parseInt(dateParts[0]),
               Integer.parseInt(dateParts[1]),
               Integer.parseInt(dateParts[2]));

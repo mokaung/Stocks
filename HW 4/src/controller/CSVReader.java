@@ -31,7 +31,8 @@ public class CSVReader implements IReader {
         BufferedReader buffer = new BufferedReader(new FileReader(filePath + filename + ".csv"));
         while (buffer.readLine() != null) {
           String first = buffer.readLine();
-          builder.append(first);
+          System.out.println(first);
+          builder.append(first + System.lineSeparator());
         }
       } catch (IOException g) {
         throw new IllegalStateException("Could not return reader");

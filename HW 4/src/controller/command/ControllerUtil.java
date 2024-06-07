@@ -82,7 +82,6 @@ public class ControllerUtil {
       throw new IllegalArgumentException("Error: Date should be written as: YYYY-MM-DD");
     }
     Calendar cal = Calendar.getInstance();
-    System.out.println(result[0] + "-" + result[1] + "-" + result[2]);
     cal.set(Integer.parseInt(result[0]), Integer.parseInt(result[1])-1, Integer.parseInt(result[2]));
     return cal;
   }
