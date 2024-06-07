@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -22,9 +24,11 @@ public class ModelImpl implements IModel {
       s.next();
     }
 
+    System.out.println();
     Map<Calendar, IStock> dateStock = new HashMap<>();
 
     while (s.hasNext()) {
+
       String stockLine = s.next();
       String[] parts = stockLine.split(",");
 
@@ -34,10 +38,6 @@ public class ModelImpl implements IModel {
       cal.set(Integer.parseInt(dateParts[0]),
               Integer.parseInt(dateParts[1]),
               Integer.parseInt(dateParts[2]));
-
-      System.out.println(dateParts[0]);
-      System.out.println(dateParts[1]);
-      System.out.println(dateParts[2]);
 
       double open = Double.parseDouble(parts[1]);
       double high = Double.parseDouble(parts[2]);
