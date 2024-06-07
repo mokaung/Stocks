@@ -93,6 +93,11 @@ public class ControllerUtil {
     return LocalDate.of(year, month, day);
   }
 
+  /**
+   * Formats the LocalDate in the year - month - date format
+   * @param cal
+   * @return
+   */
   public static String calToString(LocalDate cal) {
     return cal.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
   }

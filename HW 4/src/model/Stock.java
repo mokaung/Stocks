@@ -1,9 +1,6 @@
 package model;
 
-import org.junit.validator.PublicClassValidator;
-
 import java.time.LocalDate;
-import java.util.Objects;
 
 /**
  * Information of a stock that a person owns.
@@ -58,6 +55,7 @@ public class Stock implements IStock {
     if (this == o) {
       return true;
     }
+
     if (!(o instanceof Stock)) {
       return false;
     }

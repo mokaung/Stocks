@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * MockModel used to test controller inputs.
+ */
 public class MockModel implements IModel {
   private final StringBuilder log;
 

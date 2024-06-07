@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class Portfolio implements IPortfolio {
@@ -13,7 +12,6 @@ public class Portfolio implements IPortfolio {
     this.stocks = new HashMap<>();
     this.share = new HashMap<>();
   }
-
 
   @Override
   public double getValue(LocalDate date) {
@@ -34,8 +32,8 @@ public class Portfolio implements IPortfolio {
     this.share.put(ticker, share);
   }
 
-  // to be implemented
-//  @Override
-//  public void addStock() {
-//  }
+  @Override
+  public void addStock(IStock stock) {
+
+  }
 }
