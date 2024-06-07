@@ -53,7 +53,7 @@ public class CreatePortfolio implements ICommand {
     writeMessage("Which stock would you like to add into this portfolio? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (!model.isValidTicker(ticker)) {
-      throw new IllegalArgumentException("Invalid ticker.");
+      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("How many shares of " + ticker + " would you like? " + System.lineSeparator(), out);
     int shares = sc.nextInt();

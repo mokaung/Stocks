@@ -10,6 +10,7 @@ import controller.command.Crossover;
 import controller.command.GainOrLoss;
 import controller.command.ICommand;
 import controller.command.MovingAverage;
+import controller.command.Populate;
 import model.IModel;
 import controller.command.ControllerUtil;
 
@@ -17,10 +18,10 @@ import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Controller of the program. Oversees the running of the program and command organization.
- *
+ * <p>
  * This program directly uses the Appendable out for user interface, so there is no official view.
  * Stocks are stored in a map in the Model accessed by the controller when needed.
- *
+ * <p>
  * The user is introduced to a menu, which asks for inputs from the keyboard, in the form of
  * numbers. When the user wants to repeat the menu, then they can enter M/m and Q/q to quit.
  */
@@ -32,8 +33,9 @@ public class ControllerImpl implements IController {
   /**
    * The constructor initializes all the variables needed in the go() method. Creates a map
    * for the commands.
+   *
    * @param out output Appendable object, used by program to output to user.
-   * @param in Appendable object used for inputs by the user.
+   * @param in  Appendable object used for inputs by the user.
    * @throws IllegalArgumentException if in or out is null.
    */
   public ControllerImpl(Appendable out, Readable in) throws IllegalArgumentException {
@@ -44,17 +46,19 @@ public class ControllerImpl implements IController {
     this.in = in;
 
     this.commands = new HashMap<>();
-    commands.put("1", () -> new GainOrLoss(this.out));
-    commands.put("2", () -> new MovingAverage(this.out));
-    commands.put("3", () -> new Crossover(this.out));
-    commands.put("4", () -> new CreatePortfolio(this.out));
+    commands.put("1", () -> new Populate(this.out));
+    commands.put("2", () -> new GainOrLoss(this.out));
+    commands.put("3", () -> new MovingAverage(this.out));
+    commands.put("4", () -> new Crossover(this.out));
     commands.put("5", () -> new CreatePortfolio(this.out));
     commands.put("6", () -> new CreatePortfolio(this.out));
+    commands.put("7", () -> new CreatePortfolio(this.out));
   }
 
   /**
    * The go method runs the program. It provides the user with a interface, allowing the user
    * to access commands. Gets helper methods from the CommandUtil class.
+   *
    * @param model Model for the program, houses all the computation.
    */
   @Override
@@ -66,11 +70,11 @@ public class ControllerImpl implements IController {
     while (sc.hasNext()) {
       ICommand c;
       String in = sc.next();
-      if (in.equalsIgnoreCase("q") || in.equalsIgnoreCase("Q")) {
+      if (in.equalsIgnoreCase("q")) {
         ControllerUtil.endMessage(this.out);
         return;
       }
-      if (in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m")) {
+      if (in.equalsIgnoreCase("M")) {
         ControllerUtil.printMenu(this.out);
       }
       Supplier<ICommand> cmd = commands.getOrDefault(in, null);
@@ -78,8 +82,7 @@ public class ControllerImpl implements IController {
         ICommand runner = cmd.get();
         try {
           runner.run(sc, model);
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
           writeMessage("Error: " + e.getMessage() + System.lineSeparator(), out);
         }
       } else {
@@ -87,8 +90,7 @@ public class ControllerImpl implements IController {
           if (!(in.equalsIgnoreCase("M") || in.equalsIgnoreCase("m"))) {
             throw new IllegalArgumentException("Invalid command.");
           }
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
           writeMessage(e.getMessage() + System.lineSeparator(), out);
         }
       }

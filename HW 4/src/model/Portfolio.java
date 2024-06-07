@@ -31,9 +31,4 @@ public class Portfolio implements IPortfolio {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
   }
-
-  @Override
-  public void addStock(IStock stock) {
-
-  }
 }

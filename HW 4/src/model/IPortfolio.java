@@ -24,10 +24,4 @@ public interface IPortfolio {
    * @param ticker ticker for stock.
    */
   void setValue(Map<LocalDate, IStock> stock, int share, String ticker);
-
-  /**
-   * Adds a stock to this portfolio.
-   * @param stock the stock being added.
-   */
-  void addStock(IStock stock);
 }

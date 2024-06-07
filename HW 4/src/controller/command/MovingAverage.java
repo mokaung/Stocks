@@ -37,7 +37,7 @@ public class MovingAverage implements ICommand {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isValidTicker(ticker)) {
-      throw new IllegalArgumentException("Invalid ticker.");
+      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("Please enter how many days to base the average "
             + "on (x in x-day moving average): " + System.lineSeparator(), out);
