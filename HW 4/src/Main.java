@@ -24,3 +24,6 @@ public class Main {
     controller.go(model);
   }
 }
+
+/// create the csv reader in try catch
+// populate into command

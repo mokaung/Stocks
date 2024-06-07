@@ -1,13 +1,13 @@
 package controller.command;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
 import model.IModel;
 
 import static controller.command.ControllerUtil.calToString;
-import static controller.command.ControllerUtil.getCalendar;
+import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
 /**
@@ -44,13 +44,13 @@ public class Crossover implements ICommand {
             + "on (x in x-day moving average): " + System.lineSeparator(), out);
     int window = sc.nextInt();
     writeMessage("Please enter the starting date: " + System.lineSeparator(), out);
-    Calendar date1 = getCalendar(sc.next());
-    if (!model.isValidCalendar(date1, ticker)) {
+    LocalDate date1 = getLocalDate(sc.next());
+    if (!model.isValidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("Please enter the ending date: " + System.lineSeparator(), out);
-    Calendar date2 = getCalendar(sc.next());
-    if (!model.isValidCalendar(date2, ticker)) {
+    LocalDate date2 = getLocalDate(sc.next());
+    if (!model.isValidLocalDate(date2, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2)  + " doesn't exist.");
     }
     writeMessage("From "
@@ -62,7 +62,7 @@ public class Crossover implements ICommand {
             + "-day crossovers for "
             + ticker
             + " were on the following dates: ", out);
-    ArrayList<Calendar> result = model.crossover(window, date1, date2, ticker);
+    ArrayList<LocalDate> result = model.crossover(window, date1, date2, ticker);
     for (int i = 0; i < result.size(); i++) {
       if (i == result.size() - 1) {
         writeMessage(calToString(result.get(i)) + System.lineSeparator(), out);

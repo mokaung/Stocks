@@ -1,8 +1,8 @@
 package controller.command;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Util class for Controller and commands. Houses methods used for output and helper for getting
@@ -12,8 +12,9 @@ public class ControllerUtil {
 
   /**
    * Method to write messages into the Appendable out, which is shown to the user.
+   *
    * @param message message that is to be shown.
-   * @param out The appendable used for outputs in the program.
+   * @param out     The appendable used for outputs in the program.
    * @throws IllegalArgumentException If there are any errors.
    */
   public static void writeMessage(String message, Appendable out) throws IllegalArgumentException {
@@ -27,6 +28,7 @@ public class ControllerUtil {
 
   /**
    * Outputs the welcome message of the program. Used at the start of program.
+   *
    * @param out The appendable used for outputs in the program.
    */
   public static void welcomeMessage(Appendable out) {
@@ -37,6 +39,7 @@ public class ControllerUtil {
   /**
    * Outputs the menu of the program. Used when user wishes to see menu and at the start of
    * program.
+   *
    * @param out The appendable used for outputs in the program.
    */
   public static void printMenu(Appendable out) {
@@ -60,6 +63,7 @@ public class ControllerUtil {
 
   /**
    * Outputs the ending message when the program is quit.
+   *
    * @param out The appendable used for outputs in the program.
    */
   public static void endMessage(Appendable out) {
@@ -67,28 +71,29 @@ public class ControllerUtil {
   }
 
   /**
-   * Helper method that converts a user input into a valid Calendar object. Checks for invalid
+   * Helper method that converts a user input into a valid LocalDate object. Checks for invalid
    * date inputs as well.
+   *
    * @param input User input for a date.
-   * @return Calendar object that is used to access stock information.
-   * @throws IllegalArgumentException when input has too many arguments for Calendar.
+   * @return LocalDate object that is used to access stock information.
+   * @throws IllegalArgumentException when input has too many arguments for LocalDate.
    */
-  public static Calendar getCalendar(String input) throws IllegalArgumentException {
+  public static LocalDate getLocalDate(String input) throws IllegalArgumentException {
     String[] result = input.split("-");
     /*
-    Calendar has lenient parsing, so is exception for valid date necessary?
+    LocalDate has lenient parsing, so is exception for valid date necessary?
      */
     if (result.length != 3) {
       throw new IllegalArgumentException("Error: Date should be written as: YYYY-MM-DD");
     }
-    Calendar cal = Calendar.getInstance();
-    System.out.println(result[0] + "-" + result[1] + "-" + result[2]);
-    cal.set(Integer.parseInt(result[0]), Integer.parseInt(result[1])-1, Integer.parseInt(result[2]));
-    return cal;
+    int year = Integer.parseInt(result[0]);
+    int month = Integer.parseInt(result[1]);
+    int day = Integer.parseInt(result[2]);
+
+    return LocalDate.of(year, month, day);
   }
 
-  public static String calToString(Calendar cal) {
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    return formatter.format(cal.getTime());
+  public static String calToString(LocalDate cal) {
+    return cal.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
   }
 }
