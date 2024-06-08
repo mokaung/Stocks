@@ -17,11 +17,11 @@ public class Stock implements IStock {
   /**
    * Create a stock with the specific fields on a specific date.
    *
-   * @param time date of stock
-   * @param open open price
-   * @param high high price
-   * @param low low price
-   * @param close closing price
+   * @param time   date of stock
+   * @param open   open price
+   * @param high   high price
+   * @param low    low price
+   * @param close  closing price
    * @param volume volume exchanged
    * @param ticker ticker symbol
    */
@@ -52,6 +52,7 @@ public class Stock implements IStock {
 
   /**
    * Overrides equals to allow comparison of 2 stocks.
+   *
    * @param o other stock.
    * @return true if stocks are equal, false if not.
    */
@@ -77,6 +78,7 @@ public class Stock implements IStock {
 
   /**
    * Overrides hashcode for equals().
+   *
    * @return hashcode info.
    */
   @Override

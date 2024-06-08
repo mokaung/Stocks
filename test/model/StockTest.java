@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+/**
+ * Tester class for stock.
+ */
 public class StockTest {
   IStock stock;
 
@@ -38,6 +41,8 @@ public class StockTest {
   @Test
   public void testEquals() {
     LocalDate date = LocalDate.of(2024, 1, 1);
-    IStock stock1 '======fdsafdas' new Stock(date, 10, 10, 10, 10, 10, "AMZN");
+    IStock stock1 = new Stock(date, 10, 10,
+            10, 10, 10, "AMZN");
+    assertEquals(stock1, stock);
   }
 }

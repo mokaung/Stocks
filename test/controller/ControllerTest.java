@@ -4,12 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.StringReader;
+
 import model.ModelImpl;
 
 import static org.junit.Assert.*;
 
 /**
- *This class tests all the classes in the Controller package, including the ones in Command
+ * This class tests all the classes in the Controller package, including the ones in Command
  * package. Note: The class Populate is inherently tested everytime GOOG is loaded using
  * initialize GOOG.
  */
@@ -30,6 +31,7 @@ public class ControllerTest {
 
   /**
    * This private helper method simply reduces clutter by having the program load up GOOG.
+   *
    * @return String that is to be appended to expected.
    */
   private String initializeGOOG() {

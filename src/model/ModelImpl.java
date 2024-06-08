@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class ModelImpl implements IModel {
   private final Map<String, Map<LocalDate, IStock>> stocks;
-  private Map<String, IPortfolio> portfolios;
+  private final Map<String, IPortfolio> portfolios;
 
   /**
    * Constructor for creating a blank model.
@@ -24,6 +24,7 @@ public class ModelImpl implements IModel {
 
   /**
    * Used for populating a stock and storing its info in the program.
+   *
    * @param readable stock information
    * @param ticker   ticker symbol for the stock
    */
@@ -63,7 +64,8 @@ public class ModelImpl implements IModel {
 
   /**
    * Finds the crossover days in a specified window of time.
-   * @param window    the window size of the moving average
+   *
+   * @param window the window size of the moving average
    * @param date1  the start date of the analysis period
    * @param date2  the end date of the analysis period
    * @param ticker ticker symbol for the stock
@@ -89,6 +91,7 @@ public class ModelImpl implements IModel {
 
   /**
    * Finds the gain or loss of a stock in a certain window of time.
+   *
    * @param date1  the start date
    * @param date2  the end date
    * @param ticker ticker symbol for the stock
@@ -103,9 +106,10 @@ public class ModelImpl implements IModel {
 
   /**
    * Finds the x day moving average of a stock on a particular day.
+   *
    * @param window the number of days in the moving average window
-   * @param date         the date for which to calculate the moving average
-   * @param ticker       ticker symbol for the stock
+   * @param date   the date for which to calculate the moving average
+   * @param ticker ticker symbol for the stock
    * @return moving Average price.
    */
   @Override
@@ -130,6 +134,7 @@ public class ModelImpl implements IModel {
 
   /**
    * Checks if date is valid.
+   *
    * @param cal    date
    * @param ticker ticker symbol for the stock
    * @return true if valid, false if not.
@@ -141,6 +146,7 @@ public class ModelImpl implements IModel {
 
   /**
    * Checks if portfolio is valid.
+   *
    * @param name the name of the portfolio
    * @return whether portfolio is valid or not.
    */
@@ -151,6 +157,7 @@ public class ModelImpl implements IModel {
 
   /**
    * Checks if ticker is valid for the stock.
+   *
    * @param ticker ticker symbol for the stock
    * @return whether stock exists in the program currently.
    */
@@ -161,6 +168,7 @@ public class ModelImpl implements IModel {
 
   /**
    * To create a portfolio of stocks.
+   *
    * @param ticker ticker symbol for the stock
    * @param share  the number of shares of the ticker to include
    * @param name   the name of the new portfolio
@@ -177,9 +185,10 @@ public class ModelImpl implements IModel {
 
   /**
    * Adds stocks from the loaded ones into an existing stock.
-   * @param portFolioName      the name of the portfolio
-   * @param ticker ticker symbol for the stock
-   * @param share  the number of shares to add
+   *
+   * @param portFolioName the name of the portfolio
+   * @param ticker        ticker symbol for the stock
+   * @param share         the number of shares to add
    */
   @Override
   public void addToPortfolio(String portFolioName, String ticker, int share) {
@@ -188,10 +197,11 @@ public class ModelImpl implements IModel {
 
   /**
    * Gets the value of an existing portfolio.
-   * @param name   the name of the portfolio
-   * @param cal date to evaluate the portfolio at
-   * @return
-   * @throws IllegalArgumentException
+   *
+   * @param name the name of the portfolio
+   * @param cal  date to evaluate the portfolio at
+   * @return gets the portfolio's value on the date
+   * @throws IllegalArgumentException throws exception when there is no name or cal
    */
   @Override
   public Double getPortfolioValue(String name, LocalDate cal) throws IllegalArgumentException {
@@ -200,7 +210,8 @@ public class ModelImpl implements IModel {
 
   /**
    * Getter method to return stocks. Maybe used for future implementation.
-   * @return
+   *
+   * @return stocks
    */
   @Override
   public Map<String, Map<LocalDate, IStock>> getStock() {

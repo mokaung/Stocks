@@ -21,6 +21,7 @@ public class Portfolio implements IPortfolio {
 
   /**
    * Gives the value of the portfolio at a particular date.
+   *
    * @param date date the value is evaluated.
    * @return the value of the portfolio.
    */
@@ -43,6 +44,7 @@ public class Portfolio implements IPortfolio {
   /**
    * Used when stocks are added into portfolio (including when the portfolio is being
    * created).
+   *
    * @param stock  Map of the stock's information on certain date.
    * @param share  how much share a person has.
    * @param ticker ticker for stock.
@@ -52,15 +54,10 @@ public class Portfolio implements IPortfolio {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
   }
-  public Map<String, Map<LocalDate, IStock>> getStocks()throws IllegalArgumentException {
+
+  @Override
+  public Map<String, Map<LocalDate, IStock>> getStocks() throws IllegalArgumentException {
     return stocks;
   }
 
-  /**
-   * for future implementation.
-   * @param stock the stock being added.
-   */
-  @Override
-  public void addStock(IStock stock) {
-  }
 }

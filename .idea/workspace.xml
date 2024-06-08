@@ -50,9 +50,18 @@
     "JUnit.MockModelTest.addToPortfolio.executor": "Run",
     "JUnit.MockModelTest.createPortfolio.executor": "Run",
     "JUnit.MockModelTest.crossover.executor": "Run",
+    "JUnit.MockModelTest.executor": "Run",
     "JUnit.MockModelTest.gainOrLoss.executor": "Run",
+    "JUnit.MockModelTest.getPortfolioValue.executor": "Debug",
     "JUnit.MockModelTest.movingAverage.executor": "Run",
     "JUnit.MockModelTest.populate.executor": "Run",
+    "JUnit.ModelImplTest.createPortfolio.executor": "Run",
+    "JUnit.ModelImplTest.getPortfolioValue.executor": "Run",
+    "JUnit.PortfolioTest.getStocks.executor": "Run",
+    "JUnit.PortfolioTest.getValue.executor": "Run",
+    "JUnit.PortfolioTest.getValueException.executor": "Run",
+    "JUnit.PortfolioTest.setValue.executor": "Run",
+    "JUnit.StockTest.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -83,8 +92,8 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MockModelTest.crossover">
-    <configuration name="MockModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ModelImplTest.getPortfolioValue">
+    <configuration name="ModelImplTest.createPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
@@ -93,45 +102,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MockModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MockModelTest.addToPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MockModelTest" />
-      <option name="METHOD_NAME" value="addToPortfolio" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MockModelTest.createPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MockModelTest" />
+      <option name="MAIN_CLASS_NAME" value="model.ModelImplTest" />
       <option name="METHOD_NAME" value="createPortfolio" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MockModelTest.crossover" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModelImplTest.getPortfolioValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
@@ -140,14 +118,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MockModelTest" />
-      <option name="METHOD_NAME" value="crossover" />
+      <option name="MAIN_CLASS_NAME" value="model.ModelImplTest" />
+      <option name="METHOD_NAME" value="getPortfolioValue" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MockModelTest.getPortfolioValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioTest.getStocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
@@ -156,8 +134,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.MockModelTest" />
-      <option name="METHOD_NAME" value="getPortfolioValue" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
+      <option name="METHOD_NAME" value="getStocks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioTest.getValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
+      <option name="METHOD_NAME" value="getValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioTest.getValueException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
+      <option name="METHOD_NAME" value="getValueException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MockModelTest.crossover" />
-        <item itemvalue="JUnit.MockModelTest" />
-        <item itemvalue="JUnit.MockModelTest.getPortfolioValue" />
-        <item itemvalue="JUnit.MockModelTest.addToPortfolio" />
-        <item itemvalue="JUnit.MockModelTest.createPortfolio" />
+        <item itemvalue="JUnit.ModelImplTest.getPortfolioValue" />
+        <item itemvalue="JUnit.PortfolioTest.getValue" />
+        <item itemvalue="JUnit.ModelImplTest.createPortfolio" />
+        <item itemvalue="JUnit.PortfolioTest.getValueException" />
+        <item itemvalue="JUnit.PortfolioTest.getStocks" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +200,8 @@
       <option name="presentableId" value="Default" />
       <updated>1717797357216</updated>
       <workItem from="1717797359236" duration="11507000" />
-      <workItem from="1717820107900" duration="2845000" />
+      <workItem from="1717820107900" duration="3759000" />
+      <workItem from="1717824254653" duration="3301000" />
     </task>
     <servers />
   </component>
@@ -229,6 +240,21 @@
           <url>file://$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java</url>
           <line>38</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

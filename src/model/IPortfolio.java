@@ -25,10 +25,10 @@ public interface IPortfolio {
    */
   void setValue(Map<LocalDate, IStock> stock, int share, String ticker);
 
-  Map<String, Map<LocalDate, IStock>> getStocks();
   /**
-   * Adds a stock to this portfolio.
-   * @param stock the stock being added.
+   * Getter for the stocks in a portfolio.
+   *
+   * @return a map from date to stocks.
    */
-  void addStock(IStock stock);
+  Map<String, Map<LocalDate, IStock>> getStocks();
 }
