@@ -66,6 +66,8 @@ public class ModelImplTest {
 
   @Test
   public void isValidPortfolio() {
+    assertTrue(model.isValidPortfolio("GOOG"));
+    assertFalse(model.isValidPortfolio("NFLX"));
   }
 
   @Test
