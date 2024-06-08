@@ -21,7 +21,7 @@ public class CSVReader implements IReader {
   public Readable getReadable() {
     StringBuilder builder = new StringBuilder();
     try {
-      String filePath = new File("").getAbsolutePath() + "\\HW 4\\src\\backupCSV\\";
+      String filePath = new File("").getAbsolutePath() + "\\src\\backupCSV\\";
       Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
       while (scanner.hasNext()) {
         String first = scanner.next();
@@ -30,14 +30,10 @@ public class CSVReader implements IReader {
     } catch (IOException e) {
       try {
         String filePath = new File("").getAbsolutePath() + "/src/backupCSV/";
-        String first = "";
-        while (first != null) {
+        Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
+        while (scanner.hasNext()) {
+          String first = scanner.next();
           builder.append(first + System.lineSeparator());
-          Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
-          while (scanner.hasNext()) {
-            first = scanner.next();
-            builder.append(first + System.lineSeparator());
-          }
         }
       } catch (IOException g) {
         throw new IllegalStateException("Could not return reader");
