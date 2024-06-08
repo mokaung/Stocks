@@ -29,12 +29,6 @@ public class CSVReader implements IReader {
       }
     } catch (IOException e) {
       try {
-        String filePath = new File("").getAbsolutePath() + "/src/backupCSV/";
-        System.out.println(filePath + filename + ".csv");
-        String first = "";
-        while (first != null) {
-            System.out.println(first);
-            builder.append(first + System.lineSeparator());
         String filePath = new File("").getAbsolutePath() + "/HW 4/src/backupCSV/";
         Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
         while (scanner.hasNext()) {
@@ -47,5 +41,4 @@ public class CSVReader implements IReader {
     }
     return new StringReader(builder.toString());
   }
-
 }

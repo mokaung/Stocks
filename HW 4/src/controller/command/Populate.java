@@ -6,9 +6,6 @@ import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
 
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 import controller.AlphaVantageStreamReader;
 import controller.CSVReader;
 import controller.IReader;
@@ -75,14 +72,8 @@ public class Populate implements ICommand {
     }
     try {
       IReader reader = new CSVReader(ticker);
-//      try {
-        model.populate(reader.getReadable(), ticker);
-//      }
-//      catch (IllegalStateException e){
-//        throw new IllegalStateException("Please make sure you have the csv files for our preloaded stocks in your directory." +  System.lineSeparator());
-//      }
+      model.populate(reader.getReadable(), ticker);
     } catch (Exception e) {
-      System.out.println(e);
       throw new IllegalArgumentException("Your stock cannot be loaded.");
     }
     writeMessage("Your stock has been populated. " + System.lineSeparator(), out);

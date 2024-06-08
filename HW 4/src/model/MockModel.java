@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -13,7 +14,6 @@ public class MockModel implements IModel {
   private final StringBuilder log;
 
   public MockModel(StringBuilder log) {
-    this.portfolios = new HashMap<>();
     this.log = Objects.requireNonNull(log);
   }
 
@@ -65,8 +65,6 @@ public class MockModel implements IModel {
 
   public void addToPortfolio(String s, String ticker, int share) {
   }
-
-  ;
 
   public Double getPortfolioValue(String s, LocalDate cal) {
     return 0.0;
