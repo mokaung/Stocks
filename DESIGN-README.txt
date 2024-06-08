@@ -1,7 +1,2 @@
-Stocks (Part 1) - Design 
-
-This program utilizes object oriented programming to organize code. The program utilizes a couple of design patterns to reduce code reuse and coupling. 
-
-Model-View-Controller (MVC)
-
-The program's calculations and computing is stored in the model package. This package includes an interface for Model, as well as supporting interfaces for classes that are needed in the Model implementation, ModelImpl. The Stock class represents a certain stock on a specific day, and houses the necessary information of a stock, such as closing and opening price. The Portfolio class represents a single portfolio created by the user. It holds the total value of the portfolio, and the shares the user owns. 
+The design of this program involves an ICommand interface that has numerous class that implements it. Their purpose is to call the corresponding method in models and prints a corresponding message for each input. These commands will be given to a map in the main controller class (command pattern). The controller implements the IController interface that allows for future extensions to the program. 
+The model implements the IModel interface. Again, this is meant for future extensions. This is the case for both portfolio and stock; they both have a corresponding interface. The information is obtained from either AlphaVantage or a pre-saved CSV file. These information is obtained via a IReader interface, where each class that implements it gets information differently.
