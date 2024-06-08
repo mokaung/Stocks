@@ -3,15 +3,18 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * MockModel used to test controller inputs.
  */
 public class MockModel implements IModel {
+  private Map<String, IPortfolio> portfolios;
   private final StringBuilder log;
 
-  public MockModel() {
-    this.log = new StringBuilder();
+  public MockModel(StringBuilder log) {
+    this.portfolios = new HashMap<>();
+    this.log = Objects.requireNonNull(log);
   }
 
   @Override
@@ -27,7 +30,7 @@ public class MockModel implements IModel {
 
   @Override
   public double gainOrLoss(LocalDate start, LocalDate close, String ticker) {
-    log.append("gainOrLoss");
+    log.append("start: "+start+" "+"close: "+close+" "+"ticker: "+ticker+" ");
     return 0;
   }
 

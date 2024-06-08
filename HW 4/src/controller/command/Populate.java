@@ -56,19 +56,19 @@ public class Populate implements ICommand {
     String ticker = "";
     switch (input) {
       case "1":
-        ticker = "facebookStock";
+        ticker = "META";
         break;
       case "2":
-        ticker = "appleStock";
+        ticker = "APPL";
         break;
       case "3":
-        ticker = "amazonStock";
+        ticker = "AMZN";
         break;
       case "4":
-        ticker = "googleStock";
+        ticker = "GOOG";
         break;
       case "5":
-        ticker = "netflixStock";
+        ticker = "NFLX";
         break;
       default:
         throw new IllegalArgumentException("Please type a valid input(1-5).");
