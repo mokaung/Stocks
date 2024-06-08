@@ -8,6 +8,7 @@ import java.io.StringReader;
 import java.util.Scanner;
 
 import controller.command.GainOrLoss;
+
 import model.MockModel;
 import model.ModelImpl;
 
@@ -309,7 +310,7 @@ public class ControllerImplTest {
     tester.go(new ModelImpl());
     assertEquals(expected.toString(), output.toString());
   }
-
+  
   /**
    * This tests the menu option in the user interface in controller. The indvidual commands
    * are tested in CommandsTest in the command package in the test directory, since
