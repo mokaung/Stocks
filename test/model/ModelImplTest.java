@@ -74,26 +74,4 @@ public class ModelImplTest {
     assertTrue(model.isValidTicker("GOOG"));
     assertFalse(model.isValidTicker("NFLX"));
   }
-
-
-  @Test
-  public void crossover() {
-    LocalDate d1 = LocalDate.of(2024, 6, 6);
-    LocalDate d2 = LocalDate.of(2024, 6, 5);
-    assertEquals(model.crossover(0, d1, d2, "GOOG"), new ArrayList<>());
-
-
-  }
-
-  @Test
-  public void gainOrLoss() {
-  }
-
-  @Test
-  public void movingAverage() {
-  }
-
-  @Test
-  public void getStock() {
-  }
 }

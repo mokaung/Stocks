@@ -30,7 +30,7 @@ public class AddStockToPortfolio implements ICommand{
   public void run(Scanner sc, IModel model) {
     writeMessage("Which portfolio would you like to add a stock to? " + System.lineSeparator(), out);
     String name = sc.next();
-    if (model.isValidPortfolio(name)) {
+    if (!model.isValidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Which stock would you like to add to " + name + "? " + System.lineSeparator(), out);

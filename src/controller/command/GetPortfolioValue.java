@@ -23,7 +23,8 @@ public class GetPortfolioValue implements ICommand {
 
   /**
    * Runs the command. Checks for invalid inputs, which are given to controller.
-   * @param sc Scanner taken from Controller, for user input.
+   *
+   * @param sc    Scanner taken from Controller, for user input.
    * @param model Model taken from controller.
    * @throws IllegalArgumentException when there is any errors with input.
    */
@@ -31,19 +32,17 @@ public class GetPortfolioValue implements ICommand {
   public void run(Scanner sc, IModel model) throws IllegalArgumentException {
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
-    if (model.isValidPortfolio(name)) {
+    if (!model.isValidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
-    writeMessage("Enter a date to calculate the value of " + name + " at that date." +  System.lineSeparator(), out);
+    writeMessage("Enter a date to calculate the value of "
+            + name + " at that date." + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
     try {
       writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
               + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
-    }
-    catch (IllegalArgumentException e) {
-      throw e;
+    } catch (IllegalArgumentException e) {
+      throw new IllegalArgumentException("Invalid date.");
     }
   }
-
-
 }
