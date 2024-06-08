@@ -28,7 +28,7 @@ public class AlphaVantageStreamReader implements IReader {
     //the API key needed to use this web service.
     //Please get your own free API key here: https://www.alphavantage.co/
     //Please look at documentation here: https://www.alphavantage.co/documentation/
-    String apiKey = "0MY6AR9B0W2RI93S";
+    String apiKey = "E0O317HEBU1XLPCS";
     String stockSymbol = ticker; //ticker symbol given
     URL url = null;
 

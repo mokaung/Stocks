@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import javax.sound.sampled.Port;
-
 /**
  * Model for the program. Stores all the information.
  */
@@ -27,7 +25,7 @@ public class ModelImpl implements IModel {
     Scanner s = new Scanner(readable);
     if (s.hasNext()) {
       // removes the header
-//      System.out.println(s.next());
+      s.next();
     }
 
     Map<LocalDate, IStock> dateStock = new HashMap<>();
@@ -129,9 +127,10 @@ public class ModelImpl implements IModel {
   }
 
   @Override
-  public Double getPortfolioValue(String name, LocalDate cal)throws IllegalArgumentException {
-        return portfolios.get(name).getValue(cal);
+  public Double getPortfolioValue(String name, LocalDate cal) throws IllegalArgumentException {
+    return portfolios.get(name).getValue(cal);
   }
+
   @Override
   public Map<String, Map<LocalDate, IStock>> getStock() {
     return stocks;
