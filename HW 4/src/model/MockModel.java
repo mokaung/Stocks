@@ -13,7 +13,6 @@ public class MockModel implements IModel {
   private final StringBuilder log;
 
   public MockModel(StringBuilder log) {
-    this.portfolios = new HashMap<>();
     this.log = Objects.requireNonNull(log);
   }
 

@@ -35,11 +35,11 @@ public class CSVReader implements IReader {
         while (first != null) {
             System.out.println(first);
             builder.append(first + System.lineSeparator());
-        String filePath = new File("").getAbsolutePath() + "/HW 4/src/backupCSV/";
         Scanner scanner = new Scanner(new FileReader(filePath + filename + ".csv"));
         while (scanner.hasNext()) {
-          String first = scanner.next();
+          first = scanner.next();
           builder.append(first + System.lineSeparator());
+        }
         }
       } catch (IOException g) {
         throw new IllegalStateException("Could not return reader");
