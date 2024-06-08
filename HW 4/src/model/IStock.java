@@ -1,20 +1,30 @@
 package model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
+/**
+ * Interface for representing stock data.
+ */
 public interface IStock {
-  Calendar getDate();
 
-  double getOpen();
+  /**
+   * Get a stock's date.
+   *
+   * @return the date
+   */
+  LocalDate getDate();
 
-  double getHigh();
-
-  double getLow();
-
+  /**
+   * Get a stock's closing price.
+   *
+   * @return the closing price
+   */
   double getClose();
 
-  int getVolume();
-
+  /**
+   * Getter for the ticker.
+   *
+   * @return the ticker symbol
+   */
   String getTicker();
-
 }

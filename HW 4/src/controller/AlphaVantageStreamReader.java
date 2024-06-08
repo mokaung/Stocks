@@ -7,7 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Class that reads from the AlphaVantage website.
+ * Class that reads from the AlphaVantage website. AlphaVantage provides an API that can relay
+ * various information about stocks throughout a long span of time.
  */
 public class AlphaVantageStreamReader implements IReader {
   private final String ticker;
@@ -15,7 +16,7 @@ public class AlphaVantageStreamReader implements IReader {
   public AlphaVantageStreamReader(String ticker) {
     this.ticker = ticker;
   }
-  // given to model. model can use differnt reader classes so you can read from the web or csv
+  // Given to model. model can use different reader classes, so you can read from the web or csv
   // this class does the reading
 
   /**
@@ -27,7 +28,7 @@ public class AlphaVantageStreamReader implements IReader {
     //the API key needed to use this web service.
     //Please get your own free API key here: https://www.alphavantage.co/
     //Please look at documentation here: https://www.alphavantage.co/documentation/
-    String apiKey = "SQK4LEDKK2ZQLGVE";
+    String apiKey = "0MY6AR9B0W2RI93S";
     String stockSymbol = ticker; //ticker symbol given
     URL url = null;
 
@@ -70,7 +71,6 @@ public class AlphaVantageStreamReader implements IReader {
       }
     } catch (IOException e) {
       throw new IllegalArgumentException("No price data found for " + stockSymbol);
-
     }
     return new StringReader(output.toString());
   }

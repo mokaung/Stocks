@@ -1,12 +1,12 @@
 package model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
  * Information of a stock that a person owns.
  */
 public class Stock implements IStock {
-  private final Calendar time;
+  private final LocalDate time;
   private final double open;
   private final double high;
   private final double low;
@@ -14,7 +14,18 @@ public class Stock implements IStock {
   private final int volume;
   private final String ticker;
 
-  public Stock(Calendar time, double open, double high, double low, double close, int volume, String ticker) {
+  /**
+   * Create a stock with the specific fields on a specific date.
+   *
+   * @param time
+   * @param open
+   * @param high
+   * @param low
+   * @param close
+   * @param volume
+   * @param ticker
+   */
+  public Stock(LocalDate time, double open, double high, double low, double close, int volume, String ticker) {
     this.time = time;
     this.open = open;
     this.high = high;
@@ -25,23 +36,8 @@ public class Stock implements IStock {
   }
 
   @Override
-  public Calendar getDate() {
+  public LocalDate getDate() {
     return time;
-  }
-
-  @Override
-  public double getOpen() {
-    return open;
-  }
-
-  @Override
-  public double getHigh() {
-    return high;
-  }
-
-  @Override
-  public double getLow() {
-    return low;
   }
 
   @Override
@@ -50,12 +46,40 @@ public class Stock implements IStock {
   }
 
   @Override
-  public int getVolume() {
-    return volume;
+  public String getTicker() {
+    return ticker;
   }
 
   @Override
-  public String getTicker() {
-    return ticker;
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+
+    if (!(o instanceof Stock)) {
+      return false;
+    }
+    Stock stock = (Stock) o;
+
+    return time.equals(stock.time) &&
+            Double.compare(open, stock.open) == 0 &&
+            Double.compare(high, stock.high) == 0 &&
+            Double.compare(low, stock.low) == 0 &&
+            Double.compare(close, stock.close) == 0 &&
+            volume == stock.volume &&
+            ticker.equals(stock.ticker);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = 17;
+    result = 31 * result + time.hashCode();
+    result = 31 * result + Double.hashCode(open);
+    result = 31 * result + Double.hashCode(high);
+    result = 31 * result + Double.hashCode(low);
+    result = 31 * result + Double.hashCode(close);
+    result = 31 * result + Integer.hashCode(volume);
+    result = 31 * result + ticker.hashCode();
+    return result;
   }
 }
