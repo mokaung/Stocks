@@ -6,19 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0af55f99-7829-4b19-b9a9-d08df2da70ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW 4/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/AlphaVantageStreamReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/AlphaVantageStreamReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/CSVReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/CSVReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controller/ControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controller/ControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +39,11 @@
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.ControllerImplTest.goTest.executor": "Run",
+    "JUnit.ControllerTest.executor": "Run",
+    "JUnit.ControllerTest.testDate2BeforeDate1.executor": "Run",
+    "JUnit.ControllerTest.testInvalidDate.executor": "Run",
+    "JUnit.ControllerTest.testInvalidDateFormat.executor": "Run",
+    "JUnit.ControllerTest.testInvalidMonthDay.executor": "Run",
     "JUnit.GainOrLossTest.testGainOrLoss.executor": "Run",
     "JUnit.GainOrLossTest.testIncorrectTicker.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -56,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -70,7 +66,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Stocks" />
@@ -78,8 +74,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerImplTest.goTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HW 4" />
+    <configuration name="ControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controller.*" />
@@ -87,40 +83,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.ControllerImplTest" />
-      <option name="METHOD_NAME" value="goTest" />
+      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ControllerTest.testDate2BeforeDate1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
+      <option name="METHOD_NAME" value="testDate2BeforeDate1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GainOrLossTest.testGainOrLoss" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HW 4" />
+    <configuration name="ControllerTest.testInvalidDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.command.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller.command" />
-      <option name="MAIN_CLASS_NAME" value="controller.command.GainOrLossTest" />
-      <option name="METHOD_NAME" value="testGainOrLoss" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
+      <option name="METHOD_NAME" value="testInvalidDate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GainOrLossTest.testIncorrectTicker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HW 4" />
+    <configuration name="ControllerTest.testInvalidMonthDay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.command.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller.command" />
-      <option name="MAIN_CLASS_NAME" value="controller.command.GainOrLossTest" />
-      <option name="METHOD_NAME" value="testIncorrectTicker" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
+      <option name="METHOD_NAME" value="testInvalidMonthDay" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,10 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.GainOrLossTest.testGainOrLoss" />
-        <item itemvalue="JUnit.GainOrLossTest.testIncorrectTicker" />
-        <item itemvalue="JUnit.ControllerImplTest.goTest" />
+        <item itemvalue="JUnit.ControllerTest.testDate2BeforeDate1" />
+        <item itemvalue="JUnit.ControllerTest.testInvalidDate" />
+        <item itemvalue="JUnit.ControllerTest.testInvalidMonthDay" />
       </list>
     </recent_temporary>
   </component>

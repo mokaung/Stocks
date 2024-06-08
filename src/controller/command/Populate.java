@@ -13,13 +13,26 @@ import controller.AlphaVantageStreamReader;
 import controller.CSVReader;
 import controller.IReader;
 
+/**
+ * This command loads up the information of a stock in a span of dates. Allows users to access
+ * this stock.
+ */
 public class Populate implements ICommand {
   private final Appendable out;
 
+  /**
+   * constructor inheriting out from Controller.
+   * @param out for user output.
+   */
   public Populate(Appendable out) {
     this.out = out;
   }
 
+  /**
+   * Runs the command.
+   * @param sc Scanner inherited from controller.
+   * @param model Model inherited from controller.
+   */
   @Override
   public void run(Scanner sc, IModel model) {
     writeMessage("Which stock do you want to load? " + System.lineSeparator(), out);
@@ -44,6 +57,11 @@ public class Populate implements ICommand {
     writeMessage("Your stock has been populated. " + System.lineSeparator(), out);
   }
 
+  /**
+   * Used when AlphaVantage is unavailable. Uses CSVReader to read preloaded stocks (FAANG).
+   * @param sc inherited from run.
+   * @param model inherited from run.
+   */
   private void csvGo(Scanner sc, IModel model) {
     writeMessage("Which stock would you like to use? "
             + System.lineSeparator(), out);

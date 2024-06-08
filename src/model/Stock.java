@@ -50,6 +50,11 @@ public class Stock implements IStock {
     return ticker;
   }
 
+  /**
+   * Overrides equals to allow comparison of 2 stocks.
+   * @param o other stock.
+   * @return true if stocks are equal, false if not.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -70,6 +75,10 @@ public class Stock implements IStock {
             ticker.equals(stock.ticker);
   }
 
+  /**
+   * Overrides hashcode for equals().
+   * @return hashcode info.
+   */
   @Override
   public int hashCode() {
     int result = 17;

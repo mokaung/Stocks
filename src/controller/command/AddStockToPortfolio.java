@@ -6,14 +6,26 @@ import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * This class allows the user to add a stock to an existing portfolio.
+ */
 public class AddStockToPortfolio implements ICommand{
-
   private final Appendable out;
 
+  /**
+   * constructor, takes in out from the controller.
+   * @param out User interface output.
+   */
   public AddStockToPortfolio(Appendable out) {
     this.out = out;
   }
 
+  /**
+   * Runs the command. Checks for any invalid inputs, which throws an exception into
+   * the controller, which correctly outputs it as an error message.
+   * @param sc Scanner used for user input.
+   * @param model Model used for computation.
+   */
   @Override
   public void run(Scanner sc, IModel model) {
     writeMessage("Which portfolio would you like to add a stock to? " + System.lineSeparator(), out);

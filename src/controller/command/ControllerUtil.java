@@ -74,17 +74,18 @@ public class ControllerUtil {
    */
   public static LocalDate getLocalDate(String input) throws IllegalArgumentException {
     String[] result = input.split("-");
-    /*
-    LocalDate has lenient parsing, so is exception for valid date necessary?
-     */
     if (result.length != 3) {
-      throw new IllegalArgumentException("Error: Date should be written as: YYYY-MM-DD");
+      throw new IllegalArgumentException("Date should be written as: YYYY-MM-DD");
     }
     int year = Integer.parseInt(result[0]);
     int month = Integer.parseInt(result[1]);
     int day = Integer.parseInt(result[2]);
-
-    return LocalDate.of(year, month, day);
+    try {
+      return LocalDate.of(year, month, day);
+    }
+    catch (Exception e){
+      throw new IllegalArgumentException("Please enter valid months and days.");
+    }
   }
 
   /**

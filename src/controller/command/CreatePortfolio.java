@@ -48,7 +48,14 @@ public class CreatePortfolio implements ICommand {
     writeMessage("Success! Created new portfolio." + System.lineSeparator(), out);
   }
 
-  // Add a stock to the portfolio.
+  /**
+   * ability to addNewStocks, which has been separated from the run method to provide different
+   * behavior at the start, when user has no stocks in portfolio, versus later, when user
+   * is asked if they want to input more stocks.
+   * @param sc inherited from run.
+   * @param model inherited from run.
+   * @param tf true false boolean to check if command is at the start of running.
+   */
   private void addNewStock(Scanner sc, IModel model, boolean tf) {
     String name = "";
     writeMessage("Which stock would you like to add into this portfolio? " + System.lineSeparator(), out);
@@ -66,7 +73,14 @@ public class CreatePortfolio implements ICommand {
     isNewPortfolio(tf, model, ticker, shares, name);
   }
 
-  // Checks and creates a portfolio.
+  /**
+   * Checks if portfolio is new.
+   * @param tf inherited from addNewStock.
+   * @param model inherited from addNewStock.
+   * @param ticker inherited from addNewStock.
+   * @param shares inherited from addNewStock.
+   * @param name inherited from addNewStock.
+   */
   private void isNewPortfolio(boolean tf, IModel model, String ticker, int shares, String name) {
     if (tf) {
       model.createPortfolio(ticker, shares, name);

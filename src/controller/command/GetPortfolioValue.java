@@ -21,6 +21,12 @@ public class GetPortfolioValue implements ICommand {
     this.out = out;
   }
 
+  /**
+   * Runs the command. Checks for invalid inputs, which are given to controller.
+   * @param sc Scanner taken from Controller, for user input.
+   * @param model Model taken from controller.
+   * @throws IllegalArgumentException when there is any errors with input.
+   */
   @Override
   public void run(Scanner sc, IModel model) throws IllegalArgumentException {
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);

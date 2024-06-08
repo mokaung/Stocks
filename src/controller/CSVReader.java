@@ -12,10 +12,19 @@ import java.util.Scanner;
 public class CSVReader implements IReader {
   private final String filename;
 
+  /**
+   * Takes in a filename.
+   * @param filename name of file.
+   */
   public CSVReader(String filename) {
     this.filename = filename;
   }
 
+  /**
+   * gets a readable from the file, formatting it to work with the rest of the program. The
+   * output is just like if you were to get it from AlphaVantage directly.
+   * @return Readable for program to use.
+   */
   @Override
   public Readable getReadable() {
     StringBuilder builder = new StringBuilder();
