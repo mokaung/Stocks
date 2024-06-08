@@ -39,7 +39,6 @@ public class ModelImpl implements IModel {
 
       String[] dateParts = parts[0].split("-");
 
-//      System.out.println(dateParts[0] + " " + dateParts[1] + " " + dateParts[2]);
       int year = Integer.parseInt(dateParts[0]);
       int month = Integer.parseInt(dateParts[1]);
       int day = Integer.parseInt(dateParts[2]);
