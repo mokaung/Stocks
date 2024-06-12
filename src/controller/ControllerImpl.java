@@ -13,6 +13,7 @@ import controller.command.GetPortfolioValue;
 import controller.command.ICommand;
 import controller.command.MovingAverage;
 import controller.command.Populate;
+import controller.command.SavePortfolio;
 import model.IModel;
 import controller.command.ControllerUtil;
 
@@ -55,7 +56,8 @@ public class ControllerImpl implements IController {
     commands.put("5", () -> new CreatePortfolio(this.out));
     commands.put("6", () -> new AddStockToPortfolio(this.out));
     commands.put("7", () -> new GetPortfolioValue(this.out));
-    
+    commands.put("8", () -> new SavePortfolio(this.out));
+
   }
 
   /**

@@ -86,6 +86,38 @@ public class PortfolioV2 implements IPortfolioV2 {
   @Override
   public String toJson() {
     StringBuilder jsonBuilder = new StringBuilder();
+    fillStocks(jsonBuilder);
+    fillShares(jsonBuilder);
+    jsonBuilder.append("}");
+
+    jsonBuilder.append("}");
+    return jsonBuilder.toString();
+  }
+
+  private void fillShares(StringBuilder jsonBuilder) {
+    jsonBuilder.append("},");
+    jsonBuilder.append("\"share\":{");
+    int shareCount = 0;
+    for (Map.Entry<String, Map<LocalDate, Double>> shareEntry : share.entrySet()) {
+      jsonBuilder.append("\"").append(shareEntry.getKey()).append("\":{");
+      int dateCount = 0;
+      for (Map.Entry<LocalDate, Double> dateEntry : shareEntry.getValue().entrySet()) {
+        jsonBuilder.append("\"").append(dateEntry.getKey().toString()).append("\":");
+        jsonBuilder.append(dateEntry.getValue());
+        dateCount++;
+        if (dateCount < shareEntry.getValue().size()) {
+          jsonBuilder.append(",");
+        }
+      }
+      jsonBuilder.append("}");
+      shareCount++;
+      if (shareCount < share.size()) {
+        jsonBuilder.append(",");
+      }
+    }
+  }
+
+  private void fillStocks(StringBuilder jsonBuilder) {
     jsonBuilder.append("{");
     jsonBuilder.append("\"stocks\":{");
     int stockCount = 0;
@@ -106,39 +138,7 @@ public class PortfolioV2 implements IPortfolioV2 {
         jsonBuilder.append(",");
       }
     }
-    jsonBuilder.append("},");
-    jsonBuilder.append("\"share\":{");
-    int shareCount = 0;
-    for (Map.Entry<String, Map<LocalDate, Double>> shareEntry : share.entrySet()) {
-      jsonBuilder.append("\"").append(shareEntry.getKey()).append("\":{");
-      int dateCount = 0;
-      for (Map.Entry<LocalDate, Double> dateEntry : shareEntry.getValue().entrySet()) {
-        jsonBuilder.append("\"").append(dateEntry.getKey().toString()).append("\":");
-        jsonBuilder.append(dateEntry.getValue());
-        if (++dateCount < shareEntry.getValue().size()) {
-          jsonBuilder.append(",");
-        }
-      }
-      jsonBuilder.append("}");
-      if (++shareCount < share.size()) {
-        jsonBuilder.append(",");
-      }
-    }
-    jsonBuilder.append("}");
-
-    jsonBuilder.append("}");
-    return jsonBuilder.toString();
   }
-
-//  @Override
-//  public void setValue(Map<LocalDate, IStock> stock, int share, String ticker) {
-//    stocks.put(ticker, stock);
-//    Map<LocalDate, Double> shareAtTime = new HashMap();
-//    for (LocalDate key : stock.keySet()) {
-//      shareAtTime.put(key, (double) share);
-//    }
-//    this.share.put(ticker, shareAtTime);
-//  }
 
   @Override
   public void saveJson(String fileName) throws IOException {
