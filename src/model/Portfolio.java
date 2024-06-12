@@ -59,5 +59,4 @@ public class Portfolio implements IPortfolio {
   public Map<String, Map<LocalDate, IStock>> getStocks() throws IllegalArgumentException {
     return stocks;
   }
-
 }
