@@ -26,7 +26,8 @@ public class Stock implements IStock {
    * @param volume volume exchanged
    * @param ticker ticker symbol
    */
-  public Stock(LocalDate time, double open, double high, double low, double close, int volume, String ticker) {
+  public Stock(LocalDate time, double open, double high, double low,
+               double close, int volume, String ticker) {
     this.time = time;
     this.open = open;
     this.high = high;

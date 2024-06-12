@@ -1,4 +1,4 @@
-package model;
+package Portfolio;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import model.IStock;
+
 /**
  * Modified design of Portfolio that allows for additional commands.
  */
@@ -16,13 +18,13 @@ public class PortfolioV2 implements IPortfolioV2 {
   private final Map<String, Map<LocalDate, IStock>> stocks;
   // from string to int to:
   private final Map<String, Map<LocalDate, Double>> share;
-  private final IModel model;
+  private final ITransaction transaction;
 
-  public PortfolioV2(IModel model, String name) {
+  public PortfolioV2(String name) {
     this.name = name;
     stocks = new HashMap<>();
     share = new HashMap<>();
-    this.model = model;
+    this.transaction = new Transaction();
   }
 
   @Override
@@ -49,26 +51,38 @@ public class PortfolioV2 implements IPortfolioV2 {
 
   @Override
   public void rebalance(LocalDate date, ArrayList<Weight> weights) {
-    String ticker = weights.get(0).getTicker();
-    double value = getValue(date);
-    for (int i = 0; i < weights.size(); i++) {
-      double percent = model.gainOrLoss(date.minusDays(1), date, ticker) / value;
-      if (weights.get(i).getShare() != percent) {
-        // do math to change
+    double totalVal = getValue(date);
 
-        share.get(ticker).put(date, 0.0);
+    for (Weight weight : weights) {
+      String ticker = weight.getTicker();
+      double targetPercent = weight.getPercent();
+
+      double stockShare = share.get(ticker).get(date);
+      double stockVal = stocks.get(ticker).get(date).getClose();
+      double currentVal = stockShare * stockVal;
+
+      double targetVal = totalVal * targetPercent;
+      double newShare = targetVal / stockVal;
+
+      // checks to see if the difference between the 1%
+      if (Math.abs(targetPercent - (currentVal / totalVal)) > 0.01) {
+        share.get(ticker).put(date, newShare);
       }
     }
   }
 
   public void buyStock(double share, String ticker, LocalDate date) {
-    // TODO: implement transaction class that checks if this transaction is valid
-    double owned = this.share.get(ticker).get(date);
-    this.share.get(ticker).put(date, owned + share);
+    if (!transaction.check(ticker, date)) {
+      double owned = this.share.get(ticker).get(date);
+      this.share.get(ticker).put(date, owned + share);
+      transaction.record(ticker, date);
+    }
   }
 
+
   @Override
-  public void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String ticker) {
+  public void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String
+          ticker) {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
   }

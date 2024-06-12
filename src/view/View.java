@@ -3,7 +3,7 @@ package view;
 import java.time.LocalDate;
 
 import controller.command.ControllerUtil;
-import model.IPortfolioV2;
+import Portfolio.IPortfolioV2;
 
 public class View implements IViews {
   private final Appendable out;

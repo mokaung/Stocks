@@ -2,8 +2,7 @@ package view;
 
 import java.time.LocalDate;
 
-import model.IPortfolio;
-import model.IPortfolioV2;
+import Portfolio.IPortfolioV2;
 
 /**
  * Interface for the views of the program.

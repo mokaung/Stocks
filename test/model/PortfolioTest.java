@@ -8,7 +8,11 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import Portfolio.IPortfolio;
+import Portfolio.Portfolio;
+import Portfolio.PortfolioV2;
+
+import static org.junit.Assert.assertEquals;
 
 public class PortfolioTest {
   IPortfolio portfolio;
@@ -125,4 +129,28 @@ public class PortfolioTest {
       System.out.println(e.getMessage());
     }
   }
+//  @Test
+//  public void toJson() {
+//    IPortfolioV2 portfolioV2;
+//    portfolioV2 = new PortfolioV2();
+//    LocalDate date = LocalDate.of(2024, 1, 1);
+//    IStock stock = new Stock(date, 10, 10, 10, 10, 10, "AMZN");
+//    IStock stock1 = new Stock(date, 10, 10, 10, 10, 10, "GOOG");
+//    IStock stock2 = new Stock(date, 10, 10, 10, 10, 10, "NFLX");
+//
+//    Map<LocalDate, IStock> map1 = new HashMap<>();
+//    Map<LocalDate, IStock> map2 = new HashMap<>();
+//    Map<LocalDate, IStock> map3 = new HashMap<>();
+//
+//    map1.put(date, stock);
+//    map2.put(date, stock1);
+//    map3.put(date, stock2);
+//
+//    portfolioV2.setValue(map1, 10, "AMZN");
+//    portfolioV2.setValue(map2, 10, "GOOG");
+//    portfolioV2.setValue(map3, 10, "NFLX");
+//
+//    System.out.println(portfolioV2.toJson());
+//    portfolioV2.saveJson("/Users/kmo/Documents/CS3500//Untitled", "testJSON");
+//  }
 }

@@ -7,13 +7,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import Portfolio.Portfolio;
+import Portfolio.IPortfolio;
+import Portfolio.PortfolioV2;
+
 /**
  * Model for the program. Stores all the information. Is run from Controller when user wants
  * something.
  */
 public class ModelImpl implements IModel {
   private final Map<String, Map<LocalDate, IStock>> stocks;
-  private final Map<String, IPortfolioV2> portfolios;
+  private final Map<String, IPortfolio> portfolios;
 
   /**
    * Constructor for creating a blank model.
@@ -175,10 +179,9 @@ public class ModelImpl implements IModel {
    * @param name   the name of the new portfolio
    * @return a new portfolio.
    */
-  //TODO: change to work wiht new portfolio
   @Override
-  public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
-    PortfolioV2 p = new PortfolioV2(new ModelImpl(), "placeholder");
+  public IPortfolio createPortfolio(String ticker, int share, String name) {
+    Portfolio p = new Portfolio();
     Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
     portfolios.put(name, p);
@@ -195,16 +198,6 @@ public class ModelImpl implements IModel {
   @Override
   public void addToPortfolio(String portFolioName, String ticker, int share) {
     portfolios.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
-  }
-
-  @Override
-  public void savePortfolio(String portFolioName)throws IOException {
-    try {
-      portfolios.get(portFolioName).saveXml(portFolioName);
-    }
-    catch (IOException e) {
-      throw e;
-    }
   }
 
   /**
