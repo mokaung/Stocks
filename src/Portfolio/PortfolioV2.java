@@ -1,4 +1,4 @@
-package model;
+package Portfolio;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import model.IStock;
+
 /**
  * Modified design of Portfolio that allows for additional commands.
  */
@@ -16,13 +18,13 @@ public class PortfolioV2 implements IPortfolioV2 {
   private final Map<String, Map<LocalDate, IStock>> stocks;
   // from string to int to:
   private final Map<String, Map<LocalDate, Double>> share;
-  private final IModel model;
+  private final ITransaction transaction;
 
-  public PortfolioV2(IModel model, String name) {
+  public PortfolioV2(String name) {
     this.name = name;
     stocks = new HashMap<>();
     share = new HashMap<>();
-    this.model = model;
+    this.transaction = new Transaction();
   }
 
   @Override
@@ -70,13 +72,17 @@ public class PortfolioV2 implements IPortfolioV2 {
   }
 
   public void buyStock(double share, String ticker, LocalDate date) {
-    // TODO: implement transaction class that checks if this transaction is valid
-    double owned = this.share.get(ticker).get(date);
-    this.share.get(ticker).put(date, owned + share);
+    if (!transaction.check(ticker, date)) {
+      double owned = this.share.get(ticker).get(date);
+      this.share.get(ticker).put(date, owned + share);
+      transaction.record(ticker, date);
+    }
   }
 
+
   @Override
-  public void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String ticker) {
+  public void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String
+          ticker) {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
   }
@@ -91,8 +97,7 @@ public class PortfolioV2 implements IPortfolioV2 {
     return stocks;
   }
 
-  @Override
-  public String toJson() {
+  private String toJson() {
     StringBuilder jsonBuilder = new StringBuilder();
     fillStocks(jsonBuilder);
     fillShares(jsonBuilder);

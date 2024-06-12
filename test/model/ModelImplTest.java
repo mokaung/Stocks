@@ -6,9 +6,10 @@ import org.junit.Test;
 import java.io.Reader;
 import java.io.StringReader;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import Portfolio.Portfolio;
 
 import static org.junit.Assert.*;
 

@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import Portfolio.IPortfolio;
+import Portfolio.IPortfolioV2;
+
 /**
  * MockModel used to test controller inputs.
  */

@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import controller.ControllerImpl;
 import controller.IController;
 import model.IModel;
-import model.IPortfolioV2;
+import Portfolio.IPortfolioV2;
 import model.ModelImpl;
-import model.PortfolioV2;
+import Portfolio.PortfolioV2;
 import view.IViews;
 import view.View;
 

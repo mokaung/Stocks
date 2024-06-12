@@ -1,5 +1,8 @@
-package model;
+package Portfolio;
 
+/**
+ * Class that matches percentage and ticker for rebalancing.
+ */
 public class Weight {
   private final double percent;
   private final String ticker;

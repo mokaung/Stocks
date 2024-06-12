@@ -1,9 +1,10 @@
 package model;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
+
+import Portfolio.IPortfolio;
 
 /**
  * This interface for the operations that can be performed.
@@ -108,7 +109,4 @@ public interface IModel {
    * @return stocks
    */
   Map<String, Map<LocalDate, IStock>> getStock();
-
-  public void savePortfolio(String portFolioName)throws IOException;
-
 }

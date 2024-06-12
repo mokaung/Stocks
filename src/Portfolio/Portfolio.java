@@ -1,8 +1,10 @@
-package model;
+package Portfolio;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+
+import model.IStock;
 
 /**
  * Class to represent a portfolio, which stores a bunch of stocks and their values.
