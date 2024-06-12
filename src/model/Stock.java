@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Information of a stock that a person owns.
@@ -92,5 +93,33 @@ public class Stock implements IStock {
     result = 31 * result + Integer.hashCode(volume);
     result = 31 * result + ticker.hashCode();
     return result;
+  }
+
+  @Override
+  public String toJson() {
+    DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+    return ("{"
+            + "\"time\":\""
+            + time.format(formatter)
+            + "\","
+            + "\"open\":"
+            + open
+            + ","
+            + "\"high\":"
+            + high
+            + ","
+            + "\"low\":"
+            + low
+            + ","
+            + "\"close\":"
+            + close
+            + ","
+            + "\"volume\":"
+            + volume
+            + ","
+            + "\"ticker\":\""
+            + ticker
+            + "\""
+            + "}");
   }
 }

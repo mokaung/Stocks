@@ -44,7 +44,7 @@ public class MockModel extends ModelImpl implements IModel {
   }
 
   @Override
-  public IPortfolio createPortfolio(String ticker, int share, String name) {
+  public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
     log.append("createPortfolio");
     return null;
   }

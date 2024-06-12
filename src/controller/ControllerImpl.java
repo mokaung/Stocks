@@ -55,6 +55,7 @@ public class ControllerImpl implements IController {
     commands.put("5", () -> new CreatePortfolio(this.out));
     commands.put("6", () -> new AddStockToPortfolio(this.out));
     commands.put("7", () -> new GetPortfolioValue(this.out));
+    
   }
 
   /**

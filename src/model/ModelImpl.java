@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.Scanner;
  */
 public class ModelImpl implements IModel {
   private final Map<String, Map<LocalDate, IStock>> stocks;
-  private final Map<String, IPortfolio> portfolios;
+  private final Map<String, IPortfolioV2> portfolios;
 
   /**
    * Constructor for creating a blank model.
@@ -176,8 +177,8 @@ public class ModelImpl implements IModel {
    */
   //TODO: change to work wiht new portfolio
   @Override
-  public IPortfolio createPortfolio(String ticker, int share, String name) {
-    Portfolio p = new Portfolio();
+  public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
+    PortfolioV2 p = new PortfolioV2();
     Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
     portfolios.put(name, p);
@@ -194,6 +195,16 @@ public class ModelImpl implements IModel {
   @Override
   public void addToPortfolio(String portFolioName, String ticker, int share) {
     portfolios.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
+  }
+
+  @Override
+  public void savePortfolio(String portFolioName)throws IOException {
+    try {
+      portfolios.get(portFolioName).saveJson(portFolioName);
+    }
+    catch (IOException e) {
+      throw e;
+    }
   }
 
   /**

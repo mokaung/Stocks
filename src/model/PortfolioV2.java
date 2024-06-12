@@ -1,5 +1,8 @@
 package model;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,5 +83,82 @@ public class PortfolioV2 implements IPortfolioV2 {
     return stocks;
   }
 
+  @Override
+  public String toJson() {
+    StringBuilder jsonBuilder = new StringBuilder();
+    jsonBuilder.append("{");
+    jsonBuilder.append("\"stocks\":{");
+    int stockCount = 0;
+    for (Map.Entry<String, Map<LocalDate, IStock>> stockEntry : stocks.entrySet()) {
+      jsonBuilder.append("\"").append(stockEntry.getKey()).append("\":{");
+      int dateCount = 0;
+      for (Map.Entry<LocalDate, IStock> dateEntry : stockEntry.getValue().entrySet()) {
+        jsonBuilder.append("\"").append(dateEntry.getKey().toString()).append("\":");
+        jsonBuilder.append(dateEntry.getValue().toJson());
+        dateCount++;
+        if (dateCount < stockEntry.getValue().size()) {
+          jsonBuilder.append(",");
+        }
+      }
+      jsonBuilder.append("}");
+      stockCount++;
+      if (stockCount < stocks.size()) {
+        jsonBuilder.append(",");
+      }
+    }
+    jsonBuilder.append("},");
+    jsonBuilder.append("\"share\":{");
+    int shareCount = 0;
+    for (Map.Entry<String, Map<LocalDate, Double>> shareEntry : share.entrySet()) {
+      jsonBuilder.append("\"").append(shareEntry.getKey()).append("\":{");
+      int dateCount = 0;
+      for (Map.Entry<LocalDate, Double> dateEntry : shareEntry.getValue().entrySet()) {
+        jsonBuilder.append("\"").append(dateEntry.getKey().toString()).append("\":");
+        jsonBuilder.append(dateEntry.getValue());
+        if (++dateCount < shareEntry.getValue().size()) {
+          jsonBuilder.append(",");
+        }
+      }
+      jsonBuilder.append("}");
+      if (++shareCount < share.size()) {
+        jsonBuilder.append(",");
+      }
+    }
+    jsonBuilder.append("}");
+
+    jsonBuilder.append("}");
+    return jsonBuilder.toString();
+  }
+
+//  @Override
+//  public void setValue(Map<LocalDate, IStock> stock, int share, String ticker) {
+//    stocks.put(ticker, stock);
+//    Map<LocalDate, Double> shareAtTime = new HashMap();
+//    for (LocalDate key : stock.keySet()) {
+//      shareAtTime.put(key, (double) share);
+//    }
+//    this.share.put(ticker, shareAtTime);
+//  }
+
+  @Override
+  public void saveJson(String fileName) throws IOException {
+    try {
+      String json = toJson();
+      File directory = new File(new File("").getAbsolutePath() + "\\HW 4\\src\\savedPortfolios\\");
+      File file = new File(directory, fileName + ".txt");
+      FileWriter fileWriter = new FileWriter(file);
+      fileWriter.write(json);
+    } catch (IOException e) {
+      String json = toJson();
+      File directory = new File(new File("").getAbsolutePath() + "/src/savedPortfolios/");
+      File file = new File(directory, fileName + ".txt");
+      try {
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(json);
+      } catch (IOException g) {
+        throw g;
+      }
+    }
+  }
 }
 // new pro and model . change controller command

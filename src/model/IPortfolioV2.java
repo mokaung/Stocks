@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
@@ -20,4 +21,9 @@ public interface IPortfolioV2 extends IPortfolio {
   void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String ticker);
 
   String getName();
+
+  String toJson();
+
+  void saveJson(String fileName)throws IOException;
+
 }
