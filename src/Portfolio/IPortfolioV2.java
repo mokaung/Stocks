@@ -46,12 +46,8 @@ public interface IPortfolioV2 extends IPortfolio {
    */
   String getName();
 
-  /**
-   * Saves a portfolio as a JSON file.
-   *
-   * @param fileName name of the portfolio.
-   * @throws IOException when the file cannot be created.
-   */
-  void saveJson(String fileName) throws IOException;
+  String toXml();
+
+  void saveXml(String fileName)throws IOException;
 
 }

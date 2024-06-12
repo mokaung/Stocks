@@ -35,7 +35,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   //TODO: change to work wiht new portfolio
   @Override
   public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
-    PortfolioV2 p = new PortfolioV2();
+    PortfolioV2 p = new PortfolioV2(name);
     Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
     portfolios.put(name, p);
@@ -57,7 +57,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   @Override
   public void savePortfolio(String portFolioName) {
     try {
-      portfolios.get(portFolioName).saveJson(portFolioName);
+      portfolios.get(portFolioName).saveXml(portFolioName);
     } catch (IOException e) {
       throw new IllegalStateException("Could not save portfolio.");
     }
