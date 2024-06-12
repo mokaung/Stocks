@@ -28,5 +28,5 @@ public interface IStock {
    */
   String getTicker();
 
-  String toJson();
+  String toXml();
 }

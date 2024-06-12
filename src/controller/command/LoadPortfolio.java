@@ -42,13 +42,14 @@ public class LoadPortfolio implements ICommand {
               + " The directory is empty.");
     }
     String name = sc.next();
-    if (!model.isValidPortfolio(name)) {
-      throw new IllegalArgumentException("Invalid portfolio.");
+    File fileCheck = new File(directory, name);
+    if (!fileCheck.exists() || !fileCheck.isFile()) {
+      throw new IllegalArgumentException("This portfolio doesn't exist or isn't saved.");
     }
-    writeMessage("Saving Portfolio... "
+    writeMessage("Loading Portfolio... "
             + System.lineSeparator(), out);
     try {
-      model.savePortfolio(name);
+      model.loadPortfolio(fileCheck);
     } catch (IOException e) {
       throw new IllegalArgumentException(e.getMessage());
     }

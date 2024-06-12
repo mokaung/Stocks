@@ -22,8 +22,8 @@ public interface IPortfolioV2 extends IPortfolio {
 
   String getName();
 
-  String toJson();
+  String toXml();
 
-  void saveJson(String fileName)throws IOException;
+  void saveXml(String fileName)throws IOException;
 
 }

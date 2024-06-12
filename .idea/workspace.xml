@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af55f99-7829-4b19-b9a9-d08df2da70ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" afterDir="false" />
+    <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/IParseXml.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/xmlToPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Portfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Portfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/IPortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IPortfolioV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/IStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PortfolioV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Stock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/model/PortfolioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/PortfolioTest.java" afterDir="false" />
@@ -22,215 +31,33 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit4 Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="2hZMt1LrOnP8z2cedLk3LW4fHtX" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2hnS9zJ16dlHngyEcIvELcQEzi1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.ControllerImplTest.goTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.testDate2BeforeDate1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.testInvalidDate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.testInvalidDateFormat.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ControllerTest.testInvalidMonthDay.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GainOrLossTest.testGainOrLoss.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GainOrLossTest.testIncorrectTicker.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.addToPortfolio.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.createPortfolio.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.crossover.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.gainOrLoss.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.getPortfolioValue.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.MockModelTest.movingAverage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MockModelTest.populate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ModelImplTest.createPortfolio.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ModelImplTest.getPortfolioValue.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioTest.getStocks.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioTest.getValue.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioTest.getValueException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioTest.setValue.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockTest.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;model&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.ControllerImplTest.goTest.executor": "Run",
-    "JUnit.ControllerTest.executor": "Run",
-    "JUnit.ControllerTest.testDate2BeforeDate1.executor": "Run",
-    "JUnit.ControllerTest.testInvalidDate.executor": "Run",
-    "JUnit.ControllerTest.testInvalidDateFormat.executor": "Run",
-    "JUnit.ControllerTest.testInvalidMonthDay.executor": "Run",
-    "JUnit.GainOrLossTest.testGainOrLoss.executor": "Run",
-    "JUnit.GainOrLossTest.testIncorrectTicker.executor": "Run",
-    "JUnit.MockModelTest.addToPortfolio.executor": "Run",
-    "JUnit.MockModelTest.createPortfolio.executor": "Run",
-    "JUnit.MockModelTest.crossover.executor": "Run",
-    "JUnit.MockModelTest.executor": "Run",
-    "JUnit.MockModelTest.gainOrLoss.executor": "Run",
-    "JUnit.MockModelTest.getPortfolioValue.executor": "Debug",
-    "JUnit.MockModelTest.movingAverage.executor": "Run",
-    "JUnit.MockModelTest.populate.executor": "Run",
-    "JUnit.ModelImplTest.createPortfolio.executor": "Run",
-    "JUnit.ModelImplTest.getPortfolioValue.executor": "Run",
-    "JUnit.PortfolioTest.getStocks.executor": "Run",
-    "JUnit.PortfolioTest.getValue.executor": "Run",
-    "JUnit.PortfolioTest.getValueException.executor": "Run",
-    "JUnit.PortfolioTest.setValue.executor": "Run",
     "JUnit.PortfolioTest.toJson.executor": "Run",
-    "JUnit.StockTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "model",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
->>>>>>> Stashed changes
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="model" />
-    </key>
-  </component>
-<<<<<<< Updated upstream
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="open Views" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Stocks" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-=======
-  <component name="RunManager" selected="JUnit.PortfolioTest.toJson">
->>>>>>> Stashed changes
-    <configuration name="ModelImplTest.createPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.ModelImplTest" />
-      <option name="METHOD_NAME" value="createPortfolio" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelImplTest.getPortfolioValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.ModelImplTest" />
-      <option name="METHOD_NAME" value="getPortfolioValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PortfolioTest.getValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
-      <option name="METHOD_NAME" value="getValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PortfolioTest.getValueException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
-      <option name="METHOD_NAME" value="getValueException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="PortfolioTest.toJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
@@ -249,109 +76,23 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< Updated upstream
-        <item itemvalue="Application.Main" />
-=======
         <item itemvalue="JUnit.PortfolioTest.toJson" />
->>>>>>> Stashed changes
-        <item itemvalue="JUnit.ModelImplTest.getPortfolioValue" />
-        <item itemvalue="JUnit.PortfolioTest.getValue" />
-        <item itemvalue="JUnit.ModelImplTest.createPortfolio" />
-        <item itemvalue="JUnit.PortfolioTest.getValueException" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0af55f99-7829-4b19-b9a9-d08df2da70ec" name="Changes" comment="" />
-      <created>1717797357216</created>
+      <changelist id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="" />
+      <created>1718228202533</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1717797357216</updated>
-      <workItem from="1717797359236" duration="11507000" />
-      <workItem from="1717820107900" duration="3759000" />
-      <workItem from="1717824254653" duration="3301000" />
-      <workItem from="1718034160183" duration="13000" />
-      <workItem from="1718048180520" duration="153000" />
-      <workItem from="1718211906079" duration="2059000" />
+      <updated>1718228202533</updated>
+      <workItem from="1718228204085" duration="1094000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="3fb8152a-5699-4b3a-9af4-c455cbe82f72" value="TOOL_WINDOW" />
-        <entry key="59f8e5fc-80ba-4497-860c-f3257fba9bfb" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="3fb8152a-5699-4b3a-9af4-c455cbe82f72">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="59f8e5fc-80ba-4497-860c-f3257fba9bfb">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-<<<<<<< Updated upstream
-          <url>file://$PROJECT_DIR$/src/controller/command/GainOrLoss.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/GainOrLoss.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="10" />
-=======
-          <url>file://$PROJECT_DIR$/src/controller/command/Populate.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
->>>>>>> Stashed changes
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/MovingAverage.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

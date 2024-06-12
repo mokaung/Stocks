@@ -178,7 +178,7 @@ public class ModelImpl implements IModel {
   //TODO: change to work wiht new portfolio
   @Override
   public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
-    PortfolioV2 p = new PortfolioV2();
+    PortfolioV2 p = new PortfolioV2(new ModelImpl(), "placeholder");
     Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
     portfolios.put(name, p);
@@ -200,7 +200,7 @@ public class ModelImpl implements IModel {
   @Override
   public void savePortfolio(String portFolioName)throws IOException {
     try {
-      portfolios.get(portFolioName).saveJson(portFolioName);
+      portfolios.get(portFolioName).saveXml(portFolioName);
     }
     catch (IOException e) {
       throw e;
