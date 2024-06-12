@@ -49,14 +49,22 @@ public class PortfolioV2 implements IPortfolioV2 {
 
   @Override
   public void rebalance(LocalDate date, ArrayList<Weight> weights) {
-    String ticker = weights.get(0).getTicker();
-    double value = getValue(date);
-    for (int i = 0; i < weights.size(); i++) {
-      double percent = model.gainOrLoss(date.minusDays(1), date, ticker) / value;
-      if (weights.get(i).getShare() != percent) {
-        // do math to change
+    double totalVal = getValue(date);
 
-        share.get(ticker).put(date, 0.0);
+    for (Weight weight : weights) {
+      String ticker = weight.getTicker();
+      double targetPercent = weight.getPercent();
+
+      double stockShare = share.get(ticker).get(date);
+      double stockVal = stocks.get(ticker).get(date).getClose();
+      double currentVal = stockShare * stockVal;
+
+      double targetVal = totalVal * targetPercent;
+      double newShare = targetVal / stockVal;
+
+      // checks to see if the difference between the 1%
+      if (Math.abs(targetPercent - (currentVal / totalVal)) > 0.01) {
+        share.get(ticker).put(date, newShare);
       }
     }
   }
@@ -161,4 +169,3 @@ public class PortfolioV2 implements IPortfolioV2 {
     }
   }
 }
-// new pro and model . change controller command

@@ -109,6 +109,6 @@ public class PortfolioTest {
     portfolioV2.setValue(map3, 10, "NFLX");
 
     System.out.println(portfolioV2.toJson());
-    portfolioV2.saveJson("/Users/kmo/Documents/CS3500/Untitled", "testJSON");
+    portfolioV2.saveJson("/Users/kmo/Documents/CS3500//Untitled", "testJSON");
   }
 }

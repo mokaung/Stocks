@@ -1,12 +1,12 @@
 package model;
 
 public class Weight {
-  private final double share;
+  private final double percent;
   private final String ticker;
 
 
   public Weight(double share, String ticker) {
-    this.share = share;
+    this.percent = share;
     this.ticker = ticker;
   }
 
@@ -14,7 +14,7 @@ public class Weight {
     return ticker;
   }
 
-  public double getShare() {
-    return share;
+  public double getPercent() {
+    return percent;
   }
 }
