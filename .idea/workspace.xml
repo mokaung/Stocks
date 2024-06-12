@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,7 +70,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;model&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -92,7 +93,19 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ModelImplTest.getPortfolioValue">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="open Views" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Stocks" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ModelImplTest.createPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
@@ -120,22 +133,6 @@
       <option name="PACKAGE_NAME" value="model" />
       <option name="MAIN_CLASS_NAME" value="model.ModelImplTest" />
       <option name="METHOD_NAME" value="getPortfolioValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PortfolioTest.getStocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioTest" />
-      <option name="METHOD_NAME" value="getStocks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -175,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ModelImplTest.getPortfolioValue" />
         <item itemvalue="JUnit.PortfolioTest.getValue" />
         <item itemvalue="JUnit.ModelImplTest.createPortfolio" />
         <item itemvalue="JUnit.PortfolioTest.getValueException" />
-        <item itemvalue="JUnit.PortfolioTest.getStocks" />
       </list>
     </recent_temporary>
   </component>
@@ -204,20 +201,43 @@
       <workItem from="1717824254653" duration="3301000" />
       <workItem from="1718034160183" duration="13000" />
       <workItem from="1718048180520" duration="153000" />
+      <workItem from="1718211906079" duration="2059000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="3fb8152a-5699-4b3a-9af4-c455cbe82f72" value="TOOL_WINDOW" />
+        <entry key="59f8e5fc-80ba-4497-860c-f3257fba9bfb" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="3fb8152a-5699-4b3a-9af4-c455cbe82f72">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="59f8e5fc-80ba-4497-860c-f3257fba9bfb">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/Populate.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/command/GainOrLoss.java</url>
           <line>44</line>
@@ -232,16 +252,6 @@
           <url>file://$PROJECT_DIR$/src/controller/command/MovingAverage.java</url>
           <line>38</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java</url>

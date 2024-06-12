@@ -174,6 +174,7 @@ public class ModelImpl implements IModel {
    * @param name   the name of the new portfolio
    * @return a new portfolio.
    */
+  //TODO: change to work wiht new portfolio
   @Override
   public IPortfolio createPortfolio(String ticker, int share, String name) {
     Portfolio p = new Portfolio();

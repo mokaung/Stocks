@@ -20,7 +20,6 @@ public class ControllerUtil {
   public static void writeMessage(String message, Appendable out) throws IllegalArgumentException {
     try {
       out.append(message);
-
     } catch (IOException e) {
       throw new IllegalStateException(e.getMessage());
     }
