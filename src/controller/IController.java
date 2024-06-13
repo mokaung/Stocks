@@ -11,5 +11,5 @@ public interface IController  {
    * runs the program.
    * @param model used for computation.
    */
-  void go(IModel2 model);
+  void init(IModel2 model);
 }

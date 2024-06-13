@@ -33,7 +33,9 @@ public class Portfolio implements IPortfolio {
     for (Map.Entry<String, Map<LocalDate, IStock>> entry : stocks.entrySet()) {
       IStock stock = entry.getValue().get(date);
       if (stock == null) {
-        throw new IllegalArgumentException("Sorry, information for the portfolio at " + date + " is unavailable. Please try another date.");
+        throw new IllegalArgumentException(
+                "Sorry, information for the portfolio at " + date
+                        + " is unavailable. Please try another date.");
       }
       if (stock.getDate().equals(date)) {
         double stockShare = share.get(stock.getTicker());

@@ -42,14 +42,21 @@ public class ControllerUtil {
    * @param out The appendable used for outputs in the program.
    */
   public static void printMenu(Appendable out) {
-    writeMessage("Please enter the character in the parentheses." + " Supported user instructions are: " + System.lineSeparator(), out);
-    writeMessage("(1) Populate the system with your desired stock." + System.lineSeparator(), out);
-    writeMessage("(2) Find out stock gain or lose in a time period." + System.lineSeparator(), out);
-    writeMessage("(3) Find out x-day moving average on a given day." + System.lineSeparator(), out);
-    writeMessage("(4) Find out which days are x-day crossovers in a time period." + System.lineSeparator(), out);
+    writeMessage("Please enter the character in the parentheses."
+            + " Supported user instructions are: " + System.lineSeparator(), out);
+    writeMessage("(1) Populate the system with your desired stock."
+            + System.lineSeparator(), out);
+    writeMessage("(2) Find out stock gain or lose in a time period."
+            + System.lineSeparator(), out);
+    writeMessage("(3) Find out x-day moving average on a given day."
+            + System.lineSeparator(), out);
+    writeMessage("(4) Find out which days are x-day crossovers in a time period."
+            + System.lineSeparator(), out);
     writeMessage("(5) Create a new portfolio." + System.lineSeparator(), out);
-    writeMessage("(6) Add new stocks to an existing portfolio." + System.lineSeparator(), out);
-    writeMessage("(7) Find out the value of an existing portfolio." + System.lineSeparator(), out);
+    writeMessage("(6) Add new stocks to an existing portfolio."
+            + System.lineSeparator(), out);
+    writeMessage("(7) Find out the value of an existing portfolio."
+            + System.lineSeparator(), out);
     writeMessage("(8) Save a portfolio." + System.lineSeparator(), out);
     writeMessage("(9) Load a portfolio." + System.lineSeparator(), out);
     writeMessage("(10) Rebalance a portfolio." + System.lineSeparator(), out);
@@ -92,7 +99,7 @@ public class ControllerUtil {
   }
 
   /**
-   * Formats the LocalDate in the year - month - date format
+   * Formats the LocalDate in the year - month - date format.
    *
    * @param cal date
    * @return formatted date

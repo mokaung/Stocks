@@ -40,7 +40,8 @@ public class Crossover implements ICommand {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("Please enter how many days to base the averages "
             + "on (x in x-day moving average): " + System.lineSeparator(), out);
@@ -53,12 +54,14 @@ public class Crossover implements ICommand {
     writeMessage("Please enter the starting date: " + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1)
+              + " doesn't exist.");
     }
     writeMessage("Please enter the ending date: " + System.lineSeparator(), out);
     LocalDate date2 = getLocalDate(sc.next());
     if (model.isInvalidLocalDate(date2, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2)
+              + " doesn't exist.");
     }
     try {
       ArrayList<LocalDate> result = model.crossover(window, date1, date2, ticker);

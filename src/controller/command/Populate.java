@@ -43,13 +43,15 @@ public class Populate implements ICommand {
     try {
       model.populate(alpha.getReadable(), ticker);
     } catch (Exception e) {
-      writeMessage("Your stock could not be loaded. Would you like to use a preloaded stock? Please type 'yes' if so. "
+      writeMessage(
+              "Your stock could not be loaded. Would you like to use a preloaded stock? Please type 'yes' if so. "
               + System.lineSeparator(), out);
       String answer = sc.next();
       if (answer.equalsIgnoreCase("yes")) {
         csvGo(sc, model);
       } else {
-        throw new IllegalArgumentException("Sorry, your stock could not be loaded and you chose to not use a preloaded stock.");
+        throw new IllegalArgumentException(
+                "Sorry, your stock could not be loaded and you chose to not use a preloaded stock.");
       }
     }
     writeMessage("Your stock has been populated. " + System.lineSeparator(), out);

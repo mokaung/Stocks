@@ -2,7 +2,6 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -13,13 +12,11 @@ import Portfolio.IPortfolioV2;
  * MockModel used to test controller inputs.
  */
 public class MockModel extends ModelImpl implements IModel {
-  private final Map<String, Map<LocalDate, IStock>> stocks;
   private Map<String, IPortfolio> portfolios;
   private final StringBuilder log;
 
   public MockModel(StringBuilder log) {
     this.log = Objects.requireNonNull(log);
-    stocks = new HashMap<>();
   }
 
   @Override

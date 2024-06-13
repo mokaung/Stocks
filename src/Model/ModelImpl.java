@@ -75,14 +75,16 @@ public class ModelImpl implements IModel {
    * @return all the dates that are crossover days.
    */
   @Override
-  public ArrayList<LocalDate> crossover(int window, LocalDate date1, LocalDate date2, String ticker) {
+  public ArrayList<LocalDate> crossover(int window,
+                                        LocalDate date1, LocalDate date2, String ticker) {
     ArrayList<LocalDate> results = new ArrayList<>();
     LocalDate currentDate = date1;
 
     while (currentDate.isBefore(date2)) {
       double currentMovingAverage = movingAverage(window, currentDate, ticker);
       if (stocks.get(ticker).get(currentDate) == null) {
-        throw new IllegalArgumentException("At least one day in the time window doesn't have information about $" + ticker);
+        throw new IllegalArgumentException(
+                "At least one day in the time window doesn't have information about $" + ticker);
       }
       if (currentMovingAverage < stocks.get(ticker).get(currentDate).getClose()) {
         results.add(currentDate);

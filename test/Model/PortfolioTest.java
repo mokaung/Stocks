@@ -3,18 +3,18 @@ package Model;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
 import Portfolio.IPortfolio;
-import Portfolio.IPortfolioV2;
 import Portfolio.Portfolio;
-import Portfolio.PortfolioV2;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tester class for portfolio methods.
+ */
 public class PortfolioTest {
   IPortfolio portfolio;
 

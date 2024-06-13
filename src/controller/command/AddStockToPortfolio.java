@@ -33,25 +33,29 @@ public class AddStockToPortfolio implements ICommand {
    */
   @Override
   public void run(Scanner sc, IModel2 model) {
-    writeMessage("Which portfolio would you like to add a stock to? " + System.lineSeparator(), out);
+    writeMessage("Which portfolio would you like to add a stock to? "
+            + System.lineSeparator(), out);
     String name = sc.next();
     if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
-    writeMessage("Which stock would you like to add to " + name + "? " + System.lineSeparator(), out);
+    writeMessage("Which stock would you like to add to " + name + "? "
+            + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
       throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
-    writeMessage("How many shares would you like to add? " + System.lineSeparator(), out);
+    writeMessage("How many shares would you like to add? "
+            + System.lineSeparator(), out);
     int share = sc.nextInt();
     LocalDate date1 = null;
-    if (model instanceof IModel2) {
-      writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
-      date1 = getLocalDate(sc.next());
-      if (model.isInvalidLocalDate(date1, ticker)) {
-        throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
-      }
+    writeMessage("At what date would you like to buy these shares? "
+            + System.lineSeparator(), out);
+    date1 = getLocalDate(sc.next());
+    if (model.isInvalidLocalDate(date1, ticker)) {
+      throw new IllegalArgumentException("Sorry, stock information for "
+              + calToString(date1) + " doesn't exist.");
+
     }
     model.addToPortfolioV2(name, ticker, share, date1);
   }
