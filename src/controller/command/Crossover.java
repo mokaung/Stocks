@@ -54,12 +54,12 @@ public class Crossover implements ICommand {
     }
     writeMessage("Please enter the starting date: " + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
-    if (!model.isInvalidLocalDate(date1, ticker)) {
+    if (model.isInvalidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("Please enter the ending date: " + System.lineSeparator(), out);
     LocalDate date2 = getLocalDate(sc.next());
-    if (!model.isInvalidLocalDate(date2, ticker)) {
+    if (model.isInvalidLocalDate(date2, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2) + " doesn't exist.");
     }
     try {

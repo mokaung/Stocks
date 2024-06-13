@@ -53,6 +53,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     return p;
   }
 
+
   /**
    * Adds stocks from the loaded ones into an existing stock.
    *

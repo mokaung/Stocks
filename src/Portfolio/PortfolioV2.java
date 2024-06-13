@@ -105,10 +105,18 @@ public class PortfolioV2 implements IPortfolioV2 {
   public String toXml() {
     StringBuilder xmlBuilder = new StringBuilder();
     xmlBuilder.append("<portfolio>");
-    fillStocks(xmlBuilder);
+    fillTickers(xmlBuilder);
     fillShares(xmlBuilder);
     xmlBuilder.append("</portfolio>");
     return xmlBuilder.toString();
+  }
+
+  private void fillTickers(StringBuilder xmlBuilder) {
+    xmlBuilder.append("<tickers>");
+    for (String ticker : stocks.keySet()) {
+      xmlBuilder.append("<ticker>").append(ticker).append("</ticker>");
+    }
+    xmlBuilder.append("</tickers>");
   }
 
   private void fillShares(StringBuilder xmlBuilder) {
@@ -125,20 +133,6 @@ public class PortfolioV2 implements IPortfolioV2 {
     xmlBuilder.append("</shares>");
   }
 
-  private void fillStocks(StringBuilder xmlBuilder) {
-    xmlBuilder.append("<stocks>");
-    for (Map.Entry<String, Map<LocalDate, IStock>> stockEntry : stocks.entrySet()) {
-      xmlBuilder.append("<stock ticker=\"").append(stockEntry.getKey()).append("\">");
-      for (Map.Entry<LocalDate, IStock> dateEntry : stockEntry.getValue().entrySet()) {
-        xmlBuilder.append("<date value=\"").append(dateEntry.getKey().toString()).append("\">");
-        xmlBuilder.append(dateEntry.getValue().toXml());
-        xmlBuilder.append("</date>");
-      }
-      xmlBuilder.append("</stock>");
-    }
-    xmlBuilder.append("</stocks>");
-  }
-
   @Override
   public void saveXml(String fileName) throws IOException {
     String xml = toXml();
@@ -147,6 +141,7 @@ public class PortfolioV2 implements IPortfolioV2 {
       File file = new File(directory, fileName + ".xml");
       FileWriter fileWriter = new FileWriter(file);
       fileWriter.write(xml);
+      fileWriter.close();
     } catch (IOException e) {
       File directory = new File(new File("").getAbsolutePath() + "/src/savedPortfolios/");
       File file = new File(directory, fileName + ".xml");

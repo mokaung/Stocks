@@ -50,7 +50,7 @@ public class MovingAverage implements ICommand {
     writeMessage("Please enter the day you want to see the moving average for: "
             + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
-    if (!model.isInvalidLocalDate(date1, ticker)) {
+    if (model.isInvalidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("The moving average of " + ticker + " on "

@@ -15,8 +15,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.time.format.DateTimeFormatter;
 
 import Model.IModel2;
-import Model.IStock;
-import Model.Stock;
 
 public class xmlToPortfolio implements IParseXml {
   private IModel2 model;
@@ -42,55 +40,53 @@ public class xmlToPortfolio implements IParseXml {
           Element portfolioElement = (Element) portfolioNode;
           String portfolioName = file.getName().substring(0, file.getName().length() - 4);
 
-          NodeList stockList = portfolioElement.getElementsByTagName("stock");
-          NodeList dateNodes = doc.getElementsByTagName("date");
+          NodeList tickerList = portfolioElement.getElementsByTagName("ticker");
+          NodeList shareList = portfolioElement.getElementsByTagName("share");
 
-          for (int j = 0; j < stockList.getLength(); j++) {
-            Node stockNode = stockList.item(j);
-            if (stockNode.getNodeType() == Node.ELEMENT_NODE) {
-              Element stockElement = (Element) stockNode;
-              Element dateElement = (Element) dateNodes.item(j);
-              String dateString = dateElement.getAttribute("value");
-              String ticker = stockElement.getElementsByTagName("ticker").item(0).getTextContent();
-              LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ISO_LOCAL_DATE);
-              double open = Double.parseDouble(stockElement.getElementsByTagName("open").item(0).getTextContent());
-              double high = Double.parseDouble(stockElement.getElementsByTagName("high").item(0).getTextContent());
-              double low = Double.parseDouble(stockElement.getElementsByTagName("low").item(0).getTextContent());
-              double close = Double.parseDouble(stockElement.getElementsByTagName("close").item(0).getTextContent());
-              int volume = Integer.parseInt(stockElement.getElementsByTagName("volume").item(0).getTextContent());
+          for (int j = 0; j < tickerList.getLength(); j++) {
+            String ticker = tickerList.item(j).getTextContent();
 
-              IStock stock = new Stock(date, open, high, low, close, volume, ticker);
+            Node shareNode = shareList.item(j);
+            if (shareNode.getNodeType() == Node.ELEMENT_NODE) {
+              Element shareElement = (Element) shareNode;
+              NodeList dateNodes = shareElement.getElementsByTagName("date");
 
-              // Find the corresponding share element
-              NodeList shareList = portfolioElement.getElementsByTagName("share");
-              double shares = 0;
-              for (int k = 0; k < shareList.getLength(); k++) {
-                Element shareElement = (Element) shareList.item(k);
-                if (shareElement.getAttribute("ticker").equals(ticker)) {
-                  shares = Double.parseDouble(shareElement.getElementsByTagName("date").item(0).getTextContent());
-                  break;
-                }
-              }
+              for (int k = 0; k < dateNodes.getLength(); k++) {
+                Element dateElement = (Element) dateNodes.item(k);
+                String dateString = dateElement.getAttribute("value");
+                LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ISO_LOCAL_DATE);
+                double shares = Double.parseDouble(dateElement.getTextContent());
 
-              if (!model.isInvalidPortfolio(portfolioName)) {
-                if (!model.isInvalidTicker(ticker)) {
-                  model.addToPortfolioV2(portfolioName, ticker, shares, date);
+                if (!model.isInvalidPortfolio(portfolioName)) {
+                  if (!model.isInvalidTicker(ticker)) {
+                    System.out.println("BEGINNING ADDING PROCESS");
+                    System.out.println("Portfolioname: " + portfolioName);
+                    System.out.println("ticker: " + ticker);
+                    System.out.println("shares: " + shares);
+                    System.out.println("date: " + date);
+                    System.out.println("DONE ADDING");
+                    model.addToPortfolioV2(portfolioName, ticker, shares, date);
+                  } else {
+                    throw new IllegalArgumentException("Please load $" + ticker + " first.");
+                  }
                 } else {
-                  throw new IllegalArgumentException("Please load $" + ticker + " first.");
-                }
-              } else {
-                if (!model.isInvalidTicker(ticker)) {
-                  System.out.println(portfolioName);
-                  model.createPortfolioV2(ticker, shares, portfolioName, date);
-                } else {
-                  throw new IllegalArgumentException("Please load $" + ticker + " first.");
+                  if (!model.isInvalidTicker(ticker)) {
+                    System.out.println("BEGINNING CREATION PROCESS");
+                    System.out.println("Portfolioname: " + portfolioName);
+                    System.out.println("ticker: " + ticker);
+                    System.out.println("shares: " + shares);
+                    System.out.println("date: " + date);
+                    System.out.println("DONE CREATING");
+                    model.createPortfolioV2(ticker, shares, portfolioName, date);
+                  } else {
+                    throw new IllegalArgumentException("Please load $" + ticker + " first.");
+                  }
                 }
               }
             }
           }
         }
       }
-      //TODO exception
     } catch (Exception e) {
       e.printStackTrace();
     }

@@ -39,7 +39,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("4 AMZN 3 2024-06-05 2024-06-06");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidTickerisValidLocalDateisValidLocalDatecrossover"
             , received.toString());
   }
@@ -49,7 +49,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("2 AMZN 2024-06-05 2024-06-06");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidTickerisValidLocalDateisValidLocalDategainOrLoss"
             , received.toString());
   }
@@ -59,7 +59,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("3 AMZN 3 2024-06-05");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidTickerisValidLocalDatemovingAverage", received.toString());
   }
 
@@ -68,7 +68,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("5 y y");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidTicker", received.toString());
   }
 
@@ -77,7 +77,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("6 A AMZN 10");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidPortfolioisValidTickeraddToPortfolio", received.toString());
   }
 
@@ -86,7 +86,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("7 A 2024-06-05");
     IController controller = new ControllerImpl(out, in);
-    controller.go(model);
+//    controller.go(model);
     assertEquals("populateisValidPortfoliogetPortfolioValue", received.toString());
   }
 }

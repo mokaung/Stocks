@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/command/Rebalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/allclasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/allclasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTML Documentation/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTML Documentation/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" afterDir="false" />
@@ -44,43 +26,24 @@
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/DESIGN-README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/DESIGN-README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/IPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/IPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/IPortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/IPortfolioV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/Portfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/IStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ModelImpl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Stock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ModelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModelAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/ControllerUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/Crossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Crossover.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/ICommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/ICommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/Populate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Populate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/xmlToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/xmlToPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IModel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IModel2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/MockModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MockModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelImpl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/IViews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IViews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/savedPortfolios/Dragon.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Model/MockModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/MockModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/MockModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/MockModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/ModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/ModelImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/PortfolioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/PortfolioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/StockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/StockTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +74,7 @@
     "JUnit.PortfolioTest.toJson.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging modelTesting",
+    "git-widget-placeholder": "modelTesting",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

@@ -96,28 +96,28 @@ public class Stock implements IStock {
     return result;
   }
 
-  @Override
-  public String toXml() {
-    DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-    return String.format(
-            "<stock>" +
-                    "<time>%s</time>" +
-                    "<open>%.2f</open>" +
-                    "<high>%.2f</high>" +
-                    "<low>%.2f</low>" +
-                    "<close>%.2f</close>" +
-                    "<volume>%d</volume>" +
-                    "<ticker>%s</ticker>" +
-                    "</stock>",
-            time.format(formatter),
-            open,
-            high,
-            low,
-            close,
-            volume,
-            ticker
-    );
-  }
+//  @Override
+//  public String toXml() {
+//    DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+//    return String.format(
+//            "<stock>" +
+//                    "<time>%s</time>" +
+//                    "<open>%.2f</open>" +
+//                    "<high>%.2f</high>" +
+//                    "<low>%.2f</low>" +
+//                    "<close>%.2f</close>" +
+//                    "<volume>%d</volume>" +
+//                    "<ticker>%s</ticker>" +
+//                    "</stock>",
+//            time.format(formatter),
+//            open,
+//            high,
+//            low,
+//            close,
+//            volume,
+//            ticker
+//    );
+//  }
 
 //  @Override
 //  public String toJson() {

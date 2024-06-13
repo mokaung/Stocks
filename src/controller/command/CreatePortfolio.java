@@ -74,7 +74,7 @@ public class CreatePortfolio implements ICommand {
     LocalDate date1 = null;
     writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
     date1 = getLocalDate(sc.next());
-    if (!model.isInvalidLocalDate(date1, ticker)) {
+    if (model.isInvalidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("Adding " + shares + " shares of " + ticker + " to this portfolio..." + System.lineSeparator(), out);

@@ -144,7 +144,7 @@ public class ModelImpl implements IModel {
    */
   @Override
   public boolean isInvalidLocalDate(LocalDate cal, String ticker) {
-    return stocks.get(ticker).containsKey(cal);
+    return !stocks.get(ticker).containsKey(cal);
   }
 
   /**

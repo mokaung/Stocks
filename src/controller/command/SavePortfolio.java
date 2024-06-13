@@ -24,7 +24,7 @@ public class SavePortfolio implements ICommand {
     writeMessage("Which portfolio would you like to save? "
             + System.lineSeparator(), out);
     String name = sc.next();
-    if (!model.isInvalidPortfolio(name)) {
+    if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Saving Portfolio... "
