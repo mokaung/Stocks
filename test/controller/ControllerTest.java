@@ -507,4 +507,47 @@ public class ControllerTest {
     test.go(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
+
+  @Test
+  public void savePortfolioTest() {
+    StringBuilder input = new StringBuilder();
+    input.append("1" + System.lineSeparator());
+    input.append("GOOG" + System.lineSeparator());
+    input.append("5" + System.lineSeparator());
+    input.append("GOOG" + System.lineSeparator());
+    input.append("20" + System.lineSeparator());
+    input.append("TestSave" + System.lineSeparator());
+    input.append("N" + System.lineSeparator());
+    input.append("7" + System.lineSeparator());
+    input.append("Test" + System.lineSeparator());
+    input.append("0-1-1" + System.lineSeparator());
+    Readable inputter = new StringReader(input.toString());
+    StringBuilder expected = new StringBuilder();
+    expected.append(initializeGOOG()
+            + "Creating new portfolio... "
+            + System.lineSeparator()
+            + "Which stock would you like to add into this portfolio? "
+            + System.lineSeparator()
+            + "How many shares of GOOG would you like? "
+            + System.lineSeparator()
+            + "Adding 30 shares of GOOG to this portfolio..."
+            + System.lineSeparator()
+            + "Enter a name for this portfolio: "
+            + System.lineSeparator()
+            + "Would you like to add one more stock to this portfolio? Y/N"
+            + System.lineSeparator()
+            + "Success! Created new portfolio."
+            + System.lineSeparator()
+            + "Which portfolio do you want to analyze? "
+            + System.lineSeparator()
+            + "Enter a date to calculate the value of Test at that date."
+            + System.lineSeparator()
+            + "Error: Sorry, information for the portfolio at "
+            + "0000-01-01 is unavailable. Please try another date."
+            + System.lineSeparator());
+    Appendable output = new StringBuilder();
+    ControllerImpl tester = new ControllerImpl(output, inputter);
+    tester.go(new ModelImpl2());
+    assertEquals(expected.toString(), output.toString());
+  }
 }

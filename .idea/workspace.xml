@@ -7,43 +7,14 @@
     <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/IStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ModelImpl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/Crossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Crossover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/Populate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Populate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/xmlToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/xmlToPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/savedPortfolios/Dragon.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/MockModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/MockModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

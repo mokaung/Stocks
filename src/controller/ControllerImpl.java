@@ -17,7 +17,6 @@ import controller.command.MovingAverage;
 import controller.command.Populate;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
-import Model.IModel;
 import controller.command.ControllerUtil;
 import Model.IModel2;
 
@@ -75,7 +74,6 @@ public class ControllerImpl implements IController {
   @Override
   public void go(IModel2 model) {
     Scanner sc = new Scanner(in);
-    boolean quit = false;
 
     ControllerUtil.welcomeMessage(out);
     while (sc.hasNext()) {

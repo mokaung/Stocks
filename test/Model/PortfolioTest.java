@@ -93,41 +93,4 @@ public class PortfolioTest {
     assertEquals(stocks, portfolio.getStocks());
   }
 
-  @Test
-  public void toXml() {
-    IPortfolioV2 portfolioV2;
-    portfolioV2 = new PortfolioV2("test");
-    LocalDate date = LocalDate.of(2024, 1, 1);
-    IStock stock = new Stock(date, 10, 10, 10, 10, 10, "AMZN");
-    IStock stock1 = new Stock(date, 10, 10, 10, 10, 10, "GOOG");
-    IStock stock2 = new Stock(date, 10, 10, 10, 10, 10, "NFLX");
-
-    Map<LocalDate, IStock> map1 = new HashMap<>();
-    Map<LocalDate, IStock> map2 = new HashMap<>();
-    Map<LocalDate, IStock> map3 = new HashMap<>();
-
-    map1.put(date, stock);
-    map2.put(date, stock1);
-    map3.put(date, stock2);
-
-    Map<LocalDate, Double> share1 = new HashMap<>();
-    Map<LocalDate, Double> share2 = new HashMap<>();
-    Map<LocalDate, Double> share3 = new HashMap<>();
-
-    share1.put(date, 10.0);
-    share2.put(date, 10.0);
-    share3.put(date, 10.0);
-
-    portfolioV2.setValueV2(map1, share1, "AMZN");
-    portfolioV2.setValueV2(map2, share2, "GOOG");
-    portfolioV2.setValueV2(map3, share3, "NFLX");
-
-    System.out.println(portfolioV2.toXml());
-    try {
-      portfolioV2.saveXml("testXml");
-    }
-    catch (IOException e) {
-      System.out.println(e.getMessage());
-    }
-  }
 }
