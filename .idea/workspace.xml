@@ -13,6 +13,14 @@
       <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Performance/StockPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Performance/StockPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Rebalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Rebalance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,15 +178,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

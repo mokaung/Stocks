@@ -4,10 +4,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Generates a graph of the overall performance of either a stock
+ * or portfolio over time.
+ */
 public class GetPerformance implements ICommand {
   private final Appendable out;
 
@@ -21,7 +25,14 @@ public class GetPerformance implements ICommand {
             + System.lineSeparator(), out);
 
     String option = sc.next();
-    boolean b = option.equals("portfolio");
+    boolean b;
+    if (option.equalsIgnoreCase("portfolio")
+            || option.equalsIgnoreCase("stock")) {
+      b = option.equals("portfolio");
+    } else {
+      throw new IllegalArgumentException("Invalid command." + System.lineSeparator());
+    }
+
 
     writeMessage("Which " + option + " would you want to analyze? "
             + System.lineSeparator(), out);

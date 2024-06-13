@@ -19,16 +19,16 @@ import controller.command.PortFolioToString;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
 import controller.command.ControllerUtil;
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Controller of the program. Oversees the running of the program and command organization.
- * <p>
- * This program directly uses the Appendable out for user interface, so there is no official view.
- * Stocks are stored in a map in the Model accessed by the controller when needed.
- * <p>
+ *
+ * <p>This program directly uses the Appendable out for user interface, so there is no official view.
+ * Stocks are stored in a map in the Model accessed by the controller when needed.<p>
+ *
  * The user is introduced to a menu, which asks for inputs from the keyboard, in the form of
  * numbers. When the user wants to repeat the menu, then they can enter M/m and Q/q to quit.
  */
@@ -38,7 +38,7 @@ public class ControllerImpl implements IController {
   protected final Map<String, Supplier<ICommand>> commands;
 
   /**
-   * The constructor initializes all the variables needed in the go() method. Creates a map
+   * The constructor initializes all the variables needed in the init() method. Creates a map
    * for the commands.
    *
    * @param out output Appendable object, used by program to output to user.
@@ -68,13 +68,13 @@ public class ControllerImpl implements IController {
   }
 
   /**
-   * The go method runs the program. It provides the user with a interface, allowing the user
+   * The init method runs the program. It provides the user with a interface, allowing the user
    * to access commands. Gets helper methods from the CommandUtil class.
    *
    * @param model Model for the program, houses all the computation.
    */
   @Override
-  public void go(IModel2 model) {
+  public void init(IModel2 model) {
     Scanner sc = new Scanner(in);
 
     ControllerUtil.welcomeMessage(out);

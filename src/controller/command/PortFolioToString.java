@@ -3,11 +3,14 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Displays a portfolio and its information.
+ */
 public class PortFolioToString implements ICommand {
   private final Appendable out;
 
@@ -39,8 +42,7 @@ public class PortFolioToString implements ICommand {
     LocalDate date = getLocalDate(dateString);
     try {
       writeMessage(model.portfolioToString(name, dateString, date), out);
-    }
-    catch (IllegalArgumentException e) {
+    } catch (IllegalArgumentException e) {
       throw e;
     }
   }

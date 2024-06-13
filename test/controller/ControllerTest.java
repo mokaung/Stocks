@@ -5,9 +5,10 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-import Model.ModelImpl2;
+import model.ModelImpl2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 
 /**
  * This class tests all the classes in the Controller package, including the ones in Command
@@ -170,7 +171,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
     input.append("5" + System.lineSeparator());
     input.append("Invalid!" + System.lineSeparator());
@@ -190,7 +191,7 @@ public class ControllerTest {
     Readable inputter2 = new StringReader(input.toString());
     Appendable output2 = new StringBuilder().append(output);
     ControllerImpl tester2 = new ControllerImpl(output2, inputter2);
-    tester2.go(new ModelImpl2());
+    tester2.init(new ModelImpl2());
     assertEquals(expected.toString(), output2.toString());
   }
 
@@ -217,7 +218,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -245,7 +246,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -273,7 +274,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -303,7 +304,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -334,7 +335,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -364,7 +365,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -398,7 +399,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -432,7 +433,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -503,7 +504,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -553,7 +554,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -574,7 +575,7 @@ public class ControllerTest {
     Readable input = new StringReader(sb.toString());
     Appendable output = new StringBuilder();
     ControllerImpl test = new ControllerImpl(output, input);
-    test.go(new ModelImpl2());
+    test.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -877,7 +878,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 }

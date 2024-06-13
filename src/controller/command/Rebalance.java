@@ -5,12 +5,15 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Model.IModel2;
-import Portfolio.Weight;
-import Model.IModel;
+import model.IModel2;
+import portfolio.Weight;
+import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Rebalance a portfolio on the given day with the given weights.
+ */
 public class Rebalance implements ICommand {
   private final Appendable out;
 
@@ -42,8 +45,7 @@ public class Rebalance implements ICommand {
     }
 
     model.rebalance(date, list, portfolio);
-//    ((ModelAdapter) model).rebalance(date, list, portfolio);
-    writeMessage("Portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
+    writeMessage("portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
   }
 
   // create the individual weights and put them in a list.

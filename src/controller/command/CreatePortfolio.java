@@ -3,7 +3,7 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
@@ -38,7 +38,9 @@ public class CreatePortfolio implements ICommand {
     String name = addNewStock(sc, model, true, "");
     String confirmation = "";
     while (!confirmation.equals("N")) {
-      writeMessage("Would you like to add one more stock to this portfolio? Y/N" + System.lineSeparator(), out);
+      writeMessage(
+              "Would you like to add one more stock to this portfolio? Y/N"
+                      + System.lineSeparator(), out);
       confirmation = sc.next().trim().toUpperCase();
       while (!confirmation.equals("Y") && !confirmation.equals("N")) {
         writeMessage("Please type 'Y' or 'N'." + System.lineSeparator(), out);
@@ -61,20 +63,26 @@ public class CreatePortfolio implements ICommand {
    * @param tf    true false boolean to check if command is at the start of running.
    */
   private String addNewStock(Scanner sc, IModel2 model, boolean tf, String name) {
-    writeMessage("Which stock would you like to add into this portfolio? " + System.lineSeparator(), out);
+    writeMessage("Which stock would you like to add into this portfolio? "
+            + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
-    writeMessage("How many shares of " + ticker + " would you like? " + System.lineSeparator(), out);
+    writeMessage("How many shares of " + ticker + " would you like? "
+            + System.lineSeparator(), out);
     int shares = sc.nextInt();
     LocalDate date1 = null;
-    writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
+    writeMessage("At what date would you like to buy these shares? "
+            + System.lineSeparator(), out);
     date1 = getLocalDate(sc.next());
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for "
+              + calToString(date1) + " doesn't exist.");
     }
-    writeMessage("Adding " + shares + " shares of " + ticker + " to this portfolio..." + System.lineSeparator(), out);
+    writeMessage("Adding " + shares + " shares of " + ticker
+            + " to this portfolio..." + System.lineSeparator(), out);
     if (tf) {
       writeMessage("Enter a name for this portfolio: " + System.lineSeparator(), out);
       name = sc.next();
@@ -92,7 +100,8 @@ public class CreatePortfolio implements ICommand {
    * @param shares inherited from addNewStock.
    * @param name   inherited from addNewStock.
    */
-  private void isNewPortfolio(boolean tf, IModel2 model, String ticker, int shares, String name, LocalDate date1) {
+  private void isNewPortfolio(boolean tf, IModel2 model, String ticker,
+                              int shares, String name, LocalDate date1) {
     if (tf) {
       model.createPortfolioV2(ticker, shares, name, date1);
     } else {

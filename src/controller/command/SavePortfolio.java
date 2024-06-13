@@ -3,10 +3,13 @@ package controller.command;
 import java.io.IOException;
 import java.util.Scanner;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Saves a portfolio as a xml.
+ */
 public class SavePortfolio implements ICommand {
   private final Appendable out;
 
