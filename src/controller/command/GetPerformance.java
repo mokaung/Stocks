@@ -33,7 +33,7 @@ public class GetPerformance implements ICommand {
     if (model.isInvalidTicker(name) && !b) {
       throw new IllegalArgumentException("Invalid ticker");
     }
-    
+
     writeMessage("Please input the start date." + System.lineSeparator(), out);
     LocalDate startDate;
     try {
