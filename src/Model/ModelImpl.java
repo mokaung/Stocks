@@ -208,7 +208,12 @@ public class ModelImpl implements IModel {
    */
   @Override
   public Double getPortfolioValue(String name, LocalDate cal) throws IllegalArgumentException {
-    return portfolios.get(name).getValue(cal);
+    try {
+      return portfolios.get(name).getValue(cal);
+    }
+    catch (Exception e) {
+      throw e;
+    }
   }
 
   /**
