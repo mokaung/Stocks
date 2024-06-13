@@ -17,29 +17,38 @@ public class GetPerformance implements ICommand {
 
   @Override
   public void run(Scanner sc, IModel2 model) {
+    writeMessage("Would you like the performance of a stock or portfolio? "
+            + System.lineSeparator(), out);
 
-      writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
+    String option = sc.next();
+    boolean b = option.equals("portfolio");
 
-      String name = sc.nextLine();
-      if (model.isInvalidPortfolio(name)) {
-        throw new IllegalArgumentException("Invalid portfolio");
-      }
+    writeMessage("Which " + option + " would you want to analyze? "
+            + System.lineSeparator(), out);
 
-      writeMessage("Please input the start date." + System.lineSeparator(), out);
-      LocalDate startDate;
-      try {
-        startDate = LocalDate.parse(sc.nextLine());
-      } catch (DateTimeParseException e) {
-        throw new IllegalArgumentException("Invalid start date");
-      }
-      writeMessage("Please input the end date." + System.lineSeparator(), out);
-      LocalDate endDate;
-      try {
-        endDate = LocalDate.parse(sc.nextLine());
-      } catch (DateTimeParseException e) {
-        throw new IllegalArgumentException("Invalid end date");
-      }
+    String name = sc.next();
+    if (model.isInvalidPortfolio(name) && b) {
+      throw new IllegalArgumentException("Invalid portfolio");
+    }
+    if (model.isInvalidTicker(name) && !b) {
+      throw new IllegalArgumentException("Invalid ticker");
+    }
+    
+    writeMessage("Please input the start date." + System.lineSeparator(), out);
+    LocalDate startDate;
+    try {
+      startDate = LocalDate.parse(sc.next());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Invalid start date");
+    }
+    writeMessage("Please input the end date." + System.lineSeparator(), out);
+    LocalDate endDate;
+    try {
+      endDate = LocalDate.parse(sc.next());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Invalid end date");
+    }
 
-      writeMessage(model.getPerformance(name, startDate, endDate), out);
+    writeMessage(model.getPerformance(b, name, startDate, endDate), out);
   }
 }

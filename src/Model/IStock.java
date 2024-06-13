@@ -27,6 +27,4 @@ public interface IStock {
    * @return the ticker symbol
    */
   String getTicker();
-
-//  String toXml();
 }
