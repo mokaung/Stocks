@@ -9,15 +9,17 @@ import controller.command.AddStockToPortfolio;
 import controller.command.CreatePortfolio;
 import controller.command.Crossover;
 import controller.command.GainOrLoss;
+import controller.command.GetPerformance;
 import controller.command.GetPortfolioValue;
 import controller.command.ICommand;
 import controller.command.LoadPortfolio;
 import controller.command.MovingAverage;
 import controller.command.Populate;
+import controller.command.Rebalance;
 import controller.command.SavePortfolio;
-import model.IModel;
+import Model.IModel;
 import controller.command.ControllerUtil;
-import model.IModel2;
+import Model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
@@ -60,6 +62,8 @@ public class ControllerImpl implements IController {
     commands.put("7", () -> new GetPortfolioValue(this.out));
     commands.put("8", () -> new SavePortfolio(this.out));
     commands.put("9", () -> new LoadPortfolio(this.out));
+    commands.put("10", () -> new Rebalance(this.out));
+    commands.put("11", () -> new GetPerformance(this.out));
   }
 
   /**

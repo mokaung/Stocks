@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +7,6 @@ import java.io.StringReader;
 
 import controller.ControllerImpl;
 import controller.IController;
-import controller.IReader;
 
 import static org.junit.Assert.*;
 

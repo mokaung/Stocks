@@ -52,6 +52,8 @@ public class ControllerUtil {
     writeMessage("(7) Find out the value of an existing portfolio." + System.lineSeparator(), out);
     writeMessage("(8) Save a portfolio." + System.lineSeparator(), out);
     writeMessage("(9) Load a portfolio." + System.lineSeparator(), out);
+    writeMessage("(10) Rebalance a portfolio." + System.lineSeparator(), out);
+    writeMessage("(11) Get Portfolio Performance." + System.lineSeparator(), out);
     writeMessage("(M)enu (show the menu again)" + System.lineSeparator(), out);
     writeMessage("(Q)uit (closes the program)" + System.lineSeparator(), out);
   }
@@ -83,8 +85,7 @@ public class ControllerUtil {
     int day = Integer.parseInt(result[2]);
     try {
       return LocalDate.of(year, month, day);
-    }
-    catch (Exception e){
+    } catch (Exception e) {
       throw new IllegalArgumentException("Please enter valid months and days.");
     }
   }

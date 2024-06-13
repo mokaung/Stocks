@@ -14,10 +14,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.time.format.DateTimeFormatter;
 
-import model.IModel;
-import model.IModel2;
-import model.IStock;
-import model.Stock;
+import Model.IModel;
+import Model.IModel2;
+import Model.IStock;
+import Model.Stock;
 
 public class xmlToPortfolio implements IParseXml {
   private IModel model;
@@ -83,6 +83,7 @@ public class xmlToPortfolio implements IParseXml {
           }
         }
       }
+      //TODO exception
     } catch (Exception e) {
       e.printStackTrace();
     }

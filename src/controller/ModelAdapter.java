@@ -8,8 +8,9 @@ import java.util.Objects;
 
 import Portfolio.IPortfolio;
 import Portfolio.IPortfolioV2;
-import model.IModel2;
-import model.IStock;
+import Model.IModel2;
+import Model.IStock;
+import Portfolio.Weight;
 
 public class ModelAdapter implements IModel2 {
   private final IModel2 model2;
@@ -25,22 +26,22 @@ public class ModelAdapter implements IModel2 {
 
   @Override
   public double gainOrLoss(LocalDate start, LocalDate close, String ticker) {
-    return model2.gainOrLoss(start,close,ticker);
+    return model2.gainOrLoss(start, close, ticker);
   }
 
   @Override
   public double movingAverage(int movingWindow, LocalDate date, String ticker) {
-    return model2.movingAverage(movingWindow,date,ticker);
+    return model2.movingAverage(movingWindow, date, ticker);
   }
 
   @Override
   public IPortfolio createPortfolio(String ticker, int share, String name) {
-    return model2.createPortfolio(ticker,share,name);
+    return model2.createPortfolio(ticker, share, name);
   }
 
   @Override
   public boolean isInvalidLocalDate(LocalDate cal, String ticker) {
-    return model2.isInvalidLocalDate(cal,ticker);
+    return model2.isInvalidLocalDate(cal, ticker);
   }
 
   @Override
@@ -55,17 +56,17 @@ public class ModelAdapter implements IModel2 {
 
   @Override
   public void addToPortfolio(String s, String ticker, int share) {
-    model2.addToPortfolio(s,ticker,share);
+    model2.addToPortfolio(s, ticker, share);
   }
 
   @Override
   public Double getPortfolioValue(String s, LocalDate cal) {
-    return model2.getPortfolioValue(s,cal);
+    return model2.getPortfolioValue(s, cal);
   }
 
   @Override
   public Double getPortfolioValueV2(String s, LocalDate cal) {
-    return model2.getPortfolioValueV2(s,cal);
+    return model2.getPortfolioValueV2(s, cal);
   }
 
   @Override
@@ -79,18 +80,28 @@ public class ModelAdapter implements IModel2 {
   }
 
   @Override
+  public void rebalance(LocalDate date, ArrayList<Weight> weightArrayList, String name) {
+    model2.rebalance(date, weightArrayList, name);
+  }
+
+  @Override
+  public String getPerformance(String name, LocalDate start, LocalDate end) {
+    return "";
+  }
+
+  @Override
   public void savePortfolio(String portfolioName) throws IOException {
     model2.savePortfolio(portfolioName);
   }
 
   @Override
-  public IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date){
-    return model2.createPortfolioV2(ticker,share,name,date);
+  public IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date) {
+    return model2.createPortfolioV2(ticker, share, name, date);
   }
 
   @Override
-  public void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date){
-    model2.addToPortfolioV2(portFolioName,ticker,share,date);
+  public void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date) {
+    model2.addToPortfolioV2(portFolioName, ticker, share, date);
   }
 
 }

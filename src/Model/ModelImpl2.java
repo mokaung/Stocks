@@ -1,14 +1,14 @@
-package model;
+package Model;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-import Portfolio.IPortfolio;
 import Portfolio.IPortfolioV2;
 import Portfolio.PortfolioV2;
+import Portfolio.Weight;
 
 /**
  * Model for the program. Stores all the information. Is run from Controller when user wants
@@ -33,7 +33,6 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
    * @param name   the name of the new portfolio
    * @return a new portfolio.
    */
-  //TODO: change to work wiht new portfolio
   @Override
   public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
     PortfolioV2 p = new PortfolioV2(name);
@@ -74,6 +73,11 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
+  public void rebalance(LocalDate date, ArrayList<Weight> weightArrayList, String name) {
+    portfoliosV2.get(name).rebalance(date, weightArrayList);
+  }
+
+  @Override
   public void savePortfolio(String portFolioName) {
     try {
       portfoliosV2.get(portFolioName).saveXml(portFolioName);
@@ -92,4 +96,41 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     return !portfoliosV2.containsKey(name);
   }
 
+  @Override
+  public String getPerformance(String name, LocalDate start, LocalDate end) {
+    IPortfolioV2 portfolio = portfoliosV2.get(name);
+    StringBuilder out = new StringBuilder();
+    out.append("Performance of portfolio " +
+            portfolio.getName() + " from " + start + " to " + end +
+            System.lineSeparator() + System.lineSeparator());
+
+    String month = start.getMonth().toString();
+    for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+      double b = 0.0;
+      if (month.equals(date.getMonth().toString())) {
+        b += portfolio.getValue(date);
+      } else {
+        String nameMonth = month.substring(0, 3);
+        out.append(nameMonth + " "
+                + date.getYear() + ": " + b + System.lineSeparator());
+        month = date.getMonth().toString();
+      }
+    }
+    out.append("Scale: * = 1000");
+    return out.toString();
+  }
+
+  // changes the value into asterisks rounded to the nearest hundred
+  // each * is worth 1000
+  private String create(double value) {
+    StringBuilder b = new StringBuilder();
+    while (value >= 1000.0) {
+      b.append("*");
+      value -= 1000.0;
+    }
+    if (value >= 500.0) {
+      b.append("*");
+    }
+    return b.toString();
+  }
 }

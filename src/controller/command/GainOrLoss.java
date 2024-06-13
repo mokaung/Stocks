@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 import controller.ModelAdapter;
-import model.IModel;
-import model.IModel2;
+import Model.IModel;
+import Model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;

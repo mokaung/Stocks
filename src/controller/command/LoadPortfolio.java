@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 import controller.ModelAdapter;
 import controller.xmlToPortfolio;
-import model.IModel;
-import model.IModel2;
+import Model.IModel;
+import Model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 

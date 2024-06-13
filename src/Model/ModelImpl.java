@@ -1,6 +1,5 @@
-package model;
+package Model;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +8,6 @@ import java.util.Scanner;
 
 import Portfolio.Portfolio;
 import Portfolio.IPortfolio;
-import Portfolio.PortfolioV2;
 
 /**
  * Model for the program. Stores all the information. Is run from Controller when user wants
