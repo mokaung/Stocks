@@ -43,7 +43,8 @@ public class AddStockToPortfolio implements ICommand {
             + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("How many shares would you like to add? "
             + System.lineSeparator(), out);

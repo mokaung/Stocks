@@ -9,6 +9,9 @@ import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Generates the value of the given portfolio.
+ */
 public class GetPortfolioValue implements ICommand {
   private final Appendable out;
 

@@ -68,8 +68,8 @@ public class Stock implements IStock {
     }
     Stock stock = (Stock) o;
 
-    return time.equals(stock.time) &&
-            Double.compare(open, stock.open) == 0
+    return time.equals(stock.time)
+            && Double.compare(open, stock.open) == 0
             && Double.compare(high, stock.high) == 0
             && Double.compare(low, stock.low) == 0
             && Double.compare(close, stock.close) == 0

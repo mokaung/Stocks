@@ -25,8 +25,10 @@ import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Controller of the program. Oversees the running of the program and command organization.
+ *
  * <p>This program directly uses the Appendable out for user interface, so there is no official view.
  * Stocks are stored in a map in the Model accessed by the controller when needed.<p>
+ *
  * The user is introduced to a menu, which asks for inputs from the keyboard, in the form of
  * numbers. When the user wants to repeat the menu, then they can enter M/m and Q/q to quit.
  */

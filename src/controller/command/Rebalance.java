@@ -11,6 +11,9 @@ import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Rebalance a portfolio on the given day with the given weights.
+ */
 public class Rebalance implements ICommand {
   private final Appendable out;
 

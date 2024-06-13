@@ -38,7 +38,9 @@ public class CreatePortfolio implements ICommand {
     String name = addNewStock(sc, model, true, "");
     String confirmation = "";
     while (!confirmation.equals("N")) {
-      writeMessage("Would you like to add one more stock to this portfolio? Y/N" + System.lineSeparator(), out);
+      writeMessage(
+              "Would you like to add one more stock to this portfolio? Y/N"
+                      + System.lineSeparator(), out);
       confirmation = sc.next().trim().toUpperCase();
       while (!confirmation.equals("Y") && !confirmation.equals("N")) {
         writeMessage("Please type 'Y' or 'N'." + System.lineSeparator(), out);
@@ -65,7 +67,8 @@ public class CreatePortfolio implements ICommand {
             + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("How many shares of " + ticker + " would you like? "
             + System.lineSeparator(), out);

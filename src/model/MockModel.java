@@ -2,16 +2,18 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import portfolio.IPortfolio;
 import portfolio.IPortfolioV2;
+import portfolio.Weight;
 
 /**
  * MockModel used to test controller inputs.
  */
-public class MockModel extends ModelImpl implements IModel {
+public class MockModel extends ModelImpl2 implements IModel2 {
   private Map<String, IPortfolio> portfolios;
   private final StringBuilder log;
 
@@ -67,6 +69,7 @@ public class MockModel extends ModelImpl implements IModel {
     return true;
   }
 
+  @Override
   public void addToPortfolio(String s, String ticker, int share) {
     log.append("addToPortfolio");
   }
@@ -79,7 +82,48 @@ public class MockModel extends ModelImpl implements IModel {
   @Override
   public Map<String, Map<LocalDate, IStock>> getStock() {
     log.append("getStock");
-    return Map.of();
+    return stocks;
   }
 
+  @Override
+  public void rebalance(LocalDate date, List<Weight> weightList, String name) {
+    log.append("rebalance");
+    super.rebalance(date, weightList, name);
+  }
+
+  @Override
+  public String getPerformance(boolean b, String name, LocalDate start, LocalDate end) {
+    log.append("getPerformance");
+    return super.getPerformance(b, name, start, end);
+  }
+
+  @Override
+  public void savePortfolio(String portFolioName) {
+    log.append("savePortfolio");
+    super.savePortfolio(portFolioName);
+  }
+
+  @Override
+  public IPortfolioV2 createPortfolioV2(String ticker, double share, String name, LocalDate date) {
+    log.append("createPortfolioV2");
+    return super.createPortfolioV2(ticker, share, name, date);
+  }
+
+  @Override
+  public String portfolioToString(String name, String dateString, LocalDate date) {
+    log.append("portfolioToString");
+    return super.portfolioToString(name, dateString, date);
+  }
+
+  @Override
+  public void addToPortfolioV2(String portFolioName, String ticker, double share, LocalDate date) {
+    log.append("addToPortfolioV2");
+    super.addToPortfolioV2(portFolioName, ticker, share, date);
+  }
+
+  @Override
+  public double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException {
+    log.append("getPortfolioValueV2");
+    return super.getPortfolioValueV2(name, cal);
+  }
 }

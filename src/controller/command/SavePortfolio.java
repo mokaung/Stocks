@@ -7,6 +7,9 @@ import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Saves a portfolio as a xml.
+ */
 public class SavePortfolio implements ICommand {
   private final Appendable out;
 

@@ -9,6 +9,9 @@ import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
+/**
+ * Loads a saved portfolio via xml file.
+ */
 public class LoadPortfolio implements ICommand {
 
   private final Appendable out;
