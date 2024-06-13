@@ -29,7 +29,7 @@ public class GetPortfolioValue implements ICommand {
    * @throws IllegalArgumentException when there is any errors with input.
    */
   @Override
-  public void run(Scanner sc, IModel2 model) throws IllegalArgumentException {
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
     if (model.isInvalidPortfolio(name)) {
@@ -40,7 +40,7 @@ public class GetPortfolioValue implements ICommand {
     LocalDate date1 = getLocalDate(sc.next());
     try {
       writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
-              + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
+              + model.getPortfolioValueV2(name, date1) + System.lineSeparator(), out);
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Invalid date.");
     }

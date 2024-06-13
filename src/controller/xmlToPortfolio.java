@@ -23,7 +23,7 @@ public class xmlToPortfolio implements IParseXml {
     this.model = model;
   }
 
-  public void convertXmlToPortfolio(File file) throws IOException {
+  public void convertXmlToPortfolio(File file) throws IllegalArgumentException {
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
@@ -88,7 +88,7 @@ public class xmlToPortfolio implements IParseXml {
         }
       }
     } catch (Exception e) {
-      e.printStackTrace();
+      throw new IllegalArgumentException(e.getMessage());
     }
   }
 }

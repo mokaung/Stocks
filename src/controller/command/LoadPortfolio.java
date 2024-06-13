@@ -54,7 +54,7 @@ public class LoadPortfolio implements ICommand {
     xmlToPortfolio converter = new xmlToPortfolio(model);
     try {
       converter.convertXmlToPortfolio(fileCheck);
-    } catch (IOException e) {
+    } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException(e.getMessage());
     }
   }
