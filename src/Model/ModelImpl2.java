@@ -106,17 +106,24 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
             System.lineSeparator() + System.lineSeparator());
 
     String month = start.getMonth().toString();
-    for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
-      double b = 0.0;
+    double b = 0.0;
+    for (LocalDate date = start; !date.isAfter(end); date = date.plusDays(1)) {
       if (month.equals(date.getMonth().toString())) {
         b += portfolio.getValue(date);
       } else {
         String nameMonth = month.substring(0, 3);
-        out.append(nameMonth + " "
-                + date.getYear() + ": " + b + System.lineSeparator());
+        out.append(nameMonth + " " + date.minusDays(1).getYear()
+                + ": " + b + System.lineSeparator());
         month = date.getMonth().toString();
+        b = portfolio.getValue(date);
       }
     }
+
+    if (start.getMonth().equals(end.getMonth())) {
+      String nameMonth = month.substring(0, 3);
+      out.append(nameMonth + " " + end.getYear() + ": " + b + System.lineSeparator());
+    }
+
     out.append("Scale: * = 1000");
     return out.toString();
   }

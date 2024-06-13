@@ -37,9 +37,7 @@ public class Populate implements ICommand {
   public void run(Scanner sc, IModel2 model) {
     writeMessage("Which stock do you want to load? " + System.lineSeparator(), out);
     String ticker = sc.next();
-    if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Invalid ticker.");
-    }
+
     IReader alpha = new AlphaVantageStreamReader(ticker);
 
     try {
@@ -96,7 +94,6 @@ public class Populate implements ICommand {
       IReader reader = new CSVReader(ticker);
       model.populate(reader.getReadable(), ticker);
     } catch (Exception e) {
-      System.out.println(e);
       throw new IllegalArgumentException("Your stock cannot be loaded.");
     }
   }

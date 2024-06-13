@@ -18,28 +18,28 @@ public class GetPerformance implements ICommand {
   @Override
   public void run(Scanner sc, IModel2 model) {
 
-      writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
+    writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
 
-      String name = sc.nextLine();
-      if (model.isInvalidPortfolio(name)) {
-        throw new IllegalArgumentException("Invalid portfolio");
-      }
+    String name = sc.next();
+    if (model.isInvalidPortfolio(name)) {
+      throw new IllegalArgumentException("Invalid portfolio");
+    }
 
-      writeMessage("Please input the start date." + System.lineSeparator(), out);
-      LocalDate startDate;
-      try {
-        startDate = LocalDate.parse(sc.nextLine());
-      } catch (DateTimeParseException e) {
-        throw new IllegalArgumentException("Invalid start date");
-      }
-      writeMessage("Please input the end date." + System.lineSeparator(), out);
-      LocalDate endDate;
-      try {
-        endDate = LocalDate.parse(sc.nextLine());
-      } catch (DateTimeParseException e) {
-        throw new IllegalArgumentException("Invalid end date");
-      }
+    writeMessage("Please input the start date." + System.lineSeparator(), out);
+    LocalDate startDate;
+    try {
+      startDate = LocalDate.parse(sc.next());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Invalid start date");
+    }
+    writeMessage("Please input the end date." + System.lineSeparator(), out);
+    LocalDate endDate;
+    try {
+      endDate = LocalDate.parse(sc.next());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Invalid end date");
+    }
 
-//      writeMessage(model.getPerformance(name, startDate, endDate), out);
+    writeMessage(model.getPerformance(name, startDate, endDate), out);
   }
 }
