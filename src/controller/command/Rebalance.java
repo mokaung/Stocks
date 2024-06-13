@@ -21,34 +21,29 @@ public class Rebalance implements ICommand {
   }
 
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-      writeMessage("Which portfolio would you like to rebalance? "
-              + System.lineSeparator(), out);
-      String portfolio = sc.next();
-      if (model.isInvalidPortfolio(portfolio)) {
-        throw new IllegalArgumentException("Invalid portfolio");
-      }
-
-      writeMessage("Please input the stock's ticker and percentage in that order."
-              + System.lineSeparator(), out);
-      ArrayList<Weight> list = makeWeight(sc, model);
-
-      writeMessage("Please input the date you would like to rebalance."
-              + System.lineSeparator(), out);
-      LocalDate date;
-      try {
-        date = LocalDate.parse(sc.next());
-      } catch (DateTimeParseException e) {
-        throw new IllegalArgumentException("Invalid date");
-      }
-
-      ((ModelAdapter) model).rebalance(date, list, portfolio);
-      writeMessage("Portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
-    } else {
-      throw new IllegalArgumentException("Use appropriate model.");
+  public void run(Scanner sc, IModel2 model) {
+    writeMessage("Which portfolio would you like to rebalance? "
+            + System.lineSeparator(), out);
+    String portfolio = sc.next();
+    if (model.isInvalidPortfolio(portfolio)) {
+      throw new IllegalArgumentException("Invalid portfolio");
     }
+
+    writeMessage("Please input the stock's ticker and percentage in that order."
+            + System.lineSeparator(), out);
+    ArrayList<Weight> list = makeWeight(sc, model);
+
+    writeMessage("Please input the date you would like to rebalance."
+            + System.lineSeparator(), out);
+    LocalDate date;
+    try {
+      date = LocalDate.parse(sc.next());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Invalid date");
+    }
+
+    ((ModelAdapter) model).rebalance(date, list, portfolio);
+    writeMessage("Portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
   }
 
   // create the individual weights and put them in a list.

@@ -4,9 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-import Model.IModel;
 import Model.IModel2;
-import controller.ModelAdapter;
 
 import static controller.command.ControllerUtil.writeMessage;
 
@@ -18,9 +16,7 @@ public class GetPerformance implements ICommand {
   }
 
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
+  public void run(Scanner sc, IModel2 model) {
 
       writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
 
@@ -45,6 +41,5 @@ public class GetPerformance implements ICommand {
       }
 
 //      writeMessage(model.getPerformance(name, startDate, endDate), out);
-    }
   }
 }

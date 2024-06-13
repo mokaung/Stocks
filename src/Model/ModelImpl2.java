@@ -43,11 +43,11 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
-  public IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date) {
+  public IPortfolioV2 createPortfolioV2(String ticker, double share, String name, LocalDate date) {
     PortfolioV2 p = new PortfolioV2(name);
     Map<LocalDate, IStock> info = stocks.get(ticker);
     Map<LocalDate, Double> shareMap = new HashMap<>();
-    shareMap.put(date, (double) share);
+    shareMap.put(date, share);
     p.setValueV2(info, shareMap, ticker);
     portfoliosV2.put(name, p);
     return p;
@@ -66,9 +66,9 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
-  public void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date) {
+  public void addToPortfolioV2(String portFolioName, String ticker, double share, LocalDate date) {
     Map<LocalDate, Double> shareMap = new HashMap<>();
-    shareMap.put(date, (double) share);
+    shareMap.put(date, share);
     portfoliosV2.get(portFolioName).setValueV2(stocks.get(ticker), shareMap, ticker);
   }
 

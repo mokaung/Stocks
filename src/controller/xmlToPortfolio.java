@@ -74,14 +74,14 @@ public class xmlToPortfolio implements IParseXml {
 
               if (!model.isInvalidPortfolio(portfolioName)) {
                 if (!model.isInvalidTicker(ticker)) {
-                  model.addToPortfolioV2(portfolioName, ticker, (int) shares, date);
+                  model.addToPortfolioV2(portfolioName, ticker, shares, date);
                 } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }
               } else {
                 if (!model.isInvalidTicker(ticker)) {
                   System.out.println(portfolioName);
-                  model.createPortfolioV2(ticker, (int) shares, portfolioName, date);
+                  model.createPortfolioV2(ticker, shares, portfolioName, date);
                 } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }

@@ -95,12 +95,12 @@ public class ModelAdapter implements IModel2 {
   }
 
   @Override
-  public IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date) {
+  public IPortfolioV2 createPortfolioV2(String ticker, double share, String name, LocalDate date) {
     return model2.createPortfolioV2(ticker, share, name, date);
   }
 
   @Override
-  public void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date) {
+  public void addToPortfolioV2(String portFolioName, String ticker, double share, LocalDate date) {
     model2.addToPortfolioV2(portFolioName, ticker, share, date);
   }
 
