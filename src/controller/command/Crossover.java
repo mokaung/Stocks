@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
-import model.IModel;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
@@ -23,6 +21,7 @@ public class Crossover implements ICommand {
 
   /**
    * Constructor takes in the Appendable used for output.
+   *
    * @param out The appendable used for outputs in the program.
    */
   public Crossover(Appendable out) {
@@ -32,14 +31,12 @@ public class Crossover implements ICommand {
   /**
    * Macro to find crossover days. Asks the user for required fields, and outputs an easy-to-read
    * message that shows the of crossover days.
-   * @param sc Scanner used for user input.
+   *
+   * @param sc    Scanner used for user input.
    * @param model Model that houses the calculating for this command.
    */
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
@@ -48,10 +45,9 @@ public class Crossover implements ICommand {
     writeMessage("Please enter how many days to base the averages "
             + "on (x in x-day moving average): " + System.lineSeparator(), out);
     int window;
-    try{
+    try {
       window = sc.nextInt();
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       throw new IllegalArgumentException("Please input a valid number.");
     }
     writeMessage("Please enter the starting date: " + System.lineSeparator(), out);
@@ -62,7 +58,7 @@ public class Crossover implements ICommand {
     writeMessage("Please enter the ending date: " + System.lineSeparator(), out);
     LocalDate date2 = getLocalDate(sc.next());
     if (!model.isInvalidLocalDate(date2, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2)  + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2) + " doesn't exist.");
     }
     try {
       ArrayList<LocalDate> result = model.crossover(window, date1, date2, ticker);
@@ -82,8 +78,7 @@ public class Crossover implements ICommand {
           writeMessage(calToString(result.get(i)) + ", ", out);
         }
       }
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       throw new IllegalArgumentException(e.getMessage());
     }
   }

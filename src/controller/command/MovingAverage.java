@@ -3,8 +3,6 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
-import model.IModel;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
@@ -35,10 +33,7 @@ public class MovingAverage implements ICommand {
    * @param model Model includes movingAverage().
    */
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
@@ -47,10 +42,9 @@ public class MovingAverage implements ICommand {
     writeMessage("Please enter how many days to base the average "
             + "on (x in x-day moving average): " + System.lineSeparator(), out);
     int window;
-    try{
+    try {
       window = sc.nextInt();
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       throw new IllegalArgumentException("Please input a valid number.");
     }
     writeMessage("Please enter the day you want to see the moving average for: "

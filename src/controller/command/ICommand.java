@@ -2,7 +2,7 @@ package controller.command;
 
 import java.util.Scanner;
 
-import model.IModel;
+import model.IModel2;
 
 /**
  * Interface for commands in the command design pattern. Open for future
@@ -11,8 +11,9 @@ import model.IModel;
 public interface ICommand {
   /**
    * Runs the given command in model form the controller input.
-   * @param sc Scanner
+   *
+   * @param sc    Scanner
    * @param model Model
    */
-  void run(Scanner sc, IModel model);
+  void run(Scanner sc, IModel2 model);
 }

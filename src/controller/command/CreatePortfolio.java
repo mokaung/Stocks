@@ -3,7 +3,6 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
 import model.IModel;
 import model.IModel2;
 
@@ -35,10 +34,7 @@ public class CreatePortfolio implements ICommand {
    * @param model the model. used to call the createPortfolio method in model.
    */
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2)model);
-    }
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Creating new portfolio... " + System.lineSeparator(), out);
     addNewStock(sc, model, true);
     String confirmation = "";
@@ -65,7 +61,7 @@ public class CreatePortfolio implements ICommand {
    * @param model inherited from run.
    * @param tf    true false boolean to check if command is at the start of running.
    */
-  private void addNewStock(Scanner sc, IModel model, boolean tf) {
+  private void addNewStock(Scanner sc, IModel2 model, boolean tf) {
     String name = "";
     writeMessage("Which stock would you like to add into this portfolio? " + System.lineSeparator(), out);
     String ticker = sc.next();
@@ -99,26 +95,11 @@ public class CreatePortfolio implements ICommand {
    * @param shares inherited from addNewStock.
    * @param name   inherited from addNewStock.
    */
-  private void isNewPortfolio(boolean tf, IModel model, String ticker, int shares, String name, LocalDate date1) {
+  private void isNewPortfolio(boolean tf, IModel2 model, String ticker, int shares, String name, LocalDate date1) {
     if (tf) {
-      if (model instanceof IModel2) {
-        if (date1 == null) {
-          throw new IllegalArgumentException("Sorry, the date was empty. If you're seeing this, something has gone wrong.");
-        }
-        System.out.println("V2 was ran.");
-        ((ModelAdapter) model).createPortfolioV2(ticker, shares, name, date1);
-      } else {
-        model.createPortfolio(ticker, shares, name);
-      }
+      model.createPortfolioV2(ticker, shares, name, date1);
     } else {
-      if (model instanceof IModel2) {
-        if (date1 == null) {
-          throw new IllegalArgumentException("Sorry, the date was empty. If you're seeing this, something has gone wrong.");
-        }
-        ((ModelAdapter) model).addToPortfolioV2(ticker, name, shares, date1);
-      } else {
-        model.addToPortfolio(name, ticker, shares);
-      }
+      model.addToPortfolioV2(ticker, name, shares, date1);
     }
   }
 }

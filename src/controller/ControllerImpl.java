@@ -69,10 +69,7 @@ public class ControllerImpl implements IController {
    * @param model Model for the program, houses all the computation.
    */
   @Override
-  public void go(IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void go(IModel2 model) {
     Scanner sc = new Scanner(in);
     boolean quit = false;
 

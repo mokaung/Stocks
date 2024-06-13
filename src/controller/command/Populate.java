@@ -2,7 +2,6 @@ package controller.command;
 
 import java.util.Scanner;
 
-import controller.ModelAdapter;
 import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
@@ -21,6 +20,7 @@ public class Populate implements ICommand {
 
   /**
    * constructor inheriting out from Controller.
+   *
    * @param out for user output.
    */
   public Populate(Appendable out) {
@@ -29,14 +29,12 @@ public class Populate implements ICommand {
 
   /**
    * Runs the command.
-   * @param sc Scanner inherited from controller.
+   *
+   * @param sc    Scanner inherited from controller.
    * @param model Model inherited from controller.
    */
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Which stock do you want to load? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (!model.isInvalidTicker(ticker)) {
@@ -45,7 +43,7 @@ public class Populate implements ICommand {
     IReader alpha = new AlphaVantageStreamReader(ticker);
 
     try {
-        model.populate(alpha.getReadable(), ticker);
+      model.populate(alpha.getReadable(), ticker);
     } catch (Exception e) {
       writeMessage("Your stock could not be loaded. Would you like to use a preloaded stock? Please type 'yes' if so. "
               + System.lineSeparator(), out);
@@ -61,7 +59,8 @@ public class Populate implements ICommand {
 
   /**
    * Used when AlphaVantage is unavailable. Uses CSVReader to read preloaded stocks (FAANG).
-   * @param sc inherited from run.
+   *
+   * @param sc    inherited from run.
    * @param model inherited from run.
    */
   private void csvGo(Scanner sc, IModel model) {
@@ -95,12 +94,7 @@ public class Populate implements ICommand {
     }
     try {
       IReader reader = new CSVReader(ticker);
-      if (model instanceof IModel2) {
-        ((ModelAdapter) model).populate(reader.getReadable(), ticker);
-      } else {
-        model.populate(reader.getReadable(), ticker);
-      }
-
+      model.populate(reader.getReadable(), ticker);
     } catch (Exception e) {
       System.out.println(e);
       throw new IllegalArgumentException("Your stock cannot be loaded.");

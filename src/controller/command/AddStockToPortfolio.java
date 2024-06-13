@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 import controller.ModelAdapter;
-import model.IModel;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
@@ -34,10 +33,7 @@ public class AddStockToPortfolio implements ICommand {
    * @param model Model used for computation.
    */
   @Override
-  public void run(Scanner sc, IModel model) {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2)model);
-    }
+  public void run(Scanner sc, IModel2 model) {
     writeMessage("Which portfolio would you like to add a stock to? " + System.lineSeparator(), out);
     String name = sc.next();
     if (!model.isInvalidPortfolio(name)) {
@@ -58,13 +54,6 @@ public class AddStockToPortfolio implements ICommand {
         throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
       }
     }
-    if (model instanceof IModel2) {
-      if (date1 == null) {
-        throw new IllegalArgumentException("Sorry, the date was empty. If you're seeing this, something has gone wrong.");
-      }
-      ((ModelAdapter) model).addToPortfolioV2(ticker, name, share, date1);
-    } else {
-      model.addToPortfolio(name, ticker, share);
-    }
+    model.addToPortfolioV2(ticker, name, share, date1);
   }
 }

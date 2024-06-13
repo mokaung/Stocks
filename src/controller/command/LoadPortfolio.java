@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
 import controller.xmlToPortfolio;
-import model.IModel;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
@@ -25,10 +23,7 @@ public class LoadPortfolio implements ICommand {
   }
 
   @Override
-  public void run(Scanner sc, IModel model) throws IllegalArgumentException {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void run(Scanner sc, IModel2 model) throws IllegalArgumentException {
     writeMessage("Which portfolio would you like to load? Please type the entire file name."
             + " (example.xml)"
             + System.lineSeparator(), out);
@@ -55,17 +50,11 @@ public class LoadPortfolio implements ICommand {
     }
     writeMessage("Loading Portfolio... "
             + System.lineSeparator(), out);
-    if (model instanceof IModel2) {
-      xmlToPortfolio converter = new xmlToPortfolio(model);
-      try {
-        converter.convertXmlToPortfolio(fileCheck);
-      }
-      catch (IOException e) {
-        throw new IllegalArgumentException(e.getMessage());
-      }
-    } else {
-      throw new IllegalArgumentException("Model does not support saving portfolios. " +
-              "This is a program error. If you see this, the program is flawed.");
+    xmlToPortfolio converter = new xmlToPortfolio(model);
+    try {
+      converter.convertXmlToPortfolio(fileCheck);
+    } catch (IOException e) {
+      throw new IllegalArgumentException(e.getMessage());
     }
   }
 

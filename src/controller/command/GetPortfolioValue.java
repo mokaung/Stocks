@@ -3,8 +3,6 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
-import model.IModel;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
@@ -31,10 +29,7 @@ public class GetPortfolioValue implements ICommand {
    * @throws IllegalArgumentException when there is any errors with input.
    */
   @Override
-  public void run(Scanner sc, IModel model) throws IllegalArgumentException {
-    if (model instanceof IModel2) {
-      model = new ModelAdapter((IModel2) model);
-    }
+  public void run(Scanner sc, IModel2 model) throws IllegalArgumentException {
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
     if (model.isInvalidPortfolio(name)) {
@@ -44,14 +39,8 @@ public class GetPortfolioValue implements ICommand {
             + name + " at that date." + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
     try {
-      if (model instanceof IModel2) {
-        writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
-                + ((ModelAdapter) model).getPortfolioValueV2(name, date1) + System.lineSeparator(), out);
-      }
-      else {
-        writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
-                + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
-      }
+      writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
+              + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Invalid date.");
     }

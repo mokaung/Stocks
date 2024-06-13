@@ -83,8 +83,7 @@ public class ControllerUtil {
     int day = Integer.parseInt(result[2]);
     try {
       return LocalDate.of(year, month, day);
-    }
-    catch (Exception e){
+    } catch (Exception e) {
       throw new IllegalArgumentException("Please enter valid months and days.");
     }
   }
