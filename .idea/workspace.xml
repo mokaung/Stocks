@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controller/command/Populate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Populate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Performance/APerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Performance/IPerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Performance/PortfolioPerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Performance/StockPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/IModel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IModel2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/IStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ModelImpl2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ModelImpl2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ModelAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Crossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Crossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Rebalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Rebalance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -26,6 +42,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2hnS9zJ16dlHngyEcIvELcQEzi1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

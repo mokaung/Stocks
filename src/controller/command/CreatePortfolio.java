@@ -3,9 +3,7 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Model.IModel;
 import Model.IModel2;
-import controller.ModelAdapter;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;

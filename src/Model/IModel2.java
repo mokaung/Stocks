@@ -11,7 +11,7 @@ public interface IModel2 extends IModel {
   //TODO make list
   void rebalance(LocalDate date, ArrayList<Weight> weightArrayList, String name);
 
-  String getPerformance(String name, LocalDate start, LocalDate end);
+  String getPerformance(boolean b, String name, LocalDate start, LocalDate end);
 
   void savePortfolio(String portFolioName) throws IOException;
 

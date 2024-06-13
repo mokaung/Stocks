@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.ModelAdapter;
-import Model.IModel;
 import Model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;

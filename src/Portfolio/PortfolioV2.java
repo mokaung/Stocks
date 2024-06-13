@@ -34,11 +34,15 @@ public class PortfolioV2 implements IPortfolioV2 {
     for (Map.Entry<String, Map<LocalDate, IStock>> entry : stocks.entrySet()) {
       IStock stock = entry.getValue().get(date);
       if (stock == null) {
-        throw new IllegalArgumentException("Sorry, information for the portfolio at "
-                + date + " is unavailable. Please try another date.");
+        return 0.0;
       }
       if (stock.getDate().equals(date)) {
-        double stockShare = share.get(entry.getKey()).get(date);
+        double stockShare;
+        try {
+          stockShare = share.get(entry.getKey()).get(date);
+        } catch (NullPointerException e) {
+          stockShare = 0.0;
+        }
         answer += stock.getClose() * stockShare;
       }
     }

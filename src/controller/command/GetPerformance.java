@@ -17,12 +17,21 @@ public class GetPerformance implements ICommand {
 
   @Override
   public void run(Scanner sc, IModel2 model) {
+    writeMessage("Would you like the performance of a stock or portfolio? "
+            + System.lineSeparator(), out);
 
-    writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
+    String option = sc.next();
+    boolean b = option.equals("portfolio");
+
+    writeMessage("Which " + option + " would you want to analyze? "
+            + System.lineSeparator(), out);
 
     String name = sc.next();
-    if (model.isInvalidPortfolio(name)) {
+    if (model.isInvalidPortfolio(name) && b) {
       throw new IllegalArgumentException("Invalid portfolio");
+    }
+    if (model.isInvalidTicker(name) && !b) {
+      throw new IllegalArgumentException("Invalid ticker");
     }
 
     writeMessage("Please input the start date." + System.lineSeparator(), out);
@@ -40,6 +49,6 @@ public class GetPerformance implements ICommand {
       throw new IllegalArgumentException("Invalid end date");
     }
 
-    writeMessage(model.getPerformance(name, startDate, endDate), out);
+    writeMessage(model.getPerformance(b, name, startDate, endDate), out);
   }
 }
