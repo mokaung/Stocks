@@ -30,7 +30,14 @@ public class StockPerformance extends APerformance implements IPerformance {
     double total = 0.0;
     String currentMonth = start.getMonth().toString();
     for (LocalDate date = start; !date.isAfter(end); date = date.plusDays(1)) {
-      double value = stocks.get(date).getClose();
+      double value = 0;
+
+      try {
+        value += stocks.get(date).getClose();
+      } catch (Exception e) {
+        value += 0.0;
+      }
+
       total += value;
       if (!currentMonth.equals(date.getMonth().toString())) {
         appendMonthSummary(out, currentMonth, date.minusDays(1), total);

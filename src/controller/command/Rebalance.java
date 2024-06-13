@@ -42,7 +42,6 @@ public class Rebalance implements ICommand {
     }
 
     model.rebalance(date, list, portfolio);
-//    ((ModelAdapter) model).rebalance(date, list, portfolio);
     writeMessage("Portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
   }
 

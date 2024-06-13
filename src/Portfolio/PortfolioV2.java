@@ -34,16 +34,15 @@ public class PortfolioV2 implements IPortfolioV2 {
     sb.append("**** Portfolio Name: " + name + " ****"
             + System.lineSeparator()
             + "Stocks: "
-            + System.lineSeparator()
-    );
-    for (Map.Entry<String, Map<LocalDate, IStock>> entry: stocks.entrySet()){
+            + System.lineSeparator());
+    for (Map.Entry<String, Map<LocalDate, IStock>> entry : stocks.entrySet()) {
       if (!share.get(entry.getKey()).containsKey(date)) {
         throw new IllegalArgumentException("Sorry, your portfolio does not include shares of "
-          + entry.getKey() + " at " + dateString + ".");
+                + entry.getKey() + " at " + dateString + ".");
       }
-      Double percentage = ((entry.getValue().get(date).getClose()
+      double percentage = ((entry.getValue().get(date).getClose()
               * share.get(entry.getKey()).get(date))
-              /getValue(date)) * 100;
+              / getValue(date)) * 100;
       sb.append("$" + entry.getKey()
               + System.lineSeparator()
               + "- Stock's value at " + dateString + ": " + entry.getValue().get(date).getClose()
@@ -69,8 +68,7 @@ public class PortfolioV2 implements IPortfolioV2 {
       }
       if (stock.getDate().equals(date)) {
         if (!share.get(entry.getKey()).containsKey(date)) {
-          throw new IllegalArgumentException("Sorry, information for the portfolio at "
-                  + date + " is unavailable. Please try another date.");
+          return 0.0;
         }
         double stockShare;
         try {
@@ -84,11 +82,9 @@ public class PortfolioV2 implements IPortfolioV2 {
     return answer;
   }
 
-  //TODO
   @Override
   public void setValue(Map<LocalDate, IStock> stock, int share, String ticker) {
     stocks.put(ticker, stock);
-
   }
 
   @Override
@@ -106,7 +102,7 @@ public class PortfolioV2 implements IPortfolioV2 {
       double targetVal = totalVal * targetPercent;
       double newShare = targetVal / stockVal;
 
-      // checks to see if the difference between the 1%
+      // checks to see if the difference within the 1%
       if (Math.abs(targetPercent - (currentVal / totalVal)) > 0.01) {
         share.get(ticker).put(date, newShare);
       }
