@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-import model.ModelImpl;
+import Model.ModelImpl;
 
 import static org.junit.Assert.*;
 

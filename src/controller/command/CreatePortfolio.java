@@ -3,8 +3,9 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import model.IModel;
-import model.IModel2;
+import Model.IModel;
+import Model.IModel2;
+import controller.ModelAdapter;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
@@ -71,12 +72,10 @@ public class CreatePortfolio implements ICommand {
     writeMessage("How many shares of " + ticker + " would you like? " + System.lineSeparator(), out);
     int shares = sc.nextInt();
     LocalDate date1 = null;
-    if (model instanceof IModel2) {
-      writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
-      date1 = getLocalDate(sc.next());
-      if (!model.isInvalidLocalDate(date1, ticker)) {
-        throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
-      }
+    writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
+    date1 = getLocalDate(sc.next());
+    if (!model.isInvalidLocalDate(date1, ticker)) {
+      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("Adding " + shares + " shares of " + ticker + " to this portfolio..." + System.lineSeparator(), out);
     if (tf) {

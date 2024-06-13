@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 
-import model.IStock;
+import Model.IStock;
 
 /**
  * Extension to the previous portfolio.
@@ -49,5 +49,6 @@ public interface IPortfolioV2 extends IPortfolio {
   String toXml();
 
   void saveXml(String fileName)throws IOException;
+
 
 }

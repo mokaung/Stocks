@@ -14,9 +14,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.time.format.DateTimeFormatter;
 
-import model.IModel2;
-import model.IStock;
-import model.Stock;
+import Model.IModel2;
+import Model.IStock;
+import Model.Stock;
 
 public class xmlToPortfolio implements IParseXml {
   private IModel2 model;
@@ -74,14 +74,14 @@ public class xmlToPortfolio implements IParseXml {
 
               if (!model.isInvalidPortfolio(portfolioName)) {
                 if (!model.isInvalidTicker(ticker)) {
-                  model.addToPortfolioV2(portfolioName, ticker, shares, date);
+                  model.addToPortfolioV2(portfolioName, ticker, (int) shares, date);
                 } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }
               } else {
                 if (!model.isInvalidTicker(ticker)) {
                   System.out.println(portfolioName);
-                  model.createPortfolioV2(ticker, shares, portfolioName, date);
+                  model.createPortfolioV2(ticker, (int) shares, portfolioName, date);
                 } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }
@@ -90,6 +90,7 @@ public class xmlToPortfolio implements IParseXml {
           }
         }
       }
+      //TODO exception
     } catch (Exception e) {
       e.printStackTrace();
     }
