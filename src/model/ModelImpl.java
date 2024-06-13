@@ -16,7 +16,7 @@ import Portfolio.PortfolioV2;
  * something.
  */
 public class ModelImpl implements IModel {
-  private final Map<String, Map<LocalDate, IStock>> stocks;
+  protected final Map<String, Map<LocalDate, IStock>> stocks;
   private final Map<String, IPortfolio> portfolios;
 
   /**
@@ -145,7 +145,7 @@ public class ModelImpl implements IModel {
    * @return true if valid, false if not.
    */
   @Override
-  public boolean isValidLocalDate(LocalDate cal, String ticker) {
+  public boolean isInvalidLocalDate(LocalDate cal, String ticker) {
     return stocks.get(ticker).containsKey(cal);
   }
 
@@ -156,7 +156,7 @@ public class ModelImpl implements IModel {
    * @return whether portfolio is valid or not.
    */
   @Override
-  public boolean isValidPortfolio(String name) {
+  public boolean isInvalidPortfolio(String name) {
     return !portfolios.containsKey(name);
   }
 
@@ -167,7 +167,7 @@ public class ModelImpl implements IModel {
    * @return whether stock exists in the program currently.
    */
   @Override
-  public boolean isValidTicker(String ticker) {
+  public boolean isInvalidTicker(String ticker) {
     return !stocks.containsKey(ticker);
   }
 

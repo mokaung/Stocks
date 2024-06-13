@@ -11,11 +11,13 @@ import controller.command.Crossover;
 import controller.command.GainOrLoss;
 import controller.command.GetPortfolioValue;
 import controller.command.ICommand;
+import controller.command.LoadPortfolio;
 import controller.command.MovingAverage;
 import controller.command.Populate;
 import controller.command.SavePortfolio;
 import model.IModel;
 import controller.command.ControllerUtil;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
@@ -57,7 +59,7 @@ public class ControllerImpl implements IController {
     commands.put("6", () -> new AddStockToPortfolio(this.out));
     commands.put("7", () -> new GetPortfolioValue(this.out));
     commands.put("8", () -> new SavePortfolio(this.out));
-
+    commands.put("9", () -> new LoadPortfolio(this.out));
   }
 
   /**
@@ -68,6 +70,9 @@ public class ControllerImpl implements IController {
    */
   @Override
   public void go(IModel model) {
+    if (model instanceof IModel2) {
+      model = new ModelAdapter((IModel2) model);
+    }
     Scanner sc = new Scanner(in);
     boolean quit = false;
 
@@ -99,6 +104,7 @@ public class ControllerImpl implements IController {
           writeMessage(e.getMessage() + System.lineSeparator(), out);
         }
       }
+      ControllerUtil.printMenu(this.out);
     }
   }
 }

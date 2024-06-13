@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
+import Portfolio.IPortfolio;
 import Portfolio.IPortfolioV2;
 import Portfolio.PortfolioV2;
 
@@ -13,15 +15,14 @@ import Portfolio.PortfolioV2;
  * something.
  */
 public class ModelImpl2 extends ModelImpl implements IModel2 {
-  private final Map<String, Map<LocalDate, IStock>> stocks;
-  private final Map<String, IPortfolioV2> portfolios;
+  private final Map<String, IPortfolioV2> portfoliosV2;
 
   /**
    * Constructor for creating a blank model.
    */
   public ModelImpl2() {
-    stocks = new HashMap<>();
-    portfolios = new HashMap<>();
+    super();
+    portfoliosV2 = new HashMap<>();
   }
 
   /**
@@ -38,7 +39,18 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     PortfolioV2 p = new PortfolioV2(name);
     Map<LocalDate, IStock> info = stocks.get(ticker);
     p.setValue(info, share, ticker);
-    portfolios.put(name, p);
+    portfoliosV2.put(name, p);
+    return p;
+  }
+
+  @Override
+  public IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date) {
+    PortfolioV2 p = new PortfolioV2(name);
+    Map<LocalDate, IStock> info = stocks.get(ticker);
+    Map<LocalDate, Double> shareMap = new HashMap<>();
+    shareMap.put(date, (double) share);
+    p.setValueV2(info, shareMap, ticker);
+    portfoliosV2.put(name, p);
     return p;
   }
 
@@ -51,15 +63,23 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
    */
   @Override
   public void addToPortfolio(String portFolioName, String ticker, int share) {
-    portfolios.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
+    portfoliosV2.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
+  }
+
+  @Override
+  public void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date) {
+    Map<LocalDate, Double> shareMap = new HashMap<>();
+    shareMap.put(date, (double) share);
+    portfoliosV2.get(portFolioName).setValueV2(stocks.get(ticker), shareMap, ticker);
   }
 
   @Override
   public void savePortfolio(String portFolioName) {
     try {
-      portfolios.get(portFolioName).saveXml(portFolioName);
+      portfoliosV2.get(portFolioName).saveXml(portFolioName);
     } catch (IOException e) {
       throw new IllegalStateException("Could not save portfolio.");
     }
   }
+
 }

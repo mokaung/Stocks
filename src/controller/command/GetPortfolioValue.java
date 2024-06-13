@@ -3,7 +3,9 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import controller.ModelAdapter;
 import model.IModel;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
@@ -30,9 +32,12 @@ public class GetPortfolioValue implements ICommand {
    */
   @Override
   public void run(Scanner sc, IModel model) throws IllegalArgumentException {
+    if (model instanceof IModel2) {
+      model = new ModelAdapter((IModel2) model);
+    }
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
-    if (!model.isValidPortfolio(name)) {
+    if (!model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Enter a date to calculate the value of "

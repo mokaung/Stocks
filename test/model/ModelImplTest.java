@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Portfolio.Portfolio;
+import Portfolio.IPortfolio;
 
 import static org.junit.Assert.*;
 
@@ -60,22 +61,22 @@ public class ModelImplTest {
   @Test
   public void isValidLocalDate() {
     LocalDate d1 = LocalDate.of(2024, 6, 6);
-    assertTrue(model.isValidLocalDate(d1, "AMZN"));
+    assertTrue(model.isInvalidLocalDate(d1, "AMZN"));
     LocalDate d2 = LocalDate.of(2023, 6, 6);
-    assertFalse(model.isValidLocalDate(d2, "GOOG"));
+    assertFalse(model.isInvalidLocalDate(d2, "GOOG"));
   }
 
   @Test
   public void isValidPortfolio() {
-    assertTrue(model.isValidPortfolio("GOOG"));
-    assertFalse(model.isValidPortfolio("NFLX"));
+    assertTrue(model.isInvalidPortfolio("GOOG"));
+    assertFalse(model.isInvalidPortfolio("NFLX"));
   }
 
   @Test
   public void isValidTicker() {
-    assertTrue(model.isValidTicker("AMZN"));
-    assertTrue(model.isValidTicker("GOOG"));
-    assertFalse(model.isValidTicker("NFLX"));
+    assertTrue(model.isInvalidTicker("AMZN"));
+    assertTrue(model.isInvalidTicker("GOOG"));
+    assertFalse(model.isInvalidTicker("NFLX"));
   }
 
   @Test

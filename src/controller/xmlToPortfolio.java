@@ -6,25 +6,25 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.time.format.DateTimeFormatter;
 
-import model.IModel;
+import model.IModel2;
 import model.IStock;
 import model.Stock;
 
 public class xmlToPortfolio implements IParseXml {
-  private final IModel model;
+  private final IModel2 model;
 
-  public xmlToPortfolio(IModel model) {
+  public xmlToPortfolio(IModel2 model) {
     this.model = model;
   }
 
-  public void convertXmlToPortfolio(File file) {
+  public void convertXmlToPortfolio(File file)throws IOException {
     try {
       DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
       DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -42,15 +42,16 @@ public class xmlToPortfolio implements IParseXml {
           String portfolioName = portfolioElement.getAttribute("name");
 
           NodeList stockList = portfolioElement.getElementsByTagName("stock");
-
+          NodeList dateNodes = doc.getElementsByTagName("date");
           for (int j = 0; j < stockList.getLength(); j++) {
             Node stockNode = stockList.item(j);
-
             if (stockNode.getNodeType() == Node.ELEMENT_NODE) {
               Element stockElement = (Element) stockNode;
-
+              Element dateElement = (Element) dateNodes.item(i);
+              String dateString = dateElement.getAttribute("value");
               String ticker = stockElement.getElementsByTagName("ticker").item(0).getTextContent();
-              LocalDate date = LocalDate.parse(stockElement.getElementsByTagName("date").item(0).getTextContent());
+//              LocalDate date = LocalDate.parse(stockElement.getElementsByTagName("date").item(0).getTextContent());
+              LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ISO_LOCAL_DATE);
               double open = Double.parseDouble(stockElement.getElementsByTagName("open").item(0).getTextContent());
               double high = Double.parseDouble(stockElement.getElementsByTagName("high").item(0).getTextContent());
               double low = Double.parseDouble(stockElement.getElementsByTagName("low").item(0).getTextContent());
@@ -59,12 +60,20 @@ public class xmlToPortfolio implements IParseXml {
 
               IStock stock = new Stock(date, open, high, low, close, volume, ticker);
 
-              if (!model.portfolios.containsKey(portfolioName)) {
-                Map<LocalDate, IStock> stockMap = new HashMap<>();
-                stockMap.put(date, stock);
-                model.createPortfolio(ticker, 10, portfolioName);
+              if (!model.isInvalidPortfolio(portfolioName)) {
+                if (!model.isInvalidTicker(ticker)) {
+                  model.addToPortfolioV2(portfolioName, ticker, 10, date);
+                }
+                else {
+                  throw new IllegalArgumentException("Please load $" + ticker + " first.");
+                }
               } else {
-                model.addToPortfolio(portfolioName, ticker, 10);
+                if (!model.isInvalidTicker(ticker)) {
+                  model.createPortfolioV2(ticker, 10, portfolioName, date);
+                }
+                else {
+                  throw new IllegalArgumentException("Please load $" + ticker + " first.");
+                }
               }
             }
           }

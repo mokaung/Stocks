@@ -53,19 +53,19 @@ public class MockModel extends ModelImpl implements IModel {
   }
 
   @Override
-  public boolean isValidLocalDate(LocalDate cal, String ticker) {
+  public boolean isInvalidLocalDate(LocalDate cal, String ticker) {
     log.append("isValidLocalDate");
-    return super.isValidLocalDate(cal, ticker);
+    return super.isInvalidLocalDate(cal, ticker);
   }
 
   @Override
-  public boolean isValidTicker(String ticker) {
+  public boolean isInvalidTicker(String ticker) {
     log.append("isValidTicker");
-    return super.isValidTicker(ticker);
+    return super.isInvalidTicker(ticker);
   }
 
   @Override
-  public boolean isValidPortfolio(String name) {
+  public boolean isInvalidPortfolio(String name) {
     log.append("isValidPortfolio");
     return true;
   }

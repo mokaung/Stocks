@@ -37,7 +37,7 @@ public interface IPortfolioV2 extends IPortfolio {
    * @param share  amount of shares a stock has on a date
    * @param ticker the stock's ticker.
    */
-  void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String ticker);
+  void setValueV2(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String ticker);
 
   /**
    * Get the name of the portfolio.

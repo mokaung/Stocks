@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.ModelAdapter;
 import model.IModel;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
@@ -35,9 +37,12 @@ public class Crossover implements ICommand {
    */
   @Override
   public void run(Scanner sc, IModel model) {
+    if (model instanceof IModel2) {
+      model = new ModelAdapter((IModel2) model);
+    }
     writeMessage("Which stock do you want to analyze? " + System.lineSeparator(), out);
     String ticker = sc.next();
-    if (model.isValidTicker(ticker)) {
+    if (model.isInvalidTicker(ticker)) {
       throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
     writeMessage("Please enter how many days to base the averages "
@@ -51,12 +56,12 @@ public class Crossover implements ICommand {
     }
     writeMessage("Please enter the starting date: " + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
-    if (!model.isValidLocalDate(date1, ticker)) {
+    if (!model.isInvalidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     writeMessage("Please enter the ending date: " + System.lineSeparator(), out);
     LocalDate date2 = getLocalDate(sc.next());
-    if (!model.isValidLocalDate(date2, ticker)) {
+    if (!model.isInvalidLocalDate(date2, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for " + calToString(date2)  + " doesn't exist.");
     }
     try {

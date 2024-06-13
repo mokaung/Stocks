@@ -50,6 +50,8 @@ public class ControllerUtil {
     writeMessage("(5) Create a new portfolio." + System.lineSeparator(), out);
     writeMessage("(6) Add new stocks to an existing portfolio." + System.lineSeparator(), out);
     writeMessage("(7) Find out the value of an existing portfolio." + System.lineSeparator(), out);
+    writeMessage("(8) Save a portfolio." + System.lineSeparator(), out);
+    writeMessage("(9) Load a portfolio." + System.lineSeparator(), out);
     writeMessage("(M)enu (show the menu again)" + System.lineSeparator(), out);
     writeMessage("(Q)uit (closes the program)" + System.lineSeparator(), out);
   }

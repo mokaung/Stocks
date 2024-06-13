@@ -1,5 +1,6 @@
 package Portfolio;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -81,7 +82,7 @@ public class PortfolioV2 implements IPortfolioV2 {
 
 
   @Override
-  public void setValue(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String
+  public void setValueV2(Map<LocalDate, IStock> stock, Map<LocalDate, Double> share, String
           ticker) {
     stocks.put(ticker, stock);
     this.share.put(ticker, share);
@@ -138,15 +139,16 @@ public class PortfolioV2 implements IPortfolioV2 {
   @Override
   public void saveXml(String fileName) throws IOException {
     String xml = toXml();
-    File directory = new File(new File("").getAbsolutePath() + "\\HW 4\\src\\savedPortfolios\\");
-    File file = new File(directory, fileName + ".xml");
-    try (FileWriter fileWriter = new FileWriter(file)) {
+    try {
+      File directory = new File(new File("").getAbsolutePath() + "\\src\\savedPortfolios\\");
+      File file = new File(directory, fileName + ".xml");
+      FileWriter fileWriter = new FileWriter(file);
       fileWriter.write(xml);
     } catch (IOException e) {
-      directory = new File(new File("").getAbsolutePath() + "/src/savedPortfolios/");
-      file = new File(directory, fileName + ".xml");
-      try (FileWriter fileWriter = new FileWriter(file)) {
-        fileWriter.write(xml);
+      File directory = new File(new File("").getAbsolutePath() + "/src/savedPortfolios/");
+      File file = new File(directory, fileName + ".xml");
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+        writer.write(xml);
       } catch (IOException g) {
         throw g;
       }

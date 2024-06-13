@@ -67,7 +67,7 @@ public interface IModel {
    * @param ticker ticker symbol for the stock
    * @return if the ticker is in stocks.
    */
-  boolean isValidLocalDate(LocalDate cal, String ticker);
+  boolean isInvalidLocalDate(LocalDate cal, String ticker);
 
   /**
    * Validates whether a portfolio with the specified name exists.
@@ -75,7 +75,7 @@ public interface IModel {
    * @param name the name of the portfolio
    * @return if the portfolio name exists
    */
-  boolean isValidPortfolio(String name);
+  boolean isInvalidPortfolio(String name);
 
   /**
    * Checks if the given ticker is in stocks.
@@ -83,7 +83,7 @@ public interface IModel {
    * @param ticker ticker symbol for the stock
    * @return if the ticker is in stocks
    */
-  boolean isValidTicker(String ticker);
+  boolean isInvalidTicker(String ticker);
 
   /**
    * Adds stocks to an existing portfolio.
