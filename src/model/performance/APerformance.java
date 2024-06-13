@@ -1,7 +1,10 @@
-package Model.Performance;
+package model.performance;
 
 import java.time.LocalDate;
 
+/**
+ * Abstract class for performances.
+ */
 public abstract class APerformance implements IPerformance {
   public abstract String getPerformance(LocalDate start, LocalDate end);
 

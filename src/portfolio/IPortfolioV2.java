@@ -1,11 +1,11 @@
-package Portfolio;
+package portfolio;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import Model.IStock;
+import model.IStock;
 
 /**
  * Extension to the previous portfolio.
@@ -19,7 +19,7 @@ public interface IPortfolioV2 extends IPortfolio {
    * @param date    date in which rebalance is based on.
    * @param weights list of weights that matches ticker and percentage.
    */
-  void rebalance(LocalDate date, ArrayList<Weight> weights);
+  void rebalance(LocalDate date, List<Weight> weights);
 
   /**
    * Changes the value of a stock on a current date.
@@ -50,7 +50,7 @@ public interface IPortfolioV2 extends IPortfolio {
 
   String toXml();
 
-  void saveXml(String fileName)throws IOException;
+  void saveXml(String fileName) throws IOException;
 
 
 }

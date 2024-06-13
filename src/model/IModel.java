@@ -1,10 +1,10 @@
-package Model;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 
-import Portfolio.IPortfolio;
+import portfolio.IPortfolio;
 
 /**
  * This interface for the operations that can be performed.

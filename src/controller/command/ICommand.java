@@ -2,8 +2,7 @@ package controller.command;
 
 import java.util.Scanner;
 
-import Model.IModel2;
-import Model.IModel;
+import model.IModel2;
 
 /**
  * Interface for commands in the command design pattern. Open for future

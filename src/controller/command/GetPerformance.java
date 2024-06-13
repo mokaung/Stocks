@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 

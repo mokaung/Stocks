@@ -1,6 +1,6 @@
 package controller;
 
-import Model.IModel2;
+import model.IModel2;
 
 /**
  * Interface for the controller. Allows future implementation of the controllers, that might

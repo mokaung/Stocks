@@ -1,25 +1,24 @@
-package Model.Performance;
+package model.performance;
 
 import java.time.LocalDate;
-import java.util.Map;
 
-import Model.IStock;
+import portfolio.IPortfolioV2;
 
 /**
- * Display the performance of a stock over a period of time.
+ * Generates the performance of a portfolio.
  */
-public class StockPerformance extends APerformance implements IPerformance {
-  private final Map<LocalDate, IStock> stocks;
+public class PortfolioPerformance extends APerformance implements IPerformance {
+  private final IPortfolioV2 portfolio;
 
-  public StockPerformance(Map<LocalDate, IStock> stocks) {
-    this.stocks = stocks;
+  public PortfolioPerformance(IPortfolioV2 portfolio) {
+    this.portfolio = portfolio;
   }
 
   @Override
   public String getPerformance(LocalDate start, LocalDate end) {
     StringBuilder out = new StringBuilder();
     out.append("Performance of portfolio ")
-            .append(stocks.get(start).getTicker())
+            .append(portfolio.getName())
             .append(" from ")
             .append(start)
             .append(" to ")
@@ -30,14 +29,7 @@ public class StockPerformance extends APerformance implements IPerformance {
     double total = 0.0;
     String currentMonth = start.getMonth().toString();
     for (LocalDate date = start; !date.isAfter(end); date = date.plusDays(1)) {
-      double value = 0;
-
-      try {
-        value += stocks.get(date).getClose();
-      } catch (Exception e) {
-        value += 0.0;
-      }
-
+      double value = portfolio.getValue(date);
       total += value;
       if (!currentMonth.equals(date.getMonth().toString())) {
         appendMonthSummary(out, currentMonth, date.minusDays(1), total);

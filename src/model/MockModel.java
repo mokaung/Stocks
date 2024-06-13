@@ -1,12 +1,12 @@
-package Model;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
-import Portfolio.IPortfolio;
-import Portfolio.IPortfolioV2;
+import portfolio.IPortfolio;
+import portfolio.IPortfolioV2;
 
 /**
  * MockModel used to test controller inputs.

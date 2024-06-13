@@ -19,7 +19,7 @@ import controller.command.PortFolioToString;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
 import controller.command.ControllerUtil;
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 

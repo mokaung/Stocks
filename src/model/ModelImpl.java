@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import Portfolio.Portfolio;
-import Portfolio.IPortfolio;
+import portfolio.Portfolio;
+import portfolio.IPortfolio;
 
 /**
  * Model for the program. Stores all the information. Is run from Controller when user wants
@@ -75,8 +75,8 @@ public class ModelImpl implements IModel {
    * @return all the dates that are crossover days.
    */
   @Override
-  public ArrayList<LocalDate> crossover(int window,
-                                        LocalDate date1, LocalDate date2, String ticker) {
+  public ArrayList<LocalDate> crossover(int window, LocalDate date1,
+                                        LocalDate date2, String ticker) {
     ArrayList<LocalDate> results = new ArrayList<>();
     LocalDate currentDate = date1;
 

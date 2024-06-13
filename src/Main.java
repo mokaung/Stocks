@@ -3,8 +3,8 @@ import java.io.InputStreamReader;
 
 import controller.ControllerImpl;
 import controller.IController;
-import Model.IModel2;
-import Model.ModelImpl2;
+import model.IModel2;
+import model.ModelImpl2;
 
 /**
  * Initiates the program.

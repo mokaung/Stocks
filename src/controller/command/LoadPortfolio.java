@@ -1,12 +1,11 @@
 package controller.command;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
-import controller.xmlToPortfolio;
+import controller.XMLToPortfolio;
 
-import Model.IModel2;
+import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
 
@@ -51,7 +50,7 @@ public class LoadPortfolio implements ICommand {
     }
     writeMessage("Loading Portfolio... "
             + System.lineSeparator(), out);
-    xmlToPortfolio converter = new xmlToPortfolio(model);
+    XMLToPortfolio converter = new XMLToPortfolio(model);
     try {
       converter.convertXmlToPortfolio(fileCheck);
     } catch (IllegalArgumentException e) {

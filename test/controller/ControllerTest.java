@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-import Model.ModelImpl2;
+import model.ModelImpl2;
 
 import static org.junit.Assert.assertEquals;
 

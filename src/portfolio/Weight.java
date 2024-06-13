@@ -1,9 +1,9 @@
-package Portfolio;
+package portfolio;
 
 /**
  * Class that matches percentage and ticker for rebalancing.
  */
-public class Weight {
+public class Weight implements IWeight {
   private final double percent;
   private final String ticker;
 
@@ -13,10 +13,12 @@ public class Weight {
     this.ticker = ticker;
   }
 
+  @Override
   public String getTicker() {
     return ticker;
   }
 
+  @Override
   public double getPercent() {
     return percent;
   }

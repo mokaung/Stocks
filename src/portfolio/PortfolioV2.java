@@ -1,15 +1,15 @@
-package Portfolio;
+package portfolio;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import Model.IStock;
+import model.IStock;
 
 /**
  * Modified design of Portfolio that allows for additional commands.
@@ -21,6 +21,11 @@ public class PortfolioV2 implements IPortfolioV2 {
   private final Map<String, Map<LocalDate, Double>> share;
   private final ITransaction transaction;
 
+  /**
+   * Constructor for PortfolioV2.
+   *
+   * @param name name of the portfolio.
+   */
   public PortfolioV2(String name) {
     this.name = name;
     stocks = new HashMap<>();
@@ -88,7 +93,7 @@ public class PortfolioV2 implements IPortfolioV2 {
   }
 
   @Override
-  public void rebalance(LocalDate date, ArrayList<Weight> weights) {
+  public void rebalance(LocalDate date, List<Weight> weights) {
     double totalVal = getValue(date);
 
     for (Weight weight : weights) {

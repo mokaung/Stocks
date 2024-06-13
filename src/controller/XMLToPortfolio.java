@@ -6,7 +6,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -14,15 +13,19 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.time.format.DateTimeFormatter;
 
-import Model.IModel2;
+import model.IModel2;
 
-public class xmlToPortfolio implements IParseXml {
-  private IModel2 model;
+/**
+ * Class for parsing xml into portfolios.
+ */
+public class XMLToPortfolio implements IParseXml {
+  private final IModel2 model;
 
-  public xmlToPortfolio(IModel2 model) {
+  public XMLToPortfolio(IModel2 model) {
     this.model = model;
   }
 
+  @Override
   public void convertXmlToPortfolio(File file) throws IllegalArgumentException {
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

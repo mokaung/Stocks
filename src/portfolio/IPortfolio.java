@@ -1,9 +1,9 @@
-package Portfolio;
+package portfolio;
 
 import java.time.LocalDate;
 import java.util.Map;
 
-import Model.IStock;
+import model.IStock;
 
 /**
  * Interface for portfolios. Allows all portfolios to get and set values.

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,8 +7,8 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import Portfolio.IPortfolio;
-import Portfolio.Portfolio;
+import portfolio.IPortfolio;
+import portfolio.Portfolio;
 
 import static org.junit.Assert.assertEquals;
 

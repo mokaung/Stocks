@@ -1,17 +1,16 @@
-package Model;
+package model;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import Model.Performance.IPerformance;
-import Model.Performance.PortfolioPerformance;
-import Model.Performance.StockPerformance;
-import Portfolio.IPortfolioV2;
-import Portfolio.PortfolioV2;
-import Portfolio.Weight;
+import model.performance.PortfolioPerformance;
+import model.performance.StockPerformance;
+import portfolio.IPortfolioV2;
+import portfolio.PortfolioV2;
+import portfolio.Weight;
 
 /**
  * Model for the program. Stores all the information. Is run from Controller when user wants
@@ -48,15 +47,16 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
-  public void rebalance(LocalDate date, ArrayList<Weight> weightArrayList, String name) {
-    portfoliosV2.get(name).rebalance(date, weightArrayList);
+  public void rebalance(LocalDate date, List<Weight> weightyList, String name) {
+    portfoliosV2.get(name).rebalance(date, weightyList);
   }
 
   @Override
-  public String portfolioToString(String name, String dateString, LocalDate date){
+  public String portfolioToString(String name, String dateString, LocalDate date) {
     return portfoliosV2.get(name).portfolioToString(dateString, date);
   }
 
+  @Override
   public String getPerformance(boolean isPortfolio, String name, LocalDate start, LocalDate end) {
     if (isPortfolio) {
       IPortfolioV2 p = portfoliosV2.get(name);
@@ -77,7 +77,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
-  public Double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException {
+  public double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException {
     return portfoliosV2.get(name).getValue(cal);
   }
 

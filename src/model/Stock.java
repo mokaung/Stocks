@@ -1,7 +1,6 @@
-package Model;
+package model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Information of a stock that a person owns.
@@ -70,12 +69,12 @@ public class Stock implements IStock {
     Stock stock = (Stock) o;
 
     return time.equals(stock.time) &&
-            Double.compare(open, stock.open) == 0 &&
-            Double.compare(high, stock.high) == 0 &&
-            Double.compare(low, stock.low) == 0 &&
-            Double.compare(close, stock.close) == 0 &&
-            volume == stock.volume &&
-            ticker.equals(stock.ticker);
+            Double.compare(open, stock.open) == 0
+            && Double.compare(high, stock.high) == 0
+            && Double.compare(low, stock.low) == 0
+            && Double.compare(close, stock.close) == 0
+            && volume == stock.volume
+            && ticker.equals(stock.ticker);
   }
 
   /**
