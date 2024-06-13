@@ -8,7 +8,6 @@ import java.util.Scanner;
 import Model.IModel2;
 import Portfolio.Weight;
 import Model.IModel;
-import controller.ModelAdapter;
 
 import static controller.command.ControllerUtil.writeMessage;
 
@@ -42,7 +41,7 @@ public class Rebalance implements ICommand {
       throw new IllegalArgumentException("Invalid date");
     }
 
-    ((ModelAdapter) model).rebalance(date, list, portfolio);
+    model.rebalance(date, list, portfolio);
     writeMessage("Portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);
   }
 

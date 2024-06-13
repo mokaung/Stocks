@@ -25,22 +25,6 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     portfoliosV2 = new HashMap<>();
   }
 
-  /**
-   * To create a portfolio of stocks.
-   *
-   * @param ticker ticker symbol for the stock
-   * @param share  the number of shares of the ticker to include
-   * @param name   the name of the new portfolio
-   * @return a new portfolio.
-   */
-  @Override
-  public IPortfolioV2 createPortfolio(String ticker, int share, String name) {
-    PortfolioV2 p = new PortfolioV2(name);
-    Map<LocalDate, IStock> info = stocks.get(ticker);
-    p.setValue(info, share, ticker);
-    portfoliosV2.put(name, p);
-    return p;
-  }
 
   @Override
   public IPortfolioV2 createPortfolioV2(String ticker, double share, String name, LocalDate date) {
@@ -51,19 +35,6 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     p.setValueV2(info, shareMap, ticker);
     portfoliosV2.put(name, p);
     return p;
-  }
-
-
-  /**
-   * Adds stocks from the loaded ones into an existing stock.
-   *
-   * @param portFolioName the name of the portfolio
-   * @param ticker        ticker symbol for the stock
-   * @param share         the number of shares to add
-   */
-  @Override
-  public void addToPortfolio(String portFolioName, String ticker, int share) {
-    portfoliosV2.get(portFolioName).setValue(stocks.get(ticker), share, ticker);
   }
 
   @Override
@@ -77,6 +48,12 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   public void rebalance(LocalDate date, ArrayList<Weight> weightArrayList, String name) {
     portfoliosV2.get(name).rebalance(date, weightArrayList);
   }
+
+  @Override
+  public String portfolioToString(String name, String dateString, LocalDate date){
+    return portfoliosV2.get(name).portfolioToString(dateString, date);
+  }
+
 
   @Override
   public void savePortfolio(String portFolioName) {

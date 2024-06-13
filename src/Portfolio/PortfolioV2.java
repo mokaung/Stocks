@@ -29,6 +29,37 @@ public class PortfolioV2 implements IPortfolioV2 {
   }
 
   @Override
+  public String portfolioToString(String dateString, LocalDate date) {
+    StringBuilder sb = new StringBuilder();
+    sb.append("**** Portfolio Name: " + name + " ****"
+            + System.lineSeparator()
+            + "Stocks: "
+            + System.lineSeparator()
+    );
+    for (Map.Entry<String, Map<LocalDate, IStock>> entry: stocks.entrySet()){
+      if (!share.get(entry.getKey()).containsKey(date)) {
+        throw new IllegalArgumentException("Sorry, your portfolio does not include shares of "
+          + entry.getKey() + " at " + dateString + ".");
+      }
+      Double percentage = ((entry.getValue().get(date).getClose()
+              * share.get(entry.getKey()).get(date))
+              /getValue(date)) * 100;
+      sb.append("$" + entry.getKey()
+              + System.lineSeparator()
+              + "- Stock's value at " + dateString + ": " + entry.getValue().get(date).getClose()
+              + System.lineSeparator()
+              + "- Shares owned: " + share.get(entry.getKey()).get(date)
+              + System.lineSeparator()
+              + "- Valuation Percentage: " + percentage + "%"
+              + System.lineSeparator());
+    }
+    sb.append("**** Total Portfolio Valuation at "
+            + dateString + "  : " + getValue(date) + " ****"
+            + System.lineSeparator());
+    return sb.toString();
+  }
+
+  @Override
   public double getValue(LocalDate date) {
     double answer = 0;
     for (Map.Entry<String, Map<LocalDate, IStock>> entry : stocks.entrySet()) {
@@ -38,7 +69,10 @@ public class PortfolioV2 implements IPortfolioV2 {
                 + date + " is unavailable. Please try another date.");
       }
       if (stock.getDate().equals(date)) {
-        System.out.println(share.get(entry.getKey()).containsKey(date));
+        if (!share.get(entry.getKey()).containsKey(date)) {
+          throw new IllegalArgumentException("Sorry, information for the portfolio at "
+                  + date + " is unavailable. Please try another date.");
+        }
         double stockShare = share.get(entry.getKey()).get(date);
         answer += stock.getClose() * stockShare;
       }

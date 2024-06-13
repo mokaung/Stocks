@@ -54,6 +54,7 @@ public class ControllerUtil {
     writeMessage("(9) Load a portfolio." + System.lineSeparator(), out);
     writeMessage("(10) Rebalance a portfolio." + System.lineSeparator(), out);
     writeMessage("(11) Get Portfolio Performance." + System.lineSeparator(), out);
+    writeMessage("(12) Show a Portfolio at a date." + System.lineSeparator(), out);
     writeMessage("(M)enu (show the menu again)" + System.lineSeparator(), out);
     writeMessage("(Q)uit (closes the program)" + System.lineSeparator(), out);
   }

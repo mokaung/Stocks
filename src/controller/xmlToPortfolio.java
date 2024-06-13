@@ -59,24 +59,12 @@ public class xmlToPortfolio implements IParseXml {
 
                 if (!model.isInvalidPortfolio(portfolioName)) {
                   if (!model.isInvalidTicker(ticker)) {
-                    System.out.println("BEGINNING ADDING PROCESS");
-                    System.out.println("Portfolioname: " + portfolioName);
-                    System.out.println("ticker: " + ticker);
-                    System.out.println("shares: " + shares);
-                    System.out.println("date: " + date);
-                    System.out.println("DONE ADDING");
                     model.addToPortfolioV2(portfolioName, ticker, shares, date);
                   } else {
                     throw new IllegalArgumentException("Please load $" + ticker + " first.");
                   }
                 } else {
                   if (!model.isInvalidTicker(ticker)) {
-                    System.out.println("BEGINNING CREATION PROCESS");
-                    System.out.println("Portfolioname: " + portfolioName);
-                    System.out.println("ticker: " + ticker);
-                    System.out.println("shares: " + shares);
-                    System.out.println("date: " + date);
-                    System.out.println("DONE CREATING");
                     model.createPortfolioV2(ticker, shares, portfolioName, date);
                   } else {
                     throw new IllegalArgumentException("Please load $" + ticker + " first.");

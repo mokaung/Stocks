@@ -15,6 +15,7 @@ import controller.command.ICommand;
 import controller.command.LoadPortfolio;
 import controller.command.MovingAverage;
 import controller.command.Populate;
+import controller.command.PortFolioToString;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
 import controller.command.ControllerUtil;
@@ -63,6 +64,7 @@ public class ControllerImpl implements IController {
     commands.put("9", () -> new LoadPortfolio(this.out));
     commands.put("10", () -> new Rebalance(this.out));
     commands.put("11", () -> new GetPerformance(this.out));
+    commands.put("12", () -> new PortFolioToString(this.out));
   }
 
   /**

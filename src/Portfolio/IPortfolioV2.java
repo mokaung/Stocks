@@ -46,6 +46,8 @@ public interface IPortfolioV2 extends IPortfolio {
    */
   String getName();
 
+  String portfolioToString(String dateString, LocalDate date);
+
   String toXml();
 
   void saveXml(String fileName)throws IOException;

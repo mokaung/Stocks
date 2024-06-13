@@ -40,6 +40,6 @@ public class GetPerformance implements ICommand {
         throw new IllegalArgumentException("Invalid end date");
       }
 
-//      writeMessage(model.getPerformance(name, startDate, endDate), out);
+      writeMessage(model.getPerformance(name, startDate, endDate), out);
   }
 }

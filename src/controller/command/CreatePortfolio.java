@@ -3,9 +3,7 @@ package controller.command;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Model.IModel;
 import Model.IModel2;
-import controller.ModelAdapter;
 
 import static controller.command.ControllerUtil.calToString;
 import static controller.command.ControllerUtil.getLocalDate;
@@ -37,7 +35,7 @@ public class CreatePortfolio implements ICommand {
   @Override
   public void run(Scanner sc, IModel2 model) {
     writeMessage("Creating new portfolio... " + System.lineSeparator(), out);
-    addNewStock(sc, model, true);
+    String name = addNewStock(sc, model, true, "");
     String confirmation = "";
     while (!confirmation.equals("N")) {
       writeMessage("Would you like to add one more stock to this portfolio? Y/N" + System.lineSeparator(), out);
@@ -47,7 +45,7 @@ public class CreatePortfolio implements ICommand {
         confirmation = sc.next().trim().toUpperCase();
       }
       if (confirmation.equals("Y")) {
-        addNewStock(sc, model, false);
+        addNewStock(sc, model, false, name);
       }
     }
     writeMessage("Success! Created new portfolio." + System.lineSeparator(), out);
@@ -62,8 +60,7 @@ public class CreatePortfolio implements ICommand {
    * @param model inherited from run.
    * @param tf    true false boolean to check if command is at the start of running.
    */
-  private void addNewStock(Scanner sc, IModel2 model, boolean tf) {
-    String name = "";
+  private String addNewStock(Scanner sc, IModel2 model, boolean tf, String name) {
     writeMessage("Which stock would you like to add into this portfolio? " + System.lineSeparator(), out);
     String ticker = sc.next();
     if (model.isInvalidTicker(ticker)) {
@@ -83,6 +80,7 @@ public class CreatePortfolio implements ICommand {
       name = sc.next();
     }
     isNewPortfolio(tf, model, ticker, shares, name, date1);
+    return name;
   }
 
   /**
@@ -98,7 +96,7 @@ public class CreatePortfolio implements ICommand {
     if (tf) {
       model.createPortfolioV2(ticker, shares, name, date1);
     } else {
-      model.addToPortfolioV2(ticker, name, shares, date1);
+      model.addToPortfolioV2(name, ticker, shares, date1);
     }
   }
 }
