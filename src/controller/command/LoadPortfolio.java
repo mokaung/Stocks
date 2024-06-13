@@ -56,7 +56,7 @@ public class LoadPortfolio implements ICommand {
     writeMessage("Loading Portfolio... "
             + System.lineSeparator(), out);
     if (model instanceof IModel2) {
-      xmlToPortfolio converter = new xmlToPortfolio((IModel2) model);
+      xmlToPortfolio converter = new xmlToPortfolio(model);
       try {
         converter.convertXmlToPortfolio(fileCheck);
       }

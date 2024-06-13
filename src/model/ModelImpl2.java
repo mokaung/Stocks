@@ -82,4 +82,14 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     }
   }
 
+  @Override
+  public Double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException {
+    return portfoliosV2.get(name).getValue(cal);
+  }
+
+  @Override
+  public boolean isInvalidPortfolio(String name) {
+    return !portfoliosV2.containsKey(name);
+  }
+
 }

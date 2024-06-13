@@ -37,15 +37,21 @@ public class GetPortfolioValue implements ICommand {
     }
     writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
     String name = sc.next();
-    if (!model.isInvalidPortfolio(name)) {
+    if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     writeMessage("Enter a date to calculate the value of "
             + name + " at that date." + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
     try {
-      writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
-              + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
+      if (model instanceof IModel2) {
+        writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
+                + ((ModelAdapter) model).getPortfolioValueV2(name, date1) + System.lineSeparator(), out);
+      }
+      else {
+        writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
+                + model.getPortfolioValue(name, date1) + System.lineSeparator(), out);
+      }
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Invalid date.");
     }

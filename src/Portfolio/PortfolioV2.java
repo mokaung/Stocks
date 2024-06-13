@@ -37,6 +37,7 @@ public class PortfolioV2 implements IPortfolioV2 {
         throw new IllegalArgumentException("Sorry, information for the portfolio at " + date + " is unavailable. Please try another date.");
       }
       if (stock.getDate().equals(date)) {
+        System.out.println(share.get(entry.getKey()).containsKey(date));
         double stockShare = share.get(entry.getKey()).get(date);
         answer += stock.getClose() * stockShare;
       }

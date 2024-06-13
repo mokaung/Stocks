@@ -11,20 +11,25 @@ import java.time.LocalDate;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import java.time.format.DateTimeFormatter;
 
+import model.IModel;
 import model.IModel2;
 import model.IStock;
 import model.Stock;
 
 public class xmlToPortfolio implements IParseXml {
-  private final IModel2 model;
+  private IModel model;
 
-  public xmlToPortfolio(IModel2 model) {
+  public xmlToPortfolio(IModel model) {
     this.model = model;
   }
 
-  public void convertXmlToPortfolio(File file)throws IOException {
+  public void convertXmlToPortfolio(File file) throws IOException {
+    if (model instanceof IModel2) {
+      model = new ModelAdapter((IModel2) model);
+    }
     try {
       DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
       DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -39,7 +44,7 @@ public class xmlToPortfolio implements IParseXml {
 
         if (portfolioNode.getNodeType() == Node.ELEMENT_NODE) {
           Element portfolioElement = (Element) portfolioNode;
-          String portfolioName = portfolioElement.getAttribute("name");
+          String portfolioName = file.getName().substring(0, file.getName().length() - 4);
 
           NodeList stockList = portfolioElement.getElementsByTagName("stock");
           NodeList dateNodes = doc.getElementsByTagName("date");
@@ -62,16 +67,15 @@ public class xmlToPortfolio implements IParseXml {
 
               if (!model.isInvalidPortfolio(portfolioName)) {
                 if (!model.isInvalidTicker(ticker)) {
-                  model.addToPortfolioV2(portfolioName, ticker, 10, date);
-                }
-                else {
+                  ((ModelAdapter) model).addToPortfolioV2(portfolioName, ticker, 10, date);
+                } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }
               } else {
                 if (!model.isInvalidTicker(ticker)) {
-                  model.createPortfolioV2(ticker, 10, portfolioName, date);
-                }
-                else {
+                  System.out.println(portfolioName);
+                  ((ModelAdapter) model).createPortfolioV2(ticker, 10, portfolioName, date);
+                } else {
                   throw new IllegalArgumentException("Please load $" + ticker + " first.");
                 }
               }

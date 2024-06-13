@@ -13,4 +13,6 @@ public interface IModel2 extends IModel {
   IPortfolioV2 createPortfolioV2(String ticker, int share, String name, LocalDate date);
 
   void addToPortfolioV2(String portFolioName, String ticker, int share, LocalDate date);
+
+  Double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException;
 }

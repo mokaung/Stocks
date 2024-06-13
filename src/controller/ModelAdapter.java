@@ -64,6 +64,11 @@ public class ModelAdapter implements IModel2 {
   }
 
   @Override
+  public Double getPortfolioValueV2(String s, LocalDate cal) {
+    return model2.getPortfolioValueV2(s,cal);
+  }
+
+  @Override
   public Map<String, Map<LocalDate, IStock>> getStock() {
     return model2.getStock();
   }
