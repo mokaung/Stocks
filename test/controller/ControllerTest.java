@@ -602,6 +602,7 @@ public class ControllerTest {
     input.append("N" + System.lineSeparator());
     input.append("8" + System.lineSeparator());
   }
+
   private String forPortfolioV2Append() {
     return initializeSTOCK()
             + "Which stock do you want to load? "
@@ -647,6 +648,7 @@ public class ControllerTest {
             + System.lineSeparator()
             + printMenu();
   }
+
   /**
    * Tests the SavePortfolio command, and the PortfolioToString command.
    */
@@ -786,7 +788,8 @@ public class ControllerTest {
             + "Your stock has been populated. "
             + System.lineSeparator()
             + initializeSTOCKNoWelcome()
-            + "Which portfolio would you like to load? Please type the entire file name. (example.xml)"
+            + "Which portfolio would you like to load?"
+            + " Please type the entire file name. (example.xml)"
             + System.lineSeparator()
             + "- Dog.xml"
             + System.lineSeparator()
@@ -863,7 +866,8 @@ public class ControllerTest {
             + "Your stock has been populated. "
             + System.lineSeparator()
             + initializeSTOCKNoWelcome()
-            + "Which portfolio would you like to load? Please type the entire file name. (example.xml)"
+            + "Which portfolio would you like to load?"
+            + " Please type the entire file name. (example.xml)"
             + System.lineSeparator()
             + "- Dog.xml"
             + System.lineSeparator()
@@ -873,7 +877,8 @@ public class ControllerTest {
             + System.lineSeparator()
             + "- testXml.xml"
             + System.lineSeparator()
-            + "Error: Are you sure you entered the full file name? If so, this portfolio doesn't exist or isn't saved."
+            + "Error: Are you sure you entered the full file name?"
+            + " If so, this portfolio doesn't exist or isn't saved."
             + System.lineSeparator()
             + printMenu());
     Appendable output = new StringBuilder();

@@ -48,8 +48,8 @@ public class LoadPortfolio implements ICommand {
     String name = sc.next();
     File fileCheck = new File(directory, name);
     if (!fileCheck.exists() || !fileCheck.isFile()) {
-      throw new IllegalArgumentException("Are you sure you entered the full file name? If so, " +
-              "this portfolio doesn't exist or isn't saved.");
+      throw new IllegalArgumentException("Are you sure you entered the full file name? If so, "
+              + "this portfolio doesn't exist or isn't saved.");
     }
     writeMessage("Loading Portfolio... "
             + System.lineSeparator(), out);
