@@ -7,8 +7,12 @@ import java.time.LocalDate;
 import portfolio.IPortfolioV2;
 import portfolio.PortfolioV2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+
+/**
+ * Tester class for PortfolioPerformance
+ */
 public class PortfolioPerformanceTest {
 
   @Test
@@ -24,6 +28,7 @@ public class PortfolioPerformanceTest {
             + System.lineSeparator()
             + "Scale: * = 1000"
             + System.lineSeparator();
+
     assertEquals(expected, actual);
   }
 

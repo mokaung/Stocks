@@ -5,13 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/savedPortfolios/flappybird.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/PortfolioV2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/PortfolioV2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,8 +41,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.ControllerTest.executor": "Run",
     "JUnit.PortfolioPerformanceTest.getPerformance.executor": "Run",
     "JUnit.PortfolioV2Test.buyStock.executor": "Run",
+    "JUnit.PortfolioV2Test.getValue.executor": "Run",
+    "JUnit.PortfolioV2Test.portfolioToString.executor": "Run",
+    "JUnit.PortfolioV2Test.rebalance.executor": "Run",
+    "JUnit.PortfolioV2Test.toXml.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
@@ -44,19 +62,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.PortfolioPerformanceTest.getPerformance">
-    <configuration name="PortfolioPerformanceTest.getPerformance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="model.performance" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ControllerTest">
+    <configuration name="ControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.performance.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model.performance" />
-      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
-      <option name="METHOD_NAME" value="getPerformance" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,10 +102,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PortfolioV2Test.portfolioToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="portfolioToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioV2Test.rebalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="rebalance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioV2Test.toXml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="toXml" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PortfolioPerformanceTest.getPerformance" />
+        <item itemvalue="JUnit.ControllerTest" />
+        <item itemvalue="JUnit.PortfolioV2Test.toXml" />
+        <item itemvalue="JUnit.PortfolioV2Test.portfolioToString" />
         <item itemvalue="JUnit.PortfolioV2Test.buyStock" />
+        <item itemvalue="JUnit.PortfolioV2Test.rebalance" />
       </list>
     </recent_temporary>
   </component>
@@ -92,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718325877823</updated>
-      <workItem from="1718325880020" duration="445000" />
+      <workItem from="1718325880020" duration="3847000" />
     </task>
     <servers />
   </component>

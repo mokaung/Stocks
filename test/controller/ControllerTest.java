@@ -499,7 +499,7 @@ public class ControllerTest {
             + System.lineSeparator()
             + "Enter a date to calculate the value of Test at that date."
             + System.lineSeparator()
-            + "The value of Test on 2024-05-15 is: 10796.1"
+            + "The value of Test on 2024-05-15 is: $10796.1"
             + System.lineSeparator()
             + printMenu());
     Appendable output = new StringBuilder();
@@ -549,7 +549,7 @@ public class ControllerTest {
             + System.lineSeparator()
             + "Enter a date to calculate the value of Test at that date."
             + System.lineSeparator()
-            + "The value of Test on 0001-01-01 is: 0.0"
+            + "The value of Test on 0001-01-01 is: $0.0"
             + System.lineSeparator()
             + printMenu());
     Appendable output = new StringBuilder();
@@ -795,8 +795,6 @@ public class ControllerTest {
             + System.lineSeparator()
             + "- IHATEOOD.xml"
             + System.lineSeparator()
-            + "- TestPort.xml"
-            + System.lineSeparator()
             + "- testXml.xml"
             + System.lineSeparator()
             + "Loading Portfolio... "
@@ -872,8 +870,6 @@ public class ControllerTest {
             + "- Dog.xml"
             + System.lineSeparator()
             + "- IHATEOOD.xml"
-            + System.lineSeparator()
-            + "- TestPort.xml"
             + System.lineSeparator()
             + "- testXml.xml"
             + System.lineSeparator()

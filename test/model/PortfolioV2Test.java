@@ -32,7 +32,7 @@ public class PortfolioV2Test {
     portfolio = new PortfolioV2("test");
     LocalDate date = LocalDate.of(2024, 5, 10);
     IStock stock = new Stock(date, 10, 10, 10, 10, 10, "AMZN");
-    IStock stock1 = new Stock(date, 10, 10, 10, 10, 10, "GOOG");
+    IStock stock1 = new Stock(date, 10, 10, 10, 20, 10, "GOOG");
     IStock stock2 = new Stock(date, 10, 10, 10, 10, 10, "NFLX");
 
     Map<LocalDate, IStock> map1 = new HashMap<>();
@@ -45,16 +45,18 @@ public class PortfolioV2Test {
 
     Map<LocalDate, Double> shares = new HashMap<>();
     shares.put(LocalDate.of(2024, 5, 10), 10.0);
+    Map<LocalDate, Double> sharesG = new HashMap<>();
+    sharesG.put(LocalDate.of(2024, 5, 10), 20.0);
 
     portfolio.setValueV2(map1, shares, "AMZN");
-    portfolio.setValueV2(map2, shares, "GOOG");
+    portfolio.setValueV2(map2, sharesG, "GOOG");
     portfolio.setValueV2(map3, shares, "NFLX");
   }
 
   @Test
   public void getValue() {
     Double actual = portfolio.getValue(LocalDate.of(2024, 5, 10));
-    Double expected = 300.0;
+    Double expected = 600.0;
     assertEquals(expected, actual);
   }
 
@@ -67,26 +69,26 @@ public class PortfolioV2Test {
             + System.lineSeparator() + "Stocks: "
             + System.lineSeparator() + "$NFLX"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 20.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Shares owned: 10.0"
+            + System.lineSeparator() + "- Valuation Percentage: 12.5%"
             + System.lineSeparator() + "$GOOG"
-            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 20.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 20.0"
+            + System.lineSeparator() + "- Shares owned: 30.0"
+            + System.lineSeparator() + "- Valuation Percentage: 75.0%"
             + System.lineSeparator() + "$AMZN"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 20.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
-            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 600.0 ****"
+            + System.lineSeparator() + "- Shares owned: 10.0"
+            + System.lineSeparator() + "- Valuation Percentage: 12.5%"
+            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 800.0 ****"
             + System.lineSeparator();
     assertEquals(expected, actual);
   }
 
   @Test
   public void rebalance() {
-    Weight weightAMZN = new Weight(40, "AMZN");
-    Weight weightGOOG = new Weight(50, "GOOG");
-    Weight weightNFLX = new Weight(10, "NFLX");
+    Weight weightAMZN = new Weight(0.4, "AMZN");
+    Weight weightGOOG = new Weight(0.5, "GOOG");
+    Weight weightNFLX = new Weight(0.1, "NFLX");
     List<Weight> listF = new ArrayList<Weight>();
     listF.add(weightAMZN);
     listF.add(weightGOOG);
@@ -98,17 +100,17 @@ public class PortfolioV2Test {
             + System.lineSeparator() + "Stocks: "
             + System.lineSeparator() + "$NFLX"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 300.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Shares owned: 6.0"
+            + System.lineSeparator() + "- Valuation Percentage: 14.285714285714285%"
             + System.lineSeparator() + "$GOOG"
-            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 300.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 20.0"
+            + System.lineSeparator() + "- Shares owned: 15.0"
+            + System.lineSeparator() + "- Valuation Percentage: 71.42857142857143%"
             + System.lineSeparator() + "$AMZN"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 300.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
-            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 9000.0 ****"
+            + System.lineSeparator() + "- Shares owned: 6.0"
+            + System.lineSeparator() + "- Valuation Percentage: 14.285714285714285%"
+            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 420.0 ****"
             + System.lineSeparator();
     assertEquals(expected, actual);
   }
@@ -122,16 +124,16 @@ public class PortfolioV2Test {
             + System.lineSeparator() + "$NFLX"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
             + System.lineSeparator() + "- Shares owned: 10.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Valuation Percentage: 16.666666666666664%"
             + System.lineSeparator() + "$GOOG"
-            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
-            + System.lineSeparator() + "- Shares owned: 10.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 20.0"
+            + System.lineSeparator() + "- Shares owned: 20.0"
+            + System.lineSeparator() + "- Valuation Percentage: 66.66666666666666%"
             + System.lineSeparator() + "$AMZN"
             + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
             + System.lineSeparator() + "- Shares owned: 10.0"
-            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
-            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 300.0 ****"
+            + System.lineSeparator() + "- Valuation Percentage: 16.666666666666664%"
+            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 600.0 ****"
             + System.lineSeparator();
     assertEquals(expected, actual);
   }
@@ -139,13 +141,13 @@ public class PortfolioV2Test {
   @Test
   public void toXml() {
     String actual = portfolio.toXml();
-    String expected = "<portfolio><tickers><ticker>"
-            + "NFLX</ticker><ticker>GOOG</ticker><ticker>"
-            + "AMZN</ticker></tickers><shares><share ticker=\"NFLX\">"
-            + "<date value=\"2024-05-10\">10.0</date></share>"
-            + "<share ticker=\"GOOG\"><date value=\"2024-05-10\">10.0</date>"
-            + "</share><share ticker=\"AMZN\"><date value=\"2024-05-10\">10.0</date>"
-            + "</share></shares></portfolio>";
+    String expected = "<portfolio><tickers><ticker>NFLX</ticker>"
+            + "<ticker>GOOG</ticker><ticker>AMZN</ticker>"
+            + "</tickers><shares><share ticker=\"NFLX\">"
+            + "<date value=\"2024-05-10\">10.0</date></share><share ticker="
+            + "\"GOOG\"><date value=\"2024-05-10\">20.0</date></share><share"
+            + " ticker=\"AMZN\"><date value=\"2024-05-10\">10.0</date></share"
+            + "></shares></portfolio>";
     assertEquals(expected, actual);
   }
 }
