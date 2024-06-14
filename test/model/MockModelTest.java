@@ -39,7 +39,7 @@ public class MockModelTest {
     out = new StringBuilder();
     in = new StringReader("4 AMZN 3 2024-06-05 2024-06-06");
     IController controller = new ControllerImpl(out, in);
-//    controller.init(model);
+    controller.init(model);
     assertEquals("populateisValidTickerisValidLocalDateisValidLocalDatecrossover",
             received.toString());
   }

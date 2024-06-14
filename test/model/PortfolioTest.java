@@ -19,7 +19,7 @@ public class PortfolioTest {
   IPortfolio portfolio;
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     portfolio = new Portfolio();
   }
 

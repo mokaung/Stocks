@@ -24,6 +24,7 @@ public class PortfolioV2Test {
 
   /**
    * setup inherently tests setValueV2.
+   *
    * @throws Exception if somehow there's a problem with filling a portfolio.
    */
   @Before
@@ -42,7 +43,7 @@ public class PortfolioV2Test {
     map2.put(date, stock1);
     map3.put(date, stock2);
 
-    Map <LocalDate, Double> shares = new HashMap<>();
+    Map<LocalDate, Double> shares = new HashMap<>();
     shares.put(LocalDate.of(2024, 5, 10), 10.0);
 
     portfolio.setValueV2(map1, shares, "AMZN");
@@ -80,6 +81,7 @@ public class PortfolioV2Test {
             + System.lineSeparator();
     assertEquals(expected, actual);
   }
+
   @Test
   public void rebalance() {
     Weight weightAMZN = new Weight(40, "AMZN");
@@ -89,7 +91,7 @@ public class PortfolioV2Test {
     listF.add(weightAMZN);
     listF.add(weightGOOG);
     listF.add(weightNFLX);
-    portfolio.rebalance(LocalDate.of(2024, 5, 10),listF);
+    portfolio.rebalance(LocalDate.of(2024, 5, 10), listF);
     String actual = portfolio.portfolioToString("2024-5-10",
             LocalDate.of(2024, 5, 10));
     String expected = "**** Portfolio Name: test ****"
@@ -110,6 +112,7 @@ public class PortfolioV2Test {
             + System.lineSeparator();
     assertEquals(expected, actual);
   }
+
   @Test
   public void portfolioToString() {
     String actual = portfolio.portfolioToString("2024-5-10",
