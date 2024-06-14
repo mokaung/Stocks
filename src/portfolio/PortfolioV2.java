@@ -58,7 +58,7 @@ public class PortfolioV2 implements IPortfolioV2 {
               + System.lineSeparator());
     }
     sb.append("**** Total Portfolio Valuation at "
-            + dateString + "  : " + getValue(date) + " ****"
+            + dateString + ": " + getValue(date) + " ****"
             + System.lineSeparator());
     return sb.toString();
   }

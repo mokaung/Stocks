@@ -42,7 +42,7 @@ public class GetPortfolioValue implements ICommand {
             + name + " at that date." + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
     try {
-      writeMessage("The value of " + name + " on " + calToString(date1) + " is: "
+      writeMessage("The value of " + name + " on " + calToString(date1) + " is: $"
               + model.getPortfolioValueV2(name, date1) + System.lineSeparator(), out);
     } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException("Invalid date.");
