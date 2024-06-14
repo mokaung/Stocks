@@ -92,5 +92,4 @@ public class PortfolioTest {
 
     assertEquals(stocks, portfolio.getStocks());
   }
-
 }

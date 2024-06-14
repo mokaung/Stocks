@@ -703,7 +703,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -726,7 +726,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -756,7 +756,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 
@@ -836,7 +836,7 @@ public class ControllerTest {
             + printMenu());
     Appendable output = new StringBuilder();
     ControllerImpl tester = new ControllerImpl(output, inputter);
-    tester.go(new ModelImpl2());
+    tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
 

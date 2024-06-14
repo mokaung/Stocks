@@ -5,22 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/model/PortfolioV2Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Performance/StockPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Performance/StockPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio/PortfolioV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/Rebalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Rebalance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/PortfolioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/PortfolioTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +71,13 @@
     "JUnit.ControllerTest.testInvalidGetPortfolioValueDate.executor": "Run",
     "JUnit.ControllerTest.testInvalidTickerSymbol.executor": "Run",
     "JUnit.ControllerTest.testPortfolioCommands.executor": "Run",
+    "JUnit.PortfolioTest.executor": "Run",
     "JUnit.PortfolioTest.toJson.executor": "Run",
+    "JUnit.PortfolioV2Test.executor": "Run",
+    "JUnit.PortfolioV2Test.getValue.executor": "Run",
+    "JUnit.PortfolioV2Test.portfolioToString.executor": "Run",
+    "JUnit.PortfolioV2Test.rebalance.executor": "Run",
+    "JUnit.PortfolioV2Test.toXml.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "modelTesting",
@@ -74,7 +90,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ControllerTest.saveToStringMissingPortfolioTest">
+  <component name="RunManager" selected="JUnit.PortfolioV2Test.portfolioToString">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Stocks" />
@@ -82,65 +98,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.loadPortfolioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioV2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
-      <option name="METHOD_NAME" value="loadPortfolioTest" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioV2Test.portfolioToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="portfolioToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.saveToStringMissingPortfolioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioV2Test.rebalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
-      <option name="METHOD_NAME" value="saveToStringMissingPortfolioTest" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="rebalance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.saveToStringPortfolioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioV2Test.toXml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
-      <option name="METHOD_NAME" value="saveToStringPortfolioTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ControllerTest.saveToStringPortfolioWrongPortfolioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="controller" />
-      <option name="MAIN_CLASS_NAME" value="controller.ControllerTest" />
-      <option name="METHOD_NAME" value="saveToStringPortfolioWrongPortfolioTest" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="METHOD_NAME" value="toXml" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ControllerTest.saveToStringMissingPortfolioTest" />
-        <item itemvalue="JUnit.ControllerTest.saveToStringPortfolioTest" />
-        <item itemvalue="JUnit.ControllerTest.saveToStringPortfolioWrongPortfolioTest" />
+        <item itemvalue="JUnit.PortfolioV2Test.portfolioToString" />
+        <item itemvalue="JUnit.PortfolioV2Test.rebalance" />
+        <item itemvalue="JUnit.PortfolioV2Test.toXml" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ControllerTest.loadPortfolioTest" />
+        <item itemvalue="JUnit.PortfolioV2Test" />
       </list>
     </recent_temporary>
   </component>
