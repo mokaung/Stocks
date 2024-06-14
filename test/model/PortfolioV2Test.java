@@ -14,7 +14,6 @@ import portfolio.PortfolioV2;
 import portfolio.Weight;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 /**
  * The class tests PortfolioV2.
