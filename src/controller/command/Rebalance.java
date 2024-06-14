@@ -1,7 +1,6 @@
 package controller.command;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +8,7 @@ import model.IModel2;
 import portfolio.Weight;
 import model.IModel;
 
+import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
 /**
@@ -37,12 +37,7 @@ public class Rebalance implements ICommand {
 
     writeMessage("Please input the date you would like to rebalance."
             + System.lineSeparator(), out);
-    LocalDate date;
-    try {
-      date = LocalDate.parse(sc.next());
-    } catch (DateTimeParseException e) {
-      throw new IllegalArgumentException("Invalid date");
-    }
+    LocalDate date = getLocalDate(sc.next());
 
     model.rebalance(date, list, portfolio);
     writeMessage("portfolio " + portfolio + " was rebalanced." + System.lineSeparator(), out);

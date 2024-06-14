@@ -91,6 +91,7 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.PortfolioV2Test.portfolioToString">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Stocks" />
@@ -103,6 +104,11 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="model.*" />
+    <configuration name="PortfolioTest.toJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,6 +162,8 @@
       <option name="PACKAGE_NAME" value="model" />
       <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
       <option name="METHOD_NAME" value="toXml" />
+      <option name="MAIN_CLASS_NAME" value="Model.PortfolioTest" />
+      <option name="METHOD_NAME" value="toJson" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,6 +176,8 @@
         <item itemvalue="JUnit.PortfolioV2Test.toXml" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PortfolioV2Test" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PortfolioTest.toJson" />
       </list>
     </recent_temporary>
   </component>

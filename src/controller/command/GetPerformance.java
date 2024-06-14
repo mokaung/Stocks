@@ -1,11 +1,11 @@
 package controller.command;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 import model.IModel2;
 
+import static controller.command.ControllerUtil.getLocalDate;
 import static controller.command.ControllerUtil.writeMessage;
 
 /**
@@ -46,19 +46,10 @@ public class GetPerformance implements ICommand {
     }
 
     writeMessage("Please input the start date." + System.lineSeparator(), out);
-    LocalDate startDate;
-    try {
-      startDate = LocalDate.parse(sc.next());
-    } catch (DateTimeParseException e) {
-      throw new IllegalArgumentException("Invalid start date");
-    }
+    LocalDate startDate = getLocalDate(sc.next());
+
     writeMessage("Please input the end date." + System.lineSeparator(), out);
-    LocalDate endDate;
-    try {
-      endDate = LocalDate.parse(sc.next());
-    } catch (DateTimeParseException e) {
-      throw new IllegalArgumentException("Invalid end date");
-    }
+    LocalDate endDate = getLocalDate(sc.next());
 
     writeMessage(model.getPerformance(b, name, startDate, endDate), out);
   }
