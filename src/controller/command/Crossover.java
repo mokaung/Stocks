@@ -2,6 +2,7 @@ package controller.command;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import model.IModel2;
@@ -64,7 +65,7 @@ public class Crossover implements ICommand {
               + " doesn't exist.");
     }
     try {
-      ArrayList<LocalDate> result = model.crossover(window, date1, date2, ticker);
+      List<LocalDate> result = model.crossover(window, date1, date2, ticker);
       writeMessage("From "
               + date1
               + " to "

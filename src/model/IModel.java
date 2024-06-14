@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import portfolio.IPortfolio;
@@ -28,7 +29,7 @@ public interface IModel {
    * @param ticker ticker symbol for the stock
    * @return a list of dates when crossovers occur between the moving average and the stock prices
    */
-  ArrayList<LocalDate> crossover(int avg, LocalDate date1, LocalDate date2, String ticker);
+  List<LocalDate> crossover(int avg, LocalDate date1, LocalDate date2, String ticker);
 
   /**
    * Calculates the gain or loss of a stock between two dates.
