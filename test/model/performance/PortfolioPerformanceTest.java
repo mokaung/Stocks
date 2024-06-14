@@ -7,8 +7,11 @@ import java.time.LocalDate;
 import portfolio.IPortfolioV2;
 import portfolio.PortfolioV2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+/**
+ * Tester class for performance.
+ */
 public class PortfolioPerformanceTest {
 
   @Test
