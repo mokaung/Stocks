@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/model/performance/StockPerformanceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Graph-for-stock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/performance/APerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/APerformance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/performance/PortfolioPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/PortfolioPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/performance/StockPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/StockPerformance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio/PortfolioV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/performance/StockPerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/performance/StockPerformanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +43,8 @@
     "JUnit.PortfolioPerformanceTest.executor": "Run",
     "JUnit.PortfolioPerformanceTest.getPerformance.executor": "Run",
     "JUnit.PortfolioPerformanceTest.getPerformanceSingle.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.testEmptyPortfolio.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths.executor": "Run",
     "JUnit.PortfolioV2Test.buyStock.executor": "Run",
     "JUnit.StockPerformanceTest.executor": "Run",
     "JUnit.StockPerformanceTest.testGetPerformance.executor": "Run",
@@ -85,14 +83,7 @@
       <recent name="model.performance" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PortfolioPerformanceTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Stocks" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.StockPerformanceTest">
     <configuration name="PortfolioPerformanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
@@ -104,22 +95,6 @@
       <option name="PACKAGE_NAME" value="model.performance" />
       <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PortfolioPerformanceTest.getPerformance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.performance.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.performance" />
-      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
-      <option name="METHOD_NAME" value="getPerformance" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,7 +115,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StockPerformanceTest.testNoStock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioPerformanceTest.testEmptyPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.performance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.performance" />
+      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
+      <option name="METHOD_NAME" value="testEmptyPortfolio" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.performance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.performance" />
+      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
+      <option name="METHOD_NAME" value="testPerformanceAcrossMultipleMonths" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StockPerformanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
@@ -150,19 +157,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="model.performance" />
       <option name="MAIN_CLASS_NAME" value="model.performance.StockPerformanceTest" />
-      <option name="METHOD_NAME" value="testNoStock" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StockPerformanceTest" />
         <item itemvalue="JUnit.PortfolioPerformanceTest" />
+        <item itemvalue="JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths" />
+        <item itemvalue="JUnit.PortfolioPerformanceTest.testEmptyPortfolio" />
         <item itemvalue="JUnit.PortfolioPerformanceTest.getPerformanceSingle" />
-        <item itemvalue="JUnit.PortfolioPerformanceTest.getPerformance" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.StockPerformanceTest.testNoStock" />
       </list>
     </recent_temporary>
   </component>
@@ -186,11 +192,23 @@
       <workItem from="1718391259898" duration="654000" />
       <workItem from="1718391925968" duration="189000" />
       <workItem from="1718392134813" duration="391000" />
-      <workItem from="1718392563706" duration="9580000" />
+      <workItem from="1718392563706" duration="9591000" />
+      <workItem from="1718412748314" duration="1326000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/performance/PortfolioPerformance.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

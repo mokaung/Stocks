@@ -30,7 +30,7 @@ public class PortfolioPerformance extends APerformance implements IPerformance {
     String currentMonth = start.getMonth().toString();
     double value = 0;
 
-    for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+    for (LocalDate date = start; date.isBefore(end.plusDays(1)); date = date.plusDays(1)) {
       if (currentMonth.equals(date.getMonth().toString())) {
         value = portfolio.getValue(date);
         total += value;
@@ -43,7 +43,6 @@ public class PortfolioPerformance extends APerformance implements IPerformance {
         appendMonthSummary(out, date.getMonth().toString(), date, total);
       }
     }
-    appendMonthSummary(out, currentMonth, end, total);
 
     out.append(System.lineSeparator());
     out.append("Scale: * = 1000");

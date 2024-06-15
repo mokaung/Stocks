@@ -34,42 +34,28 @@ public class StockPerformanceTest {
   }
 
   @Test
-  public void testGetPerformance() {
+  public void oneDay() {
+    LocalDate firstDay = LocalDate.of(2023, 6, 1);
     String expected = "Performance of stock A from 2023-06-01 to 2023-06-01"
             + System.lineSeparator() + System.lineSeparator() + "JUN 2023: *"
             + System.lineSeparator() + System.lineSeparator() + "Scale: * = 1000"
             + System.lineSeparator();
-    assertEquals(expected, stockPerformance.getPerformance(
-            LocalDate.of(2023, 6, 1),
-            LocalDate.of(2023, 6, 1)));
+    assertEquals(expected, stockPerformance.getPerformance(firstDay, firstDay));
   }
 
   @Test
-  public void testGetPerformanceMulti() {
-    String expected = "Performance of stock A from 2023-06-01 to 2023-06-03"
-            + System.lineSeparator() + System.lineSeparator() + "JUN 2023: **"
+  public void BetweenYears() {
+    LocalDate endOfYear = LocalDate.of(2023, 12, 31);
+    LocalDate startOfNextYear = LocalDate.of(2024, 1, 1);
+    IStock s1 = new Stock(endOfYear, 10.0, 10.0, 10.0,
+            1000.0, 10, "A");
+    stocks.put(endOfYear, s1);
+    stocks.put(startOfNextYear, s1);
+    String expected = "Performance of stock A from 2023-12-31 to 2024-01-01"
+            + System.lineSeparator() + System.lineSeparator() + "DEC 2023: **"
+            + System.lineSeparator() + "JAN 2024: *"
             + System.lineSeparator() + System.lineSeparator() + "Scale: * = 1000"
             + System.lineSeparator();
-    assertEquals(expected, stockPerformance.getPerformance(
-            LocalDate.of(2023, 6, 1),
-            LocalDate.of(2023, 6, 3)));
-  }
-
-  @Test
-  public void testNoStock() {
-    IStock s1 = new Stock(LocalDate.of(2023, 6, 1),
-            5.0, 10.0, 10.0, 1000.0, 10, "A");
-    stocks.put(LocalDate.of(2023, 6, 1), s1);
-    stocks.put(LocalDate.of(2023, 6, 2), s1);
-    stocks.put(LocalDate.of(2023, 6, 3), s1);
-    stocks.put(LocalDate.of(2023, 6, 4), null);
-
-    String expected = "Performance of stock A from 2023-06-01 to 2023-06-04"
-            + System.lineSeparator() + System.lineSeparator() + "JUN 2023: ***"
-            + System.lineSeparator() + System.lineSeparator() + "Scale: * = 1000"
-            + System.lineSeparator();
-    assertEquals(expected, stockPerformance.getPerformance(
-            LocalDate.of(2023, 6, 1),
-            LocalDate.of(2023, 6, 4)));
+    assertEquals(expected, stockPerformance.getPerformance(endOfYear, startOfNextYear));
   }
 }

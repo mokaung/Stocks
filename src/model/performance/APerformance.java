@@ -13,7 +13,7 @@ public abstract class APerformance implements IPerformance {
     String nameMonth = month.substring(0, 3);
     String scale = create(total);
     out.append(nameMonth + " ");
-    out.append(date.minusDays(1).getYear() + ": ");
+    out.append(date.getYear() + ": ");
     out.append(scale);
     out.append(System.lineSeparator());
   }
