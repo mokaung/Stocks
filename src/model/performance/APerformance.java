@@ -20,7 +20,7 @@ public abstract class APerformance implements IPerformance {
 
   // changes the value into asterisks rounded to the nearest hundred
   // each * is worth 1000
-  protected String create(double value) {
+  private String create(double value) {
     StringBuilder b = new StringBuilder();
     while (value >= 1000.0) {
       b.append("*");

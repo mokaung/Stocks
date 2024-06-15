@@ -5,43 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/Stocks.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/model/performance/StockPerformanceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/backupCSV/AMZN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/backupCSV/APPL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/backupCSV/GOOG.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/backupCSV/META.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/backupCSV/NFLX.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/AlphaVantageStreamReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/CSVReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/IReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/SETUP-README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/SETUP-README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/Graph-for-stock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/performance/APerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/APerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/performance/PortfolioPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/PortfolioPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/performance/StockPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/performance/StockPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/portfolio/PortfolioV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio/PortfolioV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/performance/PortfolioPerformanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,8 +44,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.executor": "Run",
     "JUnit.PortfolioPerformanceTest.getPerformance.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.getPerformanceSingle.executor": "Run",
     "JUnit.PortfolioV2Test.buyStock.executor": "Run",
+    "JUnit.StockPerformanceTest.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformance.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceMulti.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceNoStock.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceWithNoStockData.executor": "Run",
+    "JUnit.StockPerformanceTest.testNoStock.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
@@ -86,11 +78,32 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\res" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="model.performance" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PortfolioPerformanceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Stocks" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PortfolioPerformanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.performance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.performance" />
+      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,17 +124,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PortfolioV2Test.buyStock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PortfolioPerformanceTest.getPerformanceSingle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Stocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="model.performance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
-      <option name="METHOD_NAME" value="buyStock" />
+      <option name="PACKAGE_NAME" value="model.performance" />
+      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
+      <option name="METHOD_NAME" value="getPerformanceSingle" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StockPerformanceTest.testNoStock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.performance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.performance" />
+      <option name="MAIN_CLASS_NAME" value="model.performance.StockPerformanceTest" />
+      <option name="METHOD_NAME" value="testNoStock" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,9 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PortfolioPerformanceTest" />
+        <item itemvalue="JUnit.PortfolioPerformanceTest.getPerformanceSingle" />
         <item itemvalue="JUnit.PortfolioPerformanceTest.getPerformance" />
-        <item itemvalue="JUnit.PortfolioV2Test.buyStock" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.StockPerformanceTest.testNoStock" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +186,7 @@
       <workItem from="1718391259898" duration="654000" />
       <workItem from="1718391925968" duration="189000" />
       <workItem from="1718392134813" duration="391000" />
+      <workItem from="1718392563706" duration="9580000" />
     </task>
     <servers />
   </component>
