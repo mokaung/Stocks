@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/View/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/IView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/TextView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,7 +60,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "modelTesting",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Jimmy Chen/Documents/GitHub/Stock CS3500/Stocks/res",
+    "last_opened_file_path": "C:/Users/Jimmy Chen/Desktop/CS3500/Swing",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -190,6 +196,8 @@
       <workItem from="1718392134813" duration="391000" />
       <workItem from="1718392563706" duration="9591000" />
       <workItem from="1718412748314" duration="3503000" />
+      <workItem from="1718635920929" duration="17000" />
+      <workItem from="1718637604725" duration="1168000" />
     </task>
     <servers />
   </component>
