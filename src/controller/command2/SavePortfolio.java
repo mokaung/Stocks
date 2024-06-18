@@ -1,4 +1,4 @@
-package controller.command;
+package controller.command2;
 
 import java.io.IOException;
 import java.util.Scanner;

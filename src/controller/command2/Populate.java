@@ -1,15 +1,14 @@
-package controller.command;
+package controller.command2;
 
 import java.util.Scanner;
-
-import model.IModel;
-
-import static controller.ControllerUtil.writeMessage;
 
 import controller.AlphaVantageStreamReader;
 import controller.CSVReader;
 import controller.IReader;
+import model.IModel;
 import model.IModel2;
+
+import static controller.ControllerUtil.writeMessage;
 
 /**
  * This command loads up the information of a stock in a span of dates. Allows users to access

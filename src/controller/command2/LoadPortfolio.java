@@ -1,10 +1,9 @@
-package controller.command;
+package controller.command2;
 
 import java.io.File;
 import java.util.Scanner;
 
 import controller.XMLToPortfolio;
-
 import model.IModel2;
 
 import static controller.ControllerUtil.writeMessage;

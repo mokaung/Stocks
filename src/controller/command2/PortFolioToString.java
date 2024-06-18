@@ -1,18 +1,17 @@
-package controller.command;
+package controller.command2;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 import model.IModel2;
 
-import static controller.ControllerUtil.calToString;
 import static controller.ControllerUtil.getLocalDate;
 import static controller.ControllerUtil.writeMessage;
 
 /**
- * Generates the value of the given portfolio.
+ * Displays a portfolio and its information.
  */
-public class GetPortfolioValue implements ICommand {
+public class PortFolioToString implements ICommand {
   private final Appendable out;
 
   /**
@@ -20,7 +19,7 @@ public class GetPortfolioValue implements ICommand {
    *
    * @param out The appendable used for outputs in the program.
    */
-  public GetPortfolioValue(Appendable out) {
+  public PortFolioToString(Appendable out) {
     this.out = out;
   }
 
@@ -33,19 +32,18 @@ public class GetPortfolioValue implements ICommand {
    */
   @Override
   public void run(Scanner sc, IModel2 model) {
-    writeMessage("Which portfolio do you want to analyze? " + System.lineSeparator(), out);
+    writeMessage("Which portfolio do you want to see? " + System.lineSeparator(), out);
     String name = sc.next();
     if (model.isInvalidPortfolio(name)) {
-      throw new IllegalArgumentException("Invalid portfolio.");
+      throw new IllegalArgumentException("Invalid portfolio");
     }
-    writeMessage("Enter a date to calculate the value of "
-            + name + " at that date." + System.lineSeparator(), out);
-    LocalDate date1 = getLocalDate(sc.next());
+    writeMessage("At which date do you want to see Portfolio at? " + System.lineSeparator(), out);
+    String dateString = sc.next();
+    LocalDate date = getLocalDate(dateString);
     try {
-      writeMessage("The value of " + name + " on " + calToString(date1) + " is: $"
-              + model.getPortfolioValueV2(name, date1) + System.lineSeparator(), out);
+      writeMessage(model.portfolioToString(name, dateString, date), out);
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("Invalid date.");
+      throw e;
     }
   }
 }

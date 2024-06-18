@@ -1,8 +1,11 @@
-package controller.command;
+package controller.command2;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import View.IView;
+import controller.command.ICommand;
+import controller.command.ICommand2;
 import model.IModel2;
 
 import static controller.ControllerUtil.calToString;
@@ -12,7 +15,7 @@ import static controller.ControllerUtil.writeMessage;
 /**
  * This class allows the user to add a stock to an existing portfolio.
  */
-public class AddStockToPortfolio implements ICommand {
+public class AddStockToPortfolio2 implements ICommand2 {
   private final Appendable out;
 
   /**
@@ -20,7 +23,7 @@ public class AddStockToPortfolio implements ICommand {
    *
    * @param out User interface output.
    */
-  public AddStockToPortfolio(Appendable out) {
+  public AddStockToPortfolio2(Appendable out) {
     this.out = out;
   }
 
@@ -28,11 +31,10 @@ public class AddStockToPortfolio implements ICommand {
    * Runs the command. Checks for any invalid inputs, which throws an exception into
    * the controller, which correctly outputs it as an error message.
    *
-   * @param sc    Scanner used for user input.
    * @param model Model used for computation.
    */
   @Override
-  public void run(Scanner sc, IModel2 model) {
+  public void run(IModel2 model, IView view) {
     writeMessage("Which portfolio would you like to add a stock to? "
             + System.lineSeparator(), out);
     String name = sc.next();

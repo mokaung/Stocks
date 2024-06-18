@@ -1,12 +1,12 @@
-package controller.command;
+package controller.command2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import model.IModel;
 import model.IModel2;
 import portfolio.Weight;
-import model.IModel;
 
 import static controller.ControllerUtil.getLocalDate;
 import static controller.ControllerUtil.writeMessage;

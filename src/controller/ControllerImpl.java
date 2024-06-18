@@ -18,10 +18,9 @@ import controller.command.Populate;
 import controller.command.PortFolioToString;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
-import controller.command.ControllerUtil;
 import model.IModel2;
 
-import static controller.command.ControllerUtil.writeMessage;
+import static controller.ControllerUtil.writeMessage;
 
 /**
  * Controller of the program. Oversees the running of the program and command organization.
