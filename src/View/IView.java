@@ -7,4 +7,6 @@ public interface IView {
   void render();
 
   String readMessage();
+
+  void addViewListener(IViewListener listener);
 }

@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="" />
+    <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/IViewText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/TextView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImpl2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IController2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/AddStockToPortfolio2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/CreatePortfolio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/Crossover.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/GainOrLoss.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/GetPerformance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/GetPortfolioValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/LoadPortfolio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/MovingAverage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/Populate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/PortFolioToString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/Rebalance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command2/SavePortfolio.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,40 +57,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioPerformanceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioPerformanceTest.getPerformance.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioPerformanceTest.getPerformanceSingle.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioPerformanceTest.testEmptyPortfolio.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PortfolioV2Test.buyStock.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.testGetPerformance.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.testGetPerformanceMulti.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.testGetPerformanceNoStock.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.testGetPerformanceWithNoStockData.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StockPerformanceTest.testNoStock.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;modelTesting&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jimmy Chen/Desktop/CS3500/Swing&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.TextView.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.getPerformance.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.getPerformanceSingle.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.testEmptyPortfolio.executor": "Run",
+    "JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths.executor": "Run",
+    "JUnit.PortfolioV2Test.buyStock.executor": "Run",
+    "JUnit.StockPerformanceTest.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformance.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceMulti.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceNoStock.executor": "Run",
+    "JUnit.StockPerformanceTest.testGetPerformanceWithNoStockData.executor": "Run",
+    "JUnit.StockPerformanceTest.testNoStock.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "model",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Jimmy Chen/Documents/GitHub/Stock CS3500/Stocks/src/model",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\src\model" />
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\src\controller" />
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\src\controller\command" />
       <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -75,13 +103,20 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="model.performance" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="controller.command2" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="Application.TextView">
+    <configuration name="TextView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TextView" />
       <module name="Stocks" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,7 +186,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TextView" />
         <item itemvalue="JUnit.StockPerformanceTest" />
         <item itemvalue="JUnit.PortfolioPerformanceTest" />
         <item itemvalue="JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths" />
@@ -183,7 +218,7 @@
       <workItem from="1718412748314" duration="3503000" />
       <workItem from="1718635920929" duration="17000" />
       <workItem from="1718637604725" duration="1168000" />
-      <workItem from="1718652319880" duration="3614000" />
+      <workItem from="1718652319880" duration="7755000" />
     </task>
     <servers />
   </component>
