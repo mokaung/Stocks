@@ -14,7 +14,6 @@ import portfolio.PortfolioV2;
 import portfolio.Weight;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 /**
  * The class tests PortfolioV2.
@@ -60,7 +59,26 @@ public class PortfolioV2Test {
 
   @Test
   public void buyStock() {
-
+    portfolio.buyStock(10, "GOOG",LocalDate.of(2024, 5, 10) );
+    String actual = portfolio.portfolioToString("2024-5-10",
+            LocalDate.of(2024, 5, 10));
+    String expected = "**** Portfolio Name: test ****"
+            + System.lineSeparator() + "Stocks: "
+            + System.lineSeparator() + "$NFLX"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
+            + System.lineSeparator() + "- Shares owned: 20.0"
+            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "$GOOG"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
+            + System.lineSeparator() + "- Shares owned: 20.0"
+            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "$AMZN"
+            + System.lineSeparator() + "- Stock's value at 2024-5-10: 10.0"
+            + System.lineSeparator() + "- Shares owned: 20.0"
+            + System.lineSeparator() + "- Valuation Percentage: 33.33333333333333%"
+            + System.lineSeparator() + "**** Total Portfolio Valuation at 2024-5-10: 600.0 ****"
+            + System.lineSeparator();
+    assertEquals(expected, actual);
   }
 
   @Test

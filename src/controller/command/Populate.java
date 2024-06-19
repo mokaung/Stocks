@@ -6,9 +6,6 @@ import model.IModel;
 
 import static controller.command.ControllerUtil.writeMessage;
 
-import controller.AlphaVantageStreamReader;
-import controller.CSVReader;
-import controller.IReader;
 import model.IModel2;
 
 /**

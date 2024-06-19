@@ -48,16 +48,10 @@ public class AddStockToPortfolio implements ICommand {
     }
     writeMessage("How many shares would you like to add? "
             + System.lineSeparator(), out);
+
     int share = sc.nextInt();
     writeMessage("At what date would you like to buy these shares? " + System.lineSeparator(), out);
     LocalDate date1 = getLocalDate(sc.next());
-    if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for "
-              + calToString(date1) + " doesn't exist.");
-    }
-    writeMessage("At what date would you like to buy these shares? "
-            + System.lineSeparator(), out);
-    date1 = getLocalDate(sc.next());
     if (model.isInvalidLocalDate(date1, ticker)) {
       throw new IllegalArgumentException("Sorry, stock information for "
               + calToString(date1) + " doesn't exist.");

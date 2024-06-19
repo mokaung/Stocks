@@ -9,7 +9,7 @@ import model.ModelImpl2;
 /**
  * Initiates the program.
  */
-public class Main {
+public class TextView {
 
   /**
    * Initiates the program.
