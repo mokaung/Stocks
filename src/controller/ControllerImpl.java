@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.function.Supplier;
 
 import controller.command.AddStockToPortfolio;
+import controller.command.ControllerUtil;
 import controller.command.CreatePortfolio;
 import controller.command.Crossover;
 import controller.command.GainOrLoss;
@@ -20,7 +21,7 @@ import controller.command.Rebalance;
 import controller.command.SavePortfolio;
 import model.IModel2;
 
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Controller of the program. Oversees the running of the program and command organization.

@@ -5,29 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738e44-06fd-4f59-9fbb-66cfd823ae89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GUIView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/IViewText.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TextView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImpl2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/IViewListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IViewListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AlphaVantageStreamReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AlphaVantageStreamReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CSVReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/CSVReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/IController2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/AddStockToPortfolio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/CreatePortfolio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/Crossover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/GainOrLoss.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/GetPerformance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/GetPortfolioValue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/LoadPortfolio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/MovingAverage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/Populate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/PortFolioToString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/Rebalance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command2/SavePortfolio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IParseXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/IParseXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/IReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/XMLToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/XMLToPortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/AddStockToPortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/CreatePortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Crossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Crossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GainOrLoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/GetPortfolioValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/LoadPortfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/MovingAverage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Populate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Populate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/PortFolioToString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/PortFolioToString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/Rebalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/Rebalance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/SavePortfolio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.GUIView.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.TextView.executor": "Run",
     "JUnit.PortfolioPerformanceTest.executor": "Run",
@@ -114,7 +117,14 @@
       <recent name="controller.command2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TextView">
+  <component name="RunManager" selected="Application.GUIView">
+    <configuration name="GUIView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUIView" />
+      <module name="Stocks" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TextView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TextView" />
       <module name="Stocks" />
@@ -133,22 +143,6 @@
       <option name="PACKAGE_NAME" value="model.performance" />
       <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PortfolioPerformanceTest.testEmptyPortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.performance.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model.performance" />
-      <option name="MAIN_CLASS_NAME" value="model.performance.PortfolioPerformanceTest" />
-      <option name="METHOD_NAME" value="testEmptyPortfolio" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GUIView" />
         <item itemvalue="Application.TextView" />
         <item itemvalue="JUnit.StockPerformanceTest" />
         <item itemvalue="JUnit.PortfolioPerformanceTest" />
         <item itemvalue="JUnit.PortfolioPerformanceTest.testPerformanceAcrossMultipleMonths" />
-        <item itemvalue="JUnit.PortfolioPerformanceTest.testEmptyPortfolio" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +212,7 @@
       <workItem from="1718412748314" duration="3503000" />
       <workItem from="1718635920929" duration="17000" />
       <workItem from="1718637604725" duration="1168000" />
-      <workItem from="1718652319880" duration="7755000" />
+      <workItem from="1718652319880" duration="9772000" />
     </task>
     <servers />
   </component>

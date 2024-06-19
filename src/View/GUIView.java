@@ -15,9 +15,13 @@ import javax.swing.*;
 public class GUIView extends JFrame implements ActionListener, KeyListener, MouseListener, IView {
   private final List<IViewListener> myListeners;
   private final JLabel enterTextLabel;
-  private final JButton sendData;
-  private final JTextArea enterTextArea;
-  private final JButton getData;
+  private final JButton createPortfolio;
+  private final JButton buyStock;
+  private final JButton sellStock;
+  private final JButton getValue;
+  private final JButton savePortfolio;
+  private final JButton getPortfolio;
+
 
   public GUIView() {
     setSize(new Dimension(800, 400));
@@ -25,40 +29,43 @@ public class GUIView extends JFrame implements ActionListener, KeyListener, Mous
 
     this.myListeners = new ArrayList<>();
 
-    setLayout(new BorderLayout());
+    setLayout(new FlowLayout());
     this.enterTextLabel = new JLabel("Enter text: ");
-    this.sendData = new JButton("Send Data");
-    this.enterTextArea = new JTextArea("Enter your text here.");
-    this.getData = new JButton("Get Data");
+    this.createPortfolio = new JButton("Create Portfolio");
+    this.buyStock = new JButton("Buy Stock");
+    this.sellStock = new JButton("Sell Stock");
+    this.getValue = new JButton("Get Value");
+    this.savePortfolio = new JButton("Save Portfolio");
+    this.getPortfolio = new JButton("Get Portfolio");
 
+    this.sellStock.setActionCommand("sellStock");
+    this.buyStock.setActionCommand("buyStock");
+    this.createPortfolio.setActionCommand("createPortfolio");
+    this.getValue.setActionCommand("getValue");
+    this.savePortfolio.setActionCommand("savePortfolio");
+    this.getPortfolio.setActionCommand("getPortfolio");
 
-    this.getData.setActionCommand("getData");
-    this.sendData.setActionCommand("sendData");
+    this.getValue.addActionListener(this);
+    this.sellStock.addActionListener(this);
+    this.buyStock.addActionListener(this);
+    this.createPortfolio.addActionListener(this);
+    this.savePortfolio.addActionListener(this);
+    this.getPortfolio.addActionListener(this);
 
-    this.getData.addActionListener(this);
-    this.sendData.addActionListener(this);
-    this.addKeyListener(this);
     this.addKeyListener(this);
     this.enterTextLabel.addMouseListener(this);
 
-    add(this.enterTextLabel, BorderLayout.NORTH);
-    add(this.getData, BorderLayout.WEST);
-    add(this.sendData, BorderLayout.EAST);
-    add(this.enterTextArea, BorderLayout.SOUTH);
+    add(this.enterTextLabel);
+    add(this.buyStock);
+    add(this.sellStock);
+    add(this.createPortfolio);
+    add(this.getValue);
+    add(this.savePortfolio);
+    add(this.getPortfolio);
 
+    setVisible(true);
     setFocusable(true);
     requestFocus();
-    pack();
-  }
-
-  @Override
-  public void render() {
-
-  }
-
-  @Override
-  public String readMessage() {
-    return "";
   }
 
   @Override
@@ -73,6 +80,14 @@ public class GUIView extends JFrame implements ActionListener, KeyListener, Mous
   public void actionPerformed(ActionEvent e) {
     // command pattern
   }
+
+  private void fireCreatePortfolioEvent() {
+    for (IViewListener listener : myListeners) {
+
+      listener.handleCreatePortfolio();
+    }
+  }
+
 
   @Override
   public void keyTyped(KeyEvent e) {

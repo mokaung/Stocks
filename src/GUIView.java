@@ -1,8 +1,6 @@
 
-import java.io.InputStreamReader;
 
 import View.IView;
-import controller.ControllerImpl;
 import controller.ControllerImplGUI;
 import controller.IController;
 import model.IModel2;

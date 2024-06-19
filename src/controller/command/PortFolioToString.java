@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import model.IModel2;
 
-import static controller.ControllerUtil.getLocalDate;
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.getLocalDate;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Displays a portfolio and its information.

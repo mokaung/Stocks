@@ -8,8 +8,8 @@ import model.IModel2;
 import portfolio.Weight;
 import model.IModel;
 
-import static controller.ControllerUtil.getLocalDate;
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.getLocalDate;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Rebalance a portfolio on the given day with the given weights.

@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 import model.IModel2;
 
-import static controller.ControllerUtil.calToString;
-import static controller.ControllerUtil.getLocalDate;
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.calToString;
+import static controller.command.ControllerUtil.getLocalDate;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * This class allows the user to add a stock to an existing portfolio.

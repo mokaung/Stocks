@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import model.IModel2;
 
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Saves a portfolio as a xml.

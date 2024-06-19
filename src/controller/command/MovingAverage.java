@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 import model.IModel2;
 
-import static controller.ControllerUtil.calToString;
-import static controller.ControllerUtil.getLocalDate;
-import static controller.ControllerUtil.writeMessage;
+import static controller.command.ControllerUtil.calToString;
+import static controller.command.ControllerUtil.getLocalDate;
+import static controller.command.ControllerUtil.writeMessage;
 
 /**
  * Shows the x-day moving average for a specified stock at a specified date. The moving average is
