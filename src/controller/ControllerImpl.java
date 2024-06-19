@@ -107,3 +107,7 @@ public class ControllerImpl implements IController {
     }
   }
 }
+
+
+// change controller util that prints something to views
+// controller implements IViewLsitener
