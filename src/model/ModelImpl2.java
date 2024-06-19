@@ -1,7 +1,9 @@
 package model;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,5 +88,12 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     return !portfoliosV2.containsKey(name);
   }
 
+  public ArrayList<String> getPortfolioNames() {
+    ArrayList<String> nameList = new ArrayList<String>();
+    for (String key : portfoliosV2.keySet()) {
+      nameList.add(key);
+    }
+    return nameList;
+  }
 
 }
