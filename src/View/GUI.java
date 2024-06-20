@@ -24,11 +24,15 @@ public class GUI implements IView, ActionListener, ItemListener {
   private JTextArea textArea;
   private JPanel mainPanel;
   private JScrollPane mainScrollBar;
+  private DefaultListModel<String> tickerListModel;
+  private JList<String> tickerList;
   private JComboBox<String> portfolioComboBox;
   private JPanel portfolioValuePanel;
   private IController controller;
   private JTextField portfolioValueField;
   private JTextField portfolioNameField;
+
+
 
   private JPanel createPortfolioPanel;
   private ArrayList<JPanel> stockInputPanels;
@@ -64,12 +68,15 @@ public class GUI implements IView, ActionListener, ItemListener {
     monthInputs = new ArrayList<>();
     dayInputs = new ArrayList<>();
 
-    //for createPortfolio
-    //for getPortfolioValue
-    getPortfolioValueWindow();
+    populateStocksWindow();
+    buySellStocksWindow();
+    saveLoadPortfoliosWindow();
 
     createPortfolioWindow();
-
+    buySellStocksWindow();
+    //for createPortfolio
+    //for getPortfolioValue
+    queryPortfolioWindow();
     mainPanel.add(new JScrollPane(textArea));
   }
 
@@ -79,11 +86,46 @@ public class GUI implements IView, ActionListener, ItemListener {
     frame.setVisible(true);
   }
 
+  private void populateStocksWindow() {
+    JPanel populateStocksPanel = new JPanel();
+    populateStocksPanel.setBorder(BorderFactory.createTitledBorder("Populate Stocks"));
+    populateStocksPanel.setLayout(new FlowLayout());
 
-  private void getPortfolioValueWindow() {
+    JPanel inputPanel = new JPanel(new FlowLayout());
+    inputPanel.add(new JLabel("Stock Ticker: $"));
+    JTextField stockTickerField = new JTextField(10);
+    inputPanel.add(stockTickerField);
+
+    JButton populateButton = new JButton("Populate Stock");
+    populateButton.setActionCommand("PopulateStock");
+    populateButton.addActionListener(this);
+    inputPanel.add(populateButton);
+
+    populateStocksPanel.add(inputPanel, BorderLayout.NORTH);
+
+    // Initialize the ticker list model and list
+    tickerListModel = new DefaultListModel<>();
+    // Example tickers - Replace this with actual method to get tickers from the rest of the program
+    tickerListModel.addElement("AAPL");
+    tickerListModel.addElement("GOOGL");
+    tickerListModel.addElement("MSFT");
+
+    tickerList = new JList<>(tickerListModel);
+
+    JPanel listPanel = new JPanel(new BorderLayout());
+    listPanel.add(new JLabel("Populated Stocks"), BorderLayout.NORTH);
+    JScrollPane listScrollPane = new JScrollPane(tickerList);
+    listPanel.add(listScrollPane, BorderLayout.CENTER);
+
+    populateStocksPanel.add(listPanel, BorderLayout.CENTER);
+
+    mainPanel.add(populateStocksPanel, 0); // Add this panel at the top
+  }
+
+  private void queryPortfolioWindow() {
     // Add a panel for portfolio value selection
     portfolioValuePanel = new JPanel();
-    portfolioValuePanel.setBorder(BorderFactory.createTitledBorder("Get Portfolio Value"));
+    portfolioValuePanel.setBorder(BorderFactory.createTitledBorder("Query Portfolio"));
     portfolioValuePanel.setLayout(new BoxLayout(portfolioValuePanel, BoxLayout.Y_AXIS));
     mainPanel.add(portfolioValuePanel);
 
@@ -94,14 +136,14 @@ public class GUI implements IView, ActionListener, ItemListener {
 
     selectDate(portfolioValuePanel);
 
-    button = new JButton("Get Portfolio Value");
-    button.setActionCommand("GetPortfolioValue");
+    button = new JButton("Get Portfolio Stats");
+    button.setActionCommand("QueryPortfolio");
     button.addActionListener(this);
     portfolioValuePanel.add(button);
 
     JPanel valueDisplayPanel = new JPanel();
     valueDisplayPanel.setLayout(new FlowLayout());
-    valueDisplayPanel.add(new JLabel("Selected Portfolio Value: $"));
+    valueDisplayPanel.add(new JLabel("Portfolio Statistics: "));
     portfolioValueField = new JTextField(10);
     portfolioValueField.setEditable(false);
     valueDisplayPanel.add(portfolioValueField);
@@ -115,29 +157,120 @@ public class GUI implements IView, ActionListener, ItemListener {
     createPortfolioPanel.setLayout(new BoxLayout(createPortfolioPanel, BoxLayout.Y_AXIS));
     mainPanel.add(createPortfolioPanel);
 
-    // Add components for portfolio creation
-    createPortfolioPanel.add(new JLabel("Portfolio Name:"));
-    portfolioNameField = new JTextField(20);
-    createPortfolioPanel.add(portfolioNameField);
-
-    // Add the initial stock input panel
-//    JPanel stockInputPanel = new JPanel();
-//    stockInputPanel.setLayout(new BoxLayout(stockInputPanel, BoxLayout.Y_AXIS));
-//    createPortfolioPanel.add(stockInputPanel);
     addStockInputPanel(createPortfolioPanel);
 
-    // Add button to add more stocks
+    // Add name field, buttons at the bottom
     JButton addStockButton = new JButton("+ Add Stock");
     addStockButton.setActionCommand("AddStock");
     addStockButton.addActionListener(this);
-    createPortfolioPanel.add(addStockButton);
 
-    // Add button to create portfolio
+    JButton removeStockButton = new JButton("- Remove Stock");
+    removeStockButton.setActionCommand("RemoveStock");
+    removeStockButton.addActionListener(this);
+
     JButton createPortfolioButton = new JButton("Create Portfolio");
     createPortfolioButton.setActionCommand("CreatePortfolio");
     createPortfolioButton.addActionListener(this);
-    createPortfolioPanel.add(createPortfolioButton);
+
+    // Add components for portfolio creation
+    JPanel bottomPanel = new JPanel();
+    bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+
+    bottomPanel.add(new JLabel("Portfolio Name:"));
+    portfolioNameField = new JTextField(20);
+    bottomPanel.add(portfolioNameField);
+    bottomPanel.add(addStockButton);
+    bottomPanel.add(removeStockButton);
+    bottomPanel.add(createPortfolioButton);
+
+    createPortfolioPanel.add(bottomPanel);
   }
+
+  private void buySellStocksWindow() {
+    JPanel buySellPanel = new JPanel();
+    buySellPanel.setBorder(BorderFactory.createTitledBorder("Buy/Sell Stocks"));
+    buySellPanel.setLayout(new BoxLayout(buySellPanel, BoxLayout.Y_AXIS));
+    mainPanel.add(buySellPanel);
+
+    // Add portfolio selection components
+    buySellPanel.add(new JLabel("Select Portfolio:"));
+    JComboBox<String> portfolioComboBox = new JComboBox<>();
+    buySellPanel.add(portfolioComboBox);
+
+    // Reuse selectDate method
+    selectDate(buySellPanel);
+
+    // Add stock input fields
+    JPanel stockInputPanel = new JPanel(new FlowLayout());
+    JTextField stockField = new JTextField(10);
+    JTextField sharesField = new JTextField(5);
+
+    stockInputPanel.add(new JLabel("Stock Ticker: $"));
+    stockInputPanel.add(stockField);
+    stockInputPanel.add(new JLabel("Shares:"));
+    stockInputPanel.add(sharesField);
+
+    buySellPanel.add(stockInputPanel);
+
+    // Add Buy and Sell buttons
+    JButton buyButton = new JButton("Buy Stock");
+    buyButton.setActionCommand("BuyStock");
+    buyButton.addActionListener(this);
+
+    JButton sellButton = new JButton("Sell Stock");
+    sellButton.setActionCommand("SellStock");
+    sellButton.addActionListener(this);
+
+    JPanel bottomPanel = new JPanel();
+    bottomPanel.setLayout(new FlowLayout());
+    bottomPanel.add(buyButton);
+    bottomPanel.add(sellButton);
+
+    buySellPanel.add(bottomPanel);
+  }
+
+  private void saveLoadPortfoliosWindow() {
+    JPanel saveLoadPanel = new JPanel();
+    saveLoadPanel.setBorder(BorderFactory.createTitledBorder("Save/Load Portfolios"));
+    saveLoadPanel.setLayout(new GridLayout(1, 2));
+    mainPanel.add(saveLoadPanel);
+
+    // Save Portfolios Panel
+    JPanel savePanel = new JPanel();
+    savePanel.setBorder(BorderFactory.createTitledBorder("Save Portfolios"));
+    savePanel.setLayout(new BoxLayout(savePanel, BoxLayout.Y_AXIS));
+    saveLoadPanel.add(savePanel);
+
+    savePanel.add(new JLabel("Select Portfolio to Save:"));
+    JComboBox<String> savePortfolioComboBox = new JComboBox<>();
+    savePanel.add(savePortfolioComboBox);
+
+    JButton saveButton = new JButton("Save Portfolio");
+    saveButton.setActionCommand("SavePortfolio");
+    saveButton.addActionListener(this);
+    savePanel.add(saveButton);
+
+    // Load Portfolios Panel
+    JPanel loadPanel = new JPanel();
+    loadPanel.setBorder(BorderFactory.createTitledBorder("Load Portfolios"));
+    loadPanel.setLayout(new BoxLayout(loadPanel, BoxLayout.Y_AXIS));
+    saveLoadPanel.add(loadPanel);
+
+    loadPanel.add(new JLabel("Select Portfolio to Load:"));
+    JComboBox<String> loadPortfolioComboBox = new JComboBox<>();
+    // Example portfolios - Replace this with actual method to get portfolios from the rest of the program
+    loadPortfolioComboBox.addItem("Example Portfolio 1");
+    loadPortfolioComboBox.addItem("Example Portfolio 2");
+    loadPortfolioComboBox.addItem("Example Portfolio 3");
+    loadPanel.add(loadPortfolioComboBox);
+
+    JButton loadButton = new JButton("Load Portfolio");
+    loadButton.setActionCommand("LoadPortfolio");
+    loadButton.addActionListener(this);
+    loadPanel.add(loadButton);
+  }
+
+
 
   private void addStockInputPanel(JPanel parentPanel) {
     JPanel stockPanel = new JPanel(new FlowLayout());
@@ -151,8 +284,8 @@ public class GUI implements IView, ActionListener, ItemListener {
     stockPanel.add(new JLabel("Shares:"));
     stockPanel.add(sharesField);
 
-    // Add stock panel above the buttons
-    parentPanel.add(stockPanel, parentPanel.getComponentCount() - 2);
+    // Add stock panel above the bottom elements
+    parentPanel.add(stockPanel, parentPanel.getComponentCount() - 1);
     stockInputPanels.add(stockPanel);
     stockTickerFields.add(stockField);
     stockSharesFields.add(sharesField);
@@ -160,13 +293,22 @@ public class GUI implements IView, ActionListener, ItemListener {
     parentPanel.repaint();
   }
 
+  private void removeStockInputPanel() throws IOException {
+    if (stockInputPanels.size() > 1) {
+      JPanel panelToRemove = stockInputPanels.remove(stockInputPanels.size() - 1);
+      stockTickerFields.remove(stockTickerFields.size() - 1);
+      stockSharesFields.remove(stockSharesFields.size() - 1);
+      yearInputs.remove(yearInputs.size() - 1);
+      monthInputs.remove(monthInputs.size() - 1);
+      dayInputs.remove(dayInputs.size() - 1);
+      createPortfolioPanel.remove(panelToRemove);
+      createPortfolioPanel.revalidate();
+      createPortfolioPanel.repaint();
+    } else {
+      showError("You are at the minimum stock count for a portfolio.");
+    }
+  }
 
-  /**
-   * This method updates the combo boxes of the dates to allow selection of only valid dates.
-   * Therefore, the method accounts for month day differences and leap years.
-   *
-   * @throws NullPointerException when somehow the selection in the combo boxes are null.
-   */
   private void updateDays(JComboBox<Integer> yearComboBox, JComboBox<Integer> monthComboBox, JComboBox<Integer> dayComboBox) {
     int year = (Integer) yearComboBox.getSelectedItem();
     int month = (Integer) monthComboBox.getSelectedItem();
@@ -248,15 +390,59 @@ public class GUI implements IView, ActionListener, ItemListener {
   public void actionPerformed(ActionEvent arg) {
     try {
       switch (arg.getActionCommand()) {
-        case "GetPortfolioValue":
-          addToPortfolio();
+        case "QueryPortfolio":
+          queryPortfolio();
           break;
         case "AddStock":
           addStockInputPanel(createPortfolioPanel);
           break;
+        case "RemoveStock":
+          removeStockInputPanel();
+          break;
         case "CreatePortfolio":
           createPortfolio();
           break;
+        case "PopulateStock":
+          // Example logic to add the new ticker to the list
+          String newTicker = ((JTextField) ((JPanel) ((JButton) arg.getSource()).getParent()).getComponent(1)).getText();
+          if (!newTicker.isEmpty()) {
+            tickerListModel.addElement(newTicker);
+            // Implement the logic to populate the stock using the controller
+            // controller.populateStock(newTicker);
+          }
+          break;
+        case "BuyStock":
+          // Implement the logic to buy the stock using the controller
+          // String portfolio = (String) portfolioComboBox.getSelectedItem();
+          // LocalDate date = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+          // String ticker = stockField.getText();
+          // int shares = Integer.parseInt(sharesField.getText());
+          // controller.buyStock(portfolio, ticker, shares, date);
+          break;
+        case "SellStock":
+          // Implement the logic to sell the stock using the controller
+          // String portfolio = (String) portfolioComboBox.getSelectedItem();
+          // LocalDate date = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+          // String ticker = stockField.getText();
+          // int shares = Integer.parseInt(sharesField.getText());
+          // controller.sellStock(portfolio, ticker, shares, date);
+          break;
+        case "SavePortfolio":
+          // Implement the logic to save the portfolio using the controller
+          // String savePortfolio = (String) savePortfolioComboBox.getSelectedItem();
+          // controller.savePortfolio(savePortfolio);
+          JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+          break;
+        case "LoadPortfolio":
+          // Implement the logic to load the portfolio using the controller
+          // String loadPortfolio = (String) loadPortfolioComboBox.getSelectedItem();
+          // controller.loadPortfolio(loadPortfolio);
+          JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+          break;
+        default:
+          showError("Something's not right...");
+          break;
+
       }
     }
     catch(IOException e){
@@ -264,7 +450,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     }
   }
 
-  private void getPortfolioValue() throws IOException {
+  private void queryPortfolio() throws IOException {
     String selectedPortfolio = (String) portfolioComboBox.getSelectedItem();
     if (selectedPortfolio == null || selectedPortfolio.isEmpty()) {
       showError("Please select a portfolio.");
@@ -339,11 +525,6 @@ public class GUI implements IView, ActionListener, ItemListener {
       resetPortfolioForm();
     }
 
-
-
-    public void addToPortfolio() {
-
-    }
 
 
 
