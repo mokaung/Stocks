@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.function.Supplier;
 
 import controller.command.AddStockToPortfolio;
+import controller.command.ControllerUtil;
 import controller.command.CreatePortfolio;
 import controller.command.Crossover;
 import controller.command.GainOrLoss;
@@ -18,7 +19,6 @@ import controller.command.Populate;
 import controller.command.PortFolioToString;
 import controller.command.Rebalance;
 import controller.command.SavePortfolio;
-import controller.command.ControllerUtil;
 import model.IModel2;
 
 import static controller.command.ControllerUtil.writeMessage;
@@ -107,3 +107,7 @@ public class ControllerImpl implements IController {
     }
   }
 }
+
+
+// change controller util that prints something to views
+// controller implements IViewLsitener

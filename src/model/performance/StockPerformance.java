@@ -18,7 +18,7 @@ public class StockPerformance extends APerformance implements IPerformance {
   @Override
   public String getPerformance(LocalDate start, LocalDate end) {
     StringBuilder out = new StringBuilder();
-    out.append("Performance of portfolio ")
+    out.append("Performance of stock ")
             .append(stocks.get(start).getTicker())
             .append(" from ")
             .append(start)

@@ -66,18 +66,15 @@ public class PortfolioV2 implements IPortfolioV2 {
   @Override
   public double getValue(LocalDate date) {
     double answer = 0;
-    for (Map.Entry<String, Map<LocalDate, IStock>> entry : stocks.entrySet()) {
-      IStock stock = entry.getValue().get(date);
+    for (Map<LocalDate, IStock> entry : stocks.values()) {
+      IStock stock = entry.get(date);
       if (stock == null) {
         return 0.0;
       }
       if (stock.getDate().equals(date)) {
-        if (!share.get(entry.getKey()).containsKey(date)) {
-          return 0.0;
-        }
         double stockShare;
         try {
-          stockShare = share.get(entry.getKey()).get(date);
+          stockShare = share.get(stock.getTicker()).get(date);
         } catch (NullPointerException e) {
           stockShare = 0.0;
         }

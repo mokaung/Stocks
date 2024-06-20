@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import controller.ControllerImplGUI;
-import view.IView;
-import view.IViewListener;
 
 
 /**
@@ -637,23 +635,9 @@ public class GUI implements IView, ActionListener, ItemListener {
     }
   }
 
-  @Override
-  public void addViewListener(IViewListener listener) {
-
-  }
-
-  @Override
-  public void requestFocus() {
-
-  }
-
-  public void showError(String errorMessage) {
+  public void showError(String errorMessage) throws IOException {
     JOptionPane.showMessageDialog(frame, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-  }
-
-  @Override
-  public void render(boolean visible) {
-
+    throw new IOException(errorMessage);
   }
 
 }

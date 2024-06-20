@@ -1,7 +1,9 @@
 package model;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import portfolio.IPortfolioV2;
@@ -79,4 +81,6 @@ public interface IModel2 extends IModel {
    * @throws IllegalArgumentException if date is invalid.
    */
   double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException;
+
+  ArrayList<String> getPortfolioNames();
 }

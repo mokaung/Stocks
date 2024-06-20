@@ -4,33 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/model/PortfolioV2Test.java" afterDir="false" />
+    <list default="true" id="a1c43785-0ca4-452b-9287-9f0ac776392c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Stocks_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Stocks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Stocks_jar/Stocks.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/ControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/IController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/AddStockToPortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ControllerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/CreatePortfolio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Crossover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GainOrLoss.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/GetPortfolioValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/ICommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/MovingAverage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/controller/command/Populate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/IStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/MockModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/ModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stocks/model/Stock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stocks/view/IViews.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/controller/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/MockModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Stocks/model/StockTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/PortfolioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/PortfolioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/Stocks.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUIView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUITest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -49,9 +29,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2hnS9zJ16dlHngyEcIvELcQEzi1" />
+  <component name="ProjectId" id="2i87CxdzJyoJb0pWyJdrxblZwRR" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -61,123 +42,103 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.ControllerTest.goMenuTest.executor": "Run",
-    "JUnit.ControllerTest.loadPortfolioTest.executor": "Run",
-    "JUnit.ControllerTest.saveToStringMissingPortfolioTest.executor": "Run",
-    "JUnit.ControllerTest.saveToStringPortfolioTest.executor": "Run",
-    "JUnit.ControllerTest.saveToStringPortfolioWrongPortfolioTest.executor": "Run",
-    "JUnit.ControllerTest.testInvalidDateFormat.executor": "Run",
-    "JUnit.ControllerTest.testInvalidGetPortfolioValueDate.executor": "Run",
-    "JUnit.ControllerTest.testInvalidTickerSymbol.executor": "Run",
-    "JUnit.ControllerTest.testPortfolioCommands.executor": "Run",
-    "JUnit.PortfolioTest.executor": "Run",
-    "JUnit.PortfolioTest.toJson.executor": "Run",
-    "JUnit.PortfolioV2Test.executor": "Run",
-    "JUnit.PortfolioV2Test.getValue.executor": "Run",
-    "JUnit.PortfolioV2Test.portfolioToString.executor": "Run",
-    "JUnit.PortfolioV2Test.rebalance.executor": "Run",
-    "JUnit.PortfolioV2Test.toXml.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "Application.GUITest.executor": "Run",
+    "JAR Application.Stocks.jar.executor": "Run",
+    "JUnit.GUITest.executor": "Run",
+    "JUnit.GUITest.testFireCreatePortfolio.executor": "Run",
+    "JUnit.GUITest.testFireStockEvent.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "modelTesting",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "guiImplementation",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.PortfolioV2Test.portfolioToString">
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Stocks" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\res" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="View" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.GUITest">
+    <configuration name="GUITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUITest" />
+      <module name="StocksPart3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PortfolioV2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
+    <configuration name="GUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StocksPart3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
-    <configuration name="PortfolioTest.toJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.GUITest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PortfolioV2Test.portfolioToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
+    <configuration name="GUITest.testFireStockEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StocksPart3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
-      <option name="METHOD_NAME" value="portfolioToString" />
+      <option name="PACKAGE_NAME" value="view" />
+      <option name="MAIN_CLASS_NAME" value="view.GUITest" />
+      <option name="METHOD_NAME" value="testFireStockEvent" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PortfolioV2Test.rebalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
-      <option name="METHOD_NAME" value="rebalance" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="StocksPart3.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Stocks/StocksPart3.jar" />
+      <method v="2" />
     </configuration>
-    <configuration name="PortfolioV2Test.toXml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Stocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.PortfolioV2Test" />
-      <option name="METHOD_NAME" value="toXml" />
-      <option name="MAIN_CLASS_NAME" value="Model.PortfolioTest" />
-      <option name="METHOD_NAME" value="toJson" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Stocks.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/res/Stocks.jar" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PortfolioV2Test.portfolioToString" />
-        <item itemvalue="JUnit.PortfolioV2Test.rebalance" />
-        <item itemvalue="JUnit.PortfolioV2Test.toXml" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PortfolioV2Test" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PortfolioTest.toJson" />
+        <item itemvalue="Application.GUITest" />
+        <item itemvalue="JAR Application.StocksPart3.jar" />
+        <item itemvalue="JAR Application.Stocks.jar" />
+        <item itemvalue="JUnit.GUITest" />
+        <item itemvalue="JUnit.GUITest.testFireStockEvent" />
       </list>
     </recent_temporary>
   </component>
@@ -192,12 +153,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3d7985f6-862c-4d5f-859d-a9fa8ce55316" name="Changes" comment="" />
-      <created>1718228202533</created>
+      <changelist id="a1c43785-0ca4-452b-9287-9f0ac776392c" name="Changes" comment="" />
+      <created>1718860228188</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1718228202533</updated>
-      <workItem from="1718228204085" duration="1094000" />
+      <updated>1718860228188</updated>
+      <workItem from="1718860230861" duration="9429000" />
     </task>
     <servers />
   </component>

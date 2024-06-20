@@ -886,4 +886,6 @@ public class ControllerTest {
     tester.init(new ModelImpl2());
     assertEquals(expected.toString(), output.toString());
   }
+
+
 }

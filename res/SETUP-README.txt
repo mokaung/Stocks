@@ -1,4 +1,8 @@
-Please place JAR file into the folder that contains the out.
+The Jar file is inside the res folder.
+How to run JAR:
+1. Open terminal and type "cd res"
+2. type "java -jar Stocks.jar" for GUI
+   type "java -jar Stocks.jar" for text
 
 
 How to create a portfolio of 3 stocks:
