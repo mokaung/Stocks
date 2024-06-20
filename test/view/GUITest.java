@@ -29,7 +29,7 @@ public class GUITest {
   @Test
   public void testFireCreatePortfolio() {
     LocalDate date = LocalDate.of(2023, 1, 1);
-    gui.fireHandleCreatePortfolioEvent("AMZN", 1.0, "A", date);
+    gui("AMZN", 1.0, "A", date);
     assertEquals("handleCreatePortfolio", received.toString());
   }
 

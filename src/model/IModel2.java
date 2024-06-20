@@ -73,6 +73,24 @@ public interface IModel2 extends IModel {
   void addToPortfolioV2(String portFolioName, String ticker, double share, LocalDate date);
 
   /**
+   * Removes a stock if shares drop to 0, otherwise removes shares.
+   * @param portFolioName name of portfolio.
+   * @param ticker        ticker of stock being added.
+   * @param share         amount of share added.
+   * @param date          date being dated.
+   */
+  public void sellStock(String portFolioName, String ticker, double share, LocalDate date);
+
+  /**
+   * Add a stock if non-existent, otherwise adds shares.
+   * @param portFolioName name of portfolio.
+   * @param ticker        ticker of stock being added.
+   * @param share         amount of share added.
+   * @param date          date being dated.
+   */
+  public void buyStock(String portFolioName, String ticker, double share, LocalDate date);
+
+  /**
    * Get the vale of the portfolio at a certain date.
    *
    * @param name name of the portfolio.
@@ -83,4 +101,5 @@ public interface IModel2 extends IModel {
   double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException;
 
   ArrayList<String> getPortfolioNames();
+  ArrayList<String> getStockNames();
 }

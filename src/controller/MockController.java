@@ -16,7 +16,7 @@ public class MockController extends ControllerImplGUI implements IController, IV
   private final StringBuilder log;
 
   public MockController(IView view, IModel2 model, StringBuilder log) {
-    super(view, model);
+    super(model, view);
     this.log = Objects.requireNonNull(log);
   }
 
@@ -37,13 +37,9 @@ public class MockController extends ControllerImplGUI implements IController, IV
   }
 
   @Override
-  public void handleGetPortfolioValue(String name, LocalDate date) {
+  public String handleGetPortfolioValue(String name, LocalDate date) {
     log.append("handleGetPortfolioValue");
-  }
-
-  @Override
-  public void handleSellStock(String ticker, double share, String name, LocalDate date) {
-    log.append("handleStock");
+    return name;
   }
 
   @Override
