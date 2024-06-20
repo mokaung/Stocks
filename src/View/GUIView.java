@@ -64,10 +64,6 @@ public class GUIView extends JFrame implements ActionListener, KeyListener, Mous
 
     this.addKeyListener(this);
     this.enterTextLabel.addMouseListener(this);
-//    this.name.addKeyListener(this);
-//    this.date.addKeyListener(this);
-//    this.stock.addKeyListener(this);
-//    this.amount.addKeyListener(this);
 
     add(this.enterTextLabel);
     add(this.buyStock);
@@ -96,8 +92,8 @@ public class GUIView extends JFrame implements ActionListener, KeyListener, Mous
   }
 
   @Override
-  public void setVisible() {
-    setVisible(true);
+  public void render(boolean b) {
+    setVisible(b);
   }
 
   @Override

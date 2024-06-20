@@ -10,5 +10,5 @@ public interface IView {
 
   void showError(String errorMessage);
 
-  void setVisible();
+  void render(boolean b);
 }
