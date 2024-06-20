@@ -24,13 +24,11 @@
 //  @Override
 //  public void run(IModel2 model) {
 //    if (portfolio == null || model.isInvalidPortfolio(portfolio)) {
-//      controller.showError("Invalid date.");
-//      return;
+//      view.showError("Invalid date.");
 //    }
 //
 //    if (date == null) {
-//      controller.showError("Invalid date.");
-//      return;
+//      view.showError("Invalid date.");
 //    }
 //
 //    double value = model.getPortfolioValueV2(portfolio, date);
