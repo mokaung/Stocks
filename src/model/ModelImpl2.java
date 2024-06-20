@@ -49,6 +49,18 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   }
 
   @Override
+  public void sellStock(String portFolioName, String ticker, double share, LocalDate date) {
+    portfoliosV2.get(portFolioName).sellStock(share, ticker, date);
+  }
+
+  @Override
+  public void buyStock(String portFolioName, String ticker, double share, LocalDate date) {
+    Map<LocalDate, Double> shareMap = new HashMap<>();
+    shareMap.put(date, share);
+    portfoliosV2.get(portFolioName).buyStockGUI(share, ticker, date, stocks.get(ticker), shareMap);
+  }
+
+  @Override
   public void rebalance(LocalDate date, List<Weight> weightyList, String name) {
     portfoliosV2.get(name).rebalance(date, weightyList);
   }
@@ -91,6 +103,14 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
   public ArrayList<String> getPortfolioNames() {
     ArrayList<String> nameList = new ArrayList<String>();
     for (String key : portfoliosV2.keySet()) {
+      nameList.add(key);
+    }
+    return nameList;
+  }
+
+  public ArrayList<String> getStockNames() {
+    ArrayList<String> nameList = new ArrayList<String>();
+    for (String key : stocks.keySet()) {
       nameList.add(key);
     }
     return nameList;

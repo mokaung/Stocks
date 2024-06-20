@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,6 +14,8 @@ import javax.swing.*;
 
 import controller.ControllerImplGUI;
 import controller.IController;
+import controller.IGuiController;
+import portfolio.IPortfolioV2;
 
 
 /**
@@ -38,13 +41,16 @@ public class GUI implements IView, ActionListener, ItemListener {
   private ArrayList<JTextField> stockTickerFields;
   private ArrayList<JTextField> stockSharesFields;
   private ArrayList<JComboBox<Integer>> yearInputs;
+
   private ArrayList<JComboBox<Integer>> monthInputs;
   private ArrayList<JComboBox<Integer>> dayInputs;
 
   private JComboBox<String> savePortfolioComboBox;
   private JComboBox<String> loadPortfolioComboBox;
-
-  private LocalDate selectedDate;
+  private JList<String> predefinedStocksList;
+  private DefaultListModel<String> predefinedStocksListModel;
+  private JTextField stockField;
+  private JTextField sharesField;
 
   public GUI(String title, ControllerImplGUI controller) {
     this.controller = controller;
@@ -72,7 +78,6 @@ public class GUI implements IView, ActionListener, ItemListener {
     dayInputs = new ArrayList<>();
 
     populateStocksWindow();
-    buySellStocksWindow();
     saveLoadPortfoliosWindow();
 
     createPortfolioWindow();
@@ -90,40 +95,56 @@ public class GUI implements IView, ActionListener, ItemListener {
   }
 
   private void populateStocksWindow() {
-    JPanel populateStocksPanel = new JPanel();
-    populateStocksPanel.setBorder(BorderFactory.createTitledBorder("Populate Stocks"));
-    populateStocksPanel.setLayout(new FlowLayout());
+    JPanel populatePanel = new JPanel();
+    populatePanel.setBorder(BorderFactory.createTitledBorder("Populate Stocks"));
+    populatePanel.setLayout(new BoxLayout(populatePanel, BoxLayout.Y_AXIS));
+    mainPanel.add(populatePanel);
 
-    JPanel inputPanel = new JPanel(new FlowLayout());
+    JPanel inputPanel = new JPanel();
+    inputPanel.setLayout(new FlowLayout());
     inputPanel.add(new JLabel("Stock Ticker: $"));
-    JTextField stockTickerField = new JTextField(10);
-    inputPanel.add(stockTickerField);
-
+    JTextField tickerInputField = new JTextField(10);
+    inputPanel.add(tickerInputField);
     JButton populateButton = new JButton("Populate Stock");
     populateButton.setActionCommand("PopulateStock");
     populateButton.addActionListener(this);
     inputPanel.add(populateButton);
+    populatePanel.add(inputPanel);
 
-    populateStocksPanel.add(inputPanel, BorderLayout.NORTH);
-
-    // Initialize the ticker list model and list
+    JPanel tickerListPanel = new JPanel();
+    tickerListPanel.setBorder(BorderFactory.createTitledBorder("Populated Stocks"));
+    tickerListPanel.setLayout(new BorderLayout());
     tickerListModel = new DefaultListModel<>();
-    // Example tickers - Replace this with actual method to get tickers from the rest of the program
-    tickerListModel.addElement("AAPL");
-    tickerListModel.addElement("GOOGL");
-    tickerListModel.addElement("MSFT");
+    ArrayList<String> listOfStocks = controller.listStocks();
+    for (String ticker : listOfStocks) {
+      tickerListModel.addElement(ticker);
+    }
+    JList<String> tickerList = new JList<>(tickerListModel);
+    tickerListPanel.add(new JScrollPane(tickerList), BorderLayout.CENTER);
+    populatePanel.add(tickerListPanel);
 
-    tickerList = new JList<>(tickerListModel);
+    // Adding the Populate from CSV sub-window
+    JPanel csvPanel = new JPanel();
+    csvPanel.setBorder(BorderFactory.createTitledBorder("Populate from CSV"));
+    csvPanel.setLayout(new BorderLayout());
+    predefinedStocksListModel = new DefaultListModel<>();
+    predefinedStocksListModel.addElement("META");
+    predefinedStocksListModel.addElement("AAPL");
+    predefinedStocksListModel.addElement("AMZN");
+    predefinedStocksListModel.addElement("GOOG");
+    predefinedStocksListModel.addElement("NFLX");
+    predefinedStocksList = new JList<>(predefinedStocksListModel);
+    csvPanel.add(new JScrollPane(predefinedStocksList), BorderLayout.CENTER);
 
-    JPanel listPanel = new JPanel(new BorderLayout());
-    listPanel.add(new JLabel("Populated Stocks"), BorderLayout.NORTH);
-    JScrollPane listScrollPane = new JScrollPane(tickerList);
-    listPanel.add(listScrollPane, BorderLayout.CENTER);
+    JButton populateFromCSVButton = new JButton("Populate Stock from CSV");
+    populateFromCSVButton.setActionCommand("PopulateFromCSV");
+    populateFromCSVButton.addActionListener(this);
+    csvPanel.add(populateFromCSVButton, BorderLayout.SOUTH);
 
-    populateStocksPanel.add(listPanel, BorderLayout.CENTER);
-
-    mainPanel.add(populateStocksPanel, 0); // Add this panel at the top
+    // Add the csvPanel to the main populatePanel
+    populatePanel.add(csvPanel);
   }
+
 
   private void queryPortfolioWindow() {
     // Add a panel for portfolio value selection
@@ -135,6 +156,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     // Add portfolio selection components
     portfolioValuePanel.add(new JLabel("Select Portfolio:"));
     portfolioComboBox = new JComboBox<>();
+//    updatePortfolioDropdowns();
     portfolioValuePanel.add(portfolioComboBox);
 
     selectDate(portfolioValuePanel);
@@ -198,6 +220,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     // Add portfolio selection components
     buySellPanel.add(new JLabel("Select Portfolio:"));
     JComboBox<String> portfolioComboBox = new JComboBox<>();
+//    updatePortfolioDropdowns();
     buySellPanel.add(portfolioComboBox);
 
     // Reuse selectDate method
@@ -205,8 +228,8 @@ public class GUI implements IView, ActionListener, ItemListener {
 
     // Add stock input fields
     JPanel stockInputPanel = new JPanel(new FlowLayout());
-    JTextField stockField = new JTextField(10);
-    JTextField sharesField = new JTextField(5);
+    stockField = new JTextField(10);
+    sharesField = new JTextField(5);
 
     stockInputPanel.add(new JLabel("Stock Ticker: $"));
     stockInputPanel.add(stockField);
@@ -246,6 +269,7 @@ public class GUI implements IView, ActionListener, ItemListener {
 
     savePanel.add(new JLabel("Select Portfolio to Save:"));
     savePortfolioComboBox = new JComboBox<>();
+//    updatePortfolioDropdowns();
     savePanel.add(savePortfolioComboBox);
 
     JButton saveButton = new JButton("Save Portfolio");
@@ -262,13 +286,9 @@ public class GUI implements IView, ActionListener, ItemListener {
     loadPanel.add(new JLabel("Select Portfolio to Load:"));
     loadPortfolioComboBox = new JComboBox<>();
     ArrayList<String> loadableNames = controller.listLoadablePortfolios();
-    for (String name: loadableNames) {
+    for (String name : loadableNames) {
       loadPortfolioComboBox.addItem(name);
     }
-//    // Example portfolios - Replace this with actual method to get portfolios from the rest of the program
-//    loadPortfolioComboBox.addItem("Example Portfolio 1");
-//    loadPortfolioComboBox.addItem("Example Portfolio 2");
-//    loadPortfolioComboBox.addItem("Example Portfolio 3");
     loadPanel.add(loadPortfolioComboBox);
 
     JButton loadButton = new JButton("Load Portfolio");
@@ -276,7 +296,6 @@ public class GUI implements IView, ActionListener, ItemListener {
     loadButton.addActionListener(this);
     loadPanel.add(loadButton);
   }
-
 
 
   private void addStockInputPanel(JPanel parentPanel) {
@@ -332,7 +351,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     dateSelectionPanel.setLayout(new FlowLayout());
 
     JComboBox<Integer> yearInput = new JComboBox<>();
-    for (int i = 2500; i >= 0; i--) {
+    for (int i = 2024; i >= 1990; i--) {
       yearInput.addItem(i);
     }
     yearInput.setActionCommand("YearComboBox");
@@ -407,56 +426,100 @@ public class GUI implements IView, ActionListener, ItemListener {
           createPortfolio();
           break;
         case "PopulateStock":
-          // Example logic to add the new ticker to the list
-          String newTicker = ((JTextField) ((JPanel) ((JButton) arg.getSource()).getParent()).getComponent(1)).getText();
-          if (!newTicker.isEmpty()) {
-            tickerListModel.addElement(newTicker);
-            // Implement the logic to populate the stock using the controller
-            // controller.populateStock(newTicker);
-          }
+          populateOnlineStock(arg);
+          break;
+        case "PopulateFromCSV":
+          populateCSVStock(arg);
           break;
         case "BuyStock":
-          // Implement the logic to buy the stock using the controller
-          // String portfolio = (String) portfolioComboBox.getSelectedItem();
-          // LocalDate date = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
-          // String ticker = stockField.getText();
-          // int shares = Integer.parseInt(sharesField.getText());
-          // controller.buyStock(portfolio, ticker, shares, date);
+          buyStock();
           break;
         case "SellStock":
-          // Implement the logic to sell the stock using the controller
-          // String portfolio = (String) portfolioComboBox.getSelectedItem();
-          // LocalDate date = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
-          // String ticker = stockField.getText();
-          // int shares = Integer.parseInt(sharesField.getText());
-          // controller.sellStock(portfolio, ticker, shares, date);
+          sellStock();
           break;
         case "SavePortfolio":
-           String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
-           try{
-             controller.handleSavePortfolio(savePortfolioSelection);
-             JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
-           } catch (IllegalArgumentException e) {
-             showError(e.getMessage());
-           }
+          savePortfolio();
           break;
         case "LoadPortfolio":
-           String loadPortfolioSelection = (String) loadPortfolioComboBox.getSelectedItem();
-          try {
-            controller.handleLoadPortfolio(loadPortfolioSelection);
-            JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
-          } catch (IllegalArgumentException e) {
-            showError(e.getMessage());
-          }
+          loadPortfolio();
           break;
         default:
           showError("Something's not right...");
           break;
-
       }
-    }
-    catch(IOException e){
+    } catch (IOException e) {
 
+    }
+  }
+
+  private void populateCSVStock(ActionEvent arg) throws IOException {
+    try {
+      String newTicker2 = predefinedStocksList.getSelectedValue();
+      if (newTicker2 != null && !newTicker2.isEmpty()) {
+        controller.handleCSVStock(newTicker2);
+        tickerListModel.addElement(newTicker2);
+      }
+    } catch (IllegalArgumentException e) {
+      showError(e.getMessage());
+    }
+  }
+
+  private void populateOnlineStock(ActionEvent arg) throws IOException {
+    try {
+      String newTicker = ((JTextField) (((JButton) arg.getSource()).getParent()).getComponent(1)).getText();
+      if (!newTicker.isEmpty()) {
+        controller.handlePopulateStock(newTicker);
+        tickerListModel.addElement(newTicker);
+      }
+    } catch (IllegalArgumentException e) {
+      showError(e.getMessage());
+    }
+  }
+
+  private void loadPortfolio() throws IOException {
+    String loadPortfolioSelection = (String) loadPortfolioComboBox.getSelectedItem();
+    try {
+      controller.handleLoadPortfolio(loadPortfolioSelection);
+      updatePortfolioDropdowns();
+      JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    } catch (IllegalArgumentException e) {
+      showError(e.getMessage());
+    }
+  }
+
+  private void savePortfolio() throws IOException {
+    String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
+    try {
+      controller.handleSavePortfolio(savePortfolioSelection);
+      JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    } catch (IllegalArgumentException e) {
+      showError(e.getMessage());
+    }
+  }
+
+  private void sellStock() throws IOException {
+    try {
+      String portfolio2 = (String) portfolioComboBox.getSelectedItem();
+      String ticker2 = stockField.getText();
+      LocalDate date2 = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+      int shares2 = Integer.parseInt(sharesField.getText());
+      controller.handleSellStock(portfolio2, ticker2, shares2, date2);
+      resetBuySellStockFields();
+    } catch (IllegalArgumentException e) {
+      showError("Please select a portfolio.");
+    }
+  }
+
+  private void buyStock() throws IOException {
+    try {
+      String portfolio = (String) portfolioComboBox.getSelectedItem();
+      String ticker = stockField.getText();
+      LocalDate date = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+      int shares = Integer.parseInt(sharesField.getText());
+      controller.handleBuyStock(portfolio, ticker, shares, date);
+      resetBuySellStockFields();
+    } catch (IllegalArgumentException e) {
+      showError("Please select a portfolio.");
     }
   }
 
@@ -476,16 +539,16 @@ public class GUI implements IView, ActionListener, ItemListener {
       showError("Please select a valid date.");
       return;
     }
-
-//    try {
-//      double value = controller.getPortfolioValueController(selectedPortfolio, selectedDate);
-//      portfolioValueField.setText(String.format("%.2f", value));
-//    } catch (Exception e) {
-//      showError("Error retrieving portfolio value: " + e.getMessage());
-//    }
+    try {
+      String value = controller.handleGetPortfolioValue(selectedPortfolio, selectedDate);
+      portfolioValueField.setText(String.format("%.2f", value));
+    } catch (Exception e) {
+      showError("Error retrieving portfolio value: " + e.getMessage());
+    }
   }
 
-    public void createPortfolio()throws IOException {
+  public void createPortfolio() throws IOException {
+    try {
       String portfolioName = portfolioNameField.getText();
       if (portfolioName.isEmpty()) {
         showError("Portfolio name cannot be empty.");
@@ -523,19 +586,29 @@ public class GUI implements IView, ActionListener, ItemListener {
         );
 
         if (isFirstStock) {
-          // Replace with actual controller call
-          // controller.createPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
+          controller.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
           isFirstStock = false;
         } else {
-          // Replace with actual controller call
-          // controller.addToPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
+          controller.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
         }
       }
-      // Reset the portfolio creation form after successful creation
       resetPortfolioForm();
+      updatePortfolioDropdowns();
+      JOptionPane.showMessageDialog(frame, "Successfully created portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    } catch (IllegalArgumentException e) {
+      showError(e.getMessage());
     }
+  }
 
 
+  private void resetBuySellStockFields() {
+    stockField.setText(""); // Clear stock ticker input
+    sharesField.setText(""); // Clear shares input
+    yearInputs.get(0).setSelectedIndex(0); // Reset year selection
+    monthInputs.get(0).setSelectedIndex(0); // Reset month selection
+    updateDays(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0)); // Update days based on default selection
+    dayInputs.get(0).setSelectedIndex(0); // Reset day selection
+  }
 
 
   private void resetPortfolioForm() {
@@ -552,17 +625,25 @@ public class GUI implements IView, ActionListener, ItemListener {
     createPortfolioPanel.repaint();
   }
 
+  private void updatePortfolioDropdowns() {
+    ArrayList<String> portfolios = controller.listPortfolios();
 
-
-  public void requestFocus () {
-
+    if (portfolioComboBox != null) {
+      portfolioComboBox.removeAllItems();
+      savePortfolioComboBox.removeAllItems();
     }
 
-    public void showError (String errorMessage)throws IOException{
-      JOptionPane.showMessageDialog(frame, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-      throw new IOException(errorMessage);
+    for (String portfolio : portfolios) {
+      portfolioComboBox.addItem(portfolio);
+      savePortfolioComboBox.addItem(portfolio);
     }
-
   }
+
+  public void showError(String errorMessage) throws IOException {
+    JOptionPane.showMessageDialog(frame, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    throw new IOException(errorMessage);
+  }
+
+}
 
 

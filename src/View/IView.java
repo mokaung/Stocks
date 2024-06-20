@@ -8,6 +8,5 @@ import java.io.IOException;
 public interface IView {
 
   void render();
-  void requestFocus();
   void showError(String errorMessage)throws IOException;
 }

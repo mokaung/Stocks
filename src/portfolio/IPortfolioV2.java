@@ -31,6 +31,24 @@ public interface IPortfolioV2 extends IPortfolio {
   void buyStock(double share, String ticker, LocalDate date);
 
   /**
+   * Changes the value of a stock on a current date.
+   *
+   * @param share  the amount changed
+   * @param ticker the stock changed
+   * @param date   the date changed
+   */
+  void buyStockGUI(double share, String ticker, LocalDate date, Map<LocalDate, IStock> stockMap,
+                Map<LocalDate, Double> shareMap);
+
+  /**
+   * Sells a stock.
+   * @param share  the amount changed
+   * @param ticker the stock changed
+   * @param date   the date changed
+   */
+  void sellStock(double share, String ticker, LocalDate date);
+
+  /**
    * Sets the value of a portfolio.
    *
    * @param stock  all stock information and their dates
