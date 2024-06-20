@@ -27,3 +27,11 @@ Added functionalities:
 - Created command for getting the information of a portfolio.
 - Created IParseXml interface for parsing xml files. The XMLToPortfolio class implements it and is dedicated to parsing
   xml files to create portfolios.
+
+  Stocks (Part 3)
+  Structure:
+  - Added IView, IViewListener, and IGuiController for developing the new view
+
+  Added functionalities:
+  - Created a GUI on top of the text-based view
+

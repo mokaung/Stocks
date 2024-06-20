@@ -1,3 +1,9 @@
+Part 3: Design Changes
+- Created a view class and interface representing the GUI
+- Created IViewListener and IGuiController
+- Created ControllerImplGUI that implements IViewListener and IGuiController
+- Created mockController for testing
+
 Part 2: Design Changes
 - Created a new model interface and class. The purpose is to follow the SOLID principals, so we could add functionalities.
   This is for portfolio and model.

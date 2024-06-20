@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1c43785-0ca4-452b-9287-9f0ac776392c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/IGuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IGuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/IViewListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IViewListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Stocks_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Stocks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/Stocks.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUIView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUITest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +43,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.GUITest.executor": "Run",
+    "JAR Application.Stocks.jar.executor": "Run",
     "JUnit.GUITest.executor": "Run",
     "JUnit.GUITest.testFireCreatePortfolio.executor": "Run",
     "JUnit.GUITest.testFireStockEvent.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "git-widget-placeholder": "guiImplementation",
@@ -57,6 +58,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
@@ -65,27 +69,26 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\res" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="View" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GUITest">
+  <component name="RunManager" selected="Application.GUITest">
     <configuration name="GUITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.GUITest" />
+      <option name="MAIN_CLASS_NAME" value="GUITest" />
       <module name="StocksPart3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUIView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUIView" />
-      <module name="StocksPart3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,22 +104,6 @@
       <option name="PACKAGE_NAME" value="view" />
       <option name="MAIN_CLASS_NAME" value="view.GUITest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUITest.testFireCreatePortfolio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StocksPart3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="view" />
-      <option name="MAIN_CLASS_NAME" value="view.GUITest" />
-      <option name="METHOD_NAME" value="testFireCreatePortfolio" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,13 +124,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StocksPart3.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Stocks/StocksPart3.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Stocks.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/res/Stocks.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GUITest" />
+        <item itemvalue="JAR Application.StocksPart3.jar" />
+        <item itemvalue="JAR Application.Stocks.jar" />
         <item itemvalue="JUnit.GUITest" />
         <item itemvalue="JUnit.GUITest.testFireStockEvent" />
-        <item itemvalue="JUnit.GUITest.testFireCreatePortfolio" />
-        <item itemvalue="Application.GUITest" />
-        <item itemvalue="Application.GUIView" />
       </list>
     </recent_temporary>
   </component>
