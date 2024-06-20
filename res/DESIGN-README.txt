@@ -2,6 +2,7 @@ Part 3: Design Changes
 - Created a view class and interface representing the GUI
 - Created IViewListener and IGuiController
 - Created ControllerImplGUI that implements IViewListener and IGuiController
+- IViewListener serves as a link between the view and controller
 - Created mockController for testing
 
 Part 2: Design Changes

@@ -34,4 +34,10 @@ Added functionalities:
 
   Added functionalities:
   - Created a GUI on top of the text-based view
+  - GUI allows for:
+   1. creating a new portfolio
+   2. buy/sell stocks by specifying the stock, number of shares, and date
+   3. query the value and composition of a portfolio at a certain date
+   4. save portfolios locally
+   5. load saved portfolios
 

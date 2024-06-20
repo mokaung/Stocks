@@ -1,7 +1,3 @@
-import java.io.InputStreamReader;
-import java.util.Arrays;
-
-import controller.ControllerImpl;
 import controller.ControllerImplGUI;
 import controller.IController;
 import view.GUI;
@@ -13,11 +9,6 @@ import model.ModelImpl2;
  */
 public class GUITest {
   public static void main(String[] args) {
-
-    if (args.toString().equals("text")) {
-      TextView.main(new String[0]);
-    }
-
     GUI view = new GUI();
     IModel2 model = new ModelImpl2();
     IController controller = new ControllerImplGUI(view, model);
