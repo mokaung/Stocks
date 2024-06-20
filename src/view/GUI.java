@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,13 +16,13 @@ import controller.ControllerImplGUI;
 import controller.IController;
 import controller.IGuiController;
 import portfolio.IPortfolioV2;
+import view.IView;
 
 
 /**
  * Renders the program with GUI.
  */
-public class GUI implements IView, ActionListener, ItemListener {
-  private JFrame frame;
+public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private JButton button;
   private JTextField textField;
   private JTextArea textArea;
@@ -54,9 +54,8 @@ public class GUI implements IView, ActionListener, ItemListener {
 
   public GUI(String title, ControllerImplGUI controller) {
     this.controller = controller;
-    frame = new JFrame(title);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(1000, 1000);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(1000, 1000);
 
     textField = new JTextField(20);
     button = new JButton("Select Date");
@@ -68,7 +67,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     //scroll bars around this main panel
     mainScrollBar = new JScrollPane(mainPanel);
-    frame.add(mainScrollBar);
+    add(mainScrollBar);
 
     stockInputPanels = new ArrayList<>();
     stockTickerFields = new ArrayList<>();
@@ -90,8 +89,8 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   @Override
-  public void render() {
-    frame.setVisible(true);
+  public void render(boolean visible) {
+    setVisible(visible);
   }
 
   private void populateStocksWindow() {
@@ -639,9 +638,23 @@ public class GUI implements IView, ActionListener, ItemListener {
     }
   }
 
-  public void showError(String errorMessage) throws IOException {
+  @Override
+  public void addViewListener(IViewListener listener) {
+
+  }
+
+  @Override
+  public void requestFocus() {
+
+  }
+
+  public void showError(String errorMessage) {
     JOptionPane.showMessageDialog(frame, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-    throw new IOException(errorMessage);
+  }
+
+  @Override
+  public void render(boolean visible) {
+
   }
 
 }
