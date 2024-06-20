@@ -16,11 +16,11 @@ public class GUIView {
    *
    * @param args args.
    */
-  public static void main(String[] args) {
-    IModel2 model = new ModelImpl2();
-    IView view = new View.GUIView();
-
-    IController controller = new ControllerImplGUI(view, model);
-    controller.init(model);
-  }
+//  public static void main(String[] args) {
+//    IModel2 model = new ModelImpl2();
+//    IView view = new View.GUIView();
+//
+//    IController controller = new ControllerImplGUI(view, model);
+//    controller.init(model);
+//  }
 }

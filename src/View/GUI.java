@@ -7,12 +7,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.YearMonth;
 import java.util.ArrayList;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
 
 import controller.IController;
 
@@ -20,26 +17,26 @@ import controller.IController;
 /**
  * Renders the program with GUI.
  */
-public class GUI implements IView, ActionListener, ItemListener, ListSelectionListener {
+public class GUI implements IView, ActionListener, ItemListener {
   private JFrame frame;
-  private JTextField textField;
   private JButton button;
+  private JTextField textField;
   private JTextArea textArea;
   private JPanel mainPanel;
-  private JScrollPane mainScrollPane;
-
-  private JComboBox<Integer> yearComboBox;
-  private JComboBox<Integer> monthComboBox;
-  private JComboBox<Integer> dayComboBox;
+  private JScrollPane mainScrollBar;
   private JComboBox<String> portfolioComboBox;
   private JPanel portfolioValuePanel;
-
-  private JTextField portfolioValueField;
   private IController controller;
+  private JTextField portfolioValueField;
   private JTextField portfolioNameField;
 
   private JPanel createPortfolioPanel;
   private ArrayList<JPanel> stockInputPanels;
+  private ArrayList<JTextField> stockTickerFields;
+  private ArrayList<JTextField> stockSharesFields;
+  private ArrayList<JComboBox<Integer>> yearInputs;
+  private ArrayList<JComboBox<Integer>> monthInputs;
+  private ArrayList<JComboBox<Integer>> dayInputs;
 
   private LocalDate selectedDate;
 
@@ -57,14 +54,21 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
     //for elements to be arranged vertically within this panel
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     //scroll bars around this main panel
-    mainScrollPane = new JScrollPane(mainPanel);
-    frame.add(mainScrollPane);
+    mainScrollBar = new JScrollPane(mainPanel);
+    frame.add(mainScrollBar);
+
+    stockInputPanels = new ArrayList<>();
+    stockTickerFields = new ArrayList<>();
+    stockSharesFields = new ArrayList<>();
+    yearInputs = new ArrayList<>();
+    monthInputs = new ArrayList<>();
+    dayInputs = new ArrayList<>();
 
     //for createPortfolio
     //for getPortfolioValue
     getPortfolioValueWindow();
 
-    createPorfolioWindow();
+    createPortfolioWindow();
 
     mainPanel.add(new JScrollPane(textArea));
   }
@@ -105,7 +109,7 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
 
   }
 
-  private void createPorfolioWindow() {
+  private void createPortfolioWindow() {
     createPortfolioPanel = new JPanel();
     createPortfolioPanel.setBorder(BorderFactory.createTitledBorder("Create Portfolio"));
     createPortfolioPanel.setLayout(new BoxLayout(createPortfolioPanel, BoxLayout.Y_AXIS));
@@ -117,10 +121,10 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
     createPortfolioPanel.add(portfolioNameField);
 
     // Add the initial stock input panel
-    JPanel stockInputPanel = new JPanel();
-    stockInputPanel.setLayout(new BoxLayout(stockInputPanel, BoxLayout.Y_AXIS));
-    createPortfolioPanel.add(stockInputPanel);
-    addStockInputPanel(stockInputPanel);
+//    JPanel stockInputPanel = new JPanel();
+//    stockInputPanel.setLayout(new BoxLayout(stockInputPanel, BoxLayout.Y_AXIS));
+//    createPortfolioPanel.add(stockInputPanel);
+    addStockInputPanel(createPortfolioPanel);
 
     // Add button to add more stocks
     JButton addStockButton = new JButton("+ Add Stock");
@@ -135,20 +139,27 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
     createPortfolioPanel.add(createPortfolioButton);
   }
 
-  private void addStockInputPanel(JPanel createPanel) {
+  private void addStockInputPanel(JPanel parentPanel) {
     JPanel stockPanel = new JPanel(new FlowLayout());
     JTextField stockField = new JTextField(10);
     JTextField sharesField = new JTextField(5);
-    selectDate(stockPanel);
+
+    selectDate(stockPanel); // Use selectDate for consistency
+
     stockPanel.add(new JLabel("Stock Ticker: $"));
     stockPanel.add(stockField);
     stockPanel.add(new JLabel("Shares:"));
     stockPanel.add(sharesField);
-    createPanel.add(stockPanel);
+
+    // Add stock panel above the buttons
+    parentPanel.add(stockPanel, parentPanel.getComponentCount() - 2);
     stockInputPanels.add(stockPanel);
-    createPanel.revalidate();
-    createPanel.repaint();
+    stockTickerFields.add(stockField);
+    stockSharesFields.add(sharesField);
+    parentPanel.revalidate();
+    parentPanel.repaint();
   }
+
 
   /**
    * This method updates the combo boxes of the dates to allow selection of only valid dates.
@@ -156,68 +167,64 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
    *
    * @throws NullPointerException when somehow the selection in the combo boxes are null.
    */
-  private void updateDays() throws NullPointerException {
-    try {
-      int year = (Integer) yearComboBox.getSelectedItem();
-      int month = (Integer) monthComboBox.getSelectedItem();
-      int daysInMonth = YearMonth.of(year, month).lengthOfMonth();
+  private void updateDays(JComboBox<Integer> yearComboBox, JComboBox<Integer> monthComboBox, JComboBox<Integer> dayComboBox) {
+    int year = (Integer) yearComboBox.getSelectedItem();
+    int month = (Integer) monthComboBox.getSelectedItem();
+    int daysInMonth = java.time.YearMonth.of(year, month).lengthOfMonth();
 
-      dayComboBox.removeAllItems();
-      for (int i = 1; i <= daysInMonth; i++) {
-        dayComboBox.addItem(i);
-      }
-    } catch (NullPointerException e) {
-      try {
-        showError(e.getMessage());
-      }
-      catch (IOException g){}
+    dayComboBox.removeAllItems();
+    for (int i = 1; i <= daysInMonth; i++) {
+      dayComboBox.addItem(i);
     }
   }
 
   private void selectDate(JPanel panel) {
-    // Add date selection components
     JPanel dateSelectionPanel = new JPanel();
     dateSelectionPanel.setLayout(new FlowLayout());
 
-    // For years
-    dateSelectionPanel.add(new JLabel("Year:"));
-    yearComboBox = new JComboBox<>();
+    JComboBox<Integer> yearInput = new JComboBox<>();
     for (int i = 2500; i >= 0; i--) {
-      yearComboBox.addItem(i);
+      yearInput.addItem(i);
     }
-    dateSelectionPanel.add(yearComboBox);
+    yearInput.setActionCommand("YearComboBox");
+    yearInput.addItemListener(this);
 
-    // For months
+    JComboBox<Integer> monthInput = new JComboBox<>();
+    for (int i = 1; i <= 12; i++) {
+      monthInput.addItem(i);
+    }
+    monthInput.setActionCommand("MonthComboBox");
+    monthInput.addItemListener(this);
+
+    JComboBox<Integer> dayInput = new JComboBox<>();
+    updateDays(yearInput, monthInput, dayInput);
+
+    dateSelectionPanel.add(new JLabel("Year:"));
+    dateSelectionPanel.add(yearInput);
     dateSelectionPanel.add(new JLabel("Month:"));
-    monthComboBox = new JComboBox<>();
-    for (Month month : Month.values()) {
-      monthComboBox.addItem(month.getValue());
-    }
-    dateSelectionPanel.add(monthComboBox);
-
-    // For days
+    dateSelectionPanel.add(monthInput);
     dateSelectionPanel.add(new JLabel("Day:"));
-    dayComboBox = new JComboBox<>();
-    updateDays();
-    dateSelectionPanel.add(dayComboBox);
+    dateSelectionPanel.add(dayInput);
 
-    yearComboBox.addItemListener(this);
-    monthComboBox.addItemListener(this);
+    yearInputs.add(yearInput);
+    monthInputs.add(monthInput);
+    dayInputs.add(dayInput);
 
     panel.add(dateSelectionPanel);
   }
 
-  private LocalDate getSelectedDate() {
+  private LocalDate getSelectedDate(JComboBox<Integer> yearInput, JComboBox<Integer> monthInput, JComboBox<Integer> dayInput) {
     try {
-      int year = (Integer) yearComboBox.getSelectedItem();
-      int month = (Integer) monthComboBox.getSelectedItem();
-      int day = (Integer) dayComboBox.getSelectedItem();
+      int year = (Integer) yearInput.getSelectedItem();
+      int month = (Integer) monthInput.getSelectedItem();
+      int day = (Integer) dayInput.getSelectedItem();
       return LocalDate.of(year, month, day);
     } catch (Exception e) {
       try {
         showError("Invalid date selected.");
         return null;
-      } catch (IOException g) {}
+      } catch (IOException g) {
+      }
     }
     return null;
   }
@@ -226,8 +233,14 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
   //temp, change to switch for future buttons
   @Override
   public void itemStateChanged(ItemEvent arg) {
-    if (arg.getStateChange() == ItemEvent.SELECTED) {
-      updateDays();
+    String who = ((JCheckBox) arg.getItemSelectable()).getActionCommand();
+    switch (who) {
+      case "YearComboBox":
+      case "MonthComboBox":
+        for (int i = 0; i < yearInputs.size(); i++) {
+          updateDays(yearInputs.get(i), monthInputs.get(i), dayInputs.get(i));
+        }
+        break;
     }
   }
 
@@ -237,6 +250,9 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
       switch (arg.getActionCommand()) {
         case "GetPortfolioValue":
           addToPortfolio();
+          break;
+        case "AddStock":
+          addStockInputPanel(createPortfolioPanel);
           break;
         case "CreatePortfolio":
           createPortfolio();
@@ -248,24 +264,29 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
     }
   }
 
-  //MAKE THIS WORK
   private void getPortfolioValue() throws IOException {
     String selectedPortfolio = (String) portfolioComboBox.getSelectedItem();
     if (selectedPortfolio == null || selectedPortfolio.isEmpty()) {
       showError("Please select a portfolio.");
     }
 
-    LocalDate selectedDate = getSelectedDate();
-    if (selectedDate == null) {
+    if (yearInputs.isEmpty() || monthInputs.isEmpty() || dayInputs.isEmpty()) {
       showError("Please select a valid date.");
+      return;
     }
 
-    try {
-      double value = controller.getPortfolioValueController(selectedPortfolio, selectedDate);
-      portfolioValueField.setText(String.format("%.2f", value));
-    } catch (Exception e) {
-      showError("Error retrieving portfolio value: " + e.getMessage());
+    LocalDate selectedDate = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+    if (selectedDate == null) {
+      showError("Please select a valid date.");
+      return;
     }
+
+//    try {
+//      double value = controller.getPortfolioValueController(selectedPortfolio, selectedDate);
+//      portfolioValueField.setText(String.format("%.2f", value));
+//    } catch (Exception e) {
+//      showError("Error retrieving portfolio value: " + e.getMessage());
+//    }
   }
 
     public void createPortfolio()throws IOException {
@@ -275,40 +296,43 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
       }
 
       boolean isFirstStock = true;
-      for (JPanel currentStockPanel : stockInputPanels) {
-        Component[] components = currentStockPanel.getComponents();
-        JTextField stockField = (JTextField) components[3];
-        JTextField sharesField = (JTextField) components[5];
-        JComboBox<Integer> yearComboBox = (JComboBox<Integer>) components[6];
-        JComboBox<Integer> monthComboBox = (JComboBox<Integer>) components[7];
-        JComboBox<Integer> dayComboBox = (JComboBox<Integer>) components[8];
+      for (int i = 0; i < stockInputPanels.size(); i++) {
+        JTextField stockTickerField = stockTickerFields.get(i);
+        JTextField stockSharesField = stockSharesFields.get(i);
+        JComboBox<Integer> yearInput = yearInputs.get(i);
+        JComboBox<Integer> monthInput = monthInputs.get(i);
+        JComboBox<Integer> dayInput = dayInputs.get(i);
 
-        String stockTicker = stockField.getText();
+        String stockTicker = stockTickerField.getText();
         if (stockTicker.isEmpty()) {
           showError("Stock ticker cannot be empty.");
+          return;
         }
 
-        int shareCount = -1;
+        int shareCount;
         try {
-          shareCount = Integer.parseInt(sharesField.getText());
+          shareCount = Integer.parseInt(stockSharesField.getText());
           if (shareCount <= 0) {
             throw new IllegalArgumentException("Integer not positive.");
           }
         } catch (Exception e) {
           showError("Shares must be valid positive integers.");
+          return;
         }
 
         LocalDate purchaseDate = LocalDate.of(
-                (Integer) yearComboBox.getSelectedItem(),
-                (Integer) monthComboBox.getSelectedItem(),
-                (Integer) dayComboBox.getSelectedItem()
+                (Integer) yearInput.getSelectedItem(),
+                (Integer) monthInput.getSelectedItem(),
+                (Integer) dayInput.getSelectedItem()
         );
 
         if (isFirstStock) {
-          controller.createPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
+          // Replace with actual controller call
+          // controller.createPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
           isFirstStock = false;
         } else {
-          controller.addToPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
+          // Replace with actual controller call
+          // controller.addToPortfolio(portfolioName, stockTicker, shareCount, purchaseDate);
         }
       }
       // Reset the portfolio creation form after successful creation
@@ -327,13 +351,19 @@ public class GUI implements IView, ActionListener, ItemListener, ListSelectionLi
     portfolioNameField.setText("");
     stockInputPanels.forEach(panel -> panel.getParent().remove(panel));
     stockInputPanels.clear();
+    stockTickerFields.clear();
+    stockSharesFields.clear();
+    yearInputs.clear();
+    monthInputs.clear();
+    dayInputs.clear();
     addStockInputPanel(createPortfolioPanel);
     createPortfolioPanel.revalidate();
     createPortfolioPanel.repaint();
   }
 
 
-    public void requestFocus () {
+
+  public void requestFocus () {
 
     }
 
