@@ -3,12 +3,8 @@ package controller;
 
 import java.time.LocalDate;
 
-import javax.xml.namespace.QName;
-
 import View.IView;
-import View.IViewListener;
 import model.IModel2;
-import model.ModelImpl2;
 
 public class ControllerImplGUI implements IController, IViewListener {
   private final IView view;
