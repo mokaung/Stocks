@@ -18,40 +18,42 @@ import javax.swing.event.ListSelectionListener;
 
 import portfolio.IPortfolioV2;
 
+// regrade, length, dynamic updating combo-box, testing
+//
 
 /**
  * Renders the program with GUI.
  */
 public class GUI extends JFrame implements IView, ActionListener, ItemListener, ListSelectionListener {
   private final List<IViewListener> myListeners;
+  private final JButton addStockButton;
+  private final JTextField amount;
+  private final JButton buyStock;
+  private final JTextField date;
+  private final JButton createPortfolioButton;
+  private final JButton getValue;
   private final JButton selectDate;
+  private final JButton sellStock;
+  private final JTextField stock;
   private final JTextField textField;
   private final JPanel mainPanel;
   private final JScrollPane mainScrollPane;
-  private final JButton getValue;
-  private final JButton addStockButton;
-  private final JButton createPortfolioButton;
-  private final JButton buyStock;
-  private final JButton sellStock;
+  private final JTextField portfolioNameField;
 
-  private JComboBox<Integer> yearComboBox;
-  private JComboBox<Integer> monthComboBox;
+
   private JComboBox<Integer> dayComboBox;
-  private JComboBox<IPortfolioV2> portfolioComboBox;
+  private JComboBox<Integer> monthComboBox;
+  private JComboBox<Integer> yearComboBox;
+
+  private JPanel createBuyStockPanel;
+  private JPanel createPortfolioPanel;
   private JPanel portfolioValuePanel;
 
   private JTextField portfolioValueField;
-  private final JTextField portfolioNameField;
 
-  private JPanel createPortfolioPanel;
-  private JPanel createBuyStockPanel;
   private ArrayList<JPanel> stockInputPanels;
 
   private LocalDate selectedDate;
-
-  private final JTextField stock;
-  private final JTextField amount;
-  private final JTextField date;
 
   public GUI() {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,13 +63,11 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     this.stockInputPanels = new ArrayList<>();
 
     this.yearComboBox = new JComboBox<Integer>();
-    for (int i = 2000; i <= 2024; i++) {
-      yearComboBox.addItem(i);
-    }
-    this.portfolioComboBox = new JComboBox<>();
-
-    // make work
-//    this.portfolioComboBox.addItem();
+    yearComboBox.addItem(0);
+//    for (int i = 2000; i <= 2024; i++) {
+//      yearComboBox.addItem(i);
+//    }
+    // TODO
 
     portfolioValuePanel = new JPanel();
     this.stock = new JTextField();
@@ -127,7 +127,6 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     requestFocus();
   }
 
-
   @Override
   public void render(boolean b) {
     setVisible(b);
@@ -141,7 +140,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
 
     // Add portfolio selection components
     portfolioValuePanel.add(new JLabel("Select Portfolio:"));
-    portfolioComboBox = new JComboBox<>();
+    // create new method that adds to this
     portfolioValuePanel.add(portfolioComboBox);
 
     selectDate(portfolioValuePanel);
@@ -241,7 +240,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     // For years
     dateSelectionPanel.add(new JLabel("Year:"));
     yearComboBox = new JComboBox<>();
-    for (int i = 2500; i >= 0; i--) {
+    for (int i = 2024; i >= 2000; i--) {
       yearComboBox.addItem(i);
     }
     dateSelectionPanel.add(yearComboBox);
@@ -310,6 +309,12 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     }
   }
 
+  void fireHandleStockEvent(String stock, double amount, String name, LocalDate date) {
+    for (IViewListener listener : myListeners) {
+      listener.handleSellStock(stock, amount, name, date);
+    }
+  }
+
   private void fireSellStock(boolean sell) {
     String name = this.portfolioNameField.getText();
     String stock = this.stock.getText();
@@ -319,9 +324,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     if (sell) {
       amount = amount * -1;
     }
-    for (IViewListener listener : myListeners) {
-      listener.handleSellStock(stock, amount, name, date);
-    }
+    fireHandleStockEvent(stock, amount, name, date);
   }
 
   private void fireSavePortfolio() {
@@ -334,6 +337,10 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
   private void fireGetValue() {
     String name = this.portfolioNameField.getText();
     LocalDate date = LocalDate.parse(this.date.getText());
+    fireHandleGetValue(name, date);
+  }
+
+  void fireHandleGetValue(String name, LocalDate date) {
     for (IViewListener listener : myListeners) {
       listener.handleGetPortfolioValue(name, date);
     }
@@ -345,6 +352,10 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     double amount = (double) portfolioComboBox.getSelectedItem();
     LocalDate date = LocalDate.parse(this.date.getText());
 
+    fireHandleCreatePortfolioEvent(stock, amount, name, date);
+  }
+
+  void fireHandleCreatePortfolioEvent(String stock, double amount, String name, LocalDate date) {
     for (IViewListener listener : myListeners) {
       listener.handleCreatePortfolio(stock, amount, name, date);
     }

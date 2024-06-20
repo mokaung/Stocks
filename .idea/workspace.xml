@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1c43785-0ca4-452b-9287-9f0ac776392c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/IViewListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IViewListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718860228188</updated>
-      <workItem from="1718860230861" duration="7082000" />
+      <workItem from="1718860230861" duration="8199000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,5 @@
 package View;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 public interface IViewListener {
@@ -14,7 +13,7 @@ public interface IViewListener {
    * Sell a stock.
    *
    * @param ticker
-   * @param share amount of stock the user wants to sell. (Positive)
+   * @param share  amount of stock the user wants to sell. (Positive)
    * @param name
    * @param date
    */
