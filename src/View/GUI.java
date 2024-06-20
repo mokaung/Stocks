@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import controller.ControllerImplGUI;
 import controller.IController;
 
 
@@ -28,11 +29,9 @@ public class GUI implements IView, ActionListener, ItemListener {
   private JList<String> tickerList;
   private JComboBox<String> portfolioComboBox;
   private JPanel portfolioValuePanel;
-  private IController controller;
+  private ControllerImplGUI controller;
   private JTextField portfolioValueField;
   private JTextField portfolioNameField;
-
-
 
   private JPanel createPortfolioPanel;
   private ArrayList<JPanel> stockInputPanels;
@@ -42,12 +41,16 @@ public class GUI implements IView, ActionListener, ItemListener {
   private ArrayList<JComboBox<Integer>> monthInputs;
   private ArrayList<JComboBox<Integer>> dayInputs;
 
+  private JComboBox<String> savePortfolioComboBox;
+  private JComboBox<String> loadPortfolioComboBox;
+
   private LocalDate selectedDate;
 
-  public GUI(String title) {
+  public GUI(String title, ControllerImplGUI controller) {
+    this.controller = controller;
     frame = new JFrame(title);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 300);
+    frame.setSize(1000, 1000);
 
     textField = new JTextField(20);
     button = new JButton("Select Date");
@@ -242,7 +245,7 @@ public class GUI implements IView, ActionListener, ItemListener {
     saveLoadPanel.add(savePanel);
 
     savePanel.add(new JLabel("Select Portfolio to Save:"));
-    JComboBox<String> savePortfolioComboBox = new JComboBox<>();
+    savePortfolioComboBox = new JComboBox<>();
     savePanel.add(savePortfolioComboBox);
 
     JButton saveButton = new JButton("Save Portfolio");
@@ -257,11 +260,15 @@ public class GUI implements IView, ActionListener, ItemListener {
     saveLoadPanel.add(loadPanel);
 
     loadPanel.add(new JLabel("Select Portfolio to Load:"));
-    JComboBox<String> loadPortfolioComboBox = new JComboBox<>();
-    // Example portfolios - Replace this with actual method to get portfolios from the rest of the program
-    loadPortfolioComboBox.addItem("Example Portfolio 1");
-    loadPortfolioComboBox.addItem("Example Portfolio 2");
-    loadPortfolioComboBox.addItem("Example Portfolio 3");
+    loadPortfolioComboBox = new JComboBox<>();
+    ArrayList<String> loadableNames = controller.listLoadablePortfolios();
+    for (String name: loadableNames) {
+      loadPortfolioComboBox.addItem(name);
+    }
+//    // Example portfolios - Replace this with actual method to get portfolios from the rest of the program
+//    loadPortfolioComboBox.addItem("Example Portfolio 1");
+//    loadPortfolioComboBox.addItem("Example Portfolio 2");
+//    loadPortfolioComboBox.addItem("Example Portfolio 3");
     loadPanel.add(loadPortfolioComboBox);
 
     JButton loadButton = new JButton("Load Portfolio");
@@ -425,16 +432,22 @@ public class GUI implements IView, ActionListener, ItemListener {
           // controller.sellStock(portfolio, ticker, shares, date);
           break;
         case "SavePortfolio":
-          // Implement the logic to save the portfolio using the controller
-          // String savePortfolio = (String) savePortfolioComboBox.getSelectedItem();
-          // controller.savePortfolio(savePortfolio);
-          JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+           String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
+           try{
+             controller.handleSavePortfolio(savePortfolioSelection);
+             JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+           } catch (IllegalArgumentException e) {
+             showError(e.getMessage());
+           }
           break;
         case "LoadPortfolio":
-          // Implement the logic to load the portfolio using the controller
-          // String loadPortfolio = (String) loadPortfolioComboBox.getSelectedItem();
-          // controller.loadPortfolio(loadPortfolio);
-          JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+           String loadPortfolioSelection = (String) loadPortfolioComboBox.getSelectedItem();
+          try {
+            controller.handleLoadPortfolio(loadPortfolioSelection);
+            JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+          } catch (IllegalArgumentException e) {
+            showError(e.getMessage());
+          }
           break;
         default:
           showError("Something's not right...");
