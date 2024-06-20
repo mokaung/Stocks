@@ -375,14 +375,11 @@ public class GUI implements IView, ActionListener, ItemListener {
   //temp, change to switch for future buttons
   @Override
   public void itemStateChanged(ItemEvent arg) {
-    String who = ((JCheckBox) arg.getItemSelectable()).getActionCommand();
-    switch (who) {
-      case "YearComboBox":
-      case "MonthComboBox":
-        for (int i = 0; i < yearInputs.size(); i++) {
-          updateDays(yearInputs.get(i), monthInputs.get(i), dayInputs.get(i));
-        }
-        break;
+    Object source = arg.getSource();
+    for (int i = 0; i < yearInputs.size(); i++) {
+      if (source == yearInputs.get(i) || source == monthInputs.get(i)) {
+        updateDays(yearInputs.get(i), monthInputs.get(i), dayInputs.get(i));
+      }
     }
   }
 
