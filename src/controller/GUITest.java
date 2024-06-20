@@ -1,11 +1,9 @@
 package controller;
 
-import java.lang.ModuleLayer.Controller;
 
 import View.GUI;
 import model.IModel2;
 import model.ModelImpl2;
-//import View.GUI;
 
 public class GUITest {
   public static void main(String[] args) {

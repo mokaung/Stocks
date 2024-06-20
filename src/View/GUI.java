@@ -18,8 +18,6 @@ import javax.swing.event.ListSelectionListener;
 
 import portfolio.IPortfolioV2;
 
-// regrade, length, dynamic updating combo-box, testing
-//
 
 /**
  * Renders the program with GUI.
@@ -39,7 +37,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
   private final JPanel mainPanel;
   private final JScrollPane mainScrollPane;
   private final JTextField portfolioNameField;
-
+  private final JTextField portfolioText;
 
   private JComboBox<Integer> dayComboBox;
   private JComboBox<Integer> monthComboBox;
@@ -73,6 +71,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     this.stock = new JTextField();
     this.amount = new JTextField();
     this.date = new JTextField();
+    this.portfolioText = new JTextField();
 
     this.getValue = new JButton("Get Value");
     this.getValue.setActionCommand("getValue");
@@ -141,7 +140,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     // Add portfolio selection components
     portfolioValuePanel.add(new JLabel("Select Portfolio:"));
     // create new method that adds to this
-    portfolioValuePanel.add(portfolioComboBox);
+    portfolioValuePanel.add(portfolioText);
 
     selectDate(portfolioValuePanel);
 
@@ -349,9 +348,47 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
   private void fireCreatePortfolioEvent() {
     String name = this.portfolioNameField.getText();
     String stock = this.stock.getText();
-    double amount = (double) portfolioComboBox.getSelectedItem();
+    double amount = Double.parseDouble(portfolioText.getText());
     LocalDate date = LocalDate.parse(this.date.getText());
 
+    if (name.isEmpty()) {
+      showError("Portfolio name cannot be empty.");
+    }
+
+    boolean isFirstStock = true;
+    for (JPanel currentStockPanel : stockInputPanels) {
+      Component[] components = currentStockPanel.getComponents();
+      JTextField stockField = (JTextField) components[3];
+      JTextField sharesField = (JTextField) components[5];
+      JComboBox<Integer> yearComboBox = (JComboBox<Integer>) components[6];
+      JComboBox<Integer> monthComboBox = (JComboBox<Integer>) components[7];
+      JComboBox<Integer> dayComboBox = (JComboBox<Integer>) components[8];
+
+      String stockTicker = stockField.getText();
+      if (stockTicker.isEmpty()) {
+        showError("Stock ticker cannot be empty.");
+      }
+
+      int shareCount = -1;
+      try {
+        shareCount = Integer.parseInt(sharesField.getText());
+        if (shareCount <= 0) {
+          throw new IllegalArgumentException("Integer not positive.");
+        }
+      } catch (Exception e) {
+        showError("Shares must be valid positive integers.");
+      }
+
+      LocalDate purchaseDate = LocalDate.of(
+              (Integer) yearComboBox.getSelectedItem(),
+              (Integer) monthComboBox.getSelectedItem(),
+              (Integer) dayComboBox.getSelectedItem()
+      );
+
+    }
+
+    // Reset the portfolio creation form after successful creation
+    resetPortfolioForm();
     fireHandleCreatePortfolioEvent(stock, amount, name, date);
   }
 
