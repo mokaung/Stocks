@@ -10,7 +10,9 @@ import controller.command.AlphaVantageStreamReader;
 import controller.command.IReader;
 import model.IModel2;
 
-
+/**
+ * Controller for GUI view.
+ */
 public class ControllerImplGUI implements IController, IViewListener {
   private final IView view;
   private final IModel2 model;
@@ -51,15 +53,6 @@ public class ControllerImplGUI implements IController, IViewListener {
 
   @Override
   public void handleSellStock(String ticker, double share, String name, LocalDate date) {
-    if (!model.getStock().containsKey(ticker)) {
-      IReader alpha = new AlphaVantageStreamReader(ticker);
-      try {
-        model.populate(alpha.getReadable(), ticker);
-      } catch (Exception e) {
-        throw new IllegalArgumentException("Could not populate stock");
-      }
-    }
-
     model.addToPortfolioV2(name, ticker, share, date);
     view.requestFocus();
   }

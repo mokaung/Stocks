@@ -7,6 +7,9 @@ import model.IModel2;
 import view.IView;
 import view.IViewListener;
 
+/**
+ * A mock controller for testing.
+ */
 public class MockController extends ControllerImplGUI implements IController, IViewListener {
   private IView view;
   private IModel2 model;

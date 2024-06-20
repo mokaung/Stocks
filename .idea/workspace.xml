@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1c43785-0ca4-452b-9287-9f0ac776392c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/MockController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/view/GUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/IViewListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IViewListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/command/ICommand2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/command/ICommand2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IGuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IGuiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/IViewListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IViewListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.GUITest.executor": "Run",
-    "JUnit.GUITest.executor": "Debug",
+    "JUnit.GUITest.executor": "Run",
     "JUnit.GUITest.testFireCreatePortfolio.executor": "Run",
     "JUnit.GUITest.testFireStockEvent.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",

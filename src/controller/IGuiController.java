@@ -2,6 +2,9 @@ package controller;
 
 import java.time.LocalDate;
 
+/**
+ * Interface for a controller that uses GUI.
+ */
 public interface IGuiController {
   void onDateSelected(LocalDate date);
 
@@ -9,7 +12,7 @@ public interface IGuiController {
 
   void onGetPortfolioValue();
 
-   void onLoadPortfolios();
+  void onLoadPortfolios();
 
   void updateView(String message);
 

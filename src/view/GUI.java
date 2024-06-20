@@ -502,10 +502,6 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
     this.myListeners.add(listener);
   }
 
-  public void requestFocus() {
-
-  }
-
   public void showError(String errorMessage) {
     JOptionPane.showMessageDialog(this, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
   }
