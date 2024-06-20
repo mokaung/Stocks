@@ -1,6 +1,5 @@
 package controller.command;
 
-import View.IView;
 import model.IModel2;
 
 public interface ICommand2 {

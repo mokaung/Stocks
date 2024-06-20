@@ -1,11 +1,3 @@
-
-
-import View.IView;
-import controller.ControllerImplGUI;
-import controller.IController;
-import model.IModel2;
-import model.ModelImpl2;
-
 /**
  * Initiates the program.
  */

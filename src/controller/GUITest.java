@@ -1,7 +1,7 @@
 package controller;
 
 
-import View.GUI;
+import view.GUI;
 import model.IModel2;
 import model.ModelImpl2;
 

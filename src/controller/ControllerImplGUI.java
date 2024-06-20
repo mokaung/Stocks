@@ -4,8 +4,8 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import View.IView;
-import View.IViewListener;
+import view.IView;
+import view.IViewListener;
 import controller.command.AlphaVantageStreamReader;
 import controller.command.IReader;
 import model.IModel2;
@@ -62,5 +62,10 @@ public class ControllerImplGUI implements IController, IViewListener {
 
     model.addToPortfolioV2(name, ticker, share, date);
     view.requestFocus();
+  }
+
+  @Override
+  public void handleLoadPortfolio(String name) {
+
   }
 }

@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,8 +15,6 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import portfolio.IPortfolioV2;
 
 
 /**
@@ -304,7 +302,18 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
         fireSavePortfolio();
         break;
       case "loadPortfolio":
+        fireLoadPortfolio();
         break;
+    }
+  }
+
+  private void fireLoadPortfolio() {
+
+  }
+
+  void fireHandleLoadPortfolioEvent(String name) {
+    for (IViewListener listener : myListeners) {
+      listener.handleLoadPortfolio(name);
     }
   }
 
@@ -328,6 +337,10 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
 
   private void fireSavePortfolio() {
     String name = this.portfolioNameField.getText();
+    fireHandleSavePortfolio(name);
+  }
+
+  void fireHandleSavePortfolio(String name) {
     for (IViewListener listener : myListeners) {
       listener.handleSavePortfolio(name);
     }
@@ -483,7 +496,10 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener, 
 
   @Override
   public void addViewListener(IViewListener listener) {
-
+    if (listener == null) {
+      throw new IllegalArgumentException("Listener cannot be null");
+    }
+    this.myListeners.add(listener);
   }
 
   public void requestFocus() {

@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.time.LocalDate;
 
@@ -18,4 +18,6 @@ public interface IViewListener {
    * @param date
    */
   void handleSellStock(String ticker, double share, String name, LocalDate date);
+
+  void handleLoadPortfolio(String name);
 }
