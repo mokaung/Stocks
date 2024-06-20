@@ -6,15 +6,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
-
-import controller.ControllerImplGUI;
 
 
 /**
@@ -263,7 +260,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
     savePanel.add(new JLabel("Select Portfolio to Save:"));
     savePortfolioComboBox = new JComboBox<>();
-//    updatePortfolioDropdowns();
+    // updatePortfolioDropdowns();
     savePanel.add(savePortfolioComboBox);
 
     JButton saveButton = new JButton("Save Portfolio");
@@ -517,7 +514,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     }
   }
 
-  private void buyStock() throws IOException {
+  private void buyStock() {
     try {
       String portfolio = (String) portfolioComboBox.getSelectedItem();
       String ticker = stockField.getText();
@@ -541,27 +538,22 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
     if (yearInputs.isEmpty() || monthInputs.isEmpty() || dayInputs.isEmpty()) {
       showError("Please select a valid date.");
-      return;
     }
 
     LocalDate selectedDate = getSelectedDate(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
     if (selectedDate == null) {
       showError("Please select a valid date.");
-      return;
     }
-    try {
-      String value = "";
-      for (IViewListener listener : myListeners) {
-        value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
-      }
 
-      portfolioValueField.setText(String.format("%.2f", value));
-    } catch (Exception e) {
-      showError("Error retrieving portfolio value: " + e.getMessage());
+    String value = "";
+    for (IViewListener listener : myListeners) {
+      value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
     }
+
+    portfolioValueField.setText(String.format("%.2f", value));
   }
-
-  public void createPortfolio() throws IOException {
+  
+  public void createPortfolio() {
     try {
       String portfolioName = portfolioNameField.getText();
       if (portfolioName.isEmpty()) {
@@ -677,7 +669,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
   public void showError(String errorMessage) {
     JOptionPane.showMessageDialog(
-            this, "Error: " + errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+            this, "Error: " + errorMessage,
+            "Error", JOptionPane.ERROR_MESSAGE);
   }
 
 }
