@@ -6,12 +6,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
 import controller.ControllerImplGUI;
+import controller.IController;
+import controller.IGuiController;
+import portfolio.IPortfolioV2;
 
 
 /**
@@ -48,7 +52,7 @@ public class GUI implements IView, ActionListener, ItemListener {
   private JTextField stockField;
   private JTextField sharesField;
 
-  public GUI() {
+  public GUI(String title, ControllerImplGUI controller) {
     this.controller = controller;
     frame = new JFrame(title);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
