@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import View.IView;
+import View.IViewListener;
 import controller.command.XMLToPortfolio;
 import model.IModel2;
 
@@ -78,8 +79,26 @@ public class ControllerImplGUI implements IController {
     return directory;
   }
 
+//  @Override
   public void handleCreatePortfolio(String ticker, double share, String name, LocalDate date) {
+    // TODO try catch
     model.createPortfolioV2(ticker, share, name, date);
 //    view.requestFocus();
+  }
+
+//  @Override
+  public void handleGetPortfolioValue(String name, LocalDate date) {
+    model.getPortfolioValue(name, date);
+//    view.requestFocus();
+  }
+
+//  @Override
+  public void handleSellStock(String ticker, double share, String name, LocalDate date) {
+    model.addToPortfolioV2(name, ticker, share, date);
+//    view.requestFocus();
+  }
+
+  public void handleLoadPortfolio() {
+
   }
 }

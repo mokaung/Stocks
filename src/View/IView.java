@@ -1,13 +1,14 @@
 package View;
 
-import java.io.IOException;
-
 /**
  * Interface for displaying the program.
  */
 public interface IView {
+  void addViewListener(IViewListener listener);
 
-  void render();
   void requestFocus();
-  void showError(String errorMessage)throws IOException;
+
+  void showError(String errorMessage);
+
+  void setVisible();
 }
