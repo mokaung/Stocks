@@ -1,51 +1,127 @@
 package view;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
- * Interface for connecting the view and controller.
+ * Interface for listening to view events in the GUI.
  */
 public interface IViewListener {
-  /**
-   * handles the createPortfolio event from the view.
-   *
-   * @param ticker selected stock's ticker.
-   * @param share  amount of stock at  purchase.
-   * @param name   name of portfolio.
-   * @param date   date the stock is purchased.
-   */
-  void handleCreatePortfolio(String ticker, double share, String name, LocalDate date);
 
   /**
-   * handles the savePortfolio event from the view.
+   * Initializes the model and starts the view rendering.
    *
-   * @param name name fo portfolio.
+   * @param model the model to be initialized.
    */
-  void handleSavePortfolio(String name);
+  void init(model.IModel2 model);
 
   /**
-   * handles the getPortfolioVa event from the view.
+   * Lists the names of the portfolios.
    *
-   * @param name name of portfolio selected.
-   * @param date date of evaluation.
+   * @return an ArrayList of portfolio names.
+   * @throws IllegalArgumentException if an error occurs while retrieving the portfolio names.
    */
-  void handleGetPortfolioValue(String name, LocalDate date);
+  ArrayList<String> listPortfolios() throws IllegalArgumentException;
 
   /**
-   * handles the sellPortfolio event from the view.
-   * this event can either sell or buy a stock
+   * Lists the names of the stocks.
    *
-   * @param ticker Stock's ticker.
-   * @param share  amount of stock the user wants to sell. (Positive)
-   * @param name   portfolio's name.
-   * @param date   date of purchase.
+   * @return an ArrayList of stock names.
+   * @throws IllegalArgumentException if an error occurs while retrieving the stock names.
    */
-  void handleSellStock(String ticker, double share, String name, LocalDate date);
+  ArrayList<String> listStocks() throws IllegalArgumentException;
 
   /**
-   * handles the loadPortfolio event from the view.
+   * Gets the value of a portfolio on a specific date.
    *
-   * @param name portfolio's name.
+   * @param name the name of the portfolio.
+   * @param date the date for which to get the portfolio value.
+   * @return
+   * @throws IllegalArgumentException if the portfolio is invalid or the date is invalid.
    */
-  void handleLoadPortfolio(String name);
+  String handleGetPortfolioValue(String name, LocalDate date) throws IllegalArgumentException;
+
+  /**
+   * Buys a stock for a portfolio on a specific date.
+   *
+   * @param name   the name of the portfolio.
+   * @param ticker the stock ticker.
+   * @param share  the number of shares to buy.
+   * @param date1  the date of the transaction.
+   * @throws IllegalArgumentException if the portfolio, ticker, or date is invalid.
+   */
+  void handleBuyStock(String name, String ticker, int share, LocalDate date1) throws IllegalArgumentException;
+
+  /**
+   * Sells a stock from a portfolio on a specific date.
+   *
+   * @param name   the name of the portfolio.
+   * @param ticker the stock ticker.
+   * @param share  the number of shares to sell.
+   * @param date1  the date of the transaction.
+   * @throws IllegalArgumentException if the portfolio, ticker, or date is invalid.
+   */
+  void handleSellStock(String name, String ticker, double share, LocalDate date1) throws IllegalArgumentException;
+
+  /**
+   * Populates stock data for a specific ticker.
+   *
+   * @param ticker the stock ticker.
+   * @throws IllegalArgumentException if the stock data cannot be loaded.
+   */
+  void handlePopulateStock(String ticker) throws IllegalArgumentException;
+
+  /**
+   * Populates stock data from a CSV file for a specific ticker.
+   *
+   * @param ticker the stock ticker.
+   * @throws IllegalArgumentException if the stock data cannot be loaded.
+   */
+  void handleCSVStock(String ticker) throws IllegalArgumentException;
+
+  /**
+   * Saves a portfolio.
+   *
+   * @param name the name of the portfolio to save.
+   * @throws IllegalArgumentException if the portfolio is invalid or an I/O error occurs.
+   */
+  void handleSavePortfolio(String name) throws IllegalArgumentException;
+
+  /**
+   * Lists the names of the loadable portfolios.
+   *
+   * @return an ArrayList of loadable portfolio names.
+   * @throws IllegalArgumentException if an error occurs while retrieving the portfolio names.
+   */
+  ArrayList<String> listLoadablePortfolios() throws IllegalArgumentException;
+
+  /**
+   * Loads a portfolio from an XML file.
+   *
+   * @param name the name of the portfolio to load.
+   * @throws IllegalArgumentException if the portfolio cannot be loaded.
+   */
+  void handleLoadPortfolio(String name) throws IllegalArgumentException;
+
+  /**
+   * Creates a new portfolio with the specified stock and share.
+   *
+   * @param ticker the stock ticker.
+   * @param share  the number of shares.
+   * @param name   the name of the portfolio.
+   * @param date1  the date of creation.
+   * @throws IllegalArgumentException if the ticker or date is invalid.
+   */
+  void handleCreatePortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException;
+
+  /**
+   * Adds stock to an existing portfolio.
+   *
+   * @param ticker the stock ticker.
+   * @param share  the number of shares.
+   * @param name   the name of the portfolio.
+   * @param date1  the date of the addition.
+   * @throws IllegalArgumentException if the ticker or date is invalid.
+   */
+  void handleAddToPortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException;
 }

@@ -5,6 +5,8 @@ import controller.ControllerImplGUI;
 import controller.IController;
 import model.IModel2;
 import model.ModelImpl2;
+import view.GUI;
+import view.IView;
 
 /**
  * Initializes the program with a GUI view.
@@ -12,9 +14,9 @@ import model.ModelImpl2;
 public class GUITest {
   public static void main(String[] args) {
     if (args.length == 0) {
-      View.GUI view = new View.GUI();
+      IView view = new GUI();
       IModel2 model = new ModelImpl2();
-      IController controller = new ControllerImplGUI();
+      IController controller = new ControllerImplGUI(model, view);
       controller.init(model);
     } else if (args[0].equals("-text")) {
       IModel2 model = new ModelImpl2();

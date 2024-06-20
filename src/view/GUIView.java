@@ -129,7 +129,7 @@ public class GUIView extends JFrame implements ActionListener, KeyListener, Mous
       amount = amount * -1;
     }
     for (IViewListener listener : myListeners) {
-      listener.handleSellStock(stock, amount, name, date);
+      listener.handleSellStock(stock, stock, amount, date);
     }
   }
 
