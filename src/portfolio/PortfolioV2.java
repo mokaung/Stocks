@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -127,11 +128,15 @@ public class PortfolioV2 implements IPortfolioV2 {
                        Map<LocalDate, IStock> stockMap,
                        Map<LocalDate, Double> shareMap) {
     if (!transaction.check(ticker, date)) {
-      double owned = this.share.get(ticker).get(date);
       if (!this.share.containsKey(ticker)){
         setValueV2(stockMap, shareMap, ticker);
       }
-      else {
+      else if (!this.share.get(ticker).containsKey(date)){
+        LocalDate mostRecentDate = Collections.max(this.share.get(ticker).keySet());
+        double owned = this.share.get(ticker).get(mostRecentDate);
+        this.share.get(ticker).put(date, owned+share);
+      } else {
+        double owned = this.share.get(ticker).get(date);
         this.share.get(ticker).put(date, owned + share);
       }
       transaction.record(ticker, date);
@@ -141,14 +146,16 @@ public class PortfolioV2 implements IPortfolioV2 {
   @Override
   public void sellStock(double share, String ticker, LocalDate date) {
     if (!transaction.check(ticker, date)) {
-      double owned = this.share.get(ticker).get(date);
       if (this.share.get(ticker).get(date) - share <= 0) {
-        this.share.get(ticker).put(date, owned - share);
         this.share.remove(ticker);
         stocks.remove(ticker);
       }
+//      else if (!this.share.get(ticker).containsKey(date)) {
+//        this.share.get(ticker)
+//      }
       else {
-        this.share.get(ticker).put(date, owned - share);
+        double owned = this.share.get(ticker).get(date);
+        this.share.get(ticker).put(date, owned-share);
       }
       transaction.record(ticker, date);
     }
