@@ -116,25 +116,24 @@ public class PortfolioV2 implements IPortfolioV2 {
   public void buyStock(double share, String ticker, LocalDate date) {
     if (!transaction.check(ticker, date)) {
       double owned = this.share.get(ticker).get(date);
-        this.share.get(ticker).put(date, owned + share);
+      this.share.get(ticker).put(date, owned + share);
       transaction.record(ticker, date);
     }
   }
 
   @Override
   public void buyStockGUI(double share,
-                       String ticker,
-                       LocalDate date,
-                       Map<LocalDate, IStock> stockMap,
-                       Map<LocalDate, Double> shareMap) {
+                          String ticker,
+                          LocalDate date,
+                          Map<LocalDate, IStock> stockMap,
+                          Map<LocalDate, Double> shareMap) {
     if (!transaction.check(ticker, date)) {
-      if (!this.share.containsKey(ticker)){
+      if (!this.share.containsKey(ticker)) {
         setValueV2(stockMap, shareMap, ticker);
-      }
-      else if (!this.share.get(ticker).containsKey(date)){
+      } else if (!this.share.get(ticker).containsKey(date)) {
         LocalDate mostRecentDate = Collections.max(this.share.get(ticker).keySet());
         double owned = this.share.get(ticker).get(mostRecentDate);
-        this.share.get(ticker).put(date, owned+share);
+        this.share.get(ticker).put(date, owned + share);
       } else {
         double owned = this.share.get(ticker).get(date);
         this.share.get(ticker).put(date, owned + share);
@@ -149,13 +148,9 @@ public class PortfolioV2 implements IPortfolioV2 {
       if (this.share.get(ticker).get(date) - share <= 0) {
         this.share.remove(ticker);
         stocks.remove(ticker);
-      }
-//      else if (!this.share.get(ticker).containsKey(date)) {
-//        this.share.get(ticker)
-//      }
-      else {
+      } else {
         double owned = this.share.get(ticker).get(date);
-        this.share.get(ticker).put(date, owned-share);
+        this.share.get(ticker).put(date, owned - share);
       }
       transaction.record(ticker, date);
     }
@@ -230,4 +225,3 @@ public class PortfolioV2 implements IPortfolioV2 {
     }
   }
 }
-// new pro and model . change controller command

@@ -20,27 +20,24 @@ import javax.swing.*;
 public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private final List<IViewListener> myListeners;
   private JButton button;
-  private JTextArea textArea;
-  private JPanel mainPanel;
-  private JScrollPane mainScrollBar;
+  private final JPanel mainPanel;
   private DefaultListModel<String> tickerListModel;
   private JComboBox<String> portfolioComboBox;
-  private JPanel portfolioValuePanel;
   private JTextArea portfolioValueArea;
   private JTextField portfolioNameField;
   private JPanel createPortfolioPanel;
-  private ArrayList<JPanel> stockInputPanels;
-  private ArrayList<JTextField> stockTickerFields;
-  private ArrayList<JTextField> stockSharesFields;
-  private ArrayList<JComboBox<Integer>> createYearInputs;
-  private ArrayList<JComboBox<Integer>> createMonthInputs;
-  private ArrayList<JComboBox<Integer>> createDayInputs;
-  private ArrayList<JComboBox<Integer>> buySellYearInputs;
-  private ArrayList<JComboBox<Integer>> buySellMonthInputs;
-  private ArrayList<JComboBox<Integer>> buySellDayInputs;
-  private ArrayList<JComboBox<Integer>> queryYearInputs;
-  private ArrayList<JComboBox<Integer>> queryMonthInputs;
-  private ArrayList<JComboBox<Integer>> queryDayInputs;
+  private final ArrayList<JPanel> stockInputPanels;
+  private final ArrayList<JTextField> stockTickerFields;
+  private final ArrayList<JTextField> stockSharesFields;
+  private final ArrayList<JComboBox<Integer>> createYearInputs;
+  private final ArrayList<JComboBox<Integer>> createMonthInputs;
+  private final ArrayList<JComboBox<Integer>> createDayInputs;
+  private final ArrayList<JComboBox<Integer>> buySellYearInputs;
+  private final ArrayList<JComboBox<Integer>> buySellMonthInputs;
+  private final ArrayList<JComboBox<Integer>> buySellDayInputs;
+  private final ArrayList<JComboBox<Integer>> queryYearInputs;
+  private final ArrayList<JComboBox<Integer>> queryMonthInputs;
+  private final ArrayList<JComboBox<Integer>> queryDayInputs;
   private JComboBox<String> savePortfolioComboBox;
   private JComboBox<String> loadPortfolioComboBox;
   private JComboBox<String> portfolioComboBoxBuySell;
@@ -48,6 +45,9 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private JTextField stockField;
   private JTextField sharesField;
 
+  /**
+   * Constructs the GUI with the needed elements.
+   */
   public GUI() {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(1000, 1000);
@@ -57,12 +57,12 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     setSize(1000, 1000);
 
     button = new JButton("Select Date");
-    textArea = new JTextArea(10, 30);
+    JTextArea textArea = new JTextArea(10, 30);
     textArea.setEditable(false);
 
     mainPanel = new JPanel();
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-    mainScrollBar = new JScrollPane(mainPanel);
+    JScrollPane mainScrollBar = new JScrollPane(mainPanel);
     add(mainScrollBar);
 
     stockInputPanels = new ArrayList<>();
@@ -154,7 +154,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
 
   private void queryPortfolioWindow() {
-    portfolioValuePanel = new JPanel();
+    JPanel portfolioValuePanel = new JPanel();
     portfolioValuePanel.setBorder(BorderFactory.createTitledBorder("Query Portfolio"));
     portfolioValuePanel.setLayout(new BoxLayout(portfolioValuePanel, BoxLayout.Y_AXIS));
     mainPanel.add(portfolioValuePanel);
@@ -312,7 +312,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     JTextField stockField = new JTextField(10);
     JTextField sharesField = new JTextField(5);
 
-    selectDate(stockPanel, createYearInputs, createMonthInputs, createDayInputs); // Use selectDate for consistency
+    selectDate(stockPanel, createYearInputs, createMonthInputs, createDayInputs);
+    // Use selectDate for consistency
 
     stockPanel.add(new JLabel("Stock Ticker: $"));
     stockPanel.add(stockField);
@@ -524,7 +525,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
       JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!",
               "Success",
               JOptionPane.INFORMATION_MESSAGE);
-      JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this,
+              "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
     }
@@ -543,7 +545,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
               "Success", JOptionPane.INFORMATION_MESSAGE);
       fireHandleHandleSavePortfolio(savePortfolioSelection);
 
-      JOptionPane.showMessageDialog(this, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this,
+              "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
     }
@@ -571,7 +574,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     }
   }
 
-  private void fireHandleHandleSellStock(String portfolio2, String ticker2, int shares2, LocalDate date2) {
+  private void fireHandleHandleSellStock(String portfolio2, String ticker2,
+                                         int shares2, LocalDate date2) {
     for (IViewListener listener : myListeners) {
       listener.handleSellStock(portfolio2, ticker2, shares2, date2);
     }
@@ -667,7 +671,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
         String value = "";
 
         if (isFirstStock) {
-          isFirstStock = fireHandleHandleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate, isFirstStock);
+          isFirstStock = fireHandleHandleCreatePortfolio(stockTicker, shareCount,
+                  portfolioName, purchaseDate, isFirstStock);
 
         } else {
           fireHandleHandleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);

@@ -1,7 +1,6 @@
 package model;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -108,6 +107,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     return nameList;
   }
 
+  @Override
   public ArrayList<String> getStockNames() {
     ArrayList<String> nameList = new ArrayList<String>();
     for (String key : stocks.keySet()) {

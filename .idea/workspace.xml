@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3b2f72e5-eb3e-4242-ab39-2f86dd26b2fe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Stocks.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/view/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/view/GUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerImplGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/GuiGetPortfolioValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/command/ICommand2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/IModel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IModel2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,16 +26,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GUITest.executor": "Run",
-    "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GUITest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jimmy Chen\Documents\GitHub\Stock CS3500\Stocks\res" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="GUITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUITest" />

@@ -1,21 +1,14 @@
 package controller;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import controller.command.AlphaVantageStreamReader;
-import controller.command.CSVReader;
-import controller.command.IReader;
-import controller.command.XMLToPortfolio;
 import model.IModel2;
 import view.IView;
 import view.IViewListener;
 
-import static controller.command.ControllerUtil.calToString;
 
 /**
  * A mock controller for testing.
@@ -98,7 +91,8 @@ public class MockController extends ControllerImplGUI implements IController, IV
   }
 
   @Override
-  public void handleAddToPortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException {
+  public void handleAddToPortfolio(String ticker, double share, String name,
+                                   LocalDate date1) throws IllegalArgumentException {
     log.append("handleAddToPortfolio");
   }
 }

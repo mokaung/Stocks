@@ -16,6 +16,9 @@ import view.IViewListener;
 
 import static controller.command.ControllerUtil.calToString;
 
+/**
+ * Controller for GUI views.
+ */
 public class ControllerImplGUI implements IController, IViewListener {
   private final IView view;
   private final IModel2 model;
@@ -49,28 +52,31 @@ public class ControllerImplGUI implements IController, IViewListener {
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
       model.portfolioToString(name, date.format(formatter), date);
     } catch (IllegalArgumentException e) {
-      System.out.println(e);
-      throw e;
+      throw new IllegalArgumentException("Invalid portfolio.");
     }
     return name;
   }
 
   @Override
-  public void handleBuyStock(String name, String ticker, int share, LocalDate date1) throws IllegalArgumentException {
+  public void handleBuyStock(String name, String ticker, int share,
+                             LocalDate date1) throws IllegalArgumentException {
     if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for "
+              + calToString(date1) + " doesn't exist.");
     }
     model.buyStock(name, ticker, share, date1);
   }
 
   @Override
-  public void handleSellStock(String name, String ticker, double share, LocalDate date1) throws IllegalArgumentException {
+  public void handleSellStock(String name, String ticker, double share,
+                              LocalDate date1) throws IllegalArgumentException {
     if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }
@@ -78,7 +84,8 @@ public class ControllerImplGUI implements IController, IViewListener {
       throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for "
+              + calToString(date1) + " doesn't exist.");
     }
     model.sellStock(name, ticker, share, date1);
   }
@@ -145,31 +152,38 @@ public class ControllerImplGUI implements IController, IViewListener {
   }
 
   private File getDirectory() throws IllegalArgumentException {
-    File directory = new File(new File("").getAbsolutePath() + "\\src\\savedPortfolios\\");
+    File directory = new File(new File("")
+            .getAbsolutePath() + "\\src\\savedPortfolios\\");
     if (!directory.exists() || !directory.isDirectory()) {
-      directory = new File(new File("").getAbsolutePath() + "/src/savedPortfolios/");
+      directory = new File(new File("")
+              .getAbsolutePath() + "/src/savedPortfolios/");
     }
     return directory;
   }
 
   @Override
-  public void handleCreatePortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException {
+  public void handleCreatePortfolio(String ticker, double share, String name,
+                                    LocalDate date1) throws IllegalArgumentException {
     if (model.isInvalidTicker(ticker)) {
-      throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
+      throw new IllegalArgumentException(
+              "Make sure to spell the ticker correctly and populate first.");
     }
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException(
+              "Sorry, stock information for " + calToString(date1) + " doesn't exist.");
     }
     model.createPortfolioV2(ticker, share, name, date1);
   }
 
   @Override
-  public void handleAddToPortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException {
+  public void handleAddToPortfolio(String ticker, double share, String name,
+                                   LocalDate date1) throws IllegalArgumentException {
     if (model.isInvalidTicker(ticker)) {
       throw new IllegalArgumentException("Make sure to spell the ticker correctly and populate first.");
     }
     if (model.isInvalidLocalDate(date1, ticker)) {
-      throw new IllegalArgumentException("Sorry, stock information for " + calToString(date1) + " doesn't exist.");
+      throw new IllegalArgumentException("Sorry, stock information for "
+              + calToString(date1) + " doesn't exist.");
     }
     model.addToPortfolioV2(name, ticker, share, date1);
   }

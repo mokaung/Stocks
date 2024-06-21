@@ -12,6 +12,12 @@ import view.IView;
  * Initializes the program with a GUI view.
  */
 public class GUITest {
+  /**
+   * Initializes either the text or GUI view.
+   *
+   * @param args if there is an args that equals text, initialize text. If no args then GUI.
+   *             If none, print an error.
+   */
   public static void main(String[] args) {
     if (args.length == 0) {
       IView view = new GUI();

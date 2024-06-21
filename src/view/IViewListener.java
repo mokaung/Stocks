@@ -50,7 +50,8 @@ public interface IViewListener {
    * @param date1  the date of the transaction.
    * @throws IllegalArgumentException if the portfolio, ticker, or date is invalid.
    */
-  void handleBuyStock(String name, String ticker, int share, LocalDate date1) throws IllegalArgumentException;
+  void handleBuyStock(String name, String ticker, int share,
+                      LocalDate date1) throws IllegalArgumentException;
 
   /**
    * Sells a stock from a portfolio on a specific date.
@@ -61,7 +62,8 @@ public interface IViewListener {
    * @param date1  the date of the transaction.
    * @throws IllegalArgumentException if the portfolio, ticker, or date is invalid.
    */
-  void handleSellStock(String name, String ticker, double share, LocalDate date1) throws IllegalArgumentException;
+  void handleSellStock(String name, String ticker, double share,
+                       LocalDate date1) throws IllegalArgumentException;
 
   /**
    * Populates stock data for a specific ticker.
@@ -112,7 +114,8 @@ public interface IViewListener {
    * @param date1  the date of creation.
    * @throws IllegalArgumentException if the ticker or date is invalid.
    */
-  void handleCreatePortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException;
+  void handleCreatePortfolio(String ticker, double share, String name,
+                             LocalDate date1) throws IllegalArgumentException;
 
   /**
    * Adds stock to an existing portfolio.
@@ -123,5 +126,6 @@ public interface IViewListener {
    * @param date1  the date of the addition.
    * @throws IllegalArgumentException if the ticker or date is invalid.
    */
-  void handleAddToPortfolio(String ticker, double share, String name, LocalDate date1) throws IllegalArgumentException;
+  void handleAddToPortfolio(String ticker, double share, String name,
+                            LocalDate date1) throws IllegalArgumentException;
 }
