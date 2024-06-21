@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,19 +7,25 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
+<<<<<<< HEAD:src/View/GUI.java
 import controller.ControllerImplGUI;
 
+=======
+>>>>>>> main:src/view/GUI.java
 
 /**
  * Renders the program with GUI.
  */
-public class GUI implements IView, ActionListener, ItemListener {
-  private JFrame frame;
+public class GUI extends JFrame implements IView, ActionListener, ItemListener {
+  private final List<IViewListener> myListeners;
   private JButton button;
+<<<<<<< HEAD:src/View/GUI.java
   private JTextArea textArea;
   private JPanel mainPanel;
   private JScrollPane mainScrollBar;
@@ -28,8 +34,15 @@ public class GUI implements IView, ActionListener, ItemListener {
   private JPanel portfolioValuePanel;
   private ControllerImplGUI controller;
   private JTextArea portfolioValueArea;
+=======
+  private final JPanel mainPanel;
+  private DefaultListModel<String> tickerListModel;
+  private JComboBox<String> portfolioComboBox;
+  private JTextField portfolioValueField;
+>>>>>>> main:src/view/GUI.java
   private JTextField portfolioNameField;
   private JPanel createPortfolioPanel;
+<<<<<<< HEAD:src/View/GUI.java
   private ArrayList<JPanel> stockInputPanels;
   private ArrayList<JTextField> stockTickerFields;
   private ArrayList<JTextField> stockSharesFields;
@@ -42,6 +55,16 @@ public class GUI implements IView, ActionListener, ItemListener {
   private ArrayList<JComboBox<Integer>> queryYearInputs;
   private ArrayList<JComboBox<Integer>> queryMonthInputs;
   private ArrayList<JComboBox<Integer>> queryDayInputs;
+=======
+  private final List<JPanel> stockInputPanels;
+  private final List<JTextField> stockTickerFields;
+  private final List<JTextField> stockSharesFields;
+  private final List<JComboBox<Integer>> yearInputs;
+
+  private final List<JComboBox<Integer>> monthInputs;
+  private final List<JComboBox<Integer>> dayInputs;
+
+>>>>>>> main:src/view/GUI.java
   private JComboBox<String> savePortfolioComboBox;
   private JComboBox<String> loadPortfolioComboBox;
   private JComboBox<String> portfolioComboBoxBuySell;
@@ -49,19 +72,33 @@ public class GUI implements IView, ActionListener, ItemListener {
   private JTextField stockField;
   private JTextField sharesField;
 
+<<<<<<< HEAD:src/View/GUI.java
   public GUI(String title, ControllerImplGUI controller) {
     this.controller = controller;
     frame = new JFrame(title);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(1000, 1000);
+=======
+  public GUI() {
+    this.myListeners = new ArrayList<>();
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(1000, 1000);
+
+>>>>>>> main:src/view/GUI.java
     button = new JButton("Select Date");
-    textArea = new JTextArea(10, 30);
+    JTextArea textArea = new JTextArea(10, 30);
     textArea.setEditable(false);
 
     mainPanel = new JPanel();
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+<<<<<<< HEAD:src/View/GUI.java
     mainScrollBar = new JScrollPane(mainPanel);
     frame.add(mainScrollBar);
+=======
+    //scroll bars around this main panel
+    JScrollPane mainScrollBar = new JScrollPane(mainPanel);
+    add(mainScrollBar);
+>>>>>>> main:src/view/GUI.java
 
     stockInputPanels = new ArrayList<>();
     stockTickerFields = new ArrayList<>();
@@ -89,8 +126,8 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   @Override
-  public void render() {
-    frame.setVisible(true);
+  public void render(boolean visible) {
+    setVisible(visible);
   }
 
   private void populateStocksWindow() {
@@ -114,7 +151,11 @@ public class GUI implements IView, ActionListener, ItemListener {
     tickerListPanel.setBorder(BorderFactory.createTitledBorder("Populated Stocks"));
     tickerListPanel.setLayout(new BorderLayout());
     tickerListModel = new DefaultListModel<>();
-    ArrayList<String> listOfStocks = controller.listStocks();
+    ArrayList<String> listOfStocks = new ArrayList<>();
+
+    for (IViewListener listener : myListeners) {
+      listOfStocks = listener.listStocks();
+    }
     for (String ticker : listOfStocks) {
       tickerListModel.addElement(ticker);
     }
@@ -143,7 +184,12 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   private void queryPortfolioWindow() {
+<<<<<<< HEAD:src/View/GUI.java
     portfolioValuePanel = new JPanel();
+=======
+    // Add a panel for portfolio value selection
+    JPanel portfolioValuePanel = new JPanel();
+>>>>>>> main:src/view/GUI.java
     portfolioValuePanel.setBorder(BorderFactory.createTitledBorder("Query Portfolio"));
     portfolioValuePanel.setLayout(new BoxLayout(portfolioValuePanel, BoxLayout.Y_AXIS));
     mainPanel.add(portfolioValuePanel);
@@ -263,6 +309,10 @@ public class GUI implements IView, ActionListener, ItemListener {
 
     savePanel.add(new JLabel("Select Portfolio to Save:"));
     savePortfolioComboBox = new JComboBox<>();
+<<<<<<< HEAD:src/View/GUI.java
+=======
+    // updatePortfolioDropdowns();
+>>>>>>> main:src/view/GUI.java
     savePanel.add(savePortfolioComboBox);
 
     JButton saveButton = new JButton("Save Portfolio");
@@ -276,7 +326,10 @@ public class GUI implements IView, ActionListener, ItemListener {
     saveLoadPanel.add(loadPanel);
     loadPanel.add(new JLabel("Select Portfolio to Load:"));
     loadPortfolioComboBox = new JComboBox<>();
-    ArrayList<String> loadableNames = controller.listLoadablePortfolios();
+    ArrayList<String> loadableNames = new ArrayList<>();
+    for (IViewListener listener : myListeners) {
+      loadableNames = listener.listLoadablePortfolios();
+    }
     for (String name : loadableNames) {
       loadPortfolioComboBox.addItem(name);
     }
@@ -331,7 +384,7 @@ public class GUI implements IView, ActionListener, ItemListener {
                           JComboBox<Integer> dayComboBox) {
     int year = (Integer) yearComboBox.getSelectedItem();
     int month = (Integer) monthComboBox.getSelectedItem();
-    int daysInMonth = java.time.YearMonth.of(year, month).lengthOfMonth();
+    int daysInMonth = YearMonth.of(year, month).lengthOfMonth();
 
     dayComboBox.removeAllItems();
     for (int i = 1; i <= daysInMonth; i++) {
@@ -387,11 +440,7 @@ public class GUI implements IView, ActionListener, ItemListener {
       int day = (Integer) dayInputs.get(index).getSelectedItem();
       return LocalDate.of(year, month, day);
     } catch (Exception e) {
-      try {
-        showError("Invalid date selected.");
-        return null;
-      } catch (IOException g) {
-      }
+      showError("Invalid date selected.");
     }
     return null;
   }
@@ -456,7 +505,7 @@ public class GUI implements IView, ActionListener, ItemListener {
           break;
       }
     } catch (IOException e) {
-
+      showError("Unknown Command.");
     }
   }
 
@@ -464,7 +513,10 @@ public class GUI implements IView, ActionListener, ItemListener {
     try {
       String newTicker2 = predefinedStocksList.getSelectedValue();
       if (newTicker2 != null && !newTicker2.isEmpty()) {
-        controller.handleCSVStock(newTicker2);
+
+        for (IViewListener listener : myListeners) {
+          listener.handleCSVStock(newTicker2);
+        }
         tickerListModel.addElement(newTicker2);
       }
     } catch (IllegalArgumentException e) {
@@ -477,7 +529,9 @@ public class GUI implements IView, ActionListener, ItemListener {
       String newTicker = ((JTextField) (((JButton)
               userInput.getSource()).getParent()).getComponent(1)).getText();
       if (!newTicker.isEmpty()) {
-        controller.handlePopulateStock(newTicker);
+        for (IViewListener listener : myListeners) {
+          listener.handlePopulateStock(newTicker);
+        }
         tickerListModel.addElement(newTicker);
       }
     } catch (IllegalArgumentException e) {
@@ -488,11 +542,17 @@ public class GUI implements IView, ActionListener, ItemListener {
   private void loadPortfolio() throws IOException {
     String loadPortfolioSelection = (String) loadPortfolioComboBox.getSelectedItem();
     try {
-      controller.handleLoadPortfolio(loadPortfolioSelection);
+      for (IViewListener listener : myListeners) {
+        listener.handleLoadPortfolio(loadPortfolioSelection);
+      }
       updatePortfolioDropdowns();
+<<<<<<< HEAD:src/View/GUI.java
       JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!",
               "Success",
               JOptionPane.INFORMATION_MESSAGE);
+=======
+      JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+>>>>>>> main:src/view/GUI.java
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
     }
@@ -501,9 +561,17 @@ public class GUI implements IView, ActionListener, ItemListener {
   private void savePortfolio() throws IOException {
     String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
     try {
+<<<<<<< HEAD:src/View/GUI.java
       controller.handleSavePortfolio(savePortfolioSelection);
       JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!",
               "Success", JOptionPane.INFORMATION_MESSAGE);
+=======
+      for (IViewListener listener : myListeners) {
+        listener.handleSavePortfolio(savePortfolioSelection);
+      }
+
+      JOptionPane.showMessageDialog(this, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
+>>>>>>> main:src/view/GUI.java
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
     }
@@ -516,21 +584,28 @@ public class GUI implements IView, ActionListener, ItemListener {
       LocalDate date2 = getSelectedDate(buySellYearInputs, buySellMonthInputs,
               buySellDayInputs, 0);
       int shares2 = Integer.parseInt(sharesField.getText());
-      controller.handleSellStock(portfolio2, ticker2, shares2, date2);
+
+      for (IViewListener listener : myListeners) {
+        listener.handleSellStock(portfolio2, ticker2, shares2, date2);
+      }
+
       resetBuySellStockFields();
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
     }
   }
 
-  private void buyStock() throws IOException {
+  private void buyStock() {
     try {
       String portfolio = (String) portfolioComboBox.getSelectedItem();
       String ticker = stockField.getText();
       LocalDate date = getSelectedDate(buySellYearInputs, buySellMonthInputs,
               buySellDayInputs, 0);
       int shares = Integer.parseInt(sharesField.getText());
-      controller.handleBuyStock(portfolio, ticker, shares, date);
+
+      for (IViewListener listener : myListeners) {
+        listener.handleBuyStock(portfolio, ticker, shares, date);
+      }
       resetBuySellStockFields();
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
@@ -546,7 +621,6 @@ public class GUI implements IView, ActionListener, ItemListener {
 
     if (queryYearInputs.isEmpty() || queryMonthInputs.isEmpty() || queryDayInputs.isEmpty()) {
       showError("Please select a valid date.");
-      return;
     }
 
     LocalDate selectedDate = getSelectedDate(queryYearInputs,
@@ -555,8 +629,8 @@ public class GUI implements IView, ActionListener, ItemListener {
             0);
     if (selectedDate == null) {
       showError("Please select a valid date.");
-      return;
     }
+<<<<<<< HEAD:src/View/GUI.java
     try {
       String value = controller.handleGetPortfolioValue(selectedPortfolio, selectedDate);
       portfolioValueArea.setText(value);
@@ -567,6 +641,18 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   private void createPortfolio() throws IOException {
+=======
+
+    String value = "";
+    for (IViewListener listener : myListeners) {
+      value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
+    }
+
+    portfolioValueField.setText(String.format("%.2f", value));
+  }
+  
+  public void createPortfolio() {
+>>>>>>> main:src/view/GUI.java
     try {
       String portfolioName = portfolioNameField.getText();
       if (portfolioName.isEmpty()) {
@@ -605,15 +691,25 @@ public class GUI implements IView, ActionListener, ItemListener {
         );
 
         if (isFirstStock) {
-          controller.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
-          isFirstStock = false;
+          for (IViewListener listener : myListeners) {
+            listener.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
+            isFirstStock = false;
+          }
+
         } else {
-          controller.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
+          for (IViewListener listener : myListeners) {
+            listener.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
+          }
         }
       }
       resetPortfolioForm();
       updatePortfolioDropdowns();
+<<<<<<< HEAD:src/View/GUI.java
       JOptionPane.showMessageDialog(frame, "Successfully created portfolio!",
+=======
+      JOptionPane.showMessageDialog(this,
+              "Successfully created portfolio!",
+>>>>>>> main:src/view/GUI.java
               "Success", JOptionPane.INFORMATION_MESSAGE);
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
@@ -622,12 +718,22 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   private void resetBuySellStockFields() {
+<<<<<<< HEAD:src/View/GUI.java
     stockField.setText("");
     sharesField.setText("");
     buySellYearInputs.get(0).setSelectedIndex(0);
     buySellMonthInputs.get(0).setSelectedIndex(0);
     updateDays(buySellYearInputs.get(0), buySellMonthInputs.get(0), buySellDayInputs.get(0));
     buySellDayInputs.get(0).setSelectedIndex(0);
+=======
+    stockField.setText(""); // Clear stock ticker input
+    sharesField.setText(""); // Clear shares input
+    yearInputs.get(0).setSelectedIndex(0); // Reset year selection
+    monthInputs.get(0).setSelectedIndex(0); // Reset month selection
+    updateDays(yearInputs.get(0), monthInputs.get(0), dayInputs.get(0));
+    // Update days based on default selection
+    dayInputs.get(0).setSelectedIndex(0); // Reset day selection
+>>>>>>> main:src/view/GUI.java
   }
 
 
@@ -650,7 +756,10 @@ public class GUI implements IView, ActionListener, ItemListener {
 
 
   private void updatePortfolioDropdowns() {
-    ArrayList<String> portfolios = controller.listPortfolios();
+    ArrayList<String> portfolios = new ArrayList<>();
+    for (IViewListener listener : myListeners) {
+      portfolios = listener.listPortfolios();
+    }
 
     if (portfolioComboBox != null) {
       portfolioComboBox.removeAllItems();
@@ -669,11 +778,29 @@ public class GUI implements IView, ActionListener, ItemListener {
     }
   }
 
+<<<<<<< HEAD:src/View/GUI.java
 
   public void showError(String errorMessage) throws IOException {
     JOptionPane.showMessageDialog(frame, "Error: " + errorMessage,
             "Error", JOptionPane.ERROR_MESSAGE);
     throw new IOException(errorMessage);
+=======
+  @Override
+  public void addViewListener(IViewListener listener) {
+    if (listener == null) {
+      throw new IllegalArgumentException("Listener cannot be null");
+    }
+    this.myListeners.add(listener);
+  }
+
+  public void requestFocus() {
+  }
+
+  public void showError(String errorMessage) {
+    JOptionPane.showMessageDialog(
+            this, "Error: " + errorMessage,
+            "Error", JOptionPane.ERROR_MESSAGE);
+>>>>>>> main:src/view/GUI.java
   }
 
 }
