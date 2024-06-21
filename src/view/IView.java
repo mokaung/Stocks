@@ -1,5 +1,7 @@
 package view;
 
+import java.io.IOException;
+
 /**
  * Interface for displaying the program.
  */
@@ -21,7 +23,7 @@ public interface IView {
    *
    * @param errorMessage error that happened.
    */
-  void showError(String errorMessage);
+  void showError(String errorMessage)throws IOException;
 
   /**
    * Initializes the program.

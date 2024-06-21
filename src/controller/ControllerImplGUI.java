@@ -49,7 +49,8 @@ public class ControllerImplGUI implements IController, IViewListener {
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
       model.portfolioToString(name, date.format(formatter), date);
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("Invalid date.");
+      System.out.println(e);
+      throw e;
     }
     return name;
   }
