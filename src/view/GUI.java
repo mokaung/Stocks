@@ -618,13 +618,18 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     }
     try {
       String value = "";
-      for (IViewListener listener : myListeners) {
-        value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
-      }
+      value = fireHandleGetPortfolioValue(value, selectedPortfolio, selectedDate);
       portfolioValueArea.setText(value);
     } catch (Exception e) {
       showError(e.getMessage());
     }
+  }
+
+  String fireHandleGetPortfolioValue(String value, String selectedPortfolio, LocalDate selectedDate) {
+    for (IViewListener listener : myListeners) {
+      value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
+    }
+    return value;
   }
 
   public void createPortfolio() throws IOException {
