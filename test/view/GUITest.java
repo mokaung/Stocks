@@ -92,7 +92,7 @@ public class GUITest {
   @Test
   public void testFireSellStockEvent() {
     LocalDate date = LocalDate.of(2023, 1, 1);
-    gui.fireHandleSellStockEvent("AMZN", 1.0, "A", date);
+    gui.fireHandleSellStockEvent("A", "AMZN", 0.0, date);
     assertEquals("handleSellStock", received.toString());
   }
 }

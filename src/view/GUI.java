@@ -617,8 +617,11 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
       showError("Please select a valid date.");
     }
     try {
-//      String value = controller.handleGetPortfolioValue(selectedPortfolio, selectedDate);
-//      portfolioValueArea.setText(value);
+      String value = "";
+      for (IViewListener listener : myListeners) {
+        value = listener.handleGetPortfolioValue(selectedPortfolio, selectedDate);
+      }
+      portfolioValueArea.setText(value);
     } catch (Exception e) {
       showError(e.getMessage());
     }
