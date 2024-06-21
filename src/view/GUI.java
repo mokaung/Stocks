@@ -21,7 +21,6 @@ import controller.ControllerImplGUI;
  */
 public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private final List<IViewListener> myListeners;
-  private JFrame frame;
   private JButton button;
   private JTextArea textArea;
   private JPanel mainPanel;
@@ -29,7 +28,6 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private DefaultListModel<String> tickerListModel;
   private JComboBox<String> portfolioComboBox;
   private JPanel portfolioValuePanel;
-  private ControllerImplGUI controller;
   private JTextArea portfolioValueArea;
   private JTextField portfolioNameField;
   private JPanel createPortfolioPanel;
@@ -52,11 +50,9 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private JTextField stockField;
   private JTextField sharesField;
 
-  public GUI(String title, ControllerImplGUI controller) {
-    this.controller = controller;
-    frame = new JFrame(title);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(1000, 1000);
+  public GUI() {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(1000, 1000);
 
     this.myListeners = new ArrayList<>();
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +65,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     mainPanel = new JPanel();
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     mainScrollBar = new JScrollPane(mainPanel);
-    frame.add(mainScrollBar);
+    add(mainScrollBar);
 
     stockInputPanels = new ArrayList<>();
     stockTickerFields = new ArrayList<>();
@@ -512,7 +508,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
         listener.handleLoadPortfolio(loadPortfolioSelection);
       }
       updatePortfolioDropdowns();
-      JOptionPane.showMessageDialog(frame, "Successfully loaded portfolio!",
+      JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!",
               "Success",
               JOptionPane.INFORMATION_MESSAGE);
       JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -524,8 +520,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   private void savePortfolio() throws IOException {
     String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
     try {
-      controller.handleSavePortfolio(savePortfolioSelection);
-      JOptionPane.showMessageDialog(frame, "Successfully saved portfolio!",
+      JOptionPane.showMessageDialog(this, "Successfully saved portfolio!",
               "Success", JOptionPane.INFORMATION_MESSAGE);
       for (IViewListener listener : myListeners) {
         listener.handleSavePortfolio(savePortfolioSelection);
@@ -591,8 +586,8 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
       showError("Please select a valid date.");
     }
     try {
-      String value = controller.handleGetPortfolioValue(selectedPortfolio, selectedDate);
-      portfolioValueArea.setText(value);
+//      String value = controller.handleGetPortfolioValue(selectedPortfolio, selectedDate);
+//      portfolioValueArea.setText(value);
     } catch (Exception e) {
       showError(e.getMessage());
     }
@@ -640,14 +635,12 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
         if (isFirstStock) {
           for (IViewListener listener : myListeners) {
             listener.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
-            controller.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
             isFirstStock = false;
           }
 
         } else {
           for (IViewListener listener : myListeners) {
             listener.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
-            controller.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
           }
         }
       }
@@ -715,7 +708,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
 
   public void showError(String errorMessage) throws IOException {
-    JOptionPane.showMessageDialog(frame, "Error: " + errorMessage,
+    JOptionPane.showMessageDialog(this, "Error: " + errorMessage,
             "Error", JOptionPane.ERROR_MESSAGE);
     throw new IOException(errorMessage);
   }
