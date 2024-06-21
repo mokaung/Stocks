@@ -120,9 +120,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     tickerListModel = new DefaultListModel<>();
     ArrayList<String> listOfStocks = new ArrayList<>();
 
-    for (IViewListener listener : myListeners) {
-      listOfStocks = listener.listStocks();
-    }
+    listOfStocks = fireHandleListStocks(listOfStocks);
     for (String ticker : listOfStocks) {
       tickerListModel.addElement(ticker);
     }
@@ -147,6 +145,13 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     csvPanel.add(populateFromCSVButton, BorderLayout.SOUTH);
 
     populatePanel.add(csvPanel);
+  }
+
+  private ArrayList<String> fireHandleListStocks(ArrayList<String> listOfStocks) {
+    for (IViewListener listener : myListeners) {
+      listOfStocks = listener.listStocks();
+    }
+    return listOfStocks;
   }
 
 
@@ -285,9 +290,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     loadPanel.add(new JLabel("Select Portfolio to Load:"));
     loadPortfolioComboBox = new JComboBox<>();
     ArrayList<String> loadableNames = new ArrayList<>();
-    for (IViewListener listener : myListeners) {
-      loadableNames = listener.listLoadablePortfolios();
-    }
+    loadableNames = fireHandleListLoadablePortfolios(loadableNames);
     for (String name : loadableNames) {
       loadPortfolioComboBox.addItem(name);
     }
@@ -297,6 +300,13 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     loadButton.setActionCommand("LoadPortfolio");
     loadButton.addActionListener(this);
     loadPanel.add(loadButton);
+  }
+
+  private ArrayList<String> fireHandleListLoadablePortfolios(ArrayList<String> loadableNames) {
+    for (IViewListener listener : myListeners) {
+      loadableNames = listener.listLoadablePortfolios();
+    }
+    return loadableNames;
   }
 
 
@@ -476,13 +486,17 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
       String newTicker2 = predefinedStocksList.getSelectedValue();
       if (newTicker2 != null && !newTicker2.isEmpty()) {
 
-        for (IViewListener listener : myListeners) {
-          listener.handleCSVStock(newTicker2);
-        }
+        fireHandleHandleCSVStock(newTicker2);
         tickerListModel.addElement(newTicker2);
       }
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
+    }
+  }
+
+  private void fireHandleHandleCSVStock(String newTicker2) {
+    for (IViewListener listener : myListeners) {
+      listener.handleCSVStock(newTicker2);
     }
   }
 
@@ -491,9 +505,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
       String newTicker = ((JTextField) (((JButton)
               userInput.getSource()).getParent()).getComponent(1)).getText();
       if (!newTicker.isEmpty()) {
-        for (IViewListener listener : myListeners) {
-          listener.handlePopulateStock(newTicker);
-        }
+        fireHandleHandlePopulateStock(newTicker);
         tickerListModel.addElement(newTicker);
       }
     } catch (IllegalArgumentException e) {
@@ -501,12 +513,16 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     }
   }
 
+  private void fireHandleHandlePopulateStock(String newTicker) {
+    for (IViewListener listener : myListeners) {
+      listener.handlePopulateStock(newTicker);
+    }
+  }
+
   private void loadPortfolio() throws IOException {
     String loadPortfolioSelection = (String) loadPortfolioComboBox.getSelectedItem();
     try {
-      for (IViewListener listener : myListeners) {
-        listener.handleLoadPortfolio(loadPortfolioSelection);
-      }
+      fireHandleHandleLoadPortfolio(loadPortfolioSelection);
       updatePortfolioDropdowns();
       JOptionPane.showMessageDialog(this, "Successfully loaded portfolio!",
               "Success",
@@ -517,18 +533,28 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     }
   }
 
+  private void fireHandleHandleLoadPortfolio(String loadPortfolioSelection) {
+    for (IViewListener listener : myListeners) {
+      listener.handleLoadPortfolio(loadPortfolioSelection);
+    }
+  }
+
   private void savePortfolio() throws IOException {
     String savePortfolioSelection = (String) savePortfolioComboBox.getSelectedItem();
     try {
       JOptionPane.showMessageDialog(this, "Successfully saved portfolio!",
               "Success", JOptionPane.INFORMATION_MESSAGE);
-      for (IViewListener listener : myListeners) {
-        listener.handleSavePortfolio(savePortfolioSelection);
-      }
+      fireHandleHandleSavePortfolio(savePortfolioSelection);
 
       JOptionPane.showMessageDialog(this, "Successfully saved portfolio!", "Success", JOptionPane.INFORMATION_MESSAGE);
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
+    }
+  }
+
+  private void fireHandleHandleSavePortfolio(String savePortfolioSelection) {
+    for (IViewListener listener : myListeners) {
+      listener.handleSavePortfolio(savePortfolioSelection);
     }
   }
 
@@ -540,13 +566,17 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
               buySellDayInputs, 0);
       int shares2 = Integer.parseInt(sharesField.getText());
 
-      for (IViewListener listener : myListeners) {
-        listener.handleSellStock(portfolio2, ticker2, shares2, date2);
-      }
+      fireHandleHandleSellStock(portfolio2, ticker2, shares2, date2);
 
       resetBuySellStockFields();
     } catch (IllegalArgumentException e) {
       showError(e.getMessage());
+    }
+  }
+
+  private void fireHandleHandleSellStock(String portfolio2, String ticker2, int shares2, LocalDate date2) {
+    for (IViewListener listener : myListeners) {
+      listener.handleSellStock(portfolio2, ticker2, shares2, date2);
     }
   }
 
@@ -558,12 +588,16 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
               buySellDayInputs, 0);
       int shares = Integer.parseInt(sharesField.getText());
 
-      for (IViewListener listener : myListeners) {
-        listener.handleBuyStock(portfolio, ticker, shares, date);
-      }
+      fireHandleHandleBuyStock(portfolio, ticker, shares, date);
       resetBuySellStockFields();
     } catch (Exception e) {
       showError(e.getMessage());
+    }
+  }
+
+  private void fireHandleHandleBuyStock(String portfolio, String ticker, int shares, LocalDate date) {
+    for (IViewListener listener : myListeners) {
+      listener.handleBuyStock(portfolio, ticker, shares, date);
     }
   }
 
@@ -633,15 +667,10 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
         String value = "";
 
         if (isFirstStock) {
-          for (IViewListener listener : myListeners) {
-            listener.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
-            isFirstStock = false;
-          }
+          isFirstStock = fireHandleHandleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate, isFirstStock);
 
         } else {
-          for (IViewListener listener : myListeners) {
-            listener.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
-          }
+          fireHandleHandleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
         }
       }
       resetPortfolioForm();
@@ -652,6 +681,20 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
     } catch (IllegalArgumentException | IOException e) {
       showError(e.getMessage());
     }
+  }
+
+  private void fireHandleHandleAddToPortfolio(String stockTicker, int shareCount, String portfolioName, LocalDate purchaseDate) {
+    for (IViewListener listener : myListeners) {
+      listener.handleAddToPortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
+    }
+  }
+
+  private boolean fireHandleHandleCreatePortfolio(String stockTicker, int shareCount, String portfolioName, LocalDate purchaseDate, boolean isFirstStock) {
+    for (IViewListener listener : myListeners) {
+      listener.handleCreatePortfolio(stockTicker, shareCount, portfolioName, purchaseDate);
+      isFirstStock = false;
+    }
+    return isFirstStock;
   }
 
 
