@@ -552,7 +552,7 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
 
     portfolioValueField.setText(String.format("%.2f", value));
   }
-  
+
   public void createPortfolio() {
     try {
       String portfolioName = portfolioNameField.getText();
@@ -667,12 +667,12 @@ public class GUI extends JFrame implements IView, ActionListener, ItemListener {
   public void requestFocus() {
   }
 
+  @Override
   public void showError(String errorMessage) {
     JOptionPane.showMessageDialog(
             this, "Error: " + errorMessage,
             "Error", JOptionPane.ERROR_MESSAGE);
   }
-
 }
 
 

@@ -29,22 +29,8 @@ public class GUITest {
   @Test
   public void testFireCreatePortfolio() {
     LocalDate date = LocalDate.of(2023, 1, 1);
-    gui("AMZN", 1.0, "A", date);
+    gui.fireHandleCreatePortfolio("AMZN", 1.0, "A", date);
     assertEquals("handleCreatePortfolio", received.toString());
-  }
-
-  @Test
-  public void testFireStockEvent() {
-    LocalDate date = LocalDate.of(2023, 1, 1);
-    gui.fireHandleStockEvent("AMZN", 1.0, "A", date);
-    assertEquals("handleStock", received.toString());
-  }
-
-  @Test
-  public void testFireGetValue() {
-    LocalDate date = LocalDate.of(2023, 1, 1);
-    gui.fireHandleGetValue("A", date);
-    assertEquals("handleGetPortfolioValue", received.toString());
   }
 
   @Test
@@ -59,5 +45,54 @@ public class GUITest {
     LocalDate date = LocalDate.of(2023, 1, 1);
     gui.fireHandleLoadPortfolioEvent("A");
     assertEquals("handleLoadPortfolio", received.toString());
+  }
+
+  @Test
+  public void testFireQueryPortfolio() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireQueryPortfolioEvent("A");
+    assertEquals("handleQueryPortfolio", received.toString());
+  }
+
+  @Test
+  public void testFireAddStockEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandleAddStock("AMZN", 1.0, "A", date);
+    assertEquals("handleAddStock", received.toString());
+  }
+
+  @Test
+  public void testFireRemoveStockEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandleRemoveStockEvent("AMZN", 1.0, "A", date);
+    assertEquals("handleRemoveStock", received.toString());
+  }
+
+  @Test
+  public void testFirePopulateEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandlePopulateEvent("AMZN", 1.0, "A", date);
+    assertEquals("handlePopulate", received.toString());
+  }
+
+  @Test
+  public void testFireCSVStockEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandleCSVStock("AMZN", 1.0, "A", date);
+    assertEquals("handleCSStock", received.toString());
+  }
+
+  @Test
+  public void testFireBuyStockEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandleBuyStockEvent("AMZN", 1.0, "A", date);
+    assertEquals("handleBuyStock", received.toString());
+  }
+
+  @Test
+  public void testFireSellStockEvent() {
+    LocalDate date = LocalDate.of(2023, 1, 1);
+    gui.fireHandleSellStockEvent("AMZN", 1.0, "A", date);
+    assertEquals("handleSellStock", received.toString());
   }
 }
