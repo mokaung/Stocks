@@ -44,7 +44,8 @@ public class ControllerImplGUI implements IController, IViewListener {
   }
 
   @Override
-  public String handleGetPortfolioValue(String name, LocalDate date) throws IllegalArgumentException {
+  public String handleGetPortfolioValue(String name, LocalDate date) throws
+          IllegalArgumentException {
     if (model.isInvalidPortfolio(name)) {
       throw new IllegalArgumentException("Invalid portfolio.");
     }

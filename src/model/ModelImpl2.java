@@ -99,6 +99,7 @@ public class ModelImpl2 extends ModelImpl implements IModel2 {
     return !portfoliosV2.containsKey(name);
   }
 
+  @Override
   public ArrayList<String> getPortfolioNames() {
     ArrayList<String> nameList = new ArrayList<String>();
     for (String key : portfoliosV2.keySet()) {

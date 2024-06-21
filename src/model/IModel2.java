@@ -99,6 +99,15 @@ public interface IModel2 extends IModel {
    */
   double getPortfolioValueV2(String name, LocalDate cal) throws IllegalArgumentException;
 
+  /**
+   * Yup.
+   * @return yup
+   */
   ArrayList<String> getPortfolioNames();
+
+  /**
+   * Yup.
+   * @return yup
+   */
   ArrayList<String> getStockNames();
 }
