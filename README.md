@@ -1,5 +1,3 @@
-Here’s a modern and visually appealing `README.md` template for your GitHub repository. This will highlight your app's features and functionality while maintaining a professional and modern style.
-
 ---
 
 # 🏨 Hotel Companion App
